@@ -5,9 +5,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router'
+    'routeManager'
 ], function ($, _, Backbone, Router) {
-    console.log(Router);
     var initialize = function () {
         Router.initialize();
     };

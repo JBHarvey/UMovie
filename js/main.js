@@ -10,8 +10,7 @@ require.config({
     paths: {
         jquery: 'lib/jquery-2.2.0',
         underscore: 'lib/underscore',
-        backbone: 'lib/backbone',
-        router: './router'
+        backbone: 'lib/backbone'
     }
 });
 
