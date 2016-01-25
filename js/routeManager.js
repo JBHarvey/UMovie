@@ -11,8 +11,9 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) {
+    'backbone',
+    'views/homeView'
+], function ($, _, Backbone, HomeView) {
     var UMovieRouter = Backbone.Router.extend({
         routes: {
             '/home': 'goHome',
