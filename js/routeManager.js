@@ -12,8 +12,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/navigationBarView',
     'views/homeView'
-], function ($, _, Backbone, HomeView) {
+], function ($, _, Backbone, NavigationBarView, HomeView) {
+
     var UMovieRouter = Backbone.Router.extend({
         routes: {
             '/home': 'goHome',
@@ -22,9 +24,15 @@ define([
             '*actions': 'defaultAction'
         }
     });
+
     var initialize = function () {
+
         var uMovieRouter = new UMovieRouter();
+
+        var navigationBarView = new NavigationBarView();
+
         uMovieRouter.on('goHome', function () {
+
         });
 
         uMovieRouter.on('defaultAction', function (actions) {
