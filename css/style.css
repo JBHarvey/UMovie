@@ -1,9 +1,12 @@
-#site-logo{
+#site-logo {
     width: 256px;
 }
-html{
+
+html {
     background-color: black;
     color: white;
+}
+
 body {
     margin: 0;
     padding: 0;
