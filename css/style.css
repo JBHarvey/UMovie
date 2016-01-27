@@ -4,4 +4,43 @@
 html{
     background-color: black;
     color: white;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.navigation-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #E30813;
+}
+
+.navigation-options li {
+    padding: 0.2em 2em;
+    border-bottom: solid white 1px; 
+    color: white;
+}
+
+.navigation-options li:hover {
+    background-color: rgb(220, 0, 0);
+}
+
+@media (min-width: 700px) {
+    .navigation-options {
+        padding: 0.7em;
+    }
+    
+    .navigation-options li {
+        padding: 0.7em;
+        display: inline;
+        border: none;
+    }
 }
