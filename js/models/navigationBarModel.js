@@ -2,20 +2,20 @@
  * Created by Jean-Benoît on 2016-01-26.
  */
 define([
-    'underscore',
     'backbone'
-], function (_, Backbone) {
+], function (Backbone) {
 
     var NavigationBarModel = Backbone.Model.extend({
-        defaultValues:{
+        defaults:{
             user: "GLO-User",
             siteImageUrl: "../../img/siteName.png",
+            references:"home",
             menuOption: [
-                {name: "Home"},
-                {name: "Watchlist"},
-                {name: "My Account"},
-                {name: "Parameters"},
-                {name: "Disconnect"}
+                {name: "Home", references: "home"},
+                {name: "Watchlists", references: "watchlists"},
+                {name: "My Account", references: "user/"},
+                {name: "Parameters", references: "parameters"},
+                {name: "Disconnect", references: "logout"}
             ]
         }
     });

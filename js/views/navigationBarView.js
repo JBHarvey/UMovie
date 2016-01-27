@@ -23,7 +23,7 @@ define([
             var template = Handlebars.compile(navigationBarTemplate);
 
             var source = new NavigationBarModel();
-            var resultNavigationBar = template(source.defaultValues);
+            var resultNavigationBar = template(source.defaults);
 
             this.$el.append(resultNavigationBar);
 
