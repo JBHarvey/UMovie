@@ -3,15 +3,21 @@
         {{#each inputField}}
         <div class="{{inputName}}-box">
             <label>{{inputName}}</label>
-            <input class="authentification-input" name="{{inputName}}" type="{{inputType}}">
+            <input class="authentication-input" name="{{inputName}}" type="{{inputType}}">
 
         </div>
         {{/each}}
     </div>
     <div class="newEntry">
-        {{#if signup}}
-        <a class="registerHere">Sign-up Here!</a>
-        {{/if}}
-        <a class="submitAuthentification">This should be a login button, with a bit of css</a>
+        <div>
+            <button type="submit" class="submitAuthentication">This should be a login button, with a bit of css</button>
+        </div>
+        <div class="switch-authentication">
+            {{#if newEntry}}
+            <span>Already have an account? Sign-up </span><a href="#/login">here</a><span>!</span>
+            {{else}}
+            <span>You're new? Register</span> <a href="#/signup">here</a><span>!</span>
+            {{/if}}
+        </div>
     </div>
 </div>

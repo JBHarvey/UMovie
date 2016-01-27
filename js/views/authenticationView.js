@@ -18,13 +18,18 @@ define([
             this.render(signup);
         },
 
+        events: {
+            'submit': this.signup ? 'sendSignUp' : 'sendLogIn'
+        },
+
         render: function (signup) {
 
-            var template = Handlebars.compile(authenticationTemplate);
+            this.signup = signup;
 
+            var template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
 
-            //If the user is not signing up, he is loggin in
+            //If the user is not signing up, he is login in
             if (signup) {
                 var resultHome = template(source.signup);
             } else {
@@ -33,8 +38,18 @@ define([
 
             this.$el.html(resultHome);
             this.$el.show();
+        },
+
+        sendSignUp: function() {
+
+        },
+
+        sendLogIn: function() {
+
         }
+
     });
     return AuthenticationView;
 
-});
+})
+;
