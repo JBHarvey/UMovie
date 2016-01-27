@@ -13,8 +13,9 @@ define([
     'underscore',
     'backbone',
     'views/navigationBarView',
-    'views/homeView'
-], function ($, _, Backbone, NavigationBarView, HomeView) {
+    'views/homeView',
+    'views/authenticationView'
+], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView) {
 
     var UMovieRouter = Backbone.Router.extend({
         routes: {
@@ -35,6 +36,7 @@ define([
 
         var uMovieRouter = new UMovieRouter();
         var navigationBarView = new NavigationBarView();
+        var authenticationView = new AuthenticationView(true);
 
         uMovieRouter.on('route:goHome', function () {
             var homeModel = new HomeView();
@@ -54,10 +56,12 @@ define([
         });
 
         uMovieRouter.on('route:signup', function () {
+            var authenticationView = new AuthenticationView(true);
             console.log('The signup dialog should be displayed now');
         });
 
         uMovieRouter.on('route:login', function () {
+            var authenticationView = new AuthenticationView(false);
             console.log('The login dialog should be displayed now');
         });
 
