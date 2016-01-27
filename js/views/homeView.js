@@ -27,7 +27,7 @@ define([
             var source = new HomeModel();
             var resultHome = template(source.defaults);
 
-            this.$el.append(resultHome);
+            this.$el.html(resultHome);
         }
     });
     return HomeView;

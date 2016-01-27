@@ -34,7 +34,6 @@ define([
     var initialize = function () {
 
         var uMovieRouter = new UMovieRouter();
-
         var navigationBarView = new NavigationBarView();
 
         uMovieRouter.on('route:goHome', function () {
