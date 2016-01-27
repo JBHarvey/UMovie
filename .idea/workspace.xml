@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="701e6cad-178d-4fd9-819e-2668e0de5bb6" name="Default" comment="Official start with Backbone">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/models/navigationBarModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/navigationBarModel.js" afterPath="$PROJECT_DIR$/js/models/navigationBarModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/navigationBar.html" afterPath="$PROJECT_DIR$/js/templates/navigationBar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/navigationBarView.js" afterPath="$PROJECT_DIR$/js/views/navigationBarView.js" />
     </list>
@@ -32,8 +30,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.9615384">
-                  <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+                <state vertical-scroll-proportion="-3.2692308">
+                  <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -42,8 +40,8 @@
           <file leaf-file-name="navigationBar.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/templates/navigationBar.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.153846">
-                  <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+                <state vertical-scroll-proportion="-5.8846154">
+                  <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -52,18 +50,8 @@
           <file leaf-file-name="navigationBarModel.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/models/navigationBarModel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3148148">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/templates/home.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.230769">
-                  <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+                <state vertical-scroll-proportion="0.16666667">
+                  <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -87,7 +75,7 @@
             <entry file="file://$PROJECT_DIR$/js/views/navigationBarView.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.5446623">
-                  <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+                  <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
@@ -158,7 +146,6 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/views/homeView.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/js/models/navigationBarModel.js" />
         <option value="$PROJECT_DIR$/js/models/navigationBar/menuOptions/menuOptionModel.js" />
         <option value="$PROJECT_DIR$/js/models/navigationBar/menuOption/menuOptionModel.js" />
         <option value="$PROJECT_DIR$/js/collections/navigationBar/navigationBars.js" />
@@ -166,10 +153,11 @@
         <option value="$PROJECT_DIR$/js/models/navigationBar/menuOptionModel.js" />
         <option value="$PROJECT_DIR$/js/templates/navigationBar/menuOptionList.html" />
         <option value="$PROJECT_DIR$/js/templates/navigationBar/navigationBar.html" />
-        <option value="$PROJECT_DIR$/js/templates/navigationBar.html" />
         <option value="$PROJECT_DIR$/js/views/navigationBar/navigationBarView.js" />
         <option value="$PROJECT_DIR$/js/collections/navigationBars.js" />
         <option value="$PROJECT_DIR$/js/views/navigationBar/menuOptionView.js" />
+        <option value="$PROJECT_DIR$/js/templates/navigationBar.html" />
+        <option value="$PROJECT_DIR$/js/models/navigationBarModel.js" />
         <option value="$PROJECT_DIR$/js/views/navigationBarView.js" />
       </list>
     </option>
@@ -742,26 +730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/views/homeView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -774,18 +746,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7906976">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/templates/navigationBar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/models/navigationBarModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3148148">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16666667">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -793,7 +781,7 @@
     <entry file="file://$PROJECT_DIR$/js/views/navigationBarView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5446623">
-          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
           <folding />
         </state>
       </provider>

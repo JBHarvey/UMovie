@@ -7,11 +7,19 @@ define([
 ], function (_, Backbone) {
 
     var NavigationBarModel = Backbone.Model.extend({
-        defaults:{
+        defaultValues:{
             user: "GLO-User",
-            siteImageUrl: "../../img/siteName.png"
+            siteImageUrl: "../../img/siteName.png",
+            menuOption: [
+                {name: "Home"},
+                {name: "Watchlist"},
+                {name: "My Account"},
+                {name: "Parameters"},
+                {name: "Disconnect"}
+            ]
         }
     });
+
 
     return NavigationBarModel;
 });

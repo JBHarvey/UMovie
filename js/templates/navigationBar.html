@@ -2,15 +2,13 @@
     <div class="umovie-logo">
         <span id="expend-menu-icon"></span>
         <img id="site-logo" src="url({{siteImageUrl}}">
+        <div>Welcome, {{user}}!</div>
     </div>
     <div class="menu">
-        <div>Welcome, {{user}}!</div>
         <ul class="navigation-options">
-            <li>Home</li>
-            <li>Watchlist</li>
-            <li>My account</li>
-            <li>Parameters</li>
-            <li>Disconnect</li>
+            {{#each menuOption}}
+            <li>{{name}}</li>
+            {{/each}}
         </ul>
     </div>
     <div class="search-bar">

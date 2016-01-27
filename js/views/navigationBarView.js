@@ -8,7 +8,7 @@ define([
     'text!../templates/navigationBar.html',
     "models/navigationBarModel",
     'handlebars'
-], function ($, _, Backbone, navigationBarTemplate, NavigationBarModel,Handlebars) {
+], function ($, _, Backbone, navigationBarTemplate, NavigationBarModel, Handlebars) {
 
     var NavigationBarView = Backbone.View.extend({
 
@@ -23,7 +23,7 @@ define([
             var template = Handlebars.compile(navigationBarTemplate);
 
             var source = new NavigationBarModel();
-            var resultNavigationBar = template(source.defaults);
+            var resultNavigationBar = template(source.defaultValues);
 
             this.$el.append(resultNavigationBar);
 
