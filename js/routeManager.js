@@ -13,12 +13,14 @@ define([
     'underscore',
     'backbone',
     'views/navigationBarView',
-    'views/homeView'
+    'views/homeView',
+    'views/movieView'
 ], function ($, _, Backbone, NavigationBarView, HomeView) {
 
     var UMovieRouter = Backbone.Router.extend({
         routes: {
             '/home': 'goHome',
+            '/movie': 'displayMovie',
 
             //Default
             '*actions': 'defaultAction'
@@ -31,10 +33,15 @@ define([
 
         var navigationBarView = new NavigationBarView();
 
+        var movieView = new MovieView();
+
         uMovieRouter.on('goHome', function () {
 
         });
 
+        uMovieRouter.on('displayMovie', function(actions){
+            alert("toto", actions);
+        });
         uMovieRouter.on('defaultAction', function (actions) {
             console.log('No route to: ', actions);
         });
