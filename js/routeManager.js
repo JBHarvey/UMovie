@@ -13,8 +13,9 @@ define([
     'underscore',
     'backbone',
     'views/navigationBarView',
-    'views/homeView'
-], function ($, _, Backbone, NavigationBarView, HomeView) {
+    'views/homeView',
+    'views/watchlistView'
+], function ($, _, Backbone, NavigationBarView, HomeView, WatchlistView) {
 
     var UMovieRouter = Backbone.Router.extend({
         routes: {
@@ -42,6 +43,7 @@ define([
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
+            var watchlistModel = new WatchlistView();
             console.log('The watchlists should be displayed now');
         });
 
