@@ -7,6 +7,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/movie.html',
+    'models/movieModel',
     'handlebars'
 ], function ($, _, Backbone, movieTemplate, Handlebars) {
 
@@ -23,8 +24,8 @@ define([
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
 
-            var data = {"title": "Movie browser!", "movie":"Fight Club"};
-            var resultMovie = template();
+            var source = new MovieModel();
+            var resultMovie = template(source.defaults);
 
             this.$el.append(resultMovie);
         }

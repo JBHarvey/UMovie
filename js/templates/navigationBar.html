@@ -1,15 +1,14 @@
 <div class="navigation-bar">
     <div class="umovie-logo">
-        The logo comes here!!
+        <span id="expend-menu-icon"></span>
+        <a href="#/{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
+        <div>Welcome, {{user}}!</div>
     </div>
     <div class="menu">
-        <div>Welcome, {{user}}!</div>
         <ul class="navigation-options">
-            <li>Home</li>
-            <li>Watchlist</li>
-            <li>My account</li>
-            <li>Parameters</li>
-            <li>Disconnect</li>
+            {{#each menuOption}}
+            <li><a href="#/{{references}}">{{name}}</a></li>
+            {{/each}}
         </ul>
     </div>
     <div class="search-bar">

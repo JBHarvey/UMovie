@@ -5,9 +5,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/navigationBar.html',
+    'text!../templates/navigationBar.html',
+    "models/navigationBarModel",
     'handlebars'
-], function ($, _, Backbone, navigationBarTemplate, Handlebars) {
+], function ($, _, Backbone, navigationBarTemplate, NavigationBarModel, Handlebars) {
 
     var NavigationBarView = Backbone.View.extend({
 
@@ -18,10 +19,11 @@ define([
         },
 
         render: function () {
+
             var template = Handlebars.compile(navigationBarTemplate);
 
-            var data = {"user": "GLO-User"};
-            var resultNavigationBar = template(data);
+            var source = new NavigationBarModel();
+            var resultNavigationBar = template(source.defaults);
 
             this.$el.append(resultNavigationBar);
 

@@ -7,8 +7,9 @@ define([
     'underscore',
     'backbone',
     'text!templates/home.html',
+    'models/homeModel',
     'handlebars'
-], function ($, _, Backbone, homeTemplate, Handlebars) {
+], function ($, _, Backbone, homeTemplate, HomeModel,Handlebars) {
 
     var HomeView = Backbone.View.extend({
 
@@ -20,13 +21,13 @@ define([
 
         render: function() {
 
-            //The data used in the template
+
             var template = Handlebars.compile(homeTemplate);
 
-            var data = {"title": "Movie browser!", "movie":"Fight Club"};
-            var resultHome = template(data);
+            var source = new HomeModel();
+            var resultHome = template(source.defaults);
 
-            this.$el.append(resultHome);
+            this.$el.html(resultHome);
         }
     });
     return HomeView;

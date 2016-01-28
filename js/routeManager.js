@@ -15,12 +15,19 @@ define([
     'views/navigationBarView',
     'views/homeView',
     'views/movieView'
-], function ($, _, Backbone, NavigationBarView, HomeView) {
+], function ($, _, Backbone, NavigationBarView, HomeView, MovieView) {
 
     var UMovieRouter = Backbone.Router.extend({
         routes: {
-            '/home': 'goHome',
-            '/movie': 'displayMovie',
+
+            'home': 'goHome',
+            'movie': 'displayMovie',
+            'watchlists': 'displayWatchlists',
+            'user/': 'showUser',
+            'parameters': 'parameters',
+            'signup': 'signup',
+            'login': 'login',
+            'logout': 'logout',
 
             //Default
             '*actions': 'defaultAction'
@@ -30,19 +37,46 @@ define([
     var initialize = function () {
 
         var uMovieRouter = new UMovieRouter();
-
         var navigationBarView = new NavigationBarView();
 
-        var movieView = new MovieView();
+        //
 
-        uMovieRouter.on('goHome', function () {
-
+        uMovieRouter.on('route:goHome', function () {
+            var homeModel = new HomeView();
+            console.log("Chewie, we're home!!");
         });
 
-        uMovieRouter.on('displayMovie', function(actions){
-            alert("toto", actions);
+        uMovieRouter.on('route:displayMovie', function(){
+            var movieView = new MovieView();
+            console.log('The movie dialog should be displayed now')
         });
-        uMovieRouter.on('defaultAction', function (actions) {
+
+        uMovieRouter.on('route:displayWatchlists', function () {
+            console.log('The watchlists should be displayed now');
+        });
+
+        uMovieRouter.on('route:showUser', function () {
+            console.log('The user (id still to be determined) should be displayed now');
+        });
+
+        uMovieRouter.on('route:parameters', function () {
+            console.log('The parameters should be displayed now');
+        });
+
+        uMovieRouter.on('route:signup', function () {
+            console.log('The signup dialog should be displayed now');
+        });
+
+        uMovieRouter.on('route:login', function () {
+            console.log('The login dialog should be displayed now');
+        });
+
+        uMovieRouter.on('route:logout', function () {
+            console.log('The logout dialog should be displayed now');
+        });
+
+
+        uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('No route to: ', actions);
         });
         Backbone.history.start();
