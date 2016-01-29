@@ -13,6 +13,48 @@ body {
     background-color: black;
 }
 
+.header {
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background: none;
+    border-style: none;
+}
+
+.cross {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border-style: none;
+}
+
+.hamburger img {
+    width: 40px;
+    height: 40px;
+}
+
 .menu {
     padding: 0;
     margin: 0;
@@ -23,17 +65,22 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #E30813;
+    background: #131313;
 }
 
 .navigation-options li {
     padding: 0.2em 2em;
-    border-bottom: solid white 1px; 
+    border-bottom: solid #1D1F20 1px; 
     color: white;
 }
 
 .navigation-options li:hover {
-    background-color: rgb(220, 0, 0);
+    background-color: #181818;
+}
+
+.navigation-options li a{
+    text-decoration: none;
+    color: white;
 }
 
 @media (min-width: 700px) {
