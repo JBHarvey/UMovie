@@ -35,5 +35,5 @@ define([
 
 });
   return WatchlistView;
-    window.alert('I passed here');
+
 });
