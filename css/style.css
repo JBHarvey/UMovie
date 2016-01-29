@@ -16,8 +16,8 @@ body {
 .header {
     margin: 0;
     padding: 0;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     background-color: black;
 }
 
@@ -26,13 +26,13 @@ button {
 }
 
 .hamburger {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     margin: 0;
     padding: 0;
-    top: 0;
-    left: 0;
+    top: 1em;
+    left: 1em;
     background: none;
     border-style: none;
 }
@@ -40,8 +40,8 @@ button {
 .cross {
     display: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1em;
+    left: 1em;
     margin: 0;
     padding: 0;
     background: none;
@@ -49,8 +49,8 @@ button {
 }
 
 .hamburger img {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
 }
 
 .menu {
@@ -60,15 +60,22 @@ button {
 }
 
 .navigation-options {
+    border-bottom: solid #454545 1px;
+    position: fixed;
+    width: 250px;
+    left: 0px;
+    display: none;
+    top: 3em;
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #131313;
+    background: #333333;
 }
 
 .navigation-options li {
-    padding: 0.2em 2em;
-    border-bottom: solid #1D1F20 1px; 
+    padding: 1em;
+    border-top: solid #454545 1px;
+    border-bottom: solid #151515 1px; 
     color: white;
 }
 
@@ -76,9 +83,9 @@ button {
     background-color: #181818;
 }
 
-.navigation-options li a{
+.navigation-options li a {
     text-decoration: none;
-    color: white;
+    color: #96948A;
 }
 
 @media (min-width: 700px) {

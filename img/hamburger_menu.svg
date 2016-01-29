@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
+   width="109.84252"
+   height="155.90552"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-88.14461"
-     inkscape:cy="626.20202"
+     inkscape:cx="-145.28747"
+     inkscape:cy="-2.3694086"
      inkscape:document-units="px"
      inkscape:current-layer="g3816"
      showgrid="false"
@@ -40,7 +40,11 @@
      showguides="false">
     <inkscape:grid
        type="xygrid"
-       id="grid5449" />
+       id="grid5449"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -57,14 +61,15 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-896.45673)">
     <g
        id="g3816"
        transform="translate(-27.142857,42.857143)">
       <g
          id="g3011"
-         transform="matrix(1,0,0,0.95291473,0,5.6733825)"
-         style="stroke:#ffffff;fill:#ffffff">
+         transform="matrix(0.28553285,0,0,0.31952597,-2.5988194,829.11393)"
+         style="fill:#ffffff;stroke:#ffffff">
         <a
            transform="matrix(0.78124057,0,0,1,-3.0098546,-8.5714281)"
            id="a3800"
