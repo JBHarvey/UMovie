@@ -21,9 +21,9 @@ define([
         routes: {
 
             'home': 'goHome',
-            'movie': 'displayMovie',
+            'movies': 'displayMovie',
             'watchlists': 'displayWatchlists',
-            'user/': 'showUser',
+            'users': 'showUser',
             'parameters': 'parameters',
             'signup': 'signup',
             'login': 'login',
@@ -31,6 +31,9 @@ define([
 
             //Default
             '*actions': 'defaultAction'
+        },
+        "showUser": function(){
+            console.log("allo")
         }
     });
 
@@ -38,7 +41,6 @@ define([
 
         var uMovieRouter = new UMovieRouter();
         var navigationBarView = new NavigationBarView();
-
         //
 
         uMovieRouter.on('route:goHome', function () {
