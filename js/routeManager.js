@@ -72,7 +72,8 @@ define([
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('No route to: ', actions);
         });
-        Backbone.history.start();
+        Backbone.history.start({pushState: true});
+        window.history.pushState("","","home");
     };
     return {
         initialize: initialize

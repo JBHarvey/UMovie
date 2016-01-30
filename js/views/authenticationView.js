@@ -18,13 +18,6 @@ define([
             this.render(signup);
         },
 
-        events: {
-            submit: function(data){
-                console.log('Yay!');
-                console.log(data);
-                this.signup ? 'sendSignUp' : 'sendLogIn';
-            }
-        },
 
         render: function (signup) {
 
@@ -44,11 +37,38 @@ define([
             this.$el.show();
         },
 
-        sendSignUp: function() {
+        events: {
+            "click .submitAuthentication": "sendAuthentication",
+            "click .signup": "switchToLogin",
+            "click .login": "switchToSignUp"
 
         },
 
-        sendLogIn: function() {
+        sendAuthentication: function (data) {
+            console.log('Yay!');
+            console.log(data);
+            if (this.signup) {
+                console.log("A new account is created!");
+            } else {
+                console.log("Someone logged in!");
+            }
+        },
+
+        switchToLogin: function() {
+                window.history.pushState("","","login");
+        },
+
+        sendSignUp: function () {
+
+            /*
+             sync("create", );
+             */
+        },
+
+        sendLogIn: function () {
+            /*
+             sync("create", );
+             */
 
         }
 

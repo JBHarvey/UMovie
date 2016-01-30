@@ -22,3 +22,10 @@ require([
         UMovie.initialize();
     }
 );
+
+define([], function() {
+    var config= {};
+
+    config.OAthToken;
+    config.apiKey = '';
+});

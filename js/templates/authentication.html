@@ -9,13 +9,13 @@
     </div>
     <div class="newEntry">
         <div>
-            <button type="submit" class="submitAuthentication">This should be a login button, with a bit of css</button>
+            <span class="submitAuthentication">This should be a login button, with a bit of css</span>
         </div>
         <div class="switch-authentication">
             {{#if newEntry}}
-            <span>Already have an account? Sign-up </span><a href="#/login">here</a><span>!</span>
+            <span>Already have an account?  </span><span class="signup redirect">Sign-in here!</span>
             {{else}}
-            <span>You're new? Register</span> <a href="#/signup">here</a><span>!</span>
+            <span>You're new?  </span><span class="login redirect">Register here!</span>
             {{/if}}
         </div>
     </div>
