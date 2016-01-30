@@ -44,12 +44,18 @@ define([
         sendAuthentication: function () {
             user.validateEmail($('#email').val());
             if (this.signup) {
-                user.attemptSignUp($('#name').val(), $('#password').val());
+                this.success = user.attemptSignUp($('#name').val(), $('#password').val()).then(checkForSuccess());
             } else {
-                user.attemptLogIn($('#password').val());
+                this.success = user.attemptLogIn($('#password').val());
+            }
+        },
+
+        checkForSuccess: function () {
+            if (this.success) {
+                console.log('asdf');
+                this.$el.hide();
             }
         }
-
     });
     return AuthenticationView;
 

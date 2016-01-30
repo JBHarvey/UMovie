@@ -2,9 +2,8 @@
  * Created by Jean-Benoît on 2016-01-26.
  */
 define([
-    'jquery',
     'backbone'
-], function ($, Backbone) {
+], function (Backbone) {
 
     var UserModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com',
@@ -31,11 +30,6 @@ define([
                 contentType: 'application/x-www-form-urlencoded'
             }).then(function () {
             });
-            /*
-             user.save().then(
-
-             );
-             */
         },
 
         attemptLogIn: function (newPassword) {
@@ -50,10 +44,10 @@ define([
             }).then(function (model, response, options) { //Will execute on success
                 console.log(response);
                 console.log(model.token);
-                $cookie(model.token);
+                return true;
             }, function (model, error, options) { //Will execute on error
                 console.log('Error while signing in.');
-
+                return false;
             });
 
         },
