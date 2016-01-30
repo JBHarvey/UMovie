@@ -44,8 +44,6 @@ define([
         },
 
         sendAuthentication: function (data) {
-            console.log('Yay!');
-            console.log(data);
             if (this.signup) {
                 console.log("A new account is created!");
             } else {
@@ -54,11 +52,12 @@ define([
         },
 
         switchToSignIn: function() {
-            window.history.pushState("","","#/signin");
+            window.history.pushState("","","#signin");
+            uMovieRouter.navigate();
         },
 
         switchToSignUp: function () {
-            window.history.pushState("","","#/signup");
+            window.history.pushState("","","#signup");
         },
 
         sendLogIn: function () {

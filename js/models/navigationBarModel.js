@@ -9,7 +9,7 @@ define([
         defaults:{
             user: "GLO-User",
             siteImageUrl: "../../img/siteName.png",
-            references:"#home",
+            references:"home",
             menuOption: [
                 {name: "Home", references: "home"},
                 {name: "Watchlists", references: "watchlists"},

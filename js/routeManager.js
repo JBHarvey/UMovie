@@ -44,6 +44,7 @@ define([
             console.log("Chewie, we're home!!");
             console.log(this);
             console.log(uMovieRouter);
+            console.log('SSDFSD');
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
@@ -76,8 +77,8 @@ define([
             console.log('No route to:', actions);
         });
 
+        uMovieRouter.navigate('home',  {trigger: true});
         Backbone.history.start({pushState: true});
-        uMovieRouter.navigate('home');
 
     };
     return {
