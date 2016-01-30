@@ -18,7 +18,6 @@ define([
             this.render(signup);
         },
 
-
         render: function (signup) {
 
             this.signup = signup;
@@ -39,8 +38,8 @@ define([
 
         events: {
             "click .submitAuthentication": "sendAuthentication",
-            "click .signup": "switchToLogin",
-            "click .login": "switchToSignUp"
+            "click .signup": "switchToSignIn",
+            "click .signin": "switchToSignUp"
 
         },
 
@@ -54,15 +53,12 @@ define([
             }
         },
 
-        switchToLogin: function() {
-                window.history.pushState("","","login");
+        switchToSignIn: function() {
+            window.history.pushState("","","#/signin");
         },
 
-        sendSignUp: function () {
-
-            /*
-             sync("create", );
-             */
+        switchToSignUp: function () {
+            window.history.pushState("","","#/signup");
         },
 
         sendLogIn: function () {

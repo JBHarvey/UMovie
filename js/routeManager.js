@@ -18,13 +18,14 @@ define([
 ], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView) {
 
     var UMovieRouter = Backbone.Router.extend({
+
         routes: {
             'home': 'goHome',
             'watchlists': 'displayWatchlists',
             'user/': 'showUser',
             'parameters': 'parameters',
             'signup': 'signup',
-            'login': 'login',
+            'signin': 'signin',
             'logout': 'logout',
 
             //Default
@@ -41,6 +42,8 @@ define([
         uMovieRouter.on('route:goHome', function () {
             var homeModel = new HomeView();
             console.log("Chewie, we're home!!");
+            console.log(this);
+            console.log(uMovieRouter);
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
@@ -60,7 +63,7 @@ define([
             console.log('The signup dialog should be displayed now');
         });
 
-        uMovieRouter.on('route:login', function () {
+        uMovieRouter.on('route:signin', function () {
             var authenticationView = new AuthenticationView(false);
             console.log('The login dialog should be displayed now');
         });
@@ -70,10 +73,12 @@ define([
         });
 
         uMovieRouter.on('route:defaultAction', function (actions) {
-            console.log('No route to: ', actions);
+            console.log('No route to:', actions);
         });
+
         Backbone.history.start({pushState: true});
-        window.history.pushState("","","home");
+        uMovieRouter.navigate('home');
+
     };
     return {
         initialize: initialize
