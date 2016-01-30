@@ -5,25 +5,30 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!../templates/navigationBar.html',
-    "models/navigationBarModel",
+    'text!../templates/user.html',
+    "models/userModel",
     'handlebars'
-], function ($, _, Backbone, navigationBarTemplate, NavigationBarModel, Handlebars) {
+], function ($, _, Backbone, UserTemplate, UserModel, Handlebars) {
 
-    var NavigationBarView = Backbone.View.extend({
+    var UserView = Backbone.View.extend({
 
-        el: $('#menu-content'),
+        el: $('#content'),
 
         initialize: function () {
             this.render();
         },
 
-        render: function (connected) {
+        render: function (user) {
 
+            var source;
             var template = Handlebars.compile(navigationBarTemplate);
 
-            var source = new NavigationBarModel();
-            source.connected = connected;
+            if (user) {
+                source = new UserModel();
+            } else {
+                source = user;
+            }
+
             var resultNavigationBar = template(source.defaults);
 
             this.$el.append(resultNavigationBar);
@@ -31,5 +36,5 @@ define([
         }
     });
 
-    return NavigationBarView;
+    return UserView;
 });

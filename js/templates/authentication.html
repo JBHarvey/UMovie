@@ -2,8 +2,7 @@
     <div class="inputFields">
         {{#each inputField}}
         <div class="{{inputName}}-box">
-            <label>{{inputName}}</label>
-            <input class="authentication-input" name="{{inputName}}" type="{{inputType}}">
+            <input class="authentication-input" placeholder="{{placeholder}}" id="{{idName}}" type="{{inputType}}">
         </div>
         {{/each}}
     </div>
@@ -13,9 +12,9 @@
         </div>
         <div class="switch-authentication">
             {{#if newEntry}}
-            <span>Already have an account?  </span><span class="signup redirect">Sign-in here!</span>
+            <span>Already have an account?  </span><a href="#login"  class="auth-swap">Log-in here!</a>
             {{else}}
-            <span>You're new?  </span><span class="login redirect">Register here!</span>
+            <span>You're new?  </span><a href="#signup" class="auth-swap">Register here!</a>
             {{/if}}
         </div>
     </div>

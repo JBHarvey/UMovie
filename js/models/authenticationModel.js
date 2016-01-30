@@ -8,19 +8,27 @@ define([
     var AuthentificationModel = Backbone.Model.extend({
         login: {
             inputField: [
-                {inputName: "Email", inputType: "text"},
-                {inputName: "Password", inputType: "password"}
+                {idName: "email", placeholder: "E-mail", inputType: "email"},
+                {idName: "password", placeholder: "Password", inputType: "password"}
             ],
             newEntry: false
         },
         signup: {
             inputField: [
-                {inputName: "Name", inputType: "text"},
-                {inputName: "Email", inputType: "text"},
-                {inputName: "Password", inputType: "password"}
+                {idName: "name", placeholder: "Name", inputType: "text"},
+                {idName: "email", placeholder: "E-mail", inputType: "email"},
+                {idName: "password", placeholder: "Password", inputType: "password"}
             ],
             newEntry: true
         }
+
+        /*
+         ,
+         name: "",
+         email: "",
+         id: 0
+         * */
+
     });
 
 

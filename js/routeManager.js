@@ -14,19 +14,21 @@ define([
     'backbone',
     'views/navigationBarView',
     'views/homeView',
-    'views/authenticationView'
+    'views/authenticationView',
+    'models/userModel'
 ], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView) {
 
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
-            'home': 'goHome',
+            '': 'goHome',
             'watchlists': 'displayWatchlists',
-            'user/': 'showUser',
-            'parameters': 'parameters',
-            'signup': 'signup',
+            'user': 'showUser',
+            'otherUsers': 'browseUsers',
+            'settings': 'settings',
             'login': 'login',
-            'logout': 'logout',
+            'signup': 'signup',
+            'disconnect': 'disconnect',
 
             //Default
             '*actions': 'defaultAction'
@@ -36,15 +38,16 @@ define([
     var initialize = function () {
 
         var uMovieRouter = new UMovieRouter();
+
+        var user = new UserModel();
         var navigationBarView = new NavigationBarView();
-        var authenticationView = new AuthenticationView(true);
+        var authenticationView = new AuthenticationView(user, false);
+        navigationBarView.listenTo(user, "change:connected", navigationBarView.render());
+        var homeView = new HomeView();
 
         uMovieRouter.on('route:goHome', function () {
-            var homeModel = new HomeView();
+            homeView = new HomeView();
             console.log("Chewie, we're home!!");
-            console.log(this);
-            console.log(uMovieRouter);
-            console.log('SSDFSD');
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
@@ -55,31 +58,28 @@ define([
             console.log('The user (id still to be determined) should be displayed now');
         });
 
-        uMovieRouter.on('route:parameters', function () {
-            console.log('The parameters should be displayed now');
+        uMovieRouter.on('route:settings', function () {
+            console.log('The settings should be displayed now');
         });
 
         uMovieRouter.on('route:signup', function () {
-            var authenticationView = new AuthenticationView(true);
-            console.log('The signup dialog should be displayed now');
+            authenticationView = new AuthenticationView(user, true);
         });
 
         uMovieRouter.on('route:login', function () {
-            var authenticationView = new AuthenticationView(false);
-            console.log('The login dialog should be displayed now');
+            authenticationView = new AuthenticationView(user, false);
         });
 
-        uMovieRouter.on('route:logout', function () {
-            console.log('The logout dialog should be displayed now');
+        uMovieRouter.on('route:disconnect', function () {
+            authenticationView.
+            user.disconnect();
         });
 
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('No route to:', actions);
         });
-        window.uMovieRouter = uMovieRouter;
 
-        Backbone.history.start({pushState: true, root: '/UMovie'});
-        uMovieRouter.navigate('#home',  {trigger: true});
+        Backbone.history.start({root: '/UMovie'});
 
     };
     return {

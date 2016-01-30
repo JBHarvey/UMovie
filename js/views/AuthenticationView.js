@@ -14,16 +14,20 @@ define([
 
         el: $('#modal-popup'),
 
-        initialize: function (signup) {
+        initialize: function (globalUser, signup) {
+            user = globalUser;
             this.render(signup);
         },
 
         render: function (signup) {
 
-            this.signup = signup;
-
             var template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
+            this.source = source;
+
+            this.signup = signup;
+            this.source.url = signup ? "/singup" : "/login";
+
 
             //If the user is not signing up, he is login in
             if (signup) {
@@ -37,34 +41,18 @@ define([
         },
 
         events: {
-            "click .submitAuthentication": "sendAuthentication",
-            "click .signup": "switchToSignIn",
-            "click .login": "switchToSignUp"
-
+            "click .submitAuthentication": "sendAuthentication"
         },
 
-        sendAuthentication: function (data) {
+
+        sendAuthentication: function () {
+            user = new UserModel();
+            user.validateEmail($('#email').val());
             if (this.signup) {
-                console.log("A new account is created!");
+                user.attemptSignUp($('#name').val(), $('#password').val());
             } else {
-                console.log("Someone logged in!");
+                user.attemptLogIn($('#password').val());
             }
-        },
-
-        switchToSignIn: function() {
-            window.uMovieRouter.navigate('#login',  {trigger: true});
-
-        },
-
-        switchToSignUp: function () {
-            window.uMovieRouter.navigate('#signup',  {trigger: true});
-        },
-
-        sendLogIn: function () {
-            /*
-             sync("create", );
-             */
-
         }
 
     });

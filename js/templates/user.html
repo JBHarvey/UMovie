@@ -1,0 +1,15 @@
+<div class="user">
+    <div class="personnalInfo">
+        <div>
+            <label>Name </label> <span class="userInfo"> {{name}}</span>
+        </div>
+        <div>
+            <label>Email </label> <span class="userInfo"> {{email}}</span>
+        </div>
+    </div>
+    <div class="following">
+        {{#each following}}
+        <div><a href="/users/{{id}}">{{name}}</a></div>
+        {{/each}}
+    </div>
+</div>

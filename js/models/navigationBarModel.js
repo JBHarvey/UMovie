@@ -9,14 +9,25 @@ define([
         defaults:{
             user: "GLO-User",
             siteImageUrl: "../../img/siteName.png",
-            references:"home",
+            references:"",
             menuOption: [
-                {name: "Home", references: "home"},
+                {name: "Home", references: ""},
+                {name: "Movies", references: "movies"},
+                {name: "TV Shows", references: "tvShows"},
+                {name: "Actors", references: "actors"}
+            ],
+            menuOptionConnected: [
                 {name: "Watchlists", references: "watchlists"},
-                {name: "My Account", references: "user/"},
-                {name: "Parameters", references: "parameters"},
+                {name: "My Account", references: "user"},
+                {name: "Settings", references: "settings"},
+                {name: "Community", references: "otherUsers"},
                 {name: "Disconnect", references: "logout"}
+            ],
+            menuOptionDisconnected: [
+                {name: "Login", references: "login"},
+                {name: "Sign Up", references: "signup"}
             ]
+
         }
     });
 
