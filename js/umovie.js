@@ -8,6 +8,7 @@ define([
     'routeManager'
 ], function ($, _, Backbone, Router) {
     var initialize = function () {
+        window.history.pushState("","","");
         Router.initialize();
     };
 
