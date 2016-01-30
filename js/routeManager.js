@@ -63,11 +63,11 @@ define([
         });
 
         uMovieRouter.on('route:signup', function () {
-            authenticationView = new AuthenticationView(user, true);
+            authenticationView.render(true);
         });
 
         uMovieRouter.on('route:login', function () {
-            authenticationView = new AuthenticationView(user, false);
+            authenticationView.render(false);
         });
 
         uMovieRouter.on('route:disconnect', function () {

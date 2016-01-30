@@ -14,24 +14,22 @@ define([
 
         el: $('#modal-popup'),
 
-        initialize: function (globalUser, signup) {
+        initialize: function (globalUser) {
             user = globalUser;
-            this.signup = signup;
             this.render();
         },
 
-        render: function () {
+        render: function (signup) {
 
+            this.signup = signup;
             this.template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
 
             //If the user is not signing up, he is login in
             if (this.signup) {
                 resultAuthentication = this.template(source.signup);
-                console.log('a');
             } else {
                 resultAuthentication = this.template(source.login);
-                console.log('b');
             }
 
             this.$el.html(resultAuthentication);
@@ -47,10 +45,8 @@ define([
             user.validateEmail($('#email').val());
             if (this.signup) {
                 user.attemptSignUp($('#name').val(), $('#password').val());
-                console.log(user.url());
             } else {
                 user.attemptLogIn($('#password').val());
-                console.log(user.url());
             }
         }
 
