@@ -13,7 +13,7 @@ require.config({
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
-        jscookie: 'lib/js.cookie.js'
+        jscookie: 'lib/js.cookie'
     }
 });
 
@@ -22,10 +22,3 @@ require([
         UMovie.initialize();
     }
 );
-
-define([], function() {
-    var config= {};
-
-    config.OAthToken;
-    config.apiKey = '';
-});

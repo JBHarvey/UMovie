@@ -2,8 +2,10 @@
  * Created by Jean-Benoît on 2016-01-26.
  */
 define([
-    'backbone'
-], function (Backbone) {
+    'jquery',
+    'backbone',
+    'jscookie'
+], function ($, Backbone, Cookie) {
 
     var UserModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com',
@@ -38,25 +40,60 @@ define([
                 email: this.email,
                 password: newPassword
             }));
-            this.save({
+            $.ajax({
+                url: 'https://umovie.herokuapp.com/login',
                 type: 'POST',
+                data: {
+                    email: this.email,
+                    password: newPassword
+                },
                 contentType: 'application/x-www-form-urlencoded'
-            }).then(function (model, response, options) { //Will execute on success
-                console.log(response);
-                console.log(model.token);
-                return true;
-            }, function (model, error, options) { //Will execute on error
-                console.log('Error while signing in.');
-                return false;
-            });
+            }).done(
+                function (data) {
+                    this.name = data.name;
+                    this.connected = true;
+                    console.log(data);
+                    Cookie.set('token', data.token, {expires: 7, path: '/'});
+                    return true;
+                }
+            ).fail(
+                function (jqXHR, textStatus) {
+                    console.log(`${textStatus} on login`);
+                    set({name: undefined, email: undefined, connected: false});
+                    return false;
+                }
+            );
+            /*
+
+             THE BACKBONE WAY TO REQUEST POST.
+             IT WORKS, BUT IS NOT OPTIMAL FOR THIS SPECIFIC CASE.
+             THUS IT STAYS HERE IN ORDER TO BE AN EXAMPLE FOR OTHER BACKBONE.MODELS
+
+             ERASE WHEN ALL THE CALL ARE DEALT WITH
+
+             this.save({
+             type: 'POST',
+             contentType: 'application/x-www-form-urlencoded'
+             }).then(function (model, response, options) { //Will execute on success
+             console.log(response);
+             console.log(model.token);
+             return true;
+             }, function (model, error, options) { //Will execute on error
+             console.log('Error while signing in.');
+             return false;
+             });
+             */
 
         },
 
         disconnect: function () {
-            name = undefined;
-            email = undefined;
-            following = undefined;
-            connected = false;
+            Cookie.set('token', {path: '/'});
+            this.set({
+                name: undefined,
+                email: undefined,
+                following: undefined,
+                connected: false
+            });
         }
 
     });
