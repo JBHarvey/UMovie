@@ -26,8 +26,8 @@ define([
             menuOptionDisconnected: [
                 {name: "Login", references: "login"},
                 {name: "Sign Up", references: "signup"}
-            ]
-
+            ],
+            connected: false
         }
     });
 

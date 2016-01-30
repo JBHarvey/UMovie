@@ -26,7 +26,7 @@ define([
             source.connected = connected;
             var resultNavigationBar = template(source.defaults);
 
-            this.$el.append(resultNavigationBar);
+            this.$el.html(resultNavigationBar);
 
         }
     });

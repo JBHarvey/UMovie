@@ -16,27 +16,25 @@ define([
 
         initialize: function (globalUser, signup) {
             user = globalUser;
-            this.render(signup);
+            this.signup = signup;
+            this.render();
         },
 
-        render: function (signup) {
+        render: function () {
 
-            var template = Handlebars.compile(authenticationTemplate);
+            this.template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
-            this.source = source;
-
-            this.signup = signup;
-            this.source.url = signup ? "/singup" : "/login";
-
 
             //If the user is not signing up, he is login in
-            if (signup) {
-                var resultHome = template(source.signup);
+            if (this.signup) {
+                resultAuthentication = this.template(source.signup);
+                console.log('a');
             } else {
-                var resultHome = template(source.login);
+                resultAuthentication = this.template(source.login);
+                console.log('b');
             }
 
-            this.$el.html(resultHome);
+            this.$el.html(resultAuthentication);
             this.$el.show();
         },
 
@@ -46,12 +44,13 @@ define([
 
 
         sendAuthentication: function () {
-            user = new UserModel();
             user.validateEmail($('#email').val());
             if (this.signup) {
                 user.attemptSignUp($('#name').val(), $('#password').val());
+                console.log(user.url());
             } else {
                 user.attemptLogIn($('#password').val());
+                console.log(user.url());
             }
         }
 

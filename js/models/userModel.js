@@ -6,12 +6,15 @@ define([
 ], function (Backbone) {
 
     var UserModel = Backbone.Model.extend({
+        urlRoot: 'https://umovie.herokuapp.com',
         defaults: {
             name: undefined,
             email: undefined,
+            id: undefined,
             following: [{
                 name: undefined,
-                email: undefined
+                email: undefined,
+                id: undefined
             }]
         },
         connected: false,
@@ -26,15 +29,9 @@ define([
         },
 
         attemptSignUp: function (newName, newPassword) {
-            id = undefined;
-            urlRoot = 'https://umovie.herokuapp.com/signup';
+            id = "signup";
             name = newName;
             password = newPassword;
-            console.log(id);
-            console.log(urlRoot);
-            console.log(url());
-            console.log(name);
-            console.log(password);
             /*
              user.save().then(
              function (model, response, options) { //Will execute on success
@@ -48,14 +45,8 @@ define([
         },
 
         attemptLogIn: function (newPassword) {
-            id = undefined;
             password = newPassword;
-            urlRoot = 'https://umovie.herokuapp.com/login';
-            console.log(id);
-            console.log(urlRoot);
-            console.log(url());
-            console.log(name);
-            console.log(password);
+            id = "login";
 
             /*
              user.save().then(function () {
@@ -66,7 +57,6 @@ define([
         },
 
         disconnect: function () {
-            urlRoot = undefined;
             name = undefined;
             email = undefined;
             following = undefined;

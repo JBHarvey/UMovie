@@ -9,15 +9,15 @@
             {{#each menuOption}}
             <li><a href="#{{references}}">{{name}}</a></li>
             {{/each}}
-            {{/if}}
             {{#if connected}}
             {{#each menuOptionConnected}}
             <li><a href="#{{references}}">{{name}}</a></li>
             {{/each}}
+            {{else}}
             {{#each menuOptionDisconnected}}
             <li><a href="#{{references}}">{{name}}</a></li>
             {{/each}}
-            {{else}}
+            {{/if}}
         </ul>
     </div>
     <div class="search-bar">

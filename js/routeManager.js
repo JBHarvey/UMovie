@@ -16,7 +16,7 @@ define([
     'views/homeView',
     'views/authenticationView',
     'models/userModel'
-], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView) {
+], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView, UserModel) {
 
     var UMovieRouter = Backbone.Router.extend({
 
@@ -40,8 +40,8 @@ define([
         var uMovieRouter = new UMovieRouter();
 
         var user = new UserModel();
-        var navigationBarView = new NavigationBarView();
         var authenticationView = new AuthenticationView(user, false);
+        var navigationBarView = new NavigationBarView();
         navigationBarView.listenTo(user, "change:connected", navigationBarView.render());
         var homeView = new HomeView();
 

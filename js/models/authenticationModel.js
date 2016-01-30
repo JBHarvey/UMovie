@@ -21,14 +21,6 @@ define([
             ],
             newEntry: true
         }
-
-        /*
-         ,
-         name: "",
-         email: "",
-         id: 0
-         * */
-
     });
 
 
