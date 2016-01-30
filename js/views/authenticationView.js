@@ -39,7 +39,7 @@ define([
         events: {
             "click .submitAuthentication": "sendAuthentication",
             "click .signup": "switchToSignIn",
-            "click .signin": "switchToSignUp"
+            "click .login": "switchToSignUp"
 
         },
 
@@ -52,12 +52,12 @@ define([
         },
 
         switchToSignIn: function() {
-            window.history.pushState("","","#signin");
-            uMovieRouter.navigate();
+            window.uMovieRouter.navigate('#login',  {trigger: true});
+
         },
 
         switchToSignUp: function () {
-            window.history.pushState("","","#signup");
+            window.uMovieRouter.navigate('#signup',  {trigger: true});
         },
 
         sendLogIn: function () {

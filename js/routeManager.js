@@ -25,7 +25,7 @@ define([
             'user/': 'showUser',
             'parameters': 'parameters',
             'signup': 'signup',
-            'signin': 'signin',
+            'login': 'login',
             'logout': 'logout',
 
             //Default
@@ -64,7 +64,7 @@ define([
             console.log('The signup dialog should be displayed now');
         });
 
-        uMovieRouter.on('route:signin', function () {
+        uMovieRouter.on('route:login', function () {
             var authenticationView = new AuthenticationView(false);
             console.log('The login dialog should be displayed now');
         });
@@ -76,9 +76,10 @@ define([
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('No route to:', actions);
         });
+        window.uMovieRouter = uMovieRouter;
 
-        uMovieRouter.navigate('home',  {trigger: true});
-        Backbone.history.start({pushState: true});
+        Backbone.history.start({pushState: true, root: '/UMovie'});
+        uMovieRouter.navigate('#home',  {trigger: true});
 
     };
     return {
