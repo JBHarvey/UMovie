@@ -6,20 +6,20 @@ define([
 ], function (Backbone) {
 
     var AuthentificationModel = Backbone.Model.extend({
-        login:{
+        login: {
             inputField: [
                 {inputName: "Email", inputType: "text"},
                 {inputName: "Password", inputType: "password"}
             ],
-            newEntry:false
+            newEntry: false
         },
-        signup:{
+        signup: {
             inputField: [
                 {inputName: "Name", inputType: "text"},
                 {inputName: "Email", inputType: "text"},
                 {inputName: "Password", inputType: "password"}
             ],
-            newEntry:true
+            newEntry: true
         }
     });
 

@@ -19,7 +19,11 @@ define([
         },
 
         events: {
-            'submit': this.signup ? 'sendSignUp' : 'sendLogIn'
+            submit: function(data){
+                console.log('Yay!');
+                console.log(data);
+                this.signup ? 'sendSignUp' : 'sendLogIn';
+            }
         },
 
         render: function (signup) {
