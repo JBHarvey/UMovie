@@ -52,7 +52,7 @@ define([
                     this.name = data.name;
                     this.connected = true;
                     Cookie.set('token', data.token, {expires: 365, path: '/'});
-                    Backbone.trigger('route:goHome');
+                    document.location.reload(true);
                 }
             ).fail(
                 function (jqXHR, textStatus) {

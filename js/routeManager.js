@@ -33,13 +33,17 @@ define([
 
             //Default
             '*actions': 'defaultAction'
+        },
+
+        go: function (route) {
+            console.log(route);
+            this.navigate(route, {trigger: yes});
         }
 
 
     });
 
     var initialize = function () {
-
 
 
         var authenticationView;
@@ -49,12 +53,13 @@ define([
         var user = new UserModel();
         var navigationBarView = new NavigationBarView();
 
+        uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
 
         var lastAuthState = 'disconnected';
         updateNavigationBar = function () {
             if (Cookie.get('token') === undefined && lastAuthState == 'connected') {
                 navigationBarView.render();
-            } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected'){
+            } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected') {
                 navigationBarView.render();
             }
         };
@@ -81,7 +86,7 @@ define([
         uMovieRouter.on('route:goHome', function () {
             if (uMovieRouter.checkCredentials()) {
                 navigationBarView.render();
-                homeView = new HomeView();
+                homeView.render();
             }
         });
 
@@ -112,13 +117,15 @@ define([
         });
 
         uMovieRouter.on('route:disconnect', function () {
-            user.disconnect();
+            if (Cookie.get('token') !== undefined) {
+                user.disconnect();
+            }
             navigationBarView.render();
             authenticationView.render(false);
         });
 
         uMovieRouter.on('route:defaultAction', function (actions) {
-            console.log('Error : no route to ', actions);
+            console.log('Error : no route to', actions);
         });
 
         Backbone.history.start({root: '/UMovie'});

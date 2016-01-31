@@ -16,6 +16,7 @@ define([
         el: $('#content'),
 
         initialize: function (globalUser) {
+
             user = globalUser;
             this.render();
         },
