@@ -11,7 +11,6 @@ define([
             slideOutMenu.toggleClass("open");
 
             if (slideOutMenu.hasClass("open")) {
-                console.log("shit 1");
                 slideOutMenu.animate({
                     left: "0px"
                 });
@@ -28,7 +27,6 @@ define([
             slideOutMenu.toggleClass("open");
 
             if (!slideOutMenu.hasClass("open")) {
-                console.log("Shit 2");
                 slideOutMenu.animate({
                     left: -slideOutMenuWidth
                 }, 250);
