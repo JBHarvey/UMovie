@@ -38,6 +38,8 @@ button {
 }
 
 .cross {
+    width: 30px;
+    height: 30px;
     display: none;
     position: absolute;
     top: 1em;
@@ -63,8 +65,7 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    left: 0px;
-    display: none;
+    left: -250px;
     top: 3em;
     list-style: none;
     padding: 0;
@@ -74,6 +75,7 @@ button {
 
 .navigation-options li {
     padding: 1em;
+    display: block;
     border-top: solid #454545 1px;
     border-bottom: solid #151515 1px; 
     color: white;
@@ -88,6 +90,11 @@ button {
     color: #96948A;
 }
 
+.open {
+    display: block;
+    left: 0px;
+}
+
 @media (min-width: 700px) {
     .navigation-options {
         padding: 0.7em;
@@ -98,5 +105,4 @@ button {
         display: inline;
         border: none;
     }
-}
 }
