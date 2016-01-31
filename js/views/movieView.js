@@ -9,7 +9,7 @@ define([
     'text!templates/movie.html',
     'models/movieModel',
     'handlebars'
-], function ($, _, Backbone, movieTemplate, Handlebars) {
+], function ($, _, Backbone, movieTemplate,MovieModel ,Handlebars) {
 
     var MovieView = Backbone.View.extend({
 

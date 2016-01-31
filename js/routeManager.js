@@ -21,7 +21,7 @@ define([
         routes: {
 
             'home': 'goHome',
-            'movie': 'displayMovie',
+            'movies': 'displayMovie',
             'watchlists': 'displayWatchlists',
             'user/': 'showUser',
             'parameters': 'parameters',
