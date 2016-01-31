@@ -1,6 +1,9 @@
 <div class="navigation-bar">
     <div class="umovie-logo">
-        <span id="expend-menu-icon"></span>
+        <span id="expend-menu-icon">
+            <button class="hamburger"><img src="img/hamburger_menu.svg"/></button>
+            <button class="cross"><img src="img/cross_menu.svg"/></button>
+        </span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
         {{#if user}}
         <div id="greeting-message">Welcome, {{user}}!</div>
@@ -23,8 +26,12 @@
         </ul>
     </div>
     <div class="search-bar">
-        <input class="search-input"><a href="#">Search!</a>
-        <div class="research-options collapsed">Advanced research</div>
+        <div class="input-bar">
+            <span class="search-image"></span>
+            <input class="search-input">
+            <span class="go-research"></span>
+        </div>
+        <div class="research-options collapsed">advanced research</div>
     </div>
 </div>
 

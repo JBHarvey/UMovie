@@ -1,5 +1,6 @@
 #site-logo {
-    width: 256px;
+    width: 128px;
+    margin: -2.25em 0 0 0;
 }
 
 html {
@@ -23,6 +24,14 @@ body {
 
 button {
     cursor: pointer;
+}
+
+#expend-menu-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px 25px 0px;
+    background: none;
+    border-style: none;
 }
 
 .hamburger {
@@ -77,7 +86,7 @@ button {
     padding: 1em;
     display: block;
     border-top: solid #454545 1px;
-    border-bottom: solid #151515 1px; 
+    border-bottom: solid #151515 1px;
     color: white;
 }
 
@@ -85,7 +94,52 @@ button {
     background-color: #181818;
 }
 
-.navigation-options li a {
+.search-bar > div {
+    display: block;
+    float: right;
+}
+
+.search-input{
+    padding-right: 0;
+    padding-left: 0;
+    border-right: 0;
+    border-left: 0;
+}
+
+.go-research{
+    background-image:url('../img/goSearchIcon.png');
+    background-color: white;
+    width:18px;
+    height: 17px;
+    display:inline-flex;
+    position:relative;
+    top: 3.5px;
+    left: -4px;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    border-top: 2px inset ThreeDLightShadow;
+    border-right: 2px inset ThreeDLightShadow;
+    border-bottom: 2px inset ThreeDLightShadow;
+}
+
+.search-image {
+    background-image:url('../img/searchIcon.png');
+    background-color: white;
+    width:17px;
+    height: 16px;
+    display:inline-flex;
+    position:relative;
+    top: 3.5px;
+    left: 4px;
+    padding-top: 2px;
+    padding-right: 1.5px;
+    padding-bottom: 1px;
+    border-top: 2px inset ThreeDLightShadow;
+    border-left: 2px inset ThreeDLightShadow;
+    border-bottom: 2px inset ThreeDLightShadow;
+}
+.navigation-options a {
     text-decoration: none;
     color: #96948A;
 }
@@ -96,13 +150,33 @@ button {
 }
 
 @media (min-width: 700px) {
-    .navigation-options {
-        padding: 0.7em;
+    #site-logo {
+        width: 128px;
+        margin: -2.25em 0 0 0;
     }
-    
+
+    .navigation-bar {
+        display: inline-flex;
+        float: left;
+    }
+
     .navigation-options li {
         padding: 0.7em;
         display: inline;
         border: none;
     }
+
+
+    .navigation-options {
+        background: black;
+        border-bottom: solid #FFDE66 2px;
+        border-top: solid #FFDE66 2px;
+        padding: 1em 0.5em 1em 0.5em;
+        position: inherit;
+        width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+        width: -moz-max-content;    /* Firefox/Gecko */
+        width: -webkit-max-content; /* Chrome */
+        margin: 0.5em;
+    }
+
 }
