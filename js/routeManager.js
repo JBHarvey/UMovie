@@ -16,13 +16,17 @@ define([
     'views/navigationBarView',
     'views/homeView',
     'views/authenticationView',
-    'models/userModel'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel) {
+    'models/userModel',
+    'views/movieView'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel,MovieView) {
+
 
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
+
             '': 'goHome',
+            'movie': 'displayMovie',
             'watchlists': 'displayWatchlists',
             'user': 'showUser',
             'otherUsers': 'browseUsers',
@@ -53,6 +57,7 @@ define([
         var user = new UserModel();
         var navigationBarView = new NavigationBarView();
 
+
         uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
 
         var lastAuthState = 'disconnected';
@@ -82,12 +87,16 @@ define([
             homeView = new HomeView();
         }
 
-
         uMovieRouter.on('route:goHome', function () {
             if (uMovieRouter.checkCredentials()) {
                 navigationBarView.render();
                 homeView.render();
             }
+        });
+
+        uMovieRouter.on('route:displayMovie', function(){
+            var movieView = new MovieView();
+            console.log('The movie dialog should be displayed now')
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
@@ -121,6 +130,7 @@ define([
             navigationBarView.render();
             authenticationView.render(false);
         });
+
 
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('Error : no route to', actions);
