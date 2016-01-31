@@ -6,19 +6,39 @@ define([
 ], function (Backbone) {
 
     var NavigationBarModel = Backbone.Model.extend({
-        defaults:{
-            user: "GLO-User",
+        defaults: {
+            user: null,
             siteImageUrl: "../../img/siteName.png",
-            references:"home",
+            references: "",
             menuOption: [
-                {name: "Home", references: "home"},
+                {name: "Home", references: ""},
                 {name: "Movies", references: "movies"},
+                {name: "TV Shows", references: "tvShows"},
+                {name: "Actors", references: "actors"}
+            ],
+            menuOptionConnected: [
                 {name: "Watchlists", references: "watchlists"},
-                {name: "My Account", references: "user/"},
-                {name: "Parameters", references: "parameters"},
-                {name: "Disconnect", references: "logout"}
-            ]
+                {name: "My Account", references: "user"},
+                {name: "Settings", references: "settings"},
+                {name: "Community", references: "otherUsers"},
+                {name: "Disconnect", references: "disconnect"}
+            ],
+            menuOptionDisconnected: [
+                {name: "Login", references: "login"},
+                {name: "Sign Up", references: "signup"}
+            ],
+            connected: false
+        },
+
+        connect: function (name) {
+            this.defaults.connected = true;
+            this.defaults.user = name;
+        },
+        disconnect: function () {
+            this.defaults.connected = false;
+            this.defaults.user = null;
         }
+
     });
 
 

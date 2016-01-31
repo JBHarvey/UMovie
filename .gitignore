@@ -4,6 +4,7 @@
 
 ## Directory-based project format:
 .idea/*
+./.idea/*
 
 # Vim related
 *.swap
