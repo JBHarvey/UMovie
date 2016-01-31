@@ -7,7 +7,7 @@ define([
 
     var NavigationBarModel = Backbone.Model.extend({
         defaults: {
-            user: "GLO-User",
+            user: null,
             siteImageUrl: "../../img/siteName.png",
             references: "",
             menuOption: [
@@ -30,11 +30,13 @@ define([
             connected: false
         },
 
-        connect: function () {
+        connect: function (name) {
             this.defaults.connected = true;
+            this.defaults.user = name;
         },
         disconnect: function () {
             this.defaults.connected = false;
+            this.defaults.user = null;
         }
 
     });

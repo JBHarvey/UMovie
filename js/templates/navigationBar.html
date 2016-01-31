@@ -2,7 +2,9 @@
     <div class="umovie-logo">
         <span id="expend-menu-icon"></span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
-        <div id="greeting-message">WWelcome, {{user}}!</div>
+        {{#if user}}
+        <div id="greeting-message">Welcome, {{user}}!</div>
+        {{/if}}
     </div>
     <div class="menu">
         <ul class="navigation-options">

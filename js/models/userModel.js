@@ -66,6 +66,7 @@ define([
                     this.name = data.name;
                     this.connected = true;
                     Cookie.set('token', data.token, {expires: 365, path: '/'});
+                    Cookie.set('name', data.name, {expires: 365, path: '/'});
                     window.history.pushState("","", "/UMovie/#");
                     document.location.reload(true);
                 }
@@ -99,6 +100,7 @@ define([
 
         disconnect: function () {
             Cookie.remove('token', {path: '/'});
+            Cookie.remove('name', {path: '/'});
             this.set({
                 name: undefined,
                 email: undefined,

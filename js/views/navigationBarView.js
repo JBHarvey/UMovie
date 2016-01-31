@@ -27,7 +27,7 @@ define([
             if (Cookie.get('token') === undefined) {
                 source.disconnect();
             } else {
-                source.connect();
+                source.connect(Cookie.get('name'));
             }
             var resultNavigationBar = template(source.defaults);
 
