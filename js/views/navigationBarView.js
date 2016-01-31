@@ -5,10 +5,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'jscookie',
     'text!../templates/navigationBar.html',
     "models/navigationBarModel",
     'handlebars'
-], function ($, _, Backbone, navigationBarTemplate, NavigationBarModel, Handlebars) {
+], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars) {
 
     var NavigationBarView = Backbone.View.extend({
 
@@ -23,9 +24,14 @@ define([
             var template = Handlebars.compile(navigationBarTemplate);
 
             var source = new NavigationBarModel();
+            if (Cookie.get('token') === undefined) {
+                source.disconnect();
+            } else {
+                source.connect(Cookie.get('name'));
+            }
             var resultNavigationBar = template(source.defaults);
 
-            this.$el.append(resultNavigationBar);
+            this.$el.html(resultNavigationBar);
 
         }
     });
