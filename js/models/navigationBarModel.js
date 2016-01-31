@@ -6,10 +6,10 @@ define([
 ], function (Backbone) {
 
     var NavigationBarModel = Backbone.Model.extend({
-        defaults:{
+        defaults: {
             user: "GLO-User",
             siteImageUrl: "../../img/siteName.png",
-            references:"",
+            references: "",
             menuOption: [
                 {name: "Home", references: ""},
                 {name: "Movies", references: "movies"},
@@ -21,14 +21,22 @@ define([
                 {name: "My Account", references: "user"},
                 {name: "Settings", references: "settings"},
                 {name: "Community", references: "otherUsers"},
-                {name: "Disconnect", references: "logout"}
+                {name: "Disconnect", references: "disconnect"}
             ],
             menuOptionDisconnected: [
                 {name: "Login", references: "login"},
                 {name: "Sign Up", references: "signup"}
             ],
             connected: false
+        },
+
+        connect: function () {
+            this.defaults.connected = true;
+        },
+        disconnect: function () {
+            this.defaults.connected = false;
         }
+
     });
 
 

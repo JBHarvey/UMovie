@@ -5,14 +5,15 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'jscookie',
     'text!templates/authentication.html',
     'models/authenticationModel',
     'handlebars'
-], function ($, _, Backbone, authenticationTemplate, AuthenticationModel, Handlebars) {
+], function ($, _, Backbone, Cookie, authenticationTemplate, AuthenticationModel, Handlebars) {
 
     var AuthenticationView = Backbone.View.extend({
 
-        el: $('#modal-popup'),
+        el: $('#content'),
 
         initialize: function (globalUser) {
             user = globalUser;
@@ -44,16 +45,9 @@ define([
         sendAuthentication: function () {
             user.validateEmail($('#email').val());
             if (this.signup) {
-                this.success = user.attemptSignUp($('#name').val(), $('#password').val()).then(checkForSuccess());
+                user.attemptSignUp($('#name').val(), $('#password').val());
             } else {
-                this.success = user.attemptLogIn($('#password').val());
-            }
-        },
-
-        checkForSuccess: function () {
-            if (this.success) {
-                console.log('asdf');
-                this.$el.hide();
+                user.attemptLogIn($('#password').val());
             }
         }
     });

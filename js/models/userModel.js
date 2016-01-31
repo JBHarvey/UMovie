@@ -8,7 +8,6 @@ define([
 ], function ($, Backbone, Cookie) {
 
     var UserModel = Backbone.Model.extend({
-        urlRoot: 'https://umovie.herokuapp.com',
         connected: false,
 
         validateEmail: function (emailToCheck) {
@@ -52,14 +51,11 @@ define([
                 function (data) {
                     this.name = data.name;
                     this.connected = true;
-                    console.log(data);
-                    Cookie.set('token', data.token, {expires: 7, path: '/'});
-                    return true;
+                    Cookie.set('token', data.token, {expires: 365, path: '/'});
+                    Backbone.trigger('route:goHome');
                 }
             ).fail(
                 function (jqXHR, textStatus) {
-                    console.log(`${textStatus} on login`);
-                    set({name: undefined, email: undefined, connected: false});
                     return false;
                 }
             );
@@ -87,7 +83,7 @@ define([
         },
 
         disconnect: function () {
-            Cookie.set('token', {path: '/'});
+            Cookie.remove('token', {path: '/'});
             this.set({
                 name: undefined,
                 email: undefined,

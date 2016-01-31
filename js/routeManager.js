@@ -12,11 +12,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'jscookie',
     'views/navigationBarView',
     'views/homeView',
     'views/authenticationView',
     'models/userModel'
-], function ($, _, Backbone, NavigationBarView, HomeView, AuthenticationView, UserModel) {
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel) {
 
     var UMovieRouter = Backbone.Router.extend({
 
@@ -33,33 +34,73 @@ define([
             //Default
             '*actions': 'defaultAction'
         }
+
+
     });
 
     var initialize = function () {
 
+
+
+        var authenticationView;
+        var homeView;
         var uMovieRouter = new UMovieRouter();
 
         var user = new UserModel();
-        var authenticationView = new AuthenticationView(user, false);
         var navigationBarView = new NavigationBarView();
-        navigationBarView.listenTo(user, "change:connected", navigationBarView.render());
-        var homeView = new HomeView();
+
+
+        var lastAuthState = 'disconnected';
+        updateNavigationBar = function () {
+            if (Cookie.get('token') === undefined && lastAuthState == 'connected') {
+                navigationBarView.render();
+            } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected'){
+                navigationBarView.render();
+            }
+        };
+
+        uMovieRouter.checkCredentials = function () {
+            updateNavigationBar();
+            if (Cookie.get('token') === undefined) {
+                lastAuthState = 'disconnected';
+                Backbone.trigger('route:login');
+                return false;
+            } else {
+                lastAuthState = 'connected';
+                return true;
+            }
+        };
+
+        //Shows the login at start up. If the user has already logged in, the home page will be shown.
+        authenticationView = new AuthenticationView(user, false);
+        if (uMovieRouter.checkCredentials()) {
+            homeView = new HomeView();
+        }
+
 
         uMovieRouter.on('route:goHome', function () {
-            homeView = new HomeView();
-            console.log("Chewie, we're home!!");
+            if (uMovieRouter.checkCredentials()) {
+                navigationBarView.render();
+                homeView = new HomeView();
+            }
         });
 
         uMovieRouter.on('route:displayWatchlists', function () {
-            console.log('The watchlists should be displayed now');
+            if (uMovieRouter.checkCredentials()) {
+                console.log('The watchlists should be displayed now');
+            }
         });
 
         uMovieRouter.on('route:showUser', function () {
-            console.log('The user (id still to be determined) should be displayed now');
+            if (uMovieRouter.checkCredentials()) {
+                console.log('The user (id still to be determined) should be displayed now');
+            }
         });
 
         uMovieRouter.on('route:settings', function () {
-            console.log('The settings should be displayed now');
+            if (uMovieRouter.checkCredentials()) {
+                console.log('The settings should be displayed now');
+            }
         });
 
         uMovieRouter.on('route:signup', function () {
@@ -71,17 +112,20 @@ define([
         });
 
         uMovieRouter.on('route:disconnect', function () {
-            authenticationView.
             user.disconnect();
+            navigationBarView.render();
+            authenticationView.render(false);
         });
 
         uMovieRouter.on('route:defaultAction', function (actions) {
-            console.log('No route to:', actions);
+            console.log('Error : no route to ', actions);
         });
 
         Backbone.history.start({root: '/UMovie'});
 
     };
+
+
     return {
         initialize: initialize
     };
