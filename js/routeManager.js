@@ -117,9 +117,7 @@ define([
         });
 
         uMovieRouter.on('route:disconnect', function () {
-            if (Cookie.get('token') !== undefined) {
-                user.disconnect();
-            }
+            user.disconnect();
             navigationBarView.render();
             authenticationView.render(false);
         });

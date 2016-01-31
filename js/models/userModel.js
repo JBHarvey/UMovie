@@ -20,21 +20,35 @@ define([
         },
 
         attemptSignUp: function (newName, newPassword) {
-            this.urlRoot = 'https://umovie.herokuapp.com/signup';
             this.set(defaults = {
                 email: this.email,
                 name: newName,
                 password: newPassword
             });
-            this.save({
+            $.ajax({
+                url: 'https://umovie.herokuapp.com/signup',
                 type: 'POST',
+                data: {
+                    name: newName,
+                    email: this.email,
+                    password: newPassword
+                },
                 contentType: 'application/x-www-form-urlencoded'
-            }).then(function () {
-            });
+            }).done(
+                function (data) {
+                    this.name = data.name;
+                    this.id = data.id;
+                    window.history.pushState("","", "/UMovie/#login");
+                    document.location.reload(true);
+                }
+            ).fail(
+                function (jqXHR, textStatus) {
+                    return false;
+                }
+            );
         },
 
         attemptLogIn: function (newPassword) {
-            this.urlRoot = 'https://umovie.herokuapp.com/login';
             this.set(defaults = ({
                 email: this.email,
                 password: newPassword
@@ -52,6 +66,7 @@ define([
                     this.name = data.name;
                     this.connected = true;
                     Cookie.set('token', data.token, {expires: 365, path: '/'});
+                    window.history.pushState("","", "/UMovie/#");
                     document.location.reload(true);
                 }
             ).fail(
