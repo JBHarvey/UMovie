@@ -8,6 +8,27 @@ html {
     color: white;
 }
 
+div #content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 2% 0;
+    background-color: #222121;
+
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.movieTitle {
+    font-family: Ubuntu;
+    font-weight: 400;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -99,21 +120,21 @@ button {
     float: right;
 }
 
-.search-input{
+.search-input {
     padding-right: 0;
     padding-left: 0;
     border-right: 0;
     border-left: 0;
 }
 
-.go-research{
-    background-image:url('../img/goSearchIcon.png');
+.go-research {
+    background-image: url('../img/goSearchIcon.png');
     background-color: white;
-    width:18px;
+    width: 18px;
     height: 17px;
-    display:inline-flex;
-    position:relative;
-    top: 3.5px;
+    display: inline-flex;
+    position: relative;
+    top: 3px;
     left: -4px;
     padding-top: 1px;
     padding-right: 1px;
@@ -124,21 +145,22 @@ button {
 }
 
 .search-image {
-    background-image:url('../img/searchIcon.png');
+    background-image: url('../img/searchIcon.png');
     background-color: white;
-    width:17px;
+    width: 17px;
     height: 16px;
-    display:inline-flex;
-    position:relative;
-    top: 3.5px;
+    display: inline-flex;
+    position: relative;
+    top: 3px;
     left: 4px;
     padding-top: 2px;
-    padding-right: 1.5px;
+    padding-right: 2px;
     padding-bottom: 1px;
     border-top: 2px inset ThreeDLightShadow;
     border-left: 2px inset ThreeDLightShadow;
     border-bottom: 2px inset ThreeDLightShadow;
 }
+
 .navigation-options a {
     text-decoration: none;
     color: #96948A;
@@ -166,17 +188,72 @@ button {
         border: none;
     }
 
-
     .navigation-options {
         background: black;
         border-bottom: solid #FFDE66 2px;
         border-top: solid #FFDE66 2px;
         padding: 1em 0.5em 1em 0.5em;
         position: inherit;
-        width: intrinsic;           /* Safari/WebKit uses a non-standard name */
-        width: -moz-max-content;    /* Firefox/Gecko */
+        width: intrinsic; /* Safari/WebKit uses a non-standard name */
+        width: -moz-max-content; /* Firefox/Gecko */
         width: -webkit-max-content; /* Chrome */
         margin: 0.5em;
     }
 
+}
+
+@media screen and (max-width: 480px) {
+
+    h2 {
+        font: inherit;
+        vertical-align: baseline;
+        font-size: 30px;
+        float: right;
+    }
+
+    div #content {
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+        padding: 30px 2% 0;
+        background-color: #222121;
+    }
+
+    div .movieCover {
+        max-width: 150px !important;
+        max-height: 300px !important;
+    }
+
+    div .movieCover img {
+        max-width: 150px !important;
+        max-height: 300px !important;
+    }
+
+    .watchButton {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 8;
+        -moz-border-radius: 8;
+        border-radius: 8px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+
+    .watchButton:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+
+    }
 }

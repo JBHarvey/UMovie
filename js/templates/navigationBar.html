@@ -5,26 +5,26 @@
             <button class="cross"><img src="img/cross_menu.svg"/></button>
         </span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
-        {{#if user}}
-        <div id="greeting-message">Welcome, {{user}}!</div>
-        {{/if}}
     </div>
     <div class="menu">
         <ul class="navigation-options">
             {{#each menuOption}}
-            <li><a href="#{{references}}">{{name}}</a></li>
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
             {{#if connected}}
             {{#each menuOptionConnected}}
-            <li><a href="#{{references}}">{{name}}</a></li>
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
             {{else}}
             {{#each menuOptionDisconnected}}
-            <li><a href="#{{references}}">{{name}}</a></li>
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
             {{/if}}
         </ul>
     </div>
+    {{#if user}}
+    <div id="greeting-message">{{user}}</div>
+    {{/if}}
     <div class="search-bar">
         <div class="input-bar">
             <span class="search-image"></span>
