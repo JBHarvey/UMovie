@@ -9,17 +9,17 @@ define([
     'text!templates/movie.html',
     'models/movieModel',
     'handlebars'
-], function ($, _, Backbone, movieTemplate,MovieModel ,Handlebars) {
+], function ($, _, Backbone, movieTemplate, MovieModel, Handlebars) {
 
     var MovieView = Backbone.View.extend({
 
         el: $('#content'),
 
-        initialize: function() {
+        initialize: function () {
             this.render();
         },
 
-        render: function() {
+        render: function () {
 
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
@@ -27,7 +27,7 @@ define([
             var source = new MovieModel();
             var resultMovie = template(source.defaults);
 
-            this.$el.append(resultMovie);
+            this.$el.html(resultMovie);
         }
     });
     return MovieView;

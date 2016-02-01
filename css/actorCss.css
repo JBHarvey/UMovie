@@ -1,0 +1,19 @@
+#actor {
+    max-width: 100%;
+}
+
+#imgActor {
+    max-width: 10%;
+}
+
+#ilogo {
+    max-width: 5%;
+}
+
+
+
+
+@media screen and (max-width: 640px){
+
+
+}
