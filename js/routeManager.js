@@ -143,7 +143,6 @@ define([
         });
 
 
-
         uMovieRouter.on('route:displayWatchlists', function () {
             if (uMovieRouter.checkCredentials()) {
                 console.log('The watchlists should be displayed now');
