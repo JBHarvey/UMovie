@@ -22,6 +22,7 @@ define([
         render: function() {
 
             var template = Handlebars.compile(actorTemplate);
+
             var source = new ActorModel();
             var  resultActor = template(source.defaults);
 

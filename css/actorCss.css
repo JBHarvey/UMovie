@@ -1,15 +1,18 @@
-#actor-browser{
-
+#actor {
+    max-width: 100%;
 }
 
-#header{
-    font-size: 400%;
+#imgActor {
+    max-width: 50%;
 }
+
+#ilogo {
+    max-width: 10%;
+}
+
+
 
 
 @media screen and (max-width: 640px){
 
-    #header{
-        font-size: 200%;
-    }
 }
