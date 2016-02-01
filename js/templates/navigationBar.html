@@ -2,12 +2,11 @@
     <div class="umovie-logo">
         <span id="expend-menu-icon">
             <button class="hamburger"><img src="img/hamburger_menu.svg"/></button>
-            <button class="cross"><img src="img/cross_menu.svg"/></button>
         </span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
     </div>
     <div class="menu">
-        <ul class="navigation-options">
+        <ul class="navigation-options" id="menu-closed">
             {{#each menuOption}}
             <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
