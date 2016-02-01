@@ -67,19 +67,6 @@ button {
     border-style: none;
 }
 
-.cross {
-    width: 30px;
-    height: 30px;
-    display: none;
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border-style: none;
-}
-
 .hamburger img {
     width: 30px;
     height: 30px;
@@ -95,7 +82,7 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    left: -250px;
+    z-index: 1000000;
     top: 3em;
     list-style: none;
     padding: 0;
@@ -166,10 +153,31 @@ button {
     color: #96948A;
 }
 
-.open {
-    display: block;
-    left: 0px;
+#menu-open {
+  left: 0;
+  -webkit-animation: 1s slideIn;
+     -moz-animation: 1s slideIn;
+       -o-animation: 1s slideIn;
+          animation: 1s slideIn;
 }
+
+@-webkit-keyframes slideIn { from { left:-250px; } to { left:0; }  }
+   @-moz-keyframes slideIn { from { left:-250px; } to { left:0; }  }
+     @-o-keyframes slideIn { from { left:-250px; } to { left:0; }  }
+        @keyframes slideIn { from { left:-250px; } to { left:0; }  }
+
+#menu-closed {
+  left: -250px;
+  -webkit-animation: 1s slideOut;
+     -moz-animation: 1s slideOut;
+       -o-animation: 1s slideOut;
+          animation: 1s slideOut;
+}
+
+@-webkit-keyframes slideOut { from { left:0; } to { left:-250px; }  }
+   @-moz-keyframes slideOut { from { left:0; } to { left:-250px; }  }
+     @-o-keyframes slideOut { from { left:0; } to { left:-250px; }  }
+        @keyframes SlideOut { from { left:0; } to { left:-250px; }  }
 
 @media (min-width: 700px) {
     #site-logo {
@@ -199,7 +207,6 @@ button {
         width: -webkit-max-content; /* Chrome */
         margin: 0.5em;
     }
-
 }
 
 @media screen and (max-width: 480px) {
