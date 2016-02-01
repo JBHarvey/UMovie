@@ -4,7 +4,7 @@
     <list default="true" id="701e6cad-178d-4fd9-819e-2668e0de5bb6" name="Default" comment="Official start with Backbone">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/actorCss.css" afterPath="$PROJECT_DIR$/css/actorCss.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/actorView.js" afterPath="$PROJECT_DIR$/js/views/actorView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/actor.html" afterPath="$PROJECT_DIR$/js/templates/actor.html" />
     </list>
     <ignored path="UMovie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,24 +24,24 @@
     <favorites_list name="UMovie" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.5913556">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="actor.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="actor.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/templates/actor.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.730769">
-                  <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.19859813">
+                  <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.039719626">
-                  <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                <state vertical-scroll-proportion="-4.576923">
+                  <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
                   <folding />
                 </state>
               </provider>
@@ -54,8 +54,8 @@
           <file leaf-file-name="actorCss.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/actorCss.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.17873831">
-                  <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.099299066">
+                  <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -118,9 +118,9 @@
         <option value="$PROJECT_DIR$/js/templates/movie.html" />
         <option value="$PROJECT_DIR$/js/views/movieView.js" />
         <option value="$PROJECT_DIR$/js/models/actorModel.js" />
-        <option value="$PROJECT_DIR$/js/templates/actor.html" />
         <option value="$PROJECT_DIR$/js/views/actorView.js" />
         <option value="$PROJECT_DIR$/css/actorCss.css" />
+        <option value="$PROJECT_DIR$/js/templates/actor.html" />
       </list>
     </option>
   </component>
@@ -270,7 +270,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Labo1" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -762,24 +762,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/actorCss.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17873831">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/templates/actor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.099299066">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039719626">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/templates/actor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19859813">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding />
         </state>
       </provider>

@@ -1,5 +1,14 @@
-#actor {
+#header {
     max-width: 100%;
+    font-size: 200%;
+    font-weight: bold;
+   /* color: white;*/
+    margin: 0;
+}
+
+.actor {
+    max-width: 100%;
+    width: 100%;
 }
 
 #imgActor {
@@ -11,9 +20,19 @@
 }
 
 
+.info {
+    float: left;
+    width: 45%;
+}
+.movie-list {
+    float: right;
+    width: 45%;
+}
 
 
 @media screen and (max-width: 640px){
 
-
+    #header{
+        font-size: 100%;
+    }
 }
