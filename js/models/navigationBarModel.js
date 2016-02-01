@@ -8,7 +8,7 @@ define([
     var NavigationBarModel = Backbone.Model.extend({
         defaults: {
             user: null,
-            siteImageUrl: "../../img/siteName.png",
+            siteImageUrl: "../../img/logo.png",
             references: "",
             menuOption: [
                 {name: "Home", references: "", position: "menuStandard"},
