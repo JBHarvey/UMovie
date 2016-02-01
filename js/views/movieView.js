@@ -11,6 +11,7 @@ define([
     'handlebars'
 ], function ($, _, Backbone, movieTemplate, MovieModel, Handlebars) {
 
+
     var MovieView = Backbone.View.extend({
 
         el: $('#content'),

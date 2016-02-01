@@ -25,8 +25,6 @@ define([
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
-
-
             '': 'goHome',
             'movies': 'displayMovies',
             'movie/:movieName': 'displaySpecificMovie',
@@ -34,6 +32,7 @@ define([
             'tvShow/:tvShowName': 'displaySpecificTvShow',
             'actors': 'displayActors',
             'actor/:actorName': 'displaySpecificActor',
+
             'watchlists': 'displayWatchlists',
             'user': 'showUser',
             'otherUsers': 'browseUsers',
