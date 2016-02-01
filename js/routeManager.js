@@ -17,8 +17,9 @@ define([
     'views/homeView',
     'views/authenticationView',
     'models/userModel',
-    'views/movieView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel,MovieView) {
+    'views/movieView',
+    'views/actorView'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, ActorView) {
 
 
     var UMovieRouter = Backbone.Router.extend({
@@ -27,7 +28,12 @@ define([
 
 
             '': 'goHome',
-            'movie': 'displayMovie',
+            'movies': 'displayMovies',
+            'movie/:movieName': 'displaySpecificMovie',
+            'tvShows': 'displayTvShows',
+            'tvShow/:tvShowName': 'displaySpecificTvShow',
+            'actors': 'displayActors',
+            'actor/:actorName': 'displaySpecificActor',
             'watchlists': 'displayWatchlists',
             'user': 'showUser',
             'otherUsers': 'browseUsers',
@@ -95,10 +101,49 @@ define([
             }
         });
 
-        uMovieRouter.on('route:displayMovie', function(){
-            var movieView = new MovieView();
-            console.log('The movie dialog should be displayed now')
+
+        // Movies
+        uMovieRouter.on('route:displayMovies', function () {
+            var movies = new MovieView();
+            console.log('We should now see a damn big list of movies');
         });
+
+        uMovieRouter.on('route:displaySpecificMovie', function (movieName) {
+            var movieView = new MovieView();
+            console.log('We should see a movie-specific information page');
+        });
+
+
+        //TV Shows
+        uMovieRouter.on('route:displayTvShows', function () {
+            var movieView = new MovieView();
+            console.log('The movie dialog should be displayed now');
+        });
+
+        uMovieRouter.on('route:displaySpecificTvShow', function (tvShowName) {
+            var movieView = new MovieView();
+            console.log('The movie dialog should be displayed now');
+        });
+
+
+        //Actors
+        uMovieRouter.on('route:displayActors', function () {
+            /*
+             * THIS PART IS <b> VERY </b> TEMPORARY
+             * It shall stay as long as we do not have an actor collection along with its presentation
+             */
+            var actorView = new ActorView();
+            console.log('The movie dialog should be displayed now');
+        });
+
+        uMovieRouter.on('route:displaySpecificActor', function (actorName) {
+
+            // This should be the actual actorView page.
+            var actorView = new ActorView();
+            console.log('The movie dialog should be displayed now');
+        });
+
+
 
         uMovieRouter.on('route:displayWatchlists', function () {
             if (uMovieRouter.checkCredentials()) {

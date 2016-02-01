@@ -13,7 +13,7 @@ define([
     ], function($, _, Backbone, actorTemplate, ActorModel, Handlebars) {
 
     var ActorView = Backbone.View.extend({
-        el: $('#actor-content'),
+        el: $('#content'),
 
         initialize: function(){
             this.render();
@@ -21,12 +21,16 @@ define([
 
         render: function() {
 
+<<<<<<< HEAD
             var template = Handlebars.compile(actorTemplate);
 
+=======
+>>>>>>> origin/Actor
             var source = new ActorModel();
-            var  resultActor = template(source.defaults);
+            var template = Handlebars.compile(actorTemplate);
+            var resultActor = template(source.defaults);
 
-            this.$el.append(resultActor);
+            this.$el.html(resultActor);
         }
 
     });
