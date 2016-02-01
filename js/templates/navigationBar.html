@@ -11,21 +11,23 @@
             {{#each menuOption}}
             <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
-            {{#if connected}}
-            {{#each menuOptionConnected}}
-            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-            {{/each}}
-            {{else}}
-            {{#each menuOptionDisconnected}}
-            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-            {{/each}}
-            {{/if}}
+
         </ul>
     </div>
     {{#if user}}
     <div id="greeting-message">{{user}}</div>
     {{/if}}
+
     <div class="search-bar">
+        {{#if connected}}
+        {{#each menuOptionConnected}}
+        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+        {{/each}}
+        {{else}}
+        {{#each menuOptionDisconnected}}
+        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+        {{/each}}
+        {{/if}}
         <div class="input-bar">
             <span class="search-image"></span>
             <input class="search-input">
@@ -34,4 +36,3 @@
         <div class="research-options collapsed">advanced research</div>
     </div>
 </div>
-

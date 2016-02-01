@@ -1,17 +1,23 @@
 #site-logo {
     width: 128px;
     margin: -2.25em 0 0 0;
+    padding-left: 10px;
 }
 
 html {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
     background-color: black;
     color: white;
 }
 
+
+
 div #content {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 2% 0;
+    margin: 40 auto;
+    padding: 0px 2% 0;
     background-color: #222121;
 
 }
@@ -29,6 +35,7 @@ h2 {
     font-weight: 400;
 }
 
+
 body {
     margin: 0;
     padding: 0;
@@ -43,6 +50,7 @@ body {
     background-color: black;
 }
 
+
 button {
     cursor: pointer;
 }
@@ -55,35 +63,6 @@ button {
     border-style: none;
 }
 
-.hamburger {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    top: 1em;
-    left: 1em;
-    background: none;
-    border-style: none;
-}
-
-.cross {
-    width: 30px;
-    height: 30px;
-    display: none;
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border-style: none;
-}
-
-.hamburger img {
-    width: 30px;
-    height: 30px;
-}
 
 .menu {
     padding: 0;
@@ -92,7 +71,6 @@ button {
 }
 
 .navigation-options {
-    border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
     left: -250px;
@@ -100,14 +78,12 @@ button {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #333333;
+    background: #33333;
 }
 
 .navigation-options li {
     padding: 1em;
     display: block;
-    border-top: solid #454545 1px;
-    border-bottom: solid #151515 1px;
     color: white;
 }
 
@@ -115,6 +91,18 @@ button {
     background-color: #181818;
 }
 
+.search-bar > li {
+    color: white;
+    margin-top: 0px;
+    text-decoration: none;
+    padding: 2px 10%;
+    display: block;
+    float: right;
+}
+
+.search-bar li:hover{
+    background-color: #181818;
+}
 .search-bar > div {
     display: block;
     float: right;
@@ -166,9 +154,31 @@ button {
     color: #96948A;
 }
 
+#container #menu-content .navigation-bar {
+    width: 100%;
+    padding: 5px 50px 5px 0;
+    background: black;
+}
+
+#container #content {
+    background: black;
+    
+}
 .open {
     display: block;
     left: 0px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.cross {
+    display: none;
+}
+
+.authentification{
+    background: black;
 }
 
 @media (min-width: 700px) {
@@ -190,9 +200,7 @@ button {
 
     .navigation-options {
         background: black;
-        border-bottom: solid #FFDE66 2px;
-        border-top: solid #FFDE66 2px;
-        padding: 1em 0.5em 1em 0.5em;
+        padding: 1.3em 0.5em 1em 0.5em;
         position: inherit;
         width: intrinsic; /* Safari/WebKit uses a non-standard name */
         width: -moz-max-content; /* Firefox/Gecko */
@@ -215,7 +223,7 @@ button {
         max-width: 400px;
         margin: 0 auto;
         position: relative;
-        padding: 30px 2% 0;
+        padding: 0px 2% 0;
         background-color: #222121;
     }
 
@@ -256,4 +264,34 @@ button {
         text-decoration: none;
 
     }
+    
+.hamburger {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 1em;
+    left: 1em;
+    background: none;
+    border-style: none;
+}
+
+.cross {
+    width: 30px;
+    height: 30px;
+    display: none;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border-style: none;
+}
+
+.hamburger img {
+    width: 30px;
+    height: 30px;
+}
 }
