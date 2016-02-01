@@ -43,9 +43,6 @@ body {
     background-color: black;
 }
 
-button {
-    cursor: pointer;
-}
 
 #expend-menu-icon {
     width: 30px;
@@ -53,6 +50,10 @@ button {
     margin: 0px 10px 25px 0px;
     background: none;
     border-style: none;
+}
+
+button {
+    cursor: pointer;
 }
 
 .hamburger {
@@ -102,52 +103,6 @@ button {
     background-color: #181818;
 }
 
-.search-bar > div {
-    display: block;
-    float: right;
-}
-
-.search-input {
-    padding-right: 0;
-    padding-left: 0;
-    border-right: 0;
-    border-left: 0;
-}
-
-.go-research {
-    background-image: url('../img/goSearchIcon.png');
-    background-color: white;
-    width: 18px;
-    height: 17px;
-    display: inline-flex;
-    position: relative;
-    top: 3px;
-    left: -4px;
-    padding-top: 1px;
-    padding-right: 1px;
-    padding-bottom: 1px;
-    border-top: 2px inset ThreeDLightShadow;
-    border-right: 2px inset ThreeDLightShadow;
-    border-bottom: 2px inset ThreeDLightShadow;
-}
-
-.search-image {
-    background-image: url('../img/searchIcon.png');
-    background-color: white;
-    width: 17px;
-    height: 16px;
-    display: inline-flex;
-    position: relative;
-    top: 3px;
-    left: 4px;
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
-    border-top: 2px inset ThreeDLightShadow;
-    border-left: 2px inset ThreeDLightShadow;
-    border-bottom: 2px inset ThreeDLightShadow;
-}
-
 .navigation-options a {
     text-decoration: none;
     color: #96948A;
@@ -178,6 +133,134 @@ button {
    @-moz-keyframes slideOut { from { left:0; } to { left:-250px; }  }
      @-o-keyframes slideOut { from { left:0; } to { left:-250px; }  }
         @keyframes SlideOut { from { left:0; } to { left:-250px; }  }
+
+.search-bar {
+    position: relative;
+}
+
+.input-bar {
+    outline: none;
+    width: 100%;
+    max-width: 13em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.search-input {
+    background: #2b303b;
+    padding-top: 2.6px;
+    border-top: none;
+    border-bottom: none;
+    border-right: 0;
+    border-left: 0;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+.input-bar input.search-input::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.input-bar input.search-input:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.input-bar input.search-input::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.input-bar input.search-input:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
+    outline:none;
+    background: #ffffff;
+}
+
+.research-options {
+    padding-top: 0.4em;
+    padding-bottom: 1em;
+    width: 100%;
+    max-width: 9em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.go-research {
+    background-image: url('../img/goSearchIcon.png');
+    background-color: #2b303b;
+    width: 18px;
+    height: 17px;
+    display: inline-flex;
+    position: relative;
+    top: 3px;
+    left: -4px;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    /*
+    border-top: 2px inset ThreeDLightShadow;
+    border-right: 2px inset ThreeDLightShadow;
+    border-bottom: 2px inset ThreeDLightShadow;
+    */
+}
+
+.go-research:hover {
+    cursor: pointer;
+}
+
+.search-image {
+    background-image: url('../img/searchIcon.png');
+    background-color: #2b303b;
+    width: 17px;
+    height: 16px;
+    display: inline-flex;
+    position: relative;
+    top: 3px;
+    left: 4px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    /*
+    border-top: 2px inset ThreeDLightShadow;
+    border-left: 2px inset ThreeDLightShadow;
+    border-bottom: 2px inset ThreeDLightShadow;
+    */
+}
+
+.inputFields {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 10.3em;
+    padding-bottom: 0.5em;
+}
+
+.-box {
+    width: 160px;
+}
+
+.newEntry {
+    width: 100%;
+    max-width: 19em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.switch-authentication {
+    width: 100%;
+    max-width: 11em;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 @media (min-width: 700px) {
     #site-logo {
