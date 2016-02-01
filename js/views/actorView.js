@@ -21,11 +21,7 @@ define([
 
         render: function() {
 
-<<<<<<< HEAD
-            var template = Handlebars.compile(actorTemplate);
 
-=======
->>>>>>> origin/Actor
             var source = new ActorModel();
             var template = Handlebars.compile(actorTemplate);
             var resultActor = template(source.defaults);
