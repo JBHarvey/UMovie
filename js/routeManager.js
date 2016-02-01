@@ -18,15 +18,13 @@ define([
     'views/authenticationView',
     'models/userModel',
     'views/movieView',
-    'views/actorView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, ActorView) {
-
+    'views/actorView',
+    'views/watchlistView'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, ActorView, WatchlistView) {
 
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
-
-
             '': 'goHome',
             'movies': 'displayMovies',
             'movie/:movieName': 'displaySpecificMovie',
@@ -34,6 +32,7 @@ define([
             'tvShow/:tvShowName': 'displaySpecificTvShow',
             'actors': 'displayActors',
             'actor/:actorName': 'displaySpecificActor',
+
             'watchlists': 'displayWatchlists',
             'user': 'showUser',
             'otherUsers': 'browseUsers',
@@ -104,11 +103,16 @@ define([
 
         // Movies
         uMovieRouter.on('route:displayMovies', function () {
+            /*
+             * THIS PART IS <b> VERY </b> TEMPORARY
+             * It shall stay as long as we do not have a movie collection along with its presentation
+             */
             var movies = new MovieView();
             console.log('We should now see a damn big list of movies');
         });
 
         uMovieRouter.on('route:displaySpecificMovie', function (movieName) {
+            // This should be the actual movieView page.
             var movieView = new MovieView();
             console.log('We should see a movie-specific information page');
         });
@@ -133,22 +137,19 @@ define([
              * It shall stay as long as we do not have an actor collection along with its presentation
              */
             var actorView = new ActorView();
-            console.log('The movie dialog should be displayed now');
         });
 
         uMovieRouter.on('route:displaySpecificActor', function (actorName) {
-
             // This should be the actual actorView page.
             var actorView = new ActorView();
-            console.log('The movie dialog should be displayed now');
         });
-
 
 
         uMovieRouter.on('route:displayWatchlists', function () {
             if (uMovieRouter.checkCredentials()) {
-                console.log('The watchlists should be displayed now');
+                var watchlistModel = new WatchlistView();
             }
+
         });
 
         uMovieRouter.on('route:showUser', function () {

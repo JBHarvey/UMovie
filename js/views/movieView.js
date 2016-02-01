@@ -11,15 +11,16 @@ define([
     'handlebars'
 ], function ($, _, Backbone, movieTemplate, MovieModel, Handlebars) {
 
+
     var MovieView = Backbone.View.extend({
 
         el: $('#content'),
 
-        initialize: function() {
+        initialize: function () {
             this.render();
         },
 
-        render: function() {
+        render: function () {
 
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
