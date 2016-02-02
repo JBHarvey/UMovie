@@ -134,6 +134,18 @@ button {
 @-o-keyframes slideOut { from { left:0; } to { left:-250px; }  }
 @keyframes SlideOut { from { left:0; } to { left:-250px; }  }
 
+#site-logo {
+    margin: 0;
+    margin-top: 0.03em;
+    padding-left: 4em;
+    width: 10em;
+    
+}
+
+.search-container {
+    margin-bottom: 1em;
+}
+
 .search-bar {
     position: relative;
 }
@@ -146,9 +158,30 @@ button {
     margin-left: auto;
 }
 
+.search-bar li {
+    display: inline;
+}
+
+.search-bar li a:hover {
+    color: white;
+}
+
+.search-bar > li:first-child {
+    padding-left: 32%;
+    padding-right: 1em;
+}
+
+.search-bar li a {
+    color: darkgrey;
+    text-decoration: none;
+}
+
 .search-input {
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
     background: #2b303b;
     padding-top: 2.6px;
+    padding-left: 1em;
     border-top: none;
     border-bottom: none;
     border-right: 0;
@@ -190,6 +223,7 @@ button {
     max-width: 9em;
     margin-right: auto;
     margin-left: auto;
+    display: none;
 }
 
 .go-research {
@@ -206,36 +240,10 @@ button {
     padding-bottom: 1px;
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
-    /*
-    border-top: 2px inset ThreeDLightShadow;
-    border-right: 2px inset ThreeDLightShadow;
-    border-bottom: 2px inset ThreeDLightShadow;
-    */
 }
 
 .go-research:hover {
     cursor: pointer;
-}
-
-.search-image {
-    background-image: url('../img/searchIcon.png');
-    background-color: #2b303b;
-    width: 17px;
-    height: 16px;
-    display: inline-flex;
-    position: relative;
-    top: 3px;
-    left: 4px;
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
-    border-top-left-radius: 0.3em;
-    border-bottom-left-radius: 0.3em;
-    /*
-    border-top: 2px inset ThreeDLightShadow;
-    border-left: 2px inset ThreeDLightShadow;
-    border-bottom: 2px inset ThreeDLightShadow;
-    */
 }
 
 .inputFields {
@@ -262,92 +270,6 @@ button {
     max-width: 11em;
     margin-right: auto;
     margin-left: auto;
-}
-
-@media (min-width: 700px) {
-    #site-logo {
-        width: 128px;
-        margin: -2.25em 0 0 0;
-    }
-
-    .navigation-bar {
-        display: inline-flex;
-        float: left;
-    }
-
-    .navigation-options li {
-        padding: 0.7em;
-        display: inline;
-        border: none;
-    }
-
-    .navigation-options {
-        background: black;
-        border-bottom: solid #FFDE66 2px;
-        border-top: solid #FFDE66 2px;
-        padding: 1em 0.5em 1em 0.5em;
-        position: inherit;
-        width: intrinsic; /* Safari/WebKit uses a non-standard name */
-        width: -moz-max-content; /* Firefox/Gecko */
-        width: -webkit-max-content; /* Chrome */
-        margin: 0.5em;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    h2 {
-        font: inherit;
-        vertical-align: baseline;
-        font-size: 30px;
-        float: right;
-    }
-
-    div #content {
-        max-width: 400px;
-        margin: 0 auto;
-        position: relative;
-        padding: 30px 2% 0;
-        background-color: #222121;
-    }
-
-    div .movieCover {
-        max-width: 150px !important;
-        max-height: 300px !important;
-    }
-
-    div .movieCover img {
-        max-width: 150px !important;
-        max-height: 300px !important;
-    }
-
-    .watchButton {
-        background: #3498db;
-        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-        background-image: -o-linear-gradient(top, #3498db, #2980b9);
-        background-image: linear-gradient(to bottom, #3498db, #2980b9);
-        -webkit-border-radius: 8;
-        -moz-border-radius: 8;
-        border-radius: 8px;
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 20px;
-        padding: 10px 20px 10px 20px;
-        text-decoration: none;
-    }
-
-    .watchButton:hover {
-        background: #3cb0fd;
-        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-        text-decoration: none;
-
-    }
 }
 
 @media (min-width: 600px) {

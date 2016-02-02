@@ -47,9 +47,7 @@ define([
             },
 
 
-            openHamburgerMenu: function (eventInfo) {
-                console.log(eventInfo);
-                var hamburgerButton = eventInfo.currentTarget;
+            openHamburgerMenu: function () {
                 var slideOutMenu = document.getElementsByClassName("navigation-options")[0];
                 if (slideOutMenu.id === "menu-open") {
                     slideOutMenu.id = "menu-closed";
