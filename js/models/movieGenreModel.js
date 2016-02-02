@@ -7,7 +7,7 @@ define([
 
     var MovieGenreModel = Backbone.Model.extend({
         defaults: {
-            id: "404",
+            id: 404,
             name: "Genre not found"
         }
 

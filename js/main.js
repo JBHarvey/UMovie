@@ -12,7 +12,8 @@ require.config({
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
-        text: 'lib/text'
+        text: 'lib/text',
+        jscookie: 'lib/js.cookie'
     }
 });
 

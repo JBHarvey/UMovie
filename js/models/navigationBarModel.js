@@ -6,19 +6,39 @@ define([
 ], function (Backbone) {
 
     var NavigationBarModel = Backbone.Model.extend({
-        defaults:{
-            user: "GLO-User",
+        defaults: {
+            user: null,
             siteImageUrl: "../../img/siteName.png",
-            references:"home",
+            references: "",
             menuOption: [
-                {name: "Home", references: "home"},
-                {name: "Movies", references: "movies"},
-                {name: "Watchlists", references: "watchlists"},
-                {name: "My Account", references: "user/"},
-                {name: "Parameters", references: "parameters"},
-                {name: "Disconnect", references: "logout"}
-            ]
+                {name: "Home", references: "", position: "menuStandard"},
+                {name: "Movies", references: "movies", position: "menuStandard"},
+                {name: "TV Shows", references: "tvShows", position: "menuStandard"},
+                {name: "Actors", references: "actors", position: "menuStandard"}
+            ],
+            menuOptionConnected: [
+                {name: "Watchlists", references: "watchlists", position: "menuStandard"},
+                {name: "Community", references: "otherUsers", position: "menuStandard"},
+                {name: "My Account", references: "user", position: "userOption"},
+                {name: "Settings", references: "settings", position: "userOption"},
+                {name: "Disconnect", references: "disconnect", position: "userOption"}
+            ],
+            menuOptionDisconnected: [
+                {name: "Login", references: "login", position: "authenticationMenuOption"},
+                {name: "Sign Up", references: "signup", position: "authenticationMenuOption"}
+            ],
+            connected: false
+        },
+
+        connect: function (name) {
+            this.defaults.connected = true;
+            this.defaults.user = name;
+        },
+        disconnect: function () {
+            this.defaults.connected = false;
+            this.defaults.user = null;
         }
+
     });
 
 
