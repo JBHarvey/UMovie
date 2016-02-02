@@ -1,16 +1,16 @@
-/* Style sheet for the watchlist page. Using only the watchlist classes.*/
+/* Style sheet for the watchlist page. Using only the watchlist classes.
+   This style sheet is used for the mobile version first. Media queries used for larger screens
+   (Desktop and Tablet modes).
+*/
+
 
 
 #watchlistTitle{
-
-    width: 40px;
-    height: 40px;
-    max-width: 200px;
-    max-height: 200px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    display : inline;
+    
     margin-left:  auto;
     margin-right: auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display : inline;
 
 }
 
@@ -18,20 +18,19 @@
 
     width : 840px;
     height : 400px;
-    color : yellow;
     position: relative;
 
 }
 
-
 .tvSeries{
+    /* Allows the block to be the same size for both carousels */
 
     width : 840px;
     height : 400px;
     position: relative;
 }
 
-
+/* Media query for the desktop sized window. */
 @media screen and (min-width: 640px){
     #watchlistTitle{
 
