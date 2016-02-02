@@ -311,7 +311,7 @@ button {
         box-sizing: border-box;
         padding: 0px 3%;
         width: 100%;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 40%, transparent);
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 30%, transparent);
 
         position: fixed;
         top: 0px;
@@ -389,6 +389,7 @@ button {
     /* ------ Right side nav-bar ------ */
 
     .search-bar{
+        padding: 1em 1em 0.5em 1em;
         float: right;
         width: inherit;
         display: inline-flex;
@@ -458,7 +459,7 @@ button {
         background: #FFCC00;
     }
     .go-research{
-        background: blue;
+        background: transparent;
     }
 
 
