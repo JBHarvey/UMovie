@@ -1,7 +1,15 @@
-
 #site-logo {
     width: 128px;
-    margin: -2.25em 0 0 0;
+    padding-top: 0.5em;
+}
+
+.umovie-logo {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 90%, transparent);
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
 }
 
 html {
@@ -149,6 +157,7 @@ button {
 }
 
 .search-bar {
+    padding-top: 4em;
     position: relative;
 }
 
@@ -210,7 +219,6 @@ button {
 
 .input-bar input.search-input:-ms-input-placeholder {
     color: #65737e;
-
 }
 
 .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
@@ -242,10 +250,16 @@ button {
     padding-bottom: 1px;
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
 }
 
 .go-research:hover {
     cursor: pointer;
+    background-color: white;
 }
 
 .inputFields {
