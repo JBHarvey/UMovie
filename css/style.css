@@ -301,6 +301,11 @@ button {
         background-color: black;
         color: white;
     }
+    
+    .umovie-logo {
+        background: none;
+        position: relative;
+    }
 
     body {
         margin: 0;
