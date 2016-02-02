@@ -4,26 +4,26 @@
         <div class="movieTitleWrapper">
             <div class="titleInner">
                 <h1 class="movieTitle">
-                    <a href="{{link}}">{{title}}</a>
-                    <span><img src="img/itunesLogo.png"></span>
+                    {{title}}
                 </h1>
             </div>
             <div class="movieSpecWrapper">
                 <div class="dateAndRating">
-                    <h6 class="bleuHeader">{{date}} - {{rating}}</h6>
+                    <h6 class="blueHeader">{{date}} - {{rating}}</h6>
                 </div>
                 <div class="genre">
-                    <h6>Genre: &nbsp;</h6><span><h6 class="bleuHeader">{{genre}}</h6></span>
+                    <h6>Genre: &nbsp;</h6><span><h6 class="blueHeader">{{genre}}</h6></span>
                 </div>
-
             </div>
             <div class="movieDescription">{{description}}</div>
-            <div class="favorite">{{movie}}</div>
+            <div class="linksAccess">
+                <span class="itunesLogo"><a href="{{link}}">
+                    <img src="img/itunesLogo.png"></a>
+                </span>
+                <span class="watchButtonWrapper">
+                    <a class="watchButton" href="">Watch Movie</a>
+                </span>
+            </div>
         </div>
-        <div class="watchButtonWrapper">
-            <a class="watchButton" href="">Watch Movie</a>
-        </div>
-
     </div>
-
 </div>

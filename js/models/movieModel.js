@@ -19,6 +19,5 @@ define([
         }
     });
 
-
     return MovieModel;
 });

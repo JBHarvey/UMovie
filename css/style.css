@@ -168,7 +168,7 @@ button {
     left: 0px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 640px) {
     #site-logo {
         width: 128px;
         margin: -2.25em 0 0 0;
@@ -199,7 +199,7 @@ button {
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 640px) {
 
     h2 {
         font: inherit;
