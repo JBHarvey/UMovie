@@ -42,9 +42,6 @@ define([
                 'press .search-input': "launchSearchFromInput"
             },
 
-            slideOutMenu: $('.navigation-options'),
-            crossButton: $('.cross'),
-
             toggleMenu: function (distance, buttonToShow, buttonToHide) {
 
             },
@@ -53,24 +50,18 @@ define([
             openHamburgerMenu: function (eventInfo) {
                 console.log(eventInfo);
                 var hamburgerButton = eventInfo.currentTarget;
-                this.slideOutMenu.toggleClass("open");
-                if (this.slideOutMenu.hasClass("open")) {
-                    this.slideOutMenu.animate({
-                        left: "0px"
-                    });
-                    this.crossButton.show();
-                    hamburgerButton.hide();
+                var slideOutMenu = document.getElementsByClassName("navigation-options")[0];
+                if (slideOutMenu.id === "menu-open") {
+                    slideOutMenu.id = "menu-closed";
+                    document.getElementsByClassName("hamburger")[0]
+                        .firstElementChild
+                        .setAttribute("src", "img/hamburger_menu.svg");
                 }
-            },
-
-            closeHamburgerMenu: function () {
-                this.slideOutMenu.toggleClass("open");
-                if (!this.slideOutMenu.hasClass("open")) {
-                    this.slideOutMenu.animate({
-                        left: -this.slideOutMenu.width()
-                    }, 250);
-                    this.crossButton.hide();
-                    this.hamburgerButton.show();
+                else {
+                    slideOutMenu.id = "menu-open";
+                    document.getElementsByClassName("hamburger")[0]
+                        .firstElementChild
+                        .setAttribute("src", "img/cross_menu.svg");
                 }
             },
 
@@ -80,7 +71,7 @@ define([
                 this.launchSearch(input);
             },
 
-            launchSearch(inputText) {
+            launchSearch: function (inputText) {
                 console.log(inputText);
             }
 

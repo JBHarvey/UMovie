@@ -161,6 +161,7 @@ button {
 }
 
 .input-bar input.search-input::-webkit-input-placeholder {
+
     color: #65737e;
 }
 
@@ -174,6 +175,7 @@ button {
 
 .input-bar input.search-input:-ms-input-placeholder {
     color: #65737e;
+
 }
 
 .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
