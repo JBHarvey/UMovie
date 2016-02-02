@@ -1,361 +1,170 @@
-html {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-    background-color: black;
-    color: white;
-}
+@media (min-width: 600px) {
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-}
+    html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        background-color: black;
+        color: white;
+    }
 
-button {
-    cursor: pointer;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
 
-h2 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-}
+    button {
+        cursor: pointer;
+    }
 
-/* ------ NAV-BAR  ----- */
+    h2 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        vertical-align: baseline;
+    }
 
-#menu-content {
-    height: 70px;
-    position: relative;
-}
-
-.navigation-bar {
-    height: 70px;
-    box-sizing: border-box;
-    padding: 0px 4%;
-    width: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 60%, transparent);
-
-    position: fixed;
-    top: 0px;
-    margin: 0px;
-    width: 100%;
-    z-index: 100;
-}
-
-.header {
-    margin: 0;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    background-color: black;
-}
-
-/* ------ Left side nav-bar ------ */
-
-.umovie-logo{
-    margin-top: 15px;
-}
-
-#site-logo {
-    width: 128px;
-    margin: -2.25em 0 0 0;
-    left: 0px;
-    background: transparent;
-}
-
-#expend-menu-icon {
-    width: 30px;
-    height: 30px;
-    margin: 0px 10px 25px 0px;
-    background: none;
-    border-style: none;
-}
-
-.open {
-    display: block;
-    left: 0px;
-}
-
-.hamburger {
-    display: none;
-}
-
-.cross {
-    display: none;
-}
-
-
-/* ------ Middle side nav-bar ------ */
-
-.menu {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-.navigation-options {
-    position: fixed;
-    width: 250px;
-    left: -250px;
-    top: 3em;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: #33333;
-}
-
-.navigation-options li {
-    padding: 1em;
-    display: block;
-    color: white;
-}
-
-.navigation-options a {
-    text-decoration: none;
-    color: #96948B;
-}
-
-.menu .navigation-options li a:hover {
-    color: white;
-    font-style: bold;
-    font-size: 20px;
-}
-
-/* ------ Right side nav-bar ------ */
-
-.search-bar {
-    margin: 0 0 0 0;
-    padding: 10px 0 0 0;
-}
-
-.search-bar a {
-    text-decoration: none;
-    color: #96948A;
-}
-
-.search-bar > li {
-    color: white;
-    margin-top: 0px;
-    padding: 2px 10px;
-    display: block;
-    float: right;
-}
-
-.search-bar li a:hover {
-    color: white;
-    font-style: bold;
-    font-size: 20px;
-}
-
-.search-bar > div {
-    display: block;
-    float: right;
-}
-
-
-
-/*
-.search-input {
-    padding-right: 0px;
-    padding-left: 0;
-    border-right: 10px;
-    border-left: 0;
-    
-    border:1px solid white;
-    background-color: black;
-    color: white;
-    display: none;
-}*/
-
-.research-options{
-    color: transparent
-}
-
-
-/* Remove for the moment, not useful
-.go-research {
-    background: url("goSearchIcon.png");
-    background-color: ;
-    width: 18px;
-    height: 17px;
-    display: inline-flex;
-    position: relative;
-    top: 3px;
-    left: -4px;
-    padding-top: 1px;
-    padding-right: 1px;
-    padding-bottom: 1px;
-    border-top: 2px inset ThreeDLightShadow;
-    border-right: 2px inset ThreeDLightShadow;
-    border-bottom: 2px inset ThreeDLightShadow;
-}
-*/
-
-/*
-.search-image {
-    background-image: url("goSearchIcon.png");
-    background-color: white;
-    width: 17px;
-    height: 16px;
-    display: inline-flex;
-    position: relative;
-    top: 3px;
-    left: 4px;
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
-
-}
-*/
-
-/* ------ PAGE CONTENT ------ */
-
-div #content {
-    max-width: 900px;
-    margin: 40 auto;
-    padding: 0px 2% 0;
-    background-color: #222121;
-
-}
-
-#container #content {
-    background: black;
-    position: relative;
-    z-index: 0;
-    margin-top: -70px;
-
-}
-
-.authentification{
-    background: black;
-}
-
-.authentification img {
-    width: auto;
-}
-
-.movieTitle {
-    font-family: Ubuntu;
-    font-weight: 400;
-}
-
-/* ------ Responsive ------ */
-
-@media (min-width: 700px) {
-    #site-logo {
-
-        width: 138px;
-        margin: 0 0 0 0;
+    /* ------ NAV-BAR  ----- */
+    #menu-content {
+        height: 70px;
+        position: relative;
     }
 
     .navigation-bar {
-        display: inline-flex;
-        float: left;
+        height: 70px;
+        box-sizing: border-box;
+        padding: 0px 4%;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 60%, transparent);
+
+        position: fixed;
+        top: 0px;
+        margin: 0px;
+        width: 100%;
+        z-index: 100;
     }
 
-    .navigation-options li {
-        padding: 0.7em;
-        display: inline;
-        border: none;
+    .header {
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        background-color: black;
+    }
+
+    /* ------ Left side nav-bar ------ */
+    .umovie-logo {
+        margin-top: 15px;
+    }
+
+    #site-logo {
+        width: 128px;
+        margin: -2.25em 0 0 0;
+        left: 0px;
+        background: transparent;
+    }
+
+    #expend-menu-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0px 10px 25px 0px;
+        background: none;
+        border-style: none;
+    }
+
+    /* ------ Middle side nav-bar ------ */
+    .menu {
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
 
     .navigation-options {
-        background: transparent;
-        padding: 1.3em 0.5em 1em 0.5em;
-        position: inherit;
-        width: intrinsic; /* Safari/WebKit uses a non-standard name */
-        width: -moz-max-content; /* Firefox/Gecko */
-        width: -webkit-max-content; /* Chrome */
-        margin: 0.5em;
+        position: fixed;
+        width: 250px;
+        left: -250px;
+        top: 3em;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background: #33333;
     }
 
-}
+    .navigation-options li {
+        padding: 1em;
+        display: block;
+        color: white;
+    }
 
-@media screen and (max-width: 480px) {
+    .navigation-options a {
+        text-decoration: none;
+        color: #96948B;
+    }
 
-    h2 {
-        font: inherit;
-        vertical-align: baseline;
-        font-size: 30px;
+    .menu .navigation-options li a:hover {
+        color: white;
+        font-style: bold;
+        font-size: 20px;
+    }
+
+    /* ------ Right side nav-bar ------ */
+    .search-bar {
+        margin: 0 0 0 0;
+        padding: 10px 0 0 0;
+    }
+
+    .search-bar a {
+        text-decoration: none;
+        color: #96948A;
+    }
+
+    .search-bar > li {
+        color: white;
+        margin-top: 0px;
+        padding: 2px 10px;
+        display: block;
         float: right;
     }
 
+    .search-bar li a:hover {
+        color: white;
+        font-style: bold;
+        font-size: 20px;
+    }
+
+    .search-bar > div {
+        display: block;
+        float: right;
+    }
+
+    .research-options {
+        color: transparent
+    }
+
+    /* ------ PAGE CONTENT ------ */
     div #content {
-        max-width: 400px;
-        margin: 0 auto;
-        position: relative;
+        max-width: 900px;
+        margin: 40 auto;
         padding: 0px 2% 0;
         background-color: #222121;
-    }
-
-    div .movieCover {
-        max-width: 150px !important;
-        max-height: 300px !important;
-    }
-
-    div .movieCover img {
-        max-width: 150px !important;
-        max-height: 300px !important;
-    }
-
-    .watchButton {
-        background: #3498db;
-        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-        background-image: -o-linear-gradient(top, #3498db, #2980b9);
-        background-image: linear-gradient(to bottom, #3498db, #2980b9);
-        -webkit-border-radius: 8;
-        -moz-border-radius: 8;
-        border-radius: 8px;
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 20px;
-        padding: 10px 20px 10px 20px;
-        text-decoration: none;
-    }
-
-    .watchButton:hover {
-        background: #3cb0fd;
-        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-        text-decoration: none;
 
     }
 
-.hamburger {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    top: 1em;
-    left: 1em;
-    background: none;
-    border-style: none;
-}
+    #container #content {
+        background: black;
+        position: relative;
+        z-index: 0;
+        margin-top: -70px;
+    }
 
-.cross {
-    width: 30px;
-    height: 30px;
-    display: none;
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border-style: none;
-}
+    .authentification {
+        background: black;
+    }
 
-.hamburger img {
-    width: 30px;
-    height: 30px;
-}
+    .authentification img {
+        width: auto;
+    }
+
 }
