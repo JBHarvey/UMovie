@@ -301,7 +301,7 @@ button {
         background-color: black;
         color: white;
     }
-    
+
     .umovie-logo {
         background: none;
         position: relative;
@@ -521,9 +521,8 @@ button {
     }
 
     .authentification, .connect{
-        display: none;
     }
-    /*
+
 
    .authentification{
        text-align: center;
@@ -569,5 +568,5 @@ button {
       padding: 2em 0em 0.6em 15em;
   }
 
-*/
+
 }
