@@ -1,0 +1,82 @@
+/* POUR LE MOBILE*/
+
+
+.actor {
+    max-width: 100%;
+    width: 100%;
+}
+
+.info {
+    overflow: auto;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.imgActor {
+    max-width: 45%;
+    height: auto;
+    float: left;
+    margin: 2.5%;
+
+
+
+}
+.itunes{
+    max-width: 45%;
+    margin: 2.5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ilogo {
+    max-width: 50%;
+    margin: 25% 25% 10% 25%;
+
+}
+#centre{
+    text-align: center;
+    margin-top: 0;
+}
+
+.description {
+    width: 100%;
+}
+
+.movie-list {
+    max-width: 100%;
+}
+
+
+@media screen and (min-width: 640px){
+
+
+    .description {
+        float: right;
+        width: 65%;
+
+    }
+    .info {
+        float: left;
+        width: 30%;
+    }
+    .imgActor{
+        float: none;
+        max-width: 100%;
+    }
+    .itunes{
+        max-width: 100%;
+        position: relative;
+    }
+    .ilogo{
+        margin: 5% 25% 5% 25%;
+    }
+}
+
+@media screen and (min-width: 960px){
+
+
+}
+
+/* phone = 640px, Tablet = 960px */

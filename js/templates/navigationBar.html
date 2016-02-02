@@ -1,18 +1,37 @@
 <div class="navigation-bar">
     <div class="umovie-logo">
-        <span id="expend-menu-icon"></span>
-        <a href="#/{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
-        <div>Welcome, {{user}}!</div>
+        <span id="expend-menu-icon">
+            <button class="hamburger"><img src="img/hamburger_menu.svg"/></button>
+            <button class="cross"><img src="img/cross_menu.svg"/></button>
+        </span>
+        <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
     </div>
     <div class="menu">
         <ul class="navigation-options">
             {{#each menuOption}}
-            <li><a href="#/{{references}}">{{name}}</a></li>
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
+            {{#if connected}}
+            {{#each menuOptionConnected}}
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+            {{/each}}
+            {{else}}
+            {{#each menuOptionDisconnected}}
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+            {{/each}}
+            {{/if}}
         </ul>
     </div>
+    {{#if user}}
+    <div id="greeting-message">{{user}}</div>
+    {{/if}}
     <div class="search-bar">
-        Search bar comes here!
+        <div class="input-bar">
+            <span class="search-image"></span>
+            <input class="search-input">
+            <span class="go-research"></span>
+        </div>
+        <div class="research-options collapsed">advanced research</div>
     </div>
 </div>
 
