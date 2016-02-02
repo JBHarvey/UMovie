@@ -1,3 +1,4 @@
+
 #site-logo {
     width: 128px;
     margin: -2.25em 0 0 0;
@@ -108,6 +109,7 @@ button {
     color: #96948A;
 }
 
+
 #menu-open {
     left: 0;
     -webkit-animation: 1s slideIn;
@@ -198,11 +200,11 @@ button {
     color: #65737e;
 }
 
-.input-bar input.search-input:-moz-placeholder { /* Firefox 18- */
+.input-bar input.search-input:-moz-placeholder { 
     color: #65737e;
 }
 
-.input-bar input.search-input::-moz-placeholder {  /* Firefox 19+ */
+.input-bar input.search-input::-moz-placeholder {  
     color: #65737e;
 }
 
@@ -272,12 +274,18 @@ button {
     margin-left: auto;
 }
 
+    .authentification img {
+        width: 100%;
+    }
+
+
 @media (min-width: 600px) {
 
     html {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
+        font-size:1.6vw;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.9vw;
         background-color: black;
         color: white;
     }
@@ -292,60 +300,48 @@ button {
         cursor: pointer;
     }
 
-    h2 {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font: inherit;
-        vertical-align: baseline;
-    }
 
     /* ------ NAV-BAR  ----- */
     #menu-content {
         height: 70px;
         position: relative;
+       
     }
 
     .navigation-bar {
-        height: 70px;
+        height: 25%;
         box-sizing: border-box;
-        padding: 0px 4%;
+        padding: 0px 3%;
         width: 100%;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 60%, transparent);
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 40%, transparent);
 
         position: fixed;
         top: 0px;
         margin: 0px;
-        width: 100%;
         z-index: 100;
     }
-
-    .header {
-        margin: 0;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        background-color: black;
+    
+    .navigation-bar{
+        display: inline-flex
     }
 
     /* ------ Left side nav-bar ------ */
-    .umovie-logo {
-        margin-top: 15px;
+    
+    .umovie-logo{
+        width:15%;
     }
-
+    
+    #expend-menu-icon{
+       display: none;    
+    }
+    
     #site-logo {
-        width: 128px;
-        margin: -2.25em 0 0 0;
+        height: 1.3em;
+        width: 5.7em;
+        padding: 0px;
+        margin: 0.96em 20px 0 0;
         left: 0px;
         background: transparent;
-    }
-
-    #expend-menu-icon {
-        width: 30px;
-        height: 30px;
-        margin: 0px 10px 25px 0px;
-        background: none;
-        border-style: none;
     }
 
     /* ------ Middle side nav-bar ------ */
@@ -353,92 +349,153 @@ button {
         padding: 0;
         margin: 0;
         width: 100%;
+
     }
 
     .navigation-options {
-        position: fixed;
-        width: 250px;
-        left: -250px;
-        top: 3em;
+        position:initial;
+        width: 550px;
+        
         list-style: none;
-        padding: 0;
-        margin: 0;
         background: #33333;
+        background-color: transparent;
     }
 
-    .navigation-options li {
-        padding: 1em;
-        display: block;
+    .navigation-options li, .search-bar li{
+        padding: 1em 1em 0.5em 1em;
+        top: 1em;
+        float:left;
         color: white;
+        border: none;
+        display:-moz-groupbox;
     }
-
+    
+    .navigation-options li:hover {
+       background-color: transparent;
+    }
+    
     .navigation-options a {
         text-decoration: none;
         color: #96948B;
     }
 
-    .menu .navigation-options li a:hover {
-        color: white;
+    .navigation-options li a:hover {
+        background-color: transparent;
+        border: none;
+        color: #FFCC00;
         font-style: bold;
-        font-size: 20px;
+        font-size: 1.8vw;
     }
+
 
     /* ------ Right side nav-bar ------ */
+    
+    
     .search-bar {
-        margin: 0 0 0 0;
-        padding: 10px 0 0 0;
+        padding: 0;
+        margin: 0;
+        width:500px;
     }
 
-    .search-bar a {
-        text-decoration: none;
-        color: #96948A;
-    }
-
-    .search-bar > li {
-        color: white;
-        margin-top: 0px;
-        padding: 2px 10px;
-        display: block;
-        float: right;
-    }
-
+    
     .search-bar li a:hover {
-        color: white;
+        background-color: transparent;
+        border: none;
+        color: #FFCC00;
         font-style: bold;
-        font-size: 20px;
+        font-size: 1.8vw;
     }
 
-    .search-bar > div {
-        display: block;
-        float: right;
-    }
-
+    
     .research-options {
-        color: transparent
+        color: transparent;
+    }
+  
+    .search-input{
+    margin-left: 6.5vw;
+    color: black;
+    height: 2em;
+    display:initial ;
+    border-top-left-radius: 0.4em;
+    border-bottom-left-radius: 0.4em;
+    background: white;
+    padding-top: 0.3em;
+    padding-left: 1.4em;
+    border-top: none;
+    border-bottom: none;
+    border-right: 0;
+    border-left: 0;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+    }
+    
+    .go-research {
+    background-image: url= ("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png")
+    margin-left:0.3vw;
+    color: black;
+    height: 2em;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+    display:initial ;
+    background: transparent;
+    padding-top: 0.3em;
+    padding-left: 1.4em;
+    border-top: none;
+    border-bottom: none;
+    border-right: 0;
+    border-left: 0;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+    }
+    
+    .input-bar input.search-input::-webkit-input-placeholder {
+
+    color: #65737e;
     }
 
+    .input-bar input.search-input:-moz-placeholder { 
+       color: #65737e;
+    }
+
+    .input-bar input.search-input::-moz-placeholder {  
+       color: #65737e;
+    }
+
+    .input-bar input.search-input:-ms-input-placeholder {
+       color: #65737e;
+    }
+
+    .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
+    outline:none;
+    color: black;
+    background: #FFCC00;
+}
+    
     /* ------ PAGE CONTENT ------ */
     div #content {
-        max-width: 900px;
-        margin: 40 auto;
-        padding: 0px 2% 0;
-        background-color: #222121;
-
+        max-width: 100%;
+        padding: 0;
+        background-color: black;
+        color: white;
     }
 
-    #container #content {
+   
+    #container{
         background: black;
         position: relative;
         z-index: 0;
         margin-top: -70px;
     }
-
-    .authentification {
-        background: black;
+    
+    .movie-banner{
+        height: 48vw;
     }
 
-    .authentification img {
-        width: auto;
-    }
 
 }

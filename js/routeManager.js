@@ -93,13 +93,13 @@ define([
             homeView = new HomeView();
         }
 
+
         uMovieRouter.on('route:goHome', function () {
             if (uMovieRouter.checkCredentials()) {
                 navigationBarView.render();
                 homeView.render();
             }
         });
-
 
         // Movies
         uMovieRouter.on('route:displayMovies', function () {

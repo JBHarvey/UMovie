@@ -26,7 +26,7 @@ define([
 
             var source = new HomeModel();
             var resultHome = template(source.defaults);
-
+            console.log(resultHome);
             this.$el.html(resultHome);
         }
     });
