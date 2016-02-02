@@ -20,16 +20,6 @@
         <!-- <div id="greeting-message">{{user}}</div> -->
         <!-- {{/if}}  -->
 
-        {{#if connected}}
-        {{#each menuOptionConnected}}
-        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-        {{/each}}
-        {{else}}
-        {{#each menuOptionDisconnected}}
-        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-        {{/each}}
-        {{/if}}
-
         <div class="search-container">
             <div class="input-bar">
                 <input placeholder="Search..." class="search-input">
@@ -39,5 +29,18 @@
             </div>
             <div class="research-options collapsed">advanced research</div>
         </div>
+
+        <div>
+        {{#if connected}}
+        {{#each menuOptionConnected}}
+        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+        {{/each}}
+        {{else}}
+        {{#each menuOptionDisconnected}}
+        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+        {{/each}}
+        {{/if}}
+        </div>
+
     </div>
 </div>
