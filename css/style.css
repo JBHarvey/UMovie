@@ -1,26 +1,19 @@
-#site-logo {
-    width: 128px;
-    margin: -2.25em 0 0 0;
-    left: 0px;
-    background: transparent;
-
-}
-
 html {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
+    line-height: 20px;
     background-color: black;
     color: white;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
 
-
-div #content {
-    max-width: 900px;
-    margin: 40 auto;
-    padding: 0px 2% 0;
-    background-color: #222121;
-
+button {
+    cursor: pointer;
 }
 
 h2 {
@@ -31,16 +24,25 @@ h2 {
     vertical-align: baseline;
 }
 
-.movieTitle {
-    font-family: Ubuntu;
-    font-weight: 400;
+/* ------ NAV-BAR  ----- */
+
+#menu-content {
+    height: 70px;
+    position: relative;
 }
 
+.navigation-bar {
+    height: 70px;
+    box-sizing: border-box;
+    padding: 0px 4%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 60%, transparent);
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    width: 100%;
+    z-index: 100;
 }
 
 .header {
@@ -51,9 +53,17 @@ body {
     background-color: black;
 }
 
+/* ------ Left side nav-bar ------ */
 
-button {
-    cursor: pointer;
+.umovie-logo{
+    margin-top: 15px;
+}
+
+#site-logo {
+    width: 128px;
+    margin: -2.25em 0 0 0;
+    left: 0px;
+    background: transparent;
 }
 
 #expend-menu-icon {
@@ -64,6 +74,21 @@ button {
     border-style: none;
 }
 
+.open {
+    display: block;
+    left: 0px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.cross {
+    display: none;
+}
+
+
+/* ------ Middle side nav-bar ------ */
 
 .menu {
     padding: 0;
@@ -88,12 +113,36 @@ button {
     color: white;
 }
 
+.navigation-options a {
+    text-decoration: none;
+    color: #96948B;
+}
+
 .menu .navigation-options li a:hover {
     color: white;
     font-style: bold;
     font-size: 20px;
 }
 
+/* ------ Right side nav-bar ------ */
+
+.search-bar {
+    margin: 0 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.search-bar a {
+    text-decoration: none;
+    color: #96948A;
+}
+
+.search-bar > li {
+    color: white;
+    margin-top: 0px;
+    padding: 2px 10px;
+    display: block;
+    float: right;
+}
 
 .search-bar li a:hover {
     color: white;
@@ -101,38 +150,35 @@ button {
     font-size: 20px;
 }
 
-.search-bar {
-    margin: 0 0 0 0;
-    padding: 10px 0 0 0;
-}
-.search-bar > li {
-    color: white;
-    margin-top: 0px;
-    padding: 2px 10%;
-    display: block;
-    float: right;
-}
-
 .search-bar > div {
     display: block;
     float: right;
 }
 
+
+
+/*
 .search-input {
-    display: none;
-    padding-right: 0;
+    padding-right: 0px;
     padding-left: 0;
-    border-right: 0;
+    border-right: 10px;
     border-left: 0;
-}
+    
+    border:1px solid white;
+    background-color: black;
+    color: white;
+    display: none;
+}*/
 
 .research-options{
-    /*color: transparent;*/
+    color: transparent
 }
 
+
+/* Remove for the moment, not useful
 .go-research {
-    background-image: url("../img/SearchIcon.png");
-    background-color: white;
+    background: url("goSearchIcon.png");
+    background-color: ;
     width: 18px;
     height: 17px;
     display: inline-flex;
@@ -146,9 +192,11 @@ button {
     border-right: 2px inset ThreeDLightShadow;
     border-bottom: 2px inset ThreeDLightShadow;
 }
+*/
 
+/*
 .search-image {
-    background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png");
+    background-image: url("goSearchIcon.png");
     background-color: white;
     width: 17px;
     height: 16px;
@@ -161,34 +209,15 @@ button {
     padding-bottom: 1px;
 
 }
+*/
 
-.navigation-options a {
-    text-decoration: none;
-    color: #96948B;
-}
+/* ------ PAGE CONTENT ------ */
 
-.search-bar a {
-    text-decoration: none;
-    color: #96948A;
-}
-
-#container #menu-content {
-    height: 70px;
-    position: relative;
-}
-
-#container #menu-content .navigation-bar {
-    height: 70px;
-    box-sizing: border-box;
-    padding: 0px 4%;
-    width: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 60%, transparent);
-
-    position: fixed;
-    top: 0px;
-    margin: 0px;
-    width: 100%;
-    z-index: 100;
+div #content {
+    max-width: 900px;
+    margin: 40 auto;
+    padding: 0px 2% 0;
+    background-color: #222121;
 
 }
 
@@ -200,26 +229,20 @@ button {
 
 }
 
-.open {
-    display: block;
-    left: 0px;
-}
-
-.hamburger {
-    display: none;
-}
-
-.cross {
-    display: none;
-}
-
 .authentification{
     background: black;
 }
 
-.umovie-logo{
-    margin-top: 15px;
+.authentification img {
+    width: auto;
 }
+
+.movieTitle {
+    font-family: Ubuntu;
+    font-weight: 400;
+}
+
+/* ------ Responsive ------ */
 
 @media (min-width: 700px) {
     #site-logo {
