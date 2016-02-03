@@ -422,7 +422,7 @@ button {
 
     .navigation-options {
         position:initial;
-        width: 550px;
+        width: inherit;
 
         list-style: none;
         background: #33333;
