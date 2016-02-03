@@ -3,6 +3,9 @@
         <span id="expend-menu-icon">
             <button class="hamburger"><img src="img/hamburger_menu.svg"/></button>
         </span>
+        <span id="expend-member-menu-icon">
+            <button class="member-hamburger"><img src="img/member_icon.png"/></button>
+        </span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
     </div>
     <div class="menu">
@@ -20,7 +23,7 @@
         <!-- <div id="greeting-message">{{user}}</div> -->
         <!-- {{/if}}  -->
 
-        <div class="search-container">
+        <div class="search-container" id="member-menu-closed">
             <div class="input-bar">
                 <input placeholder="Search..." class="search-input">
                 <span class="go-research">
@@ -30,7 +33,7 @@
             <div class="research-options collapsed">advanced research</div>
         </div>
 
-        <div>
+        <div class="member-menu">
         {{#if connected}}
         {{#each menuOptionConnected}}
         <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>

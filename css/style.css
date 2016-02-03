@@ -82,6 +82,75 @@ button {
     height: 30px;
 }
 
+.member-hamburger {
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    top: 0.8em;
+    right: 0.5em;
+}
+
+.member-hamburger img {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+#member-menu-open {
+    right: 0;
+    -webkit-animation: 1s memberSlideIn;
+    -moz-animation: 1s memberSlideIn;
+    -o-animation: 1s memberSlideIn;
+    animation: 1s memberSlideIn;
+}
+
+@-webkit-keyframes memberSlideIn { from { right:-250px; } to { right:0; }  }
+@-moz-keyframes memberSlideIn { from { right:-250px; } to { right:0; }  }
+@-o-keyframes memberSlideIn { from { right:-250px; } to { right:0; }  }
+@keyframes memberSlideIn { from { right:-250px; } to { right:0; }  }
+
+
+#member-menu-closed {
+    right: -250px;
+    -webkit-animation: 1s memberSlideOut;
+    -moz-animation: 1s memberSlideOut;
+    -o-animation: 1s memberSlideOut;
+    animation: 1s memberSlideOut;
+}
+
+@-webkit-keyframes memberSlideOut { from { right:0; } to { right:-250px; }  }
+@-moz-keyframes memberSlideOut { from { right:0; } to { right:-250px; }  }
+@-o-keyframes memberSlideOut { from { right:0; } to { right:-250px; }  }
+@keyframes memberSlideOut { from { right:0; } to { right:-250px; }  }
+
+.member-menu {
+    z-index: 1000000;
+    position: fixed;
+    right: -250px;
+    width: 250px;
+    top: 4em;
+    border-bottom: solid #454545 1px;
+}
+
+.member-menu li {
+    display: block;
+    list-style: none;
+    padding: 1em;
+    background-color: #333333;
+    border-top: solid #454545 1px;
+    border-bottom: solid #151515 1px;
+}
+
+.member-menu li:hover {
+    background-color: #181818;
+}
+
+.member-menu a {
+    text-decoration: none;
+    color: #96948A;
+    display: block;
+}
+
 .menu {
     padding: 0;
     margin: 0;
@@ -152,10 +221,9 @@ button {
 
 }
 
-
-
 .search-bar {
     padding-top: 4em;
+    padding-bottom: 1em;
     position: relative;
 }
 
@@ -165,24 +233,6 @@ button {
     max-width: 13em;
     margin-right: auto;
     margin-left: auto;
-}
-
-.search-bar li {
-    display: inline;
-}
-
-.search-bar li a:hover {
-    color: white;
-}
-
-.search-bar > li:first-child {
-    padding-left: 32%;
-    padding-right: 1em;
-}
-
-.search-bar li a {
-    color: darkgrey;
-    text-decoration: none;
 }
 
 .search-input {

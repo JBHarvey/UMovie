@@ -36,7 +36,8 @@ define([
 
 
             events: {
-                'click .hamburger': "openHamburgerMenu",
+                'click .hamburger': "toggleSlideOutMenu",
+                'click .member-hamburger': "toggleMemberMenu",
                 'click .cross': "closeHamburgerMenu",
                 'click .go-research': "launchSearchFromButton",
                 'press .search-input': "launchSearchFromInput"
@@ -46,9 +47,9 @@ define([
 
             },
 
-
-            openHamburgerMenu: function () {
+            toggleSlideOutMenu: function() {
                 var slideOutMenu = document.getElementsByClassName("navigation-options")[0];
+                document.getElementsByClassName("member-menu")[0].id = "member-menu-closed";
                 if (slideOutMenu.id === "menu-open") {
                     slideOutMenu.id = "menu-closed";
                     document.getElementsByClassName("hamburger")[0]
@@ -60,6 +61,20 @@ define([
                     document.getElementsByClassName("hamburger")[0]
                         .firstElementChild
                         .setAttribute("src", "img/cross_menu.svg");
+                }
+            },
+
+            toggleMemberMenu: function() {
+                var memberMenu = document.getElementsByClassName("member-menu")[0];
+                document.getElementsByClassName("navigation-options")[0].id = "menu-closed";
+                document.getElementsByClassName("hamburger")[0]
+                    .firstElementChild
+                    .setAttribute("src", "img/hamburger_menu.svg");
+                if (memberMenu.id === "member-menu-open") {
+                    memberMenu.id = "member-menu-closed";
+                }
+                else {
+                    memberMenu.id = "member-menu-open";
                 }
             },
 
