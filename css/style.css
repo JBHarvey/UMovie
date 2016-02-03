@@ -1,3 +1,9 @@
+@media (max-width: 600px) {
+    .umovie-logo {
+        z-index: 10000;
+    }
+}
+
 #site-logo {
     width: 128px;
     padding-top: 0.5em;
@@ -7,7 +13,6 @@
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 90%, transparent);
-    z-index: 1000;
     width: 100%;
     position: fixed;
 }
@@ -160,7 +165,6 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    z-index: 1000000;
     top: 3em;
     list-style: none;
     padding: 0;
@@ -383,7 +387,6 @@ button {
         position: fixed;
         top: 0px;
         margin: 0px;
-        z-index: 100;
     }
 
     .navigation-bar{
@@ -532,7 +535,6 @@ button {
     #container{
         background: black;
         position: relative;
-        z-index: 0;
         margin-top: -70px;
     }
 
@@ -548,7 +550,6 @@ button {
     .text h1{
         font-size: 4.1em;
         text-align: center;
-        z-index: 1000;
 
         margin-top:-4.7em;
     }
@@ -585,7 +586,6 @@ button {
         top:35%;
         left:25%;
 
-        z-index :100;
     }
 
     .authentification input{
