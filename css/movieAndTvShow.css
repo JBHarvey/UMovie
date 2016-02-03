@@ -15,6 +15,7 @@ h6 {
 
 .movieDescription {
     color: #999;
+    font-family: "Helvetica Neue";
 }
 
 .watchButton {
@@ -50,12 +51,12 @@ h6 {
 
     div .movieCover {
         max-width: 150px !important;
-        max-height: 300px !important;
+        max-height: 450px !important;
     }
 
     div .movieCover img {
         max-width: 150px !important;
-        max-height: 300px !important;
+        max-height: 450px !important;
         padding-left: 5px;
         padding-top: 5px;
 
@@ -101,7 +102,7 @@ h6 {
         top: 5px;
         width: 230px;
         bottom: 5px;
-        background-color: green;
+        
     }
 
     .movieDescription{
@@ -119,15 +120,14 @@ h6 {
 
     div #content {
         max-width: 620px !important;
-        max-height: 400px !important;
+        max-height: 410px !important;
         padding-top: 120px;
     }
 
     .movie-browser .phoneScreenAlign {
         position: relative;
-        background-color: blue;
         width: 620px;
-        height: 620px;
+        height: 410px;
     }
 
     div .movieCover {
@@ -142,19 +142,23 @@ h6 {
         width: 300px;
         height: 300px;
         bottom: 5px;
-        background-color: green;
+
     }
 
     div .movieCover img {
         max-width: 350px !important;
         max-height: 400px !important;
-        padding-left: 5px;
-        padding-top: 5px;
-
     }
+
     .movieSpecWrapper {
-
+        font-family: "Helvetica Neue";
+        font-size: 13px;
     }
+
+    .movieDescription{
+        font-size: 15px;
+    }
+
     .itunesLogo a img{
         height: 60px;
         width: 60px;
@@ -163,6 +167,12 @@ h6 {
     }
 
     .linksAccess {
+        padding-top: 30px;
         display: block;
+
+    }
+
+    span {
+
     }
 }
