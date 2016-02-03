@@ -10,6 +10,7 @@ define([
         defaults: {
             title: "Movie browser!",
             movie: "Fight Club",
+            url: "http://www.forgetthebox.net/wp-content/uploads/2013/05/Iron-Man-3-2013-Movie-Title-Banner.jpg"
         }
     });
 
