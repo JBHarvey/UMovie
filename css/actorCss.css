@@ -50,7 +50,7 @@
 }
 
 /*CSS du texte*/
-#genre{
+.genre{
     font-size: 140%;
     font-weight: bold;
 }
@@ -89,7 +89,7 @@
     #text{
         font-size: 150%;
     }
-    #genre{
+    .genre{
         font-size: 170%;
         font-weight: bold;
     }
@@ -108,6 +108,36 @@
         font-size: 130%;
         font-weight: bold;
     }
+    .movie-image{
+        width: 100%;
+        height:auto;
+        display:inline-block;
+        margin: 1% 10% 1% 10%;
+    }
+    #movie{
+        height: 20%;
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: grey;
+    }
+    .movie-menu{
+        margin: 0;
+        padding: 0;
+
+    }
+    .movie-menu li{
+        display: inline-block;
+        width: 25%;
+
+    }
+
+    .youtube {
+        width: 100%;
+        height: 100%;
+
+    }
 }
+
 
 /* phone = 640px, Tablet = 960px */
