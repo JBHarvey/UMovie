@@ -1,0 +1,58 @@
+/* Style sheet for the watchlist page. Using only the watchlist classes.
+   This style sheet is used for the mobile version first. Media queries used for larger screens
+   (Desktop and Tablet modes).
+*/
+
+
+
+#watchlistTitle{
+<<<<<<< HEAD
+    
+=======
+
+>>>>>>> master
+    margin-left:  auto;
+    margin-right: auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display : inline;
+
+}
+
+.movies{
+
+    width : 840px;
+    height : 400px;
+    position: relative;
+
+}
+
+.tvSeries{
+    /* Allows the block to be the same size for both carousels */
+
+    width : 840px;
+    height : 400px;
+    position: relative;
+}
+
+/* Media query for the desktop sized window. */
+@media screen and (min-width: 640px){
+    #watchlistTitle{
+
+        width : 350px;
+        max-width: 300px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        display : inline;
+    }
+
+<<<<<<< HEAD
+=======
+/* Media query for the tablet version (Apple iPad) */
+
+
+
+
+/* Media query for the phone version (Nexus 5) */
+
+>>>>>>> master
+
+}

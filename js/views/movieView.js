@@ -16,7 +16,8 @@ define([
 
         el: $('#content'),
 
-        initialize: function () {
+        initialize: function (movieId) {
+            this.id = movieId;
             this.render();
         },
 
@@ -26,7 +27,7 @@ define([
             var template = Handlebars.compile(movieTemplate);
 
             var source = new MovieModel();
-            var resultMovie = template(source.defaults);
+            var resultMovie = template(source.hardcode);
 
             this.$el.html(resultMovie);
         }
