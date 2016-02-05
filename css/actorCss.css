@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.info {
+.actor-itunes {
     overflow: auto;
     width: 100%;
     height: auto;
@@ -14,16 +14,14 @@
 }
 
 .imgActor {
-    max-width: 45%;
+    max-width: 50%;
     height: auto;
     float: left;
     margin: 2.5%;
 
-
-
 }
 .itunes{
-    max-width: 45%;
+    max-width: 40%;
     margin: 2.5%;
     position: absolute;
     top: 0;
@@ -47,8 +45,62 @@
 .movie-list {
     max-width: 100%;
 }
+.information {
+    overflow: auto;
+}
+
+/*CSS du texte*/
+.genre{
+    font-size: 140%;
+    font-weight: bold;
+}
+#text{
+    font-size: 120%;
+}
+#header{
+    font-size: 200%;
+}
+/*Fin du texte*/
 
 
+/*Section movie*/
+.movie-image{
+    width: 90%;
+    height:auto;
+    display:inline-block;
+    margin: 5% auto 5% auto;
+    max-width: 400px;
+}
+.movie{
+    height: 100%;
+    width: 100%;
+
+    background-color: grey;
+}
+.movie-menu{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0;
+    list-style-type: none;
+}
+.movie-menu li{
+    flex-basis: 100%;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+
+.youtube {
+
+    height: 100%;
+    max-width: 50%;
+
+}
+/*Fin Section movie*/
+
+/*Pour la tablette*/
 @media screen and (min-width: 640px){
 
 
@@ -57,13 +109,14 @@
         width: 65%;
 
     }
-    .info {
+    .actor-itunes {
         float: left;
         width: 30%;
     }
     .imgActor{
         float: none;
         max-width: 100%;
+        margin: 0;
     }
     .itunes{
         max-width: 100%;
@@ -72,11 +125,61 @@
     .ilogo{
         margin: 5% 25% 5% 25%;
     }
+    #text{
+        font-size: 150%;
+    }
+    .genre{
+        font-size: 170%;
+        font-weight: bold;
+    }
+    #header{
+        font-size: 300%;
+    }
 }
-
 @media screen and (min-width: 960px){
+    #header{
+        font-size: 200%;
+    }
+    #text{
+        font-size: 100%;
+    }
+    #genre{
+        font-size: 130%;
+        font-weight: bold;
+    }
+    .movie-image{
+        width: 100%;
+        height:auto;
+        display:inline-block;
+        margin: 1% 0% 1% 0%;
+    }
+    .movie{
+        height: 20%;
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: grey;
+    }
+    .movie-menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 0;
+        list-style-type: none;
+    }
+    .movie-menu li{
+        flex-basis: 25%;
+        width: 25%;
 
+    }
 
+    .youtube {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+
+    }
 }
+
 
 /* phone = 640px, Tablet = 960px */
