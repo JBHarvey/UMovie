@@ -16,7 +16,8 @@ define([
 
         el: $('#content'),
 
-        initialize: function () {
+        initialize: function (movieId) {
+            this.id = movieId;
             this.render();
         },
 
