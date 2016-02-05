@@ -6,7 +6,11 @@
 
 
 #watchlistTitle{
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> master
     margin-left:  auto;
     margin-right: auto;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -40,6 +44,8 @@
         display : inline;
     }
 
+<<<<<<< HEAD
+=======
 /* Media query for the tablet version (Apple iPad) */
 
 
@@ -47,5 +53,6 @@
 
 /* Media query for the phone version (Nexus 5) */
 
+>>>>>>> master
 
 }
