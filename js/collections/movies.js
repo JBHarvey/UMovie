@@ -11,7 +11,23 @@ define([
 
     var Movies = Backbone.collection.extend({
         model: MovieModel,
-        url: '/movies'
+
+        url: '/movies',
+
+        parse: function (response) {
+            return response.results;
+        },
+
+        sync: function (method, model, options) {
+            var that = this;
+            var params = _.extend({
+                type: 'GET',
+                url: that.url(),
+                processData: false
+            }, options);
+
+            return $.ajax(params);
+        }
     });
 
 
