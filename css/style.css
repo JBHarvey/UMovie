@@ -683,6 +683,20 @@ button {
         cursor: pointer;
     }
 
+    .submitAuthentication:hover {
+        background: none;
+        background-color: #FFBB00;
+        box-shadow: 0px 0px 5px 0px #AAAAAA;
+        -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+        -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+        border: 1px solid #ffffff;
+        color: #770400;
+    }
+    .submitAuthentication:active {
+        top: 1px;
+        position: relative;
+    }
+
 }
 
 /* ------  Pour desktop exclusivement ------  */
@@ -741,11 +755,11 @@ button {
 
     .authentification input {
         background-color: white;
-        margin: 0.7em;
+        margin: 0.4em;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        height: 3em;
+        height: 2em;
     }
 
     .search-container {
