@@ -490,37 +490,18 @@ button {
     width: 100%;
 }
 
-@media (min-width: 600px) {
+/* -------  Pour tablettes et +  -------- */
 
+@media (min-width: 640px) {
     html {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
-        line-height: 1.9vw;
-        background-color: black;
-        color: white;
-    }
-
-    .umovie-logo {
-        background: none;
-        position: relative;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-    }
-
-    button {
-        cursor: pointer;
     }
 
     /* ------ NAV-BAR  ----- */
     #menu-content {
         height: 70px;
         position: relative;
-
     }
 
     .navigation-bar {
@@ -529,19 +510,19 @@ button {
         padding: 0 3%;
         width: 100%;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 30%, transparent);
-
+        display: inline-flex;
         position: fixed;
         top: 0;
         margin: 0;
         overflow: auto;
     }
 
-    .navigation-bar {
-        display: inline-flex
-    }
 
     /* ------ Left side nav-bar ------ */
+
     .umovie-logo {
+        background: none;
+        position: relative;
         width: 20%;
     }
 
@@ -550,7 +531,6 @@ button {
     }
 
     #site-logo {
-
         width: 100%;
         height: auto;
         padding: 0;
@@ -560,12 +540,6 @@ button {
     }
 
     /* ------ Middle side nav-bar ------ */
-    .menu {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-
-    }
 
     .navigation-options {
         position: initial;
@@ -633,38 +607,9 @@ button {
         background: white;
         padding-top: 0.3em;
         padding-left: 1.4em;
-        border-top: none;
-        border-bottom: none;
-        border-right: 0;
-        border-left: 0;
-        -webkit-transition: background .55s ease;
-        -moz-transition: background .55s ease;
-        -ms-transition: background .55s ease;
-        -o-transition: background .55s ease;
-        transition: background .55s ease;
-        position: relative;
-        width: 70%;
-    }
-
-    .input-bar input.search-input::-webkit-input-placeholder {
-
-        color: #65737e;
-    }
-
-    .input-bar input.search-input:-moz-placeholder {
-        color: #65737e;
-    }
-
-    .input-bar input.search-input::-moz-placeholder {
-        color: #65737e;
-    }
-
-    .input-bar input.search-input:-ms-input-placeholder {
-        color: #65737e;
     }
 
     .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
-        outline: none;
         color: black;
         background: #FFCC00;
     }
@@ -687,9 +632,30 @@ button {
         margin-top: -70px;
     }
 
-    .movie-banner {
-        width: 100%;
-        height: auto;
+    .text h1, h2 {
+        color: #FFCC00;
+    }
+
+    .text h1 {
+        font-size: 4.1em;
+        text-align: center;
+    }
+
+    .text h2 {
+        text-align: center;
+        font-size: 1.6em;
+    }
+
+}
+
+/* ------  Pour desktop exclusivement ------  */
+
+@media (min-width: 960px) {
+
+    html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1.6vw;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     .text h1, h2 {
@@ -749,5 +715,4 @@ button {
     .search-container {
         width: 100%;
     }
-
 }
