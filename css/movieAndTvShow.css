@@ -70,7 +70,6 @@ h6 {
     .movieTitleWrapper img {
         height: 60px;
         width: 60px;
-
         padding-left: 5px;
     }
 
@@ -109,11 +108,22 @@ h6 {
         padding-top: 20px;
     }
 
-    .itunesLogo a img{
-        padding-top: 10px;
+    .linksAccess {
+        padding-bottom: 20px;
         display: block;
+        background-color: #FFCC00;
+
     }
 
+     a img{
+        padding-top: 0px;
+        height: 30px;
+        width: 30px;
+    }
+
+    span {
+        display: inline-block;
+    }
 }
 
 @media screen and (max-width: 960px) and (min-width:640px) {
@@ -152,27 +162,90 @@ h6 {
 
     .movieSpecWrapper {
         font-family: "Helvetica Neue";
-        font-size: 13px;
+        font-size: 18px;
     }
 
     .movieDescription{
+        padding-top: 15px;
         font-size: 15px;
     }
 
-    .itunesLogo a img{
-        height: 60px;
-        width: 60px;
-        padding-top: 10px;
-        display: block;
+      a img{
+        height: 40px;
+        width: 40px;
+        bottom: 40px;
+        display: inline-block;
+        padding-left: 30px;
     }
 
     .linksAccess {
+        display: table;
         padding-top: 30px;
-        display: block;
-
+        background-color: #FFCC00;
     }
 
     span {
+        display: inline-block;;
+    }
+}
 
+@media screen and (max-width: 2800px) and (min-width:960px) {
+    div #content {
+        max-width: 960px !important;
+        max-height: 800px !important;
+        padding-top: 120px;
+    }
+
+    .movie-browser .phoneScreenAlign {
+        position: relative;
+        width: 620px;
+        height: 410px;
+    }
+
+    div .movieCover {
+        max-width: 350px !important;
+        max-height: 400px !important;
+    }
+
+    .movie-browser .movieTitleWrapper {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 300px;
+        height: 300px;
+        bottom: 5px;
+    }
+
+    div .movieCover img {
+        max-width: 350px !important;
+        max-height: 400px !important;
+    }
+
+    .movieSpecWrapper {
+        font-family: "Helvetica Neue";
+        font-size: 18px;
+    }
+
+    .movieDescription{
+        padding-top: 15px;
+        font-size: 24px;
+    }
+
+    a img{
+        height: 40px;
+        width: 40px;
+        bottom: 40px;
+        display: inline-block;
+        padding-left: 30px;
+    }
+
+    .linksAccess {
+        display: table;
+        padding-top: 30px;
+        background-color: #FFCC00;
+    }
+
+    span {
+        display: inline-block;;
     }
 }
