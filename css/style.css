@@ -499,6 +499,50 @@ button {
     width: 100%;
 }
 
+.text h1, h2 {
+    text-align: center;
+}
+
+.submitAuthentication{
+    padding: 1.2% 7%;
+    border: 1px solid #000000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
+    background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
+    background: -moz-linear-gradient(top, #E8A023, #FFBB00);
+    background: -ms-linear-gradient(top, #E8A023, #FFBB00);
+    background: -o-linear-gradient(top, #E8A023, #FFBB00);
+    background-color: #FFBB00;
+    box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: #FFFF77 1px 1px 0px;
+    color: #000000;
+    font-family: Helvetica;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    cursor: pointer;
+}
+
+.submitAuthentication:hover {
+    background: none;
+    background-color: #FFBB00;
+    box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    border: 1px solid #ffffff;
+    color: #770400;
+}
+.submitAuthentication:active {
+    top: 1px;
+    position: relative;
+}
+
 /* -------  Pour tablettes et +  -------- */
 
 @media (min-width: 640px) {
@@ -642,10 +686,6 @@ button {
         margin-top: -70px;
     }
 
-    .text h1, h2 {
-        color: #FFCC00;
-    }
-
     .text h1 {
         font-size: 4.1em;
         text-align: center;
@@ -659,46 +699,6 @@ button {
     .inputFields {
         padding-top: 4%;
         padding-bottom: 1%;
-    }
-
-    .submitAuthentication{
-        padding: 1.2% 7%;
-        border: 1px solid #000000;
-        background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
-        background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
-        background: -moz-linear-gradient(top, #E8A023, #FFBB00);
-        background: -ms-linear-gradient(top, #E8A023, #FFBB00);
-        background: -o-linear-gradient(top, #E8A023, #FFBB00);
-        background-color: #FFBB00;
-        box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        text-shadow: #FFFF77 1px 1px 0px;
-        color: #000000;
-        font-family: Helvetica;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-transition: 0.2s;
-        -moz-transition: 0.2s;
-        -o-transition: 0.2s;
-        cursor: pointer;
-    }
-
-    .submitAuthentication:hover {
-        background: none;
-        background-color: #FFBB00;
-        box-shadow: 0px 0px 5px 0px #AAAAAA;
-        -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
-        -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
-        border: 1px solid #ffffff;
-        color: #770400;
-    }
-    .submitAuthentication:active {
-        top: 1px;
-        position: relative;
     }
 
 }
