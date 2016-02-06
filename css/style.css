@@ -4,7 +4,11 @@
     }
 
     .navigation-options {
-        z-index: 10;
+        z-index: 100;
+    }
+
+    .member-menu {
+        z-index: 100;
     }
 }
 
@@ -111,7 +115,7 @@ button {
     -moz-animation: 1s memberSlideIn;
     -o-animation: 1s memberSlideIn;
     animation: 1s memberSlideIn;
-    top: 20%;
+    top: 5.5em;
 }
 
 @-webkit-keyframes memberSlideIn {
@@ -156,7 +160,7 @@ button {
     -moz-animation: 1s memberSlideOut;
     -o-animation: 1s memberSlideOut;
     animation: 1s memberSlideOut;
-    top: 20%
+    top: 5.5em;
 }
 
 @-webkit-keyframes memberSlideOut {
@@ -199,7 +203,7 @@ button {
     position: fixed;
     right: -250px;
     width: 250px;
-    top: 3em;
+    top: 5.5em;
     border-bottom: solid #454545 1px;
 }
 
@@ -232,7 +236,7 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    top: 3em;
+    top: 5.49em;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -353,7 +357,7 @@ button {
 }
 
 .search-bar {
-    padding-top: 4em;
+    padding-top: 5em;
     padding-bottom: 1em;
     position: relative;
 }
@@ -438,10 +442,10 @@ button {
     background-image: url('../img/goSearchIcon.png');
     background-color: #2b303b;
     width: 18px;
-    height: 17px;
+    height: 16px;
     display: inline-flex;
     position: relative;
-    top: 3px;
+    top: 0px;
     left: -4px;
     padding-top: 1px;
     padding-right: 1px;
