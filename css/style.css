@@ -469,7 +469,7 @@ button {
 }
 
 .-box {
-    width: 160px;
+    width: 100%;
 }
 
 .newEntry {
@@ -486,6 +486,11 @@ button {
     margin-left: auto;
 }
 
+.authentication-btn {
+    text-align: center;
+    margin-bottom: 4%;
+}
+
 .authentification img {
     width: 100%;
 }
@@ -495,6 +500,7 @@ button {
 @media (min-width: 640px) {
     html {
         font-size: 1.6vw;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         -moz-osx-font-smoothing: grayscale;
     }
 
@@ -646,6 +652,37 @@ button {
         font-size: 1.6em;
     }
 
+    .inputFields {
+        padding-top: 4%;
+        padding-bottom: 1%;
+    }
+
+    .submitAuthentication{
+        padding: 1.2% 7%;
+        border: 1px solid #000000;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
+        background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
+        background: -moz-linear-gradient(top, #E8A023, #FFBB00);
+        background: -ms-linear-gradient(top, #E8A023, #FFBB00);
+        background: -o-linear-gradient(top, #E8A023, #FFBB00);
+        background-color: #FFBB00;
+        box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+        -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+        -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        text-shadow: #FFFF77 1px 1px 0px;
+        color: #000000;
+        font-family: Helvetica;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        cursor: pointer;
+    }
+
 }
 
 /* ------  Pour desktop exclusivement ------  */
@@ -715,30 +752,4 @@ button {
         width: 100%;
     }
 
-    .submitAuthentication{
-        padding: 4px 8px;
-        border: 1px solid #000000;
-        background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
-        background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
-        background: -moz-linear-gradient(top, #E8A023, #FFBB00);
-        background: -ms-linear-gradient(top, #E8A023, #FFBB00);
-        background: -o-linear-gradient(top, #E8A023, #FFBB00);
-        background-color: #FFBB00;
-        box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        text-shadow: #FFFF77 1px 1px 0px;
-        color: #000000;
-        font-size: 15px;
-        font-family: Helvetica;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-transition: 0.2s;
-        -moz-transition: 0.2s;
-        -o-transition: 0.2s;
-        cursor: pointer;
-    }
 }
