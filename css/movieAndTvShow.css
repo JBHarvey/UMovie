@@ -79,6 +79,7 @@ h6 {
         height: auto;
     }
 
+
     .movie-browser .phoneScreenAlign {
         position: relative;
         width: 100%;
@@ -196,9 +197,14 @@ h6 {
         padding-top: 120px;
     }
 
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
+    }
+
     .movie-browser .phoneScreenAlign {
         position: relative;
-        width:95%;
+        width:100%;
         height: auto;
         margin: 0 auto;
     }
@@ -282,9 +288,14 @@ h6 {
         padding-top: 120px;
     }
 
-    .movie-browser .phoneScreenAlign {
+    .movie-browser{
         position: absolute;
-        width: 60%;
+        z-index: -1;
+    }
+
+    .movie-browser .phoneScreenAlign {
+        position: relative;
+        width: 100%;
         height: auto;
         margin: 0 auto;
     }
@@ -359,7 +370,7 @@ h6 {
     }
 
     div .preview {
-        padding-top: 120px;
+        padding-top: 250px;
 
     }
 }
