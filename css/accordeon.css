@@ -1,0 +1,134 @@
+.accordion,.accordion div,.accordion h1,.accordion p,.accordion a,.accordion img,.accordion span,.accordion em,.accordion ul,.accordion li {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.accordion {
+    width: 100%;
+    padding: 1px 5px 5px 5px;
+    bottom: 80px;
+    background: #141517;
+
+    -webkit-box-shadow: 0px 1px 0px rgba(255,255,255, .05);
+    -moz-box-shadow: 0px 1px 0px rgba(255,255,255, .05);
+    box-shadow: 0px 1px 0px rgba(255,255,255, .05);
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.accordion .tab {
+    display: block;
+    height: 35px;
+    margin-top: 4px;
+    padding-left: 20px;
+    font: bold 12px/35px Arial, sans-serif;
+    text-decoration: none;
+    color: #eee;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0, .2);
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+
+    background: #6c6e74;
+    background: -moz-linear-gradient(top,  #6c6e74 0%, #4b4d51 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c6e74), color-stop(100%,#4b4d51));
+    background: -webkit-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+    background: -o-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+    background: -ms-linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+    background: linear-gradient(top,  #6c6e74 0%,#4b4d51 100%);
+
+    -webkit-box-shadow: 0px 1px 0px rgba(0,0,0, .1), inset 0px 1px 0px rgba(255,255,255, .1);
+    -moz-box-shadow: 0px 1px 0px rgba(0,0,0, .1), inset 0px 1px 0px rgba(255,255,255, .1);
+    box-shadow: 0px 1px 0px rgba(0,0,0, .1), inset 0px 1px 0px rgba(255,255,255, .1);
+}
+
+.accordion .tab:hover,
+.accordion div:target .tab {
+    color: #2b3b06;
+
+    text-shadow: 0px 1px 0px rgba(255,255,255, .15);
+
+    background: #EEEEEE;
+    background: -moz-linear-gradient(top,  #EEEEEE 0%, #E1E1E1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEEEEE), color-stop(100%,#E1E1E1));
+    background: -webkit-linear-gradient(top,  #EEEEEE 0%,#E1E1E1 100%);
+    background: -o-linear-gradient(top,  #EEEEEE 0%,#E1E1E1 100%);
+    background: -ms-linear-gradient(top,  #EEEEEE 0%,#E1E1E1 100%);
+    background: linear-gradient(top,  #EEEEEE 0%,#E1E1E1 100%);
+
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .3), inset 1px 1px 1px rgba(255,255,255, .45);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .3), inset 1px 1px 1px rgba(255,255,255, .45);
+    box-shadow: 1px 1px 1px rgba(0,0,0, .3), inset 1px 1px 1px rgba(255,255,255, .45);
+}
+
+.accordion div .content {
+    display: none;
+    margin: 5px 0;
+}
+
+.accordion div:target .content {
+    display: block;
+}
+
+.accordion > div {
+    height: 40px;
+    overflow: hidden;
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.accordion > div:target {
+    height: 100%;
+}
+
+ .accordion .content {
+    width: 100%;
+    border-right: 1px solid #000;
+    padding: 0 0 1em 0;
+    margin-bottom: 1em;
+    font-family: "Helvetica Neue",
+    Arial, sans-serif;
+    background-color: #020205;
+    color: #333;
+}
+
+.accordion .content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.accordion .content li {
+    border-bottom: 1px solid #000000;
+    margin: 0;
+}
+
+.accordion .content li a {
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    border-left: 10px solid #4b4d51;
+    border-right: 10px solid #4b4d51;
+    background-color: #2f2f2f;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+}
+html>body .accordion .content li a {
+      width: auto;
+}
+.accordion .content li a:hover {
+        border-left: 10px solid #4b4d51;
+        border-right: 10px solid #aeaba9;
+        background-color:#4b4d51  ;
+        color: #8f8f8f;
+}

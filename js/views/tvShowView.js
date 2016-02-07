@@ -5,7 +5,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movie.html',
+    'text!templates/tvshow.html',
     'models/tvShowModel',
     'handlebars'
 ], function ($, _, Backbone, movieTemplate, TvShowModel, Handlebars) {
