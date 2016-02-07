@@ -1,3 +1,7 @@
+.movie-browser{
+    margin-top:10%;
+}
+
 .movieTitle {
     font-family: Ubuntu;
     font-weight: 400;
@@ -122,9 +126,13 @@ h6 {
         max-height: 400px !important;
         padding-top: 120px;
     }
-
+    
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
+    }
+    
     .movie-browser .phoneScreenAlign {
-        position: relative;
         background-color: blue;
         width: 620px;
         height: 620px;

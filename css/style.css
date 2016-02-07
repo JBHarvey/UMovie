@@ -4,7 +4,11 @@
     }
 
     .navigation-options {
-        z-index: 10;
+        z-index: 100;
+    }
+
+    .member-menu {
+        z-index: 100;
     }
 }
 
@@ -36,7 +40,7 @@ div #content {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px 2% 0;
-    background-color: #222121;
+    background-color: black;
 
 }
 
@@ -111,7 +115,7 @@ button {
     -moz-animation: 1s memberSlideIn;
     -o-animation: 1s memberSlideIn;
     animation: 1s memberSlideIn;
-    top: 20%;
+    top: 5.5em;
 }
 
 @-webkit-keyframes memberSlideIn {
@@ -156,7 +160,7 @@ button {
     -moz-animation: 1s memberSlideOut;
     -o-animation: 1s memberSlideOut;
     animation: 1s memberSlideOut;
-    top: 20%
+    top: 5.5em;
 }
 
 @-webkit-keyframes memberSlideOut {
@@ -199,7 +203,7 @@ button {
     position: fixed;
     right: -250px;
     width: 250px;
-    top: 3em;
+    top: 5.5em;
     border-bottom: solid #454545 1px;
 }
 
@@ -232,7 +236,7 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    top: 3em;
+    top: 5.49em;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -353,7 +357,7 @@ button {
 }
 
 .search-bar {
-    padding-top: 4em;
+    padding-top: 5em;
     padding-bottom: 1em;
     position: relative;
 }
@@ -438,10 +442,10 @@ button {
     background-image: url('../img/goSearchIcon.png');
     background-color: #2b303b;
     width: 18px;
-    height: 17px;
+    height: 16px;
     display: inline-flex;
     position: relative;
-    top: 3px;
+    top: 0px;
     left: -4px;
     padding-top: 1px;
     padding-right: 1px;
@@ -469,7 +473,7 @@ button {
 }
 
 .-box {
-    width: 160px;
+    width: 100%;
 }
 
 .newEntry {
@@ -486,41 +490,72 @@ button {
     margin-left: auto;
 }
 
+.authentication-btn {
+    text-align: center;
+    margin-bottom: 4%;
+}
+
 .authentification img {
     width: 100%;
 }
 
-@media (min-width: 600px) {
+.text h1, h2 {
+    text-align: center;
+}
 
+.submitAuthentication{
+    padding: 1.2% 7%;
+    border: 1px solid #000000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
+    background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
+    background: -moz-linear-gradient(top, #E8A023, #FFBB00);
+    background: -ms-linear-gradient(top, #E8A023, #FFBB00);
+    background: -o-linear-gradient(top, #E8A023, #FFBB00);
+    background-color: #FFBB00;
+    box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: #FFFF77 1px 1px 0px;
+    color: #000000;
+    font-family: Helvetica;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    cursor: pointer;
+}
+
+.submitAuthentication:hover {
+    background: none;
+    background-color: #FFBB00;
+    box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    border: 1px solid #ffffff;
+    color: #770400;
+}
+.submitAuthentication:active {
+    top: 1px;
+    position: relative;
+}
+
+/* -------  Pour tablettes et +  -------- */
+
+@media (min-width: 640px) {
     html {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 1.6vw;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         -moz-osx-font-smoothing: grayscale;
-        line-height: 1.9vw;
-        background-color: black;
-        color: white;
-    }
-
-    .umovie-logo {
-        background: none;
-        position: relative;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-    }
-
-    button {
-        cursor: pointer;
     }
 
     /* ------ NAV-BAR  ----- */
     #menu-content {
         height: 70px;
         position: relative;
-
     }
 
     .navigation-bar {
@@ -529,19 +564,19 @@ button {
         padding: 0 3%;
         width: 100%;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 30%, transparent);
-
+        display: inline-flex;
         position: fixed;
         top: 0;
         margin: 0;
         overflow: auto;
     }
 
-    .navigation-bar {
-        display: inline-flex
-    }
 
     /* ------ Left side nav-bar ------ */
+
     .umovie-logo {
+        background: none;
+        position: relative;
         width: 20%;
     }
 
@@ -550,7 +585,6 @@ button {
     }
 
     #site-logo {
-
         width: 100%;
         height: auto;
         padding: 0;
@@ -560,12 +594,6 @@ button {
     }
 
     /* ------ Middle side nav-bar ------ */
-    .menu {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-
-    }
 
     .navigation-options {
         position: initial;
@@ -633,38 +661,9 @@ button {
         background: white;
         padding-top: 0.3em;
         padding-left: 1.4em;
-        border-top: none;
-        border-bottom: none;
-        border-right: 0;
-        border-left: 0;
-        -webkit-transition: background .55s ease;
-        -moz-transition: background .55s ease;
-        -ms-transition: background .55s ease;
-        -o-transition: background .55s ease;
-        transition: background .55s ease;
-        position: relative;
-        width: 70%;
-    }
-
-    .input-bar input.search-input::-webkit-input-placeholder {
-
-        color: #65737e;
-    }
-
-    .input-bar input.search-input:-moz-placeholder {
-        color: #65737e;
-    }
-
-    .input-bar input.search-input::-moz-placeholder {
-        color: #65737e;
-    }
-
-    .input-bar input.search-input:-ms-input-placeholder {
-        color: #65737e;
     }
 
     .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
-        outline: none;
         color: black;
         background: #FFCC00;
     }
@@ -687,9 +686,31 @@ button {
         margin-top: -70px;
     }
 
-    .movie-banner {
-        width: 100%;
-        height: auto;
+    .text h1 {
+        font-size: 4.1em;
+        text-align: center;
+    }
+
+    .text h2 {
+        text-align: center;
+        font-size: 1.6em;
+    }
+
+    .inputFields {
+        padding-top: 4%;
+        padding-bottom: 1%;
+    }
+
+}
+
+/* ------  Pour desktop exclusivement ------  */
+
+@media (min-width: 960px) {
+
+    html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1.6vw;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     .text h1, h2 {
@@ -699,8 +720,7 @@ button {
     .text h1 {
         font-size: 4.1em;
         text-align: center;
-
-        margin-top: -4.7em;
+        margin-top: -35%;
     }
 
     .text h2 {
@@ -739,11 +759,11 @@ button {
 
     .authentification input {
         background-color: white;
-        margin: 0.7em;
+        margin: 0.4em;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        height: 3em;
+        height: 2em;
     }
 
     .search-container {

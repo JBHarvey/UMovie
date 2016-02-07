@@ -11,7 +11,8 @@ define([
                 {idName: "email", placeholder: "E-mail", inputType: "email"},
                 {idName: "password", placeholder: "Password", inputType: "password"}
             ],
-            newEntry: false
+            newEntry: false,
+            messageButton: "Log in"
         },
         signup: {
             inputField: [
@@ -19,7 +20,8 @@ define([
                 {idName: "email", placeholder: "E-mail", inputType: "email"},
                 {idName: "password", placeholder: "Password", inputType: "password"}
             ],
-            newEntry: true
+            newEntry: true,
+            messageButton: "Register"
         }
     });
 

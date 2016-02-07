@@ -1,20 +1,8 @@
-<!-- Just to try with a movie banner, to be removed
-<div class="auth-container">
-    <img class="movie-banner" src="http://www.forgetthebox.net/wp-content/uploads/2013/05/Iron-Man-3-2013-Movie-Title-Banner.jpg"></img>
--->
-
 <img class="movie-banner" src="http://www.seriesandreviews.com/wp-content/uploads/2016/01/Young-adults-watching-TV.jpg"></img>
 <div class="text">
     <h1>Hello, welcome to UMovie.</h1>
-    <h2>Watch current episodes, full seasons, original series, and hit movies all in one place.</h2>
+    <h2>Get all the movies, TV shows and celebrities content in one place!</h2>
 </div>
-
-<!--
-<div class="connect">
-    <p>Connect with Google</p>
-    <p>Connect with Facebook</p>
-</div>
-<div class="divider"></div> -->
 
 <div class="authentification">
     <div class="inputFields">
@@ -25,8 +13,8 @@
         {{/each}}
     </div>
     <div class="newEntry">
-        <div>
-            <span class="submitAuthentication">Authenticate here</span>
+        <div class="authentication-btn">
+            <span class="submitAuthentication">{{messageButton}}</span>
         </div>
         <div class="switch-authentication">
             {{#if newEntry}}
