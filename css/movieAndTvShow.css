@@ -79,9 +79,13 @@ h6 {
         height: auto;
     }
 
-    .movie-browser .phoneScreenAlign {
-        position: relative;
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
         width: 100%;
+    }
+
+    .movie-browser .phoneScreenAlign {
         height:auto;
         margin: 0 auto;
     }
@@ -196,9 +200,13 @@ h6 {
         padding-top: 120px;
     }
 
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
+        width: 95%;
+    }
+
     .movie-browser .phoneScreenAlign {
-        position: relative;
-        width:95%;
         height: auto;
         margin: 0 auto;
     }
@@ -282,9 +290,13 @@ h6 {
         padding-top: 120px;
     }
 
-    .movie-browser .phoneScreenAlign {
+    .movie-browser{
         position: absolute;
+        z-index: -1;
         width: 60%;
+    }
+
+    .movie-browser .phoneScreenAlign {
         height: auto;
         margin: 0 auto;
     }
@@ -348,7 +360,7 @@ h6 {
 
     }
 
-    
+
     .linksAccess span .itunesLogo {
         width: 40%;
         height: auto;
