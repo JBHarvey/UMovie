@@ -18,9 +18,10 @@ define([
     'views/authenticationView',
     'models/userModel',
     'views/movieView',
+    'views/tvShowView',
     'views/actorView',
     'views/watchlistView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, ActorView, WatchlistView) {
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, TvShowView,  ActorView, WatchlistView) {
 
     var UMovieRouter = Backbone.Router.extend({
 
@@ -120,8 +121,8 @@ define([
 
         //TV Shows
         uMovieRouter.on('route:displayTvShows', function () {
-            var movieView = new MovieView();
-            console.log('The movie dialog should be displayed now');
+            var tvShowView = new TvShowView();
+            console.log('The tv show dialog should be displayed now');
         });
 
         uMovieRouter.on('route:displaySpecificTvShow', function (tvShowName) {

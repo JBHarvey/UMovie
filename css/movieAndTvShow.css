@@ -18,48 +18,87 @@ h6 {
 }
 
 .movieDescription {
+    width: 100%;
     color: #999;
+    font-family: "Helvetica Neue";
 }
+
+.itunesLogo {
+    display: block;
+    float: right;
+}
+
+
 
 .watchButton {
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    height: 50px;
-    width: 130px;
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#777777;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.watchButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}
+.watchButton:active {
+    position:relative;
+    top:1px;
 }
 
-.watchButton:hover {
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
-}
 
 @media screen and (max-width: 640px) {
 
+    div #content {
+        width: 95% ;
+        height: auto;
+    }
+
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
+        width: 95%;
+    }
+
+    .movie-browser .phoneScreenAlign {
+        height:auto;
+        margin: 0 auto;
+    }
+
     div .movieCover {
-        max-width: 150px !important;
-        max-height: 300px !important;
+        width: 30% ;
+        height: auto;
+        display: block;
     }
 
     div .movieCover img {
-        max-width: 150px !important;
-        max-height: 300px !important;
+        width: 100%;
+        height: auto;
         padding-left: 5px;
         padding-top: 5px;
 
@@ -70,16 +109,33 @@ h6 {
         font-size: 20px;
     }
 
+    .movie-browser .movieTitleWrapper {
+        position: absolute;
+        width: 65%;
+        bottom: 5px;
+        padding-bottom: 20px;
+        /* background-color: #4CAF50;*/
+    }
+
+    .movie-browser .movieTitleWrapper {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 65%;
+        bottom: 5px;
+        /* background-color: #4CAF50;*/
+
+    }
+
     .movieTitleWrapper img {
         height: 60px;
         width: 60px;
-
         padding-left: 5px;
     }
 
     .movieTitleWrapper a {
         text-decoration:none;
-        color: white;
+
 
     }
 
@@ -88,89 +144,246 @@ h6 {
         color: dodgerblue;
     }
 
-    .movie-browser .phoneScreenAlign {
-        position: relative;
-        background-color: blue;
-        width: 400px;
-        height: 300px;
-    }
+
 
     .phoneScreenAlign .watchButtonWrapper {
-        padding-top: 40px;
-    }
-
-    .movie-browser .movieTitleWrapper {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        width: 230px;
-        bottom: 5px;
-        background-color: green;
-    }
-
-    .movieDescription{
         padding-top: 20px;
     }
 
-    .itunesLogo a img{
-        padding-top: 10px;
-        display: block;
+    .movieDescription{
+        padding-top: 15px;
+        font-size: 1em;
+        width: 100%;
     }
+
+    .linksAccess {
+        padding-top: 10px;
+        width: 80px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+     span .watchButtonWrapper, span .itunesLogo {
+        display: inline-block;
+    }
+
+
+    .watchButtonWrapper {
+        height: 50px;
+        width: 40px;
+        padding-bottom: 10px;
+
+    }
+
+    .linksAccess span .itunesLogo {
+        width: 40%;
+        height: auto;
+    }
+
+    .linksAccess span .itunesLogo img {
+        width: 100%;
+        height: auto;
+    }
+
+    div .preview {
+        padding-top: 270px;
+    }
+
+    div .preview iframe {
+        height: 350px;
+        width: 100%;
+    }
+
 
 }
 
 @media screen and (max-width: 960px) and (min-width:640px) {
 
     div #content {
-        max-width: 620px !important;
-        max-height: 400px !important;
+        width: 95%;
+        height: auto;
         padding-top: 120px;
     }
-    
+
     .movie-browser{
         position: absolute;
         z-index: -1;
+        width: 95%;
     }
-    
+
     .movie-browser .phoneScreenAlign {
-        background-color: blue;
-        width: 620px;
-        height: 620px;
+        height: auto;
+        margin: 0 auto;
     }
 
     div .movieCover {
-        max-width: 350px !important;
-        max-height: 400px !important;
+        width: 40%;
+        height: auto;
     }
 
     .movie-browser .movieTitleWrapper {
         position: absolute;
         right: 5px;
         top: 5px;
-        width: 300px;
-        height: 300px;
+        width: 55%;
+        height: auto;
         bottom: 5px;
-        background-color: green;
+        padding-bottom: 40px;
     }
 
     div .movieCover img {
-        max-width: 350px !important;
-        max-height: 400px !important;
-        padding-left: 5px;
-        padding-top: 5px;
-
+        width: 100%;
+        height: auto;
     }
+
     .movieSpecWrapper {
-
+        font-family: "Helvetica Neue";
+        font-size: 18px;
     }
+
+    .movieDescription{
+        padding-top: 15px;
+        font-size: 1.7em;
+        width: 100%;
+    }
+
     .itunesLogo a img{
         height: 60px;
         width: 60px;
-        padding-top: 10px;
-        display: block;
+
+        padding-left: 30px;
     }
 
     .linksAccess {
-        display: block;
+        padding-top: 30px;
+        width: 45%;
+        margin: 0 auto;
     }
+
+    .watchButtonWrapper {
+        height: 50px;
+        width: 40px;
+        padding-bottom: 10px;
+
+    }
+
+    span .watchButtonWrapper, span .itunesLogo {
+        display: inline-block;
+
+    }
+
+    .linksAccess span .itunesLogo {
+        width: 40%;
+        height: auto;
+    }
+
+    .linksAccess span .itunesLogo img {
+        width: 100%;
+        height: auto;
+    }
+
+    div .preview {
+        padding-top: 60px;
+
+    }
+
+    div .preview iframe {
+        height: 400px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 2800px) and (min-width:960px) {
+
+    .movie-browser{
+        margin-left:20%;
+        margin-right: 15%;
+        position: absolute;
+        z-index: -1;
+        width: 60%;
+    }
+
+    .movie-browser .phoneScreenAlign {
+        height: auto;
+
+    }
+
+    div .movieCover {
+        width:30% ;
+        height: auto;
+    }
+
+    .movie-browser .movieTitleWrapper {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 65%;
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    div .movieCover img {
+        width:100% ;
+        height: auto;
+    }
+
+    .movieSpecWrapper {
+        font-family: "Helvetica Neue";
+        font-size: 18px;
+    }
+
+    .movieDescription{
+        padding-top: 15px;
+        font-size: 1.1em;
+    }
+
+    .itunesLogo a img{
+        height: 70px;
+        width: 70px;
+        bottom: 40px;
+        display: inline-block;
+        padding-left: 30px;
+    }
+
+    .linksAccess {
+        padding-top: 30px;
+        width: 45%;
+        margin: 0 auto;
+    }
+
+    span .watchButtonWrapper{
+        display: inline-block;
+    } span .itunesLogo {
+        display: inline-block;
+    }
+
+    .watchButtonWrapper {
+        height: 50px;
+        width: 40px;
+        padding-bottom: 10px;
+
+    }
+
+
+
+    .linksAccess span .itunesLogo {
+        width: 40%;
+        height: auto;
+    }
+
+    .linksAccess span .itunesLogo img {
+        width: 100%;
+        height: auto;
+    }
+
+    div .preview {
+        padding-top: 120px;
+
+    }
+
+    div .preview iframe {
+        height: 500px;
+        width: 100%;
+    }
+
 }
