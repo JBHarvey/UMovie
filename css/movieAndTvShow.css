@@ -77,17 +77,18 @@ h6 {
     div #content {
         width: 95% ;
         height: auto;
+
     }
 
     .movie-browser{
         position: absolute;
         z-index: -1;
-        width: 100%;
+        width: 95%;
+        margin: 0 auto;
     }
 
     .movie-browser .phoneScreenAlign {
         height:auto;
-        margin: 0 auto;
     }
 
     div .movieCover {
@@ -204,11 +205,12 @@ h6 {
         position: absolute;
         z-index: -1;
         width: 95%;
+        margin: 0 auto;
     }
 
     .movie-browser .phoneScreenAlign {
         height: auto;
-        margin: 0 auto;
+
     }
 
     div .movieCover {
@@ -294,11 +296,12 @@ h6 {
         position: absolute;
         z-index: -1;
         width: 60%;
+        margin: 0 auto;
     }
 
     .movie-browser .phoneScreenAlign {
         height: auto;
-        margin: 0 auto;
+
     }
 
     div .movieCover {
