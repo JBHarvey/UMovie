@@ -29,6 +29,7 @@ h6 {
 }
 
 
+
 .watchButton {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -78,10 +79,13 @@ h6 {
         height: auto;
     }
 
-    .movie-browser .phoneScreenAlign {
-        position: relative;
-        padding-bottom: 40px;
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
         width: 100%;
+    }
+
+    .movie-browser .phoneScreenAlign {
         height:auto;
         margin: 0 auto;
     }
@@ -109,6 +113,7 @@ h6 {
         position: absolute;
         width: 65%;
         bottom: 5px;
+        padding-bottom: 20px;
         /* background-color: #4CAF50;*/
     }
 
@@ -142,14 +147,12 @@ h6 {
 
 
     .phoneScreenAlign .watchButtonWrapper {
-        padding-top: 40px;
+        padding-top: 20px;
     }
-
-
 
     .movieDescription{
         padding-top: 15px;
-        font-size: 18px;
+        font-size: 1em;
         width: 100%;
     }
 
@@ -181,6 +184,12 @@ h6 {
         width: 100%;
         height: auto;
     }
+
+    div .preview {
+        padding-top: 270px;
+    }
+
+
 }
 
 @media screen and (max-width: 960px) and (min-width:640px) {
@@ -191,9 +200,13 @@ h6 {
         padding-top: 120px;
     }
 
+    .movie-browser{
+        position: absolute;
+        z-index: -1;
+        width: 95%;
+    }
+
     .movie-browser .phoneScreenAlign {
-        position: relative;
-        width:95%;
         height: auto;
         margin: 0 auto;
     }
@@ -210,6 +223,7 @@ h6 {
         width: 55%;
         height: auto;
         bottom: 5px;
+        padding-bottom: 40px;
     }
 
     div .movieCover img {
@@ -224,7 +238,7 @@ h6 {
 
     .movieDescription{
         padding-top: 15px;
-        font-size: 22px;
+        font-size: 1.7em;
         width: 100%;
     }
 
@@ -262,6 +276,11 @@ h6 {
         width: 100%;
         height: auto;
     }
+
+    div .preview {
+        padding-top: 60px;
+
+    }
 }
 
 @media screen and (max-width: 2800px) and (min-width:960px) {
@@ -271,9 +290,13 @@ h6 {
         padding-top: 120px;
     }
 
-    .movie-browser .phoneScreenAlign {
+    .movie-browser{
         position: absolute;
+        z-index: -1;
         width: 60%;
+    }
+
+    .movie-browser .phoneScreenAlign {
         height: auto;
         margin: 0 auto;
     }
@@ -289,6 +312,7 @@ h6 {
         top: 5px;
         width: 65%;
         height: auto;
+        padding-bottom: 40px;
     }
 
     div .movieCover img {
@@ -303,7 +327,7 @@ h6 {
 
     .movieDescription{
         padding-top: 15px;
-        font-size: 24px;
+        font-size: 1.1em;
     }
 
     a img{
@@ -336,6 +360,7 @@ h6 {
 
     }
 
+
     .linksAccess span .itunesLogo {
         width: 40%;
         height: auto;
@@ -345,4 +370,10 @@ h6 {
         width: 100%;
         height: auto;
     }
+
+    div .preview {
+        padding-top: 120px;
+
+    }
+
 }
