@@ -112,6 +112,7 @@ button {
     -o-animation: 1s memberSlideIn;
     animation: 1s memberSlideIn;
     top: 20%;
+    top: 5.5em;
 }
 
 @-webkit-keyframes memberSlideIn {
@@ -199,7 +200,7 @@ button {
     position: fixed;
     right: -250px;
     width: 250px;
-    top: 3em;
+    top: 5.5em;
     border-bottom: solid #454545 1px;
 }
 
@@ -232,7 +233,7 @@ button {
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
-    top: 3em;
+    top: 5.49em;
     list-style: none;
     padding: 0;
     margin: 0;
