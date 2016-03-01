@@ -47,7 +47,7 @@ div #content {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px 2% 0;
-    background-color: black;
+
 
 }
 
@@ -128,6 +128,7 @@ button {
     -moz-animation: 1s memberSlideIn;
     -o-animation: 1s memberSlideIn;
     animation: 1s memberSlideIn;
+    top: 20%;
     top: 5.5em;
 }
 
@@ -173,7 +174,7 @@ button {
     -moz-animation: 1s memberSlideOut;
     -o-animation: 1s memberSlideOut;
     animation: 1s memberSlideOut;
-    top: 5.5em;
+    top: 20%
 }
 
 @-webkit-keyframes memberSlideOut {
@@ -370,7 +371,7 @@ button {
 }
 
 .search-bar {
-    padding-top: 5em;
+    padding-top: 4em;
     padding-bottom: 1em;
     position: relative;
 }
@@ -455,10 +456,10 @@ button {
     background-image: url('../img/goSearchIcon.png');
     background-color: #2b303b;
     width: 18px;
-    height: 16px;
+    height: 17px;
     display: inline-flex;
     position: relative;
-    top: 0px;
+    top: 3px;
     left: -4px;
     padding-top: 1px;
     padding-right: 1px;
@@ -486,7 +487,7 @@ button {
 }
 
 .-box {
-    width: 100%;
+    width: 160px;
 }
 
 .newEntry {
@@ -503,17 +504,8 @@ button {
     margin-left: auto;
 }
 
-.authentication-btn {
-    text-align: center;
-    margin-bottom: 4%;
-}
-
 .authentification img {
     width: 100%;
-}
-
-.text h1, h2 {
-    text-align: center;
 }
 
 .submitAuthentication{
@@ -561,7 +553,6 @@ button {
 @media (min-width: 640px) {
     html {
         font-size: 1.6vw;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         -moz-osx-font-smoothing: grayscale;
     }
 
@@ -699,6 +690,10 @@ button {
         margin-top: -70px;
     }
 
+    .text h1, h2 {
+        color: #FFCC00;
+    }
+
     .text h1 {
         font-size: 4.1em;
         text-align: center;
@@ -707,11 +702,6 @@ button {
     .text h2 {
         text-align: center;
         font-size: 1.6em;
-    }
-
-    .inputFields {
-        padding-top: 4%;
-        padding-bottom: 1%;
     }
 
 }
@@ -730,7 +720,8 @@ button {
     .text h1 {
         font-size: 4.1em;
         text-align: center;
-        margin-top: -35%;
+
+        margin-top: -4.7em;
     }
 
     .text h2 {
@@ -774,11 +765,11 @@ button {
 
     .authentification input {
         background-color: white;
-        margin: 0.4em;
+        margin: 0.7em;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        height: 2em;
+        height: 3em;
     }
 
     .search-container {
@@ -790,5 +781,6 @@ button {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, transparent);
 
     }
+
 
 }

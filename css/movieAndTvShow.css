@@ -87,7 +87,6 @@ h6 {
 
     .movie-browser .phoneScreenAlign {
         height:auto;
-        margin: 0 auto;
     }
 
     div .movieCover {
@@ -250,7 +249,6 @@ h6 {
     .itunesLogo a img{
         height: 60px;
         width: 60px;
-
         padding-left: 30px;
     }
 
@@ -264,36 +262,6 @@ h6 {
         height: 50px;
         width: 40px;
         padding-bottom: 10px;
-
-    }
-
-    span .watchButtonWrapper, span .itunesLogo {
-        display: inline-block;
-
-    }
-
-    .linksAccess span .itunesLogo {
-        width: 40%;
-        height: auto;
-    }
-
-    .linksAccess span .itunesLogo img {
-        width: 100%;
-        height: auto;
-    }
-
-    div .preview {
-        padding-top: 60px;
-
-    }
-
-    div .preview iframe {
-        height: 400px;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 2800px) and (min-width:960px) {
 
     .movie-browser{
         margin-left:20%;
@@ -351,10 +319,12 @@ h6 {
         margin: 0 auto;
     }
 
+
     span .watchButtonWrapper{
         display: inline-block;
     } span .itunesLogo {
         display: inline-block;
+
     }
 
     .watchButtonWrapper {
@@ -363,8 +333,6 @@ h6 {
         padding-bottom: 10px;
 
     }
-
-
 
     .linksAccess span .itunesLogo {
         width: 40%;
