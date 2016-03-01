@@ -8,8 +8,6 @@ define([
 
     var TvShowModel = Backbone.Model.extend({
         defaults: {
-            "resultCount": 1,
-            "results": {
                 "wrapperType": "track",
                 "kind": "tv-episode",
                 "artistId": 278750007,
@@ -47,7 +45,7 @@ define([
                 "longDescription": "52 B.C. Eager to return to Rome after eight long years of war, Gaius Julius Caesar ends his campaign with a big triumph in Gaul--and news of a shattering personal loss at home. When his army's gold standard is stolen, Caesar's cousin and commander Mark Antony enlists two soldiers, Centurion Lucius Vorenus and Legionnaire Titus Pullo, to track it down.",
                 "radioStationUrl": "https://itunes.apple.com/station/idra.279753813"
             }
-        }
+
     });
 
     return TvShowModel;

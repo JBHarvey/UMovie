@@ -30,6 +30,7 @@ define([
 
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
+
             var source = this.model;
             var resultMovie = template(source);
 

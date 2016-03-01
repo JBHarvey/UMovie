@@ -9,6 +9,7 @@ define([
     var MovieModel = Backbone.Model.extend({
         urlRoot:"https://umovie.herokuapp.com/movies",
         defaults: {
+            "urlRoot": 'https://umovie.herokuapp.com/movies',
             "wrapperType": "track",
             "kind": "feature-movie",
             "trackId": 265727087,
