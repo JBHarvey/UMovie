@@ -3,12 +3,13 @@
 </head>
 
 <div class="movie">
-    <div class="movie-name"> {{name}}</div>
-    <div class="movie-cover"> {{cover}}</div>
-    <div class="movie-genre">{{genre}}</div>
-    <div class="movie-date">{{date}}</div>
-    <div class="movie-release">{{releaseDate}}</div>
-    <div class="movie-description">{{description}}</div>
+    <div class="movie-name"> {{trackName}}</div>
+    <div class="movie-cover"> <img src="{{artworkUrl100}}"/></div>
+    <div class="movie-genre">Genre : {{primaryGenreName}}</div>
+    <div class="movie-date">Release date :{{releaseDate}}</div>
+    <div class="movie-rating">Rating : {{contentAdvisoryRating}}</div>
+    <div class="movie-price">Price : {{trackPrice}}</div>
+    <div class="movie-description">Description: {{longDescription}}</div>
 </div>
 
 <div class="movie-preview">
