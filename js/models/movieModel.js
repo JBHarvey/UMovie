@@ -8,8 +8,11 @@ define([
 
     var MovieModel = Backbone.Model.extend({
         urlRoot:"https://umovie.herokuapp.com/movies",
+        parse(data) {
+            return data.results[0];
+        },
         defaults: {
-            "urlRoot": 'https://umovie.herokuapp.com/movies',
+            "urlRoot": 'https://umovie.herokuapp.com/movie/265727087',
             "wrapperType": "track",
             "kind": "feature-movie",
             "trackId": 265727087,
@@ -37,7 +40,7 @@ define([
             "contentAdvisoryRating": "R",
             "longDescription": "Would you die to live? That's what two men, Adam (Leigh Whannell) and Gordon (Cary Elwes), have to ask themselves when they're paired up in a deadly situation. Abducted by a serial killer, they're trapped up in a prison constructed with such ingenuity that they may not be able to escape before their captor decides it's time to dismantle their bodies in his signature way. Attempting to break free may kill them, but staying definitely will.",
             "radioStationUrl": "https://itunes.apple.com/station/idra.265727087"
-        }
+        },
 
     });
 

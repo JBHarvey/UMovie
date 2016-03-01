@@ -23,16 +23,17 @@ define([
     'views/watchlistView'
 ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, TvShowView, ActorView, WatchlistView) {
 
+
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
             '': 'goHome',
-            'movies': 'displayMovies',
-            'movie/:movieName': 'displaySpecificMovie',
+            'movies': 'displaySpecificMovie',
+            'movie/:movieId': 'displaySpecificMovie',
             'tvShows': 'displayTvShows',
-            'tvShow/:tvShowName': 'displaySpecificTvShow',
+            'tvShow/:tvShowId': 'displaySpecificTvShow',
             'actors': 'displayActors',
-            'actor/:actorName': 'displaySpecificActor',
+            'actor/:actorId': 'displaySpecificActor',
 
             'watchlists': 'displayWatchlists',
             'user': 'showUser',
@@ -56,7 +57,6 @@ define([
 
     var initialize = function () {
 
-
         var authenticationView;
         var homeView;
         var uMovieRouter = new UMovieRouter();
@@ -74,6 +74,12 @@ define([
             } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected') {
                 navigationBarView.render();
             }
+        };
+
+        uMovieRouter.setHeaderAuthorization = function () {
+            $(document).ajaxSend(function (e, xhr, options) {
+                xhr.setRequestHeader("Authorization", Cookie.get('token'));
+            });
         };
 
         uMovieRouter.checkCredentials = function () {
@@ -112,9 +118,9 @@ define([
             console.log('We should now see a damn big list of movies');
         });
 
-        uMovieRouter.on('route:displaySpecificMovie', function (movieName) {
+        uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
             // This should be the actual movieView page.
-            var movieView = new MovieView({id: 265727087});
+            var movieView = new MovieView(movieId);
             console.log('We should see a movie-specific information page');
         });
 
@@ -125,7 +131,7 @@ define([
             console.log('The tv show dialog should be displayed now');
         });
 
-        uMovieRouter.on('route:displaySpecificTvShow', function (tvShowName) {
+        uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
             var movieView = new MovieView();
             console.log('The movie dialog should be displayed now');
         });
@@ -184,6 +190,7 @@ define([
             console.log('Error : no route to', actions);
         });
 
+        uMovieRouter.setHeaderAuthorization();
         Backbone.history.start({root: '/UMovie'});
 
     };

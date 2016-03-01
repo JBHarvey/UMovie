@@ -11,6 +11,7 @@ define([
     'handlebars'
 ], function ($, _, Backbone, Cookie, authenticationTemplate, AuthenticationModel, Handlebars) {
 
+
     var AuthenticationView = Backbone.View.extend({
 
         el: $('#content'),
