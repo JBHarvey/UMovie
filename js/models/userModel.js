@@ -75,26 +75,6 @@ define([
                     return false;
                 }
             );
-            /*
-
-             THE BACKBONE WAY TO REQUEST POST.
-             IT WORKS, BUT IS NOT OPTIMAL FOR THIS SPECIFIC CASE.
-             THUS IT STAYS HERE IN ORDER TO BE AN EXAMPLE FOR OTHER BACKBONE.MODELS
-
-             ERASE WHEN ALL THE CALL ARE DEALT WITH
-
-             this.save({
-             type: 'POST',
-             contentType: 'application/x-www-form-urlencoded'
-             }).then(function (model, response, options) { //Will execute on success
-             console.log(response);
-             console.log(model.token);
-             return true;
-             }, function (model, error, options) { //Will execute on error
-             console.log('Error while signing in.');
-             return false;
-             });
-             */
 
         },
 
