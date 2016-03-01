@@ -10,10 +10,15 @@ define([
 
     var ActorModel = Backbone.Model.extend({
         defaults:{
-            name: "Brad Pitt",
-            genre: "Action",
-            imageActor: "../../img/imgActor.jpg",
-            itunesLink: "https://itunes.apple.com/us/artist/brad-pitt/id272994458"
+            wrapperTyper: "",
+            artistType: "",
+            artistName: "",
+            artistLinkUrl: "",
+            artistId: -1,
+            amgArtistId: -1,
+            primaryGenreName: "",
+            primaryGenreId: -1,
+            radioStationUrl: ""
         }
     });
 

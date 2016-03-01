@@ -10,11 +10,13 @@ define([
 ], function (_, Backbone) {
     var WatchlistModel = Backbone.Model.extend({
         defaults:{
-            title: 'Your Watchlist',
-            movies: 'Your movies',
-            tvSeries: 'Your TV Series',
-            defaultTextMovies: 'You have no movie in your watchlist.',
-            defaultTextTvSeries: 'You have no TV series in your watchlist.'
+            movies: undefined,
+            owner:{
+                email: "",
+                name: "",
+                id: -1
+            },
+            id: -1
 
         }
     });
