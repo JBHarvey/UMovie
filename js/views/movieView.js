@@ -26,7 +26,8 @@ define([
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
 
-            var source = new MovieModel();
+            var source = new MovieModel({id: "23456absdkuygafsd"});
+            alert(source.url());
             var resultMovie = template(source.defaults);
 
             this.$el.html(resultMovie);
