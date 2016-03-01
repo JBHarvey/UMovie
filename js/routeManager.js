@@ -114,7 +114,7 @@ define([
 
         uMovieRouter.on('route:displaySpecificMovie', function (movieName) {
             // This should be the actual movieView page.
-            var movieView = new MovieView();
+            var movieView = new MovieView({id: 265727087});
             console.log('We should see a movie-specific information page');
         });
 

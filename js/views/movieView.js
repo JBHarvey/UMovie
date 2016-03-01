@@ -17,17 +17,21 @@ define([
         el: $('#content'),
 
         initialize: function (movieId) {
-            this.id = movieId;
-            this.render();
+            this.model = new MovieModel();
+            this.model.id = movieId;
+            this.listenTo(this.model, "change", this.render);
+            console.log(this.model);
+            console.log(this.model.id);
+            this.model.fetch();
+
         },
 
         render: function () {
 
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
-
-            var source = new MovieModel();
-            var resultMovie = template(source.hardcode);
+            var source = this.model;
+            var resultMovie = template(source);
 
             this.$el.html(resultMovie);
         }
