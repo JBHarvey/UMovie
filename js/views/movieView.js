@@ -27,7 +27,7 @@ define([
             var template = Handlebars.compile(movieTemplate);
 
             var source = new MovieModel();
-            var resultMovie = template(source.hardcode);
+            var resultMovie = template(source.defaults);
 
             this.$el.html(resultMovie);
         }
