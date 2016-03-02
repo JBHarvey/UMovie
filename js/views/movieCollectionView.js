@@ -9,27 +9,34 @@ define([
     'text!templates/movie.html',
     'collections/movies',
     'handlebars'
-], function ($, _, Backbone, movieTemplate, MovieCollection, Handlebars) {
+], function ($, _, Backbone, movieTemplate, Movies, Handlebars) {
 
 
     var MovieCollectionView = Backbone.View.extend({
 
         el: $('#content'),
 
-        initialize: function (movieId) {
-            this.id = movieId;
+        initialize: function () {
+            this.collection = new Movies();
+            this.collection.url = function() {return "https://umovie.herokuapp.com/search/movies?q=ring";};
+            this.collection.fetch();
+            console.log(this.collection);
             this.render();
         },
 
         render: function () {
 
-            //The data used in the template
-            var template = Handlebars.compile(movieTemplate);
 
-            var source = new MovieModel();
-            var resultMovie = template(source.hardcode);
+            console.log(this.collection);
 
-            this.$el.html(resultMovie);
+
+            ////The data used in the template
+            //var template = Handlebars.compile(movieTemplate);
+            //
+            //var source = new MovieModel();
+            //var resultMovie = template(source.hardcode);
+            //
+            //this.$el.html(resultMovie);
         }
     });
     return MovieCollectionView;

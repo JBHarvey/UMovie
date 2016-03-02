@@ -9,9 +9,8 @@ define([
     'models/movieModel'
 ], function ($, _, Backbone, Cookie, MovieModel) {
 
-    var Movies = Backbone.collection.extend({
+    var Movies = Backbone.Collection.extend({
         model: MovieModel,
-
         url: '/movies',
 
         parse: function (response) {
@@ -30,5 +29,6 @@ define([
         }
     });
 
+    return Movies;
 
 });

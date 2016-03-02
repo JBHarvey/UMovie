@@ -18,17 +18,18 @@ define([
     'views/authenticationView',
     'models/userModel',
     'views/movieView',
+    'views/movieCollectionView',
     'views/tvShowView',
     'views/actorView',
     'views/watchlistView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, TvShowView, ActorView, WatchlistView) {
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, ActorView, WatchlistView) {
 
 
     var UMovieRouter = Backbone.Router.extend({
 
         routes: {
             '': 'goHome',
-            'movies': 'displaySpecificMovie',
+            'movies': 'displayMovies',
             'movie/:movieId': 'displaySpecificMovie',
             'tvShows': 'displayTvShows',
             'tvShow/:tvShowId': 'displaySpecificTvShow',
@@ -114,14 +115,12 @@ define([
              * THIS PART IS <b> VERY </b> TEMPORARY
              * It shall stay as long as we do not have a movie collection along with its presentation
              */
-            var movies = new MovieView();
-            console.log('We should now see a damn big list of movies');
+            var movies = new MovieCollectionView();
         });
 
         uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
             // This should be the actual movieView page.
             var movieView = new MovieView(movieId);
-            console.log('We should see a movie-specific information page');
         });
 
 

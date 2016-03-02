@@ -75,7 +75,6 @@ define([
                     return false;
                 }
             );
-
         },
 
         disconnect: function () {

@@ -25,7 +25,6 @@ define([
 
         render: function () {
 
-            console.log('pomme');
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
 
