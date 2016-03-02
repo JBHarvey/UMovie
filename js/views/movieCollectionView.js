@@ -17,26 +17,17 @@ define([
         el: $('#content'),
 
         initialize: function () {
-            this.listenTo(this.collection.model, 'add', this.updateTest);
             this.collection = new Movies();
             this.collection.url = function() {return "https://umovie.herokuapp.com/search/movies?q=ring";};
+            this.listenTo(this.collection, 'sync', this.render);
             this.collection.fetch();
-            this.render();
         },
 
         render: function () {
             console.log(this.collection);
             this.collection.each(function(movie){
-                //var movieView = new MovieThumbnailView({model: movie});
-                console.log(new MovieThumbnailView({model: movie}));
-            });
-        },
-        i:0,
-        updateTest() {
-            console.log(i++);
-            this.collection.each(function(movie){
-                //var movieView = new MovieThumbnailView({model: movie});
-                console.log(new MovieThumbnailView({model: movie}));
+                var movieThumbnail = new MovieThumbnailView({model: movie}).$el;
+                console.log(movieThumbnail.html.toString());
             });
         }
     });

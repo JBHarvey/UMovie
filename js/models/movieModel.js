@@ -48,7 +48,7 @@ define([
         },
 
         releaseYear: function () {
-            return new Date(releaseDate).getFullYear;
+            return new Date(this.releaseDate).getFullYear;
         }
 
     });
