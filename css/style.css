@@ -606,7 +606,6 @@ button {
         position: fixed;
         top: 0;
         margin: 0;
-        overflow: auto;
     }
     
     
@@ -634,6 +633,7 @@ button {
     /* ------ Middle side nav-bar ------ */
     
     .navigation-options {
+        overflow: hidden;
         position: initial;
         width: inherit;
         border: none;
@@ -683,7 +683,6 @@ button {
         background-color: transparent;
         border: none;
         color: white;
-        font-weight: bold;
         -webkit-transition: color .55s ease;
         -moz-transition: color .55s ease;
         -ms-transition: color .55s ease;
