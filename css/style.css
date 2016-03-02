@@ -254,6 +254,11 @@ button {
     text-decoration: none;
     color: #96948A;
     display: block;
+    -webkit-transition: color .55s ease;
+    -moz-transition: color .55s ease;
+    -ms-transition: color .55s ease;
+    -o-transition: color .55s ease;
+    transition: color .55s ease;
 }
 
 .menu {
@@ -646,23 +651,45 @@ button {
         border: none;
         display: -moz-groupbox;
         margin-top: 3%;
+        -webkit-transition: color .55s ease;
+        -moz-transition: color .55s ease;
+        -ms-transition: color .55s ease;
+        -o-transition: color .55s ease;
+        transition: color .55s ease;
+
     }
     
     .navigation-options li:hover {
         background-color: transparent;
+        -webkit-transition: color .55s ease;
+        -moz-transition: color .55s ease;
+        -ms-transition: color .55s ease;
+        -o-transition: color .55s ease;
+        transition: color .55s ease;
+
     }
     
     .navigation-options a {
         text-decoration: none;
         color: #96948B;
+        -webkit-transition: color .55s ease;
+        -moz-transition: color .55s ease;
+        -ms-transition: color .55s ease;
+        -o-transition: color .55s ease;
+        transition: color .55s ease;
     }
     
     .navigation-options li a:hover {
         background-color: transparent;
         border: none;
-        color: #FFCC00;
+        color: white;
         font-weight: bold;
-        font-size: 1.8vw;
+        -webkit-transition: color .55s ease;
+        -moz-transition: color .55s ease;
+        -ms-transition: color .55s ease;
+        -o-transition: color .55s ease;
+        transition: color .55s ease;
+
     }
     
     /* ------ Right side nav-bar ------ */
@@ -676,9 +703,7 @@ button {
     .search-bar li a:hover {
         background-color: transparent;
         border: none;
-        color: #FFCC00;
-        font-weight: bold;
-        font-size: 1.8vw;
+        color: white;
     }
     
     .research-options {
