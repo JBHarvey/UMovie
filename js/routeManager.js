@@ -28,7 +28,7 @@ define([
 
         routes: {
             '': 'goHome',
-            'movies': 'displaySpecificMovie',
+            'movies': 'displayMovies',
             'movie/:movieId': 'displaySpecificMovie',
             'tvShows': 'displayTvShows',
             'tvShow/:tvShowId': 'displaySpecificTvShow',
@@ -114,8 +114,6 @@ define([
              * THIS PART IS <b> VERY </b> TEMPORARY
              * It shall stay as long as we do not have a movie collection along with its presentation
              */
-            var movies = new MovieView();
-            console.log('We should now see a damn big list of movies');
         });
 
         uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
@@ -132,7 +130,7 @@ define([
         });
 
         uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-            var movieView = new MovieView();
+            var movieView = new MovieView(tvShowId);
             console.log('The movie dialog should be displayed now');
         });
 
