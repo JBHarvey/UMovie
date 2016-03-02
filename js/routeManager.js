@@ -131,7 +131,7 @@ define([
         });
 
         uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-            var movieView = new MovieView();
+            var movieView = new MovieView(tvShowId);
             console.log('The movie dialog should be displayed now');
         });
 
