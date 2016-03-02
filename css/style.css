@@ -1,14 +1,12 @@
-
-
 @media (max-width: 600px) {
     .umovie-logo {
         z-index: 10000;
     }
-
+    
     .navigation-options {
         z-index: 100;
     }
-
+    
     .member-menu {
         z-index: 1000;
         height: 30%;
@@ -27,6 +25,10 @@
 #site-logo {
     width: 128px;
     padding-top: 0.5em;
+}
+#container {
+    display: flex;
+    flex-direction: column;
 }
 
 .umovie-logo {
@@ -124,101 +126,115 @@ button {
 
 #member-menu-open {
     right: 0;
-    -webkit-animation: 1s memberSlideIn;
-    -moz-animation: 1s memberSlideIn;
-    -o-animation: 1s memberSlideIn;
-    animation: 1s memberSlideIn;
-    top: 20%;
-    top: 5.5em;
+    -webkit-animation: .35s memberSlideIn ease-in;
+    -moz-animation: .35s memberSlideIn ease-in;
+    -o-animation: .35s memberSlideIn ease-in;
+    animation: .35s memberSlideIn ease-in;
 }
 
 @-webkit-keyframes memberSlideIn {
     from {
         right: -250px;
+        opacity: 0;
     }
     to {
         right: 0;
+        opacity: 1;
     }
 }
 
 @-moz-keyframes memberSlideIn {
     from {
         right: -250px;
+        opacity: 0;
     }
     to {
         right: 0;
+        opacity: 1;
     }
 }
 
 @-o-keyframes memberSlideIn {
     from {
         right: -250px;
+        opacity: 0;
     }
     to {
         right: 0;
+        opacity: 1;
     }
 }
 
 @keyframes memberSlideIn {
     from {
         right: -250px;
+        opacity: 0;
     }
     to {
         right: 0;
+        opacity: 1;
     }
 }
 
 #member-menu-closed {
     right: -250px;
-    -webkit-animation: 1s memberSlideOut;
-    -moz-animation: 1s memberSlideOut;
-    -o-animation: 1s memberSlideOut;
-    animation: 1s memberSlideOut;
-    top: 20%
+    -webkit-animation: .35s memberSlideOut ease-in;
+    -moz-animation: .35s memberSlideOut ease-in;
+    -o-animation: .35s memberSlideOut ease-in;
+    animation: .35s memberSlideOut ease-in;
 }
 
 @-webkit-keyframes memberSlideOut {
     from {
         right: 0;
+        opacity: 1;
     }
     to {
         right: -250px;
+        opacity: 0;
     }
 }
 
 @-moz-keyframes memberSlideOut {
     from {
         right: 0;
+        opacity: 1;
     }
     to {
         right: -250px;
+        opacity: 0;
     }
 }
 
 @-o-keyframes memberSlideOut {
     from {
         right: 0;
+        opacity: 1;
     }
     to {
         right: -250px;
+        opacity: 0;
     }
 }
 
 @keyframes memberSlideOut {
     from {
         right: 0;
+        opacity: 1;
     }
     to {
         right: -250px;
+        opacity: 0;
     }
 }
 
 .member-menu {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     right: -250px;
     width: 250px;
     top: 5.5em;
-    border-bottom: solid #454545 1px;
 }
 
 .member-menu li {
@@ -247,10 +263,17 @@ button {
 }
 
 .navigation-options {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: space-around;
     border-bottom: solid #454545 1px;
     position: fixed;
     width: 250px;
     top: 5.49em;
+    overflow-y: auto;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -259,7 +282,6 @@ button {
 
 .navigation-options li {
     padding: 1em;
-    display: block;
     border-top: solid #454545 1px;
     border-bottom: solid #151515 1px;
     color: white;
@@ -270,95 +292,101 @@ button {
 }
 
 .navigation-options a {
+    padding: 1em;
     text-decoration: none;
     color: #96948A;
 }
 
 #menu-open {
     left: 0;
-    -webkit-animation: 1s slideIn;
-    -moz-animation: 1s slideIn;
-    -o-animation: 1s slideIn;
-    animation: 1s slideIn;
+    -webkit-animation: .35s slideIn ease-in;
+    -moz-animation: .35s slideIn ease-in;
+    -o-animation: .35s slideIn ease-in;
+    animation: .35s slideIn ease-in;
 }
 
 @-webkit-keyframes slideIn {
     from {
         left: -250px;
+        opacity: 0;
     }
     to {
         left: 0;
+        opacity: 1;
     }
 }
 
 @-moz-keyframes slideIn {
     from {
         left: -250px;
+        opacity: 0;
     }
     to {
         left: 0;
+        opacity: 1;
     }
 }
 
 @-o-keyframes slideIn {
     from {
         left: -250px;
+        opacity: 0;
     }
     to {
         left: 0;
+        opacity: 1;
     }
 }
 
 @keyframes slideIn {
     from {
         left: -250px;
+        opacity: 0;
     }
     to {
         left: 0;
+        opacity: 1;
     }
 }
 
 #menu-closed {
     left: -250px;
-    -webkit-animation: 1s slideOut;
-    -moz-animation: 1s slideOut;
-    -o-animation: 1s slideOut;
-    animation: 1s slideOut;
+    -webkit-animation: .35s slideOut ease-in;
+    -moz-animation: .35s slideOut ease-in;
+    -o-animation: .35s slideOut ease-in;
+    animation: .35s slideOut ease-in;
 }
 
 @-webkit-keyframes slideOut {
     from {
         left: 0;
+        opacity: 1;
     }
     to {
         left: -250px;
+        opacity: 0;
     }
 }
 
 @-moz-keyframes slideOut {
     from {
         left: 0;
+        opacity: 1;
     }
     to {
         left: -250px;
+        opacity: 0;
     }
 }
 
 @-o-keyframes slideOut {
     from {
         left: 0;
+        opacity: 1;
     }
     to {
         left: -250px;
-    }
-}
-
-@keyframes SlideOut {
-    from {
-        left: 0;
-    }
-    to {
-        left: -250px;
+        opacity: 0;
     }
 }
 
@@ -412,7 +440,7 @@ button {
 }
 
 .input-bar input.search-input::-webkit-input-placeholder {
-
+    
     color: #65737e;
 }
 
@@ -508,7 +536,7 @@ button {
     width: 100%;
 }
 
-.submitAuthentication{
+.submitAuthentication {
     padding: 1.2% 7%;
     border: 1px solid #000000;
     background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
@@ -555,13 +583,14 @@ button {
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
     }
-
+    
     /* ------ NAV-BAR  ----- */
     #menu-content {
         height: 70px;
         position: relative;
+        flex-direction: row;
     }
-
+    
     .navigation-bar {
         height: 35%;
         box-sizing: border-box;
@@ -574,20 +603,20 @@ button {
         margin: 0;
         overflow: auto;
     }
-
-
+    
+    
     /* ------ Left side nav-bar ------ */
-
+    
     .umovie-logo {
         background: none;
         position: relative;
         width: 20%;
     }
-
+    
     #expend-menu-icon {
         display: none;
     }
-
+    
     #site-logo {
         width: 100%;
         height: auto;
@@ -596,18 +625,19 @@ button {
         left: 0;
         background: transparent;
     }
-
+    
     /* ------ Middle side nav-bar ------ */
-
+    
     .navigation-options {
         position: initial;
         width: inherit;
-
+        border: none;
+        flex-direction: row;
         list-style: none;
         background: #33333;
         background-color: transparent;
     }
-
+    
     .navigation-options li {
         padding: 1em 1em 0.5em 1em;
         top: 1em;
@@ -617,16 +647,16 @@ button {
         display: -moz-groupbox;
         margin-top: 3%;
     }
-
+    
     .navigation-options li:hover {
         background-color: transparent;
     }
-
+    
     .navigation-options a {
         text-decoration: none;
         color: #96948B;
     }
-
+    
     .navigation-options li a:hover {
         background-color: transparent;
         border: none;
@@ -634,7 +664,7 @@ button {
         font-weight: bold;
         font-size: 1.8vw;
     }
-
+    
     /* ------ Right side nav-bar ------ */
     .search-bar {
         display: inline-flex;
@@ -642,7 +672,7 @@ button {
         float: right;
         width: 26em;
     }
-
+    
     .search-bar li a:hover {
         background-color: transparent;
         border: none;
@@ -650,11 +680,11 @@ button {
         font-weight: bold;
         font-size: 1.8vw;
     }
-
+    
     .research-options {
         color: transparent;
     }
-
+    
     .search-input {
         margin-left: 0;
         color: black;
@@ -666,16 +696,16 @@ button {
         padding-top: 0.3em;
         padding-left: 1.4em;
     }
-
+    
     .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
         color: black;
         background: #FFCC00;
     }
-
+    
     .go-research {
         background: transparent;
     }
-
+    
     /* ------ PAGE CONTENT ------ */
     div #content {
         max-width: 100%;
@@ -683,22 +713,22 @@ button {
         background-color: black;
         color: white;
     }
-
+    
     #container {
         background: black;
         position: relative;
         margin-top: -70px;
     }
-
+    
     .text h1, h2 {
         color: #FFCC00;
     }
-
+    
     .text h1 {
         font-size: 4.1em;
         text-align: center;
     }
-
+    
     .text h2 {
         text-align: center;
         font-size: 1.6em;
@@ -709,31 +739,31 @@ button {
 /* ------  Pour desktop exclusivement ------  */
 
 @media (min-width: 960px) {
-
+    
     html {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
     }
-
-
+    
+    
     .text h1 {
         font-size: 4.1em;
         text-align: center;
-
+        
         margin-top: -4.7em;
     }
-
+    
     .text h2 {
         text-align: center;
         font-size: 1.6em;
     }
-
+    
     .member-menu {
         z-index: 1000;
         height: 900px;
     }
-
+    
     .authentification {
         background-color: black;
         opacity: 0.6;
@@ -742,27 +772,27 @@ button {
         width: 20em;
         height: 12em;
         position: absolute;
-
+        
         top: 35%;
         left: 63%;
-
+        
         border-top-left-radius: 1.2em;
         border-bottom-left-radius: 1.2em;
         border-top-right-radius: 1.2em;
         border-bottom-right-radius: 1.2em;
         border: solid 1px black;
-
+    
     }
-
+    
     .connect p {
         position: absolute;
         margin-top: -50px;
         margin-left: -10px;
         top: 35%;
         left: 25%;
-
+    
     }
-
+    
     .authentification input {
         background-color: white;
         margin: 0.7em;
@@ -771,15 +801,15 @@ button {
         width: 100%;
         height: 3em;
     }
-
+    
     .search-container {
         width: 100%;
     }
-
+    
     .navigation-bar {
         height: 55%;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, transparent);
-
+    
     }
 
 
