@@ -24,10 +24,11 @@ define([
         },
 
         render: function () {
-            console.log(this.collection);
+            that = this;
+            this.$el.html("");
             this.collection.each(function(movie){
-                var movieThumbnail = new MovieThumbnailView({model: movie}).$el;
-                console.log(movieThumbnail.html.toString());
+                var movieThumbnail = new MovieThumbnailView({model: movie});
+                that.$el.append(movieThumbnail.render());
             });
         }
     });

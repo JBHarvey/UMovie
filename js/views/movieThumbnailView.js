@@ -14,13 +14,11 @@ define([
     var MovieCollectionView = Backbone.View.extend({
 
         initialize: function () {
-            this.render();
         },
+
         render: function () {
-
             var template = Handlebars.compile(movieThumbnailTemplate);
-
-            var source = this.model;
+            var source = this.model.attributes;
             return template(source);
         }
     });

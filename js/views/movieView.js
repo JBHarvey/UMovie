@@ -1,5 +1,5 @@
 /**
- * Created by seydou on 16-01-26.
+ * Created by Jean-Benoît on 16-01-26.
  */
 
 define([

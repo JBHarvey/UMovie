@@ -1,5 +1,5 @@
 /**
- * Created by seydou on 16-01-27.
+ * Created by Jean-Benoît on 16-01-27.
  */
 define([
     'underscore',
@@ -9,9 +9,21 @@ define([
     var MovieModel = Backbone.Model.extend({
         urlRoot: "https://umovie.herokuapp.com/movies",
         parse(data){
-            console.log(data);
-            return data;
+            if (data.results != undefined) {
+                return data.results[0];
+            } else {
+                return data;
+            }
         },
+
+        convertDuration() {
+            return `${Math.ceil(this.trackTimeMillis / 60000)} minutes`;
+        },
+
+        releaseYear() {
+            return new Date(this.releaseDate).getFullYear;
+        },
+
         defaults: {
             "urlRoot": 'https://umovie.herokuapp.com/movie/265727087',
             "wrapperType": "track",
@@ -40,15 +52,7 @@ define([
             "primaryGenreName": "Horror",
             "contentAdvisoryRating": "R",
             "longDescription": "Would you die to live? That's what two men, Adam (Leigh Whannell) and Gordon (Cary Elwes), have to ask themselves when they're paired up in a deadly situation. Abducted by a serial killer, they're trapped up in a prison constructed with such ingenuity that they may not be able to escape before their captor decides it's time to dismantle their bodies in his signature way. Attempting to break free may kill them, but staying definitely will.",
-            "radioStationUrl": "https://itunes.apple.com/station/idra.265727087"
-        },
-
-        convertDuration: function () {
-            return `${Math.ceil(this.trackTimeMillis / 60000)} minutes`;
-        },
-
-        releaseYear: function () {
-            return new Date(this.releaseDate).getFullYear;
+            "radioStationUrl": "https://itunes.apple.com/station/idra.265727087",
         }
 
     });
