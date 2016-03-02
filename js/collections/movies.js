@@ -14,6 +14,7 @@ define([
         url: '/movies',
 
         parse: function (response) {
+            console.log(response.results);
             return response.results;
         }
     });

@@ -8,22 +8,22 @@
 
 
 function createWatchlist(name){
-    alert("je passe ici");
+    console.log("je passe ici");
     encodeURI(name);
-    alert("passe dans la fonction");
+    console.log("passe dans la fonction");
     //creating the watchlist appending to collection for the user
 
 };
 
 //jQuery for the action of clicking the button
 $(document).ready(function(){
-    alert("ready!");
+    console.log("ready!");
 
     $("#watchlistCreationButton").onclick=function(){
         var name = $(".newWatchlistNameInput").getText();
-        alert(name);
+        console.log(name);
         createWatchlist(name);
-        alert("watchlist added to watchlist list.");
+        console.log("watchlist added to watchlist list.");
     };
 
 
