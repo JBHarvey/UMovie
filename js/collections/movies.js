@@ -15,9 +15,12 @@ define([
 
         parse: function (response) {
             return response.results;
+        },
+
+        moviesDefaultQuery: function() {
+            return "https://umovie.herokuapp.com/search/movies?q=ring";
         }
     });
-
     return Movies;
 
 });
