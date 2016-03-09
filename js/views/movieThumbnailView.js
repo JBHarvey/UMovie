@@ -11,7 +11,7 @@ define([
 ], function ($, _, Backbone, movieThumbnailTemplate, Handlebars) {
 
 
-    var MovieCollectionView = Backbone.View.extend({
+var MovieThumbnailView = Backbone.View.extend({
 
         initialize: function () {
         },
@@ -22,6 +22,6 @@ define([
             return template(source);
         }
     });
-    return MovieCollectionView;
+    return MovieThumbnailView;
 
 });
