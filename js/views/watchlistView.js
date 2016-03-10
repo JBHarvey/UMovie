@@ -12,8 +12,8 @@ define([
     'backbone',
     'text!templates/watchlistPage.html',
     'handlebars',
-    'models/watchlistModel'
-], function ($, _, Backbone, watchlistTemplate, Handlebars, watchlistModel) {
+    '../models/watchlistItemModel'
+], function ($, _, Backbone, watchlistTemplate, Handlebars, watchlistItemModel) {
 
     var WatchlistView = Backbone.View.extend({
 
