@@ -6,10 +6,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movie.html',
     'collections/movies',
+    'views/movieThumbnailView',
     'handlebars'
-], function ($, _, Backbone, movieTemplate, Movies, Handlebars) {
+], function ($, _, Backbone, Movies, MovieThumbnailView, Handlebars) {
 
 
     var MovieCollectionView = Backbone.View.extend({
@@ -19,24 +19,17 @@ define([
         initialize: function () {
             this.collection = new Movies();
             this.collection.url = function() {return "https://umovie.herokuapp.com/search/movies?q=ring";};
+            this.listenTo(this.collection, 'sync', this.render);
             this.collection.fetch();
-            console.log(this.collection);
-            this.render();
         },
 
         render: function () {
-
-
-            console.log(this.collection);
-
-
-            ////The data used in the template
-            //var template = Handlebars.compile(movieTemplate);
-            //
-            //var source = new MovieModel();
-            //var resultMovie = template(source.hardcode);
-            //
-            //this.$el.html(resultMovie);
+            that = this;
+            this.$el.html("");
+            this.collection.each(function(movie){
+                var movieThumbnail = new MovieThumbnailView({model: movie});
+                that.$el.append(movieThumbnail.render());
+            });
         }
     });
     return MovieCollectionView;
