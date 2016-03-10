@@ -21,9 +21,8 @@ define([
     'views/movieCollectionView',
     'views/tvShowView',
     'views/actorView',
-    'views/watchlistView',
-    'views/watchlistCreationView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, ActorView, WatchlistView, WatchlistCreationView) {
+    'views/watchlistView'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, ActorView, WatchlistView) {
 
 
     var UMovieRouter = Backbone.Router.extend({
@@ -44,7 +43,6 @@ define([
             'login': 'login',
             'signup': 'signup',
             'disconnect': 'disconnect',
-            'createWatchlist' : 'createWatchlist',
 
             //Default
             '*actions': 'defaultAction'
@@ -185,13 +183,6 @@ define([
             navigationBarView.render();
             authenticationView.render(false);
         });
-
-
-        uMovieRouter.on('route:createWatchlist')
-            if(uMovieRouter.checkCredentials()){
-                var creatingWatchlistView = new WatchlistCreationView;
-                console.log("creation a watchlist");
-            }
 
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('Error : no route to', actions);
