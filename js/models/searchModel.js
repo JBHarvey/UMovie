@@ -32,7 +32,11 @@ define([
         ,
 
         setSearchType: function (type) {
+            if (type != 'global') {
 
+            } else {
+                
+            }
         }
 
 
