@@ -98,7 +98,11 @@ define([
         //Shows the login at start up. If the user has already logged in, the home page will be shown.
         authenticationView = new AuthenticationView(user, false);
         if (uMovieRouter.checkCredentials()) {
-            homeView = new HomeView();
+            if(!homeView) {
+                homeView = new HomeView();
+            } else {
+                homeView.render();
+            }
         }
 
 

@@ -1,5 +1,5 @@
 /**
- * Created by Jean-Benoît on 16-03-01.
+ * Created by Jean-Benoît on 16-03-08.
  */
 
 define([
@@ -12,7 +12,7 @@ define([
 ], function ($, _, Backbone, Movies, MovieThumbnailView, Handlebars) {
 
 
-    var MovieCollectionView = Backbone.View.extend({
+    var SearchView = Backbone.View.extend({
 
         el: $('#content'),
 
@@ -32,6 +32,6 @@ define([
             });
         }
     });
-    return MovieCollectionView;
+    return SearchView;
 
 });
