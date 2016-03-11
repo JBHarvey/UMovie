@@ -46,11 +46,8 @@ html {
 }
 
 div #content {
+    width: 100%;
     max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 2% 0;
-
-
 }
 
 h2 {
