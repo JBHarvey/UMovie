@@ -34,9 +34,6 @@ html{
 }
 
 .movie-short-technical-info{
-    /* margin-right: auto; */
-    /* margin-left: auto; */
-    /* width: 100%; */
     background-color: #05052B;
     padding: 5% 10%;
 }
@@ -45,4 +42,9 @@ html{
     background-color: #0E0F11;
     padding: 4% 4%;
     line-height: 1.7em;
+}
+
+.movie-length{
+    /*background-image: url('../img/movie-content/clock.svg');*/
+    background-size: 90%;
 }
