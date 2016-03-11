@@ -10,10 +10,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/watchlist.html',
+    'text!templates/watchlistPage.html',
     'handlebars',
-    'models/watchlistModel'
-], function ($, _, Backbone, watchlistTemplate, Handlebars, watchlistModel) {
+    '../models/watchlistItemModel'
+], function ($, _, Backbone, watchlistTemplate, Handlebars, watchlistItemModel) {
 
     var WatchlistView = Backbone.View.extend({
 

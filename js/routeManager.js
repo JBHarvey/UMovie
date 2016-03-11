@@ -188,10 +188,10 @@ define([
             authenticationView.render(false);
         });
 
-
         uMovieRouter.on('route:defaultAction', function (actions) {
             console.log('Error : no route to', actions);
         });
+
 
         uMovieRouter.setHeaderAuthorization();
         Backbone.history.start({root: '/UMovie'});
