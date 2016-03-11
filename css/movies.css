@@ -1,12 +1,11 @@
 .movies-box {
+    font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
     background-color: #282A2F;
     transition: opacity ease-in-out .55s;
-    width: 100%;
     border: 3px solid #1B1D22;
     border-bottom: none;
     text-decoration: none;
     overflow: hidden;
-    
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
@@ -67,4 +66,57 @@
 
 .movies-footer {
     color: #97999F;
+}
+
+@media screen and (min-width: 970px) {
+    .movies-box {
+        background-color: transparent;
+        border: none;
+        margin-top: 10%;
+        
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+        align-items: stretch;
+    }
+
+    .movies-box:last-of-type {
+        border-bottom: none;
+    }
+
+    .thumbnail {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .movies-top-box {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    .movies-header {
+        display: none;
+    }
+
+    .movies-description {
+        display: none;
+    }
+
+    .movies-footer {
+        display: none;
+    }
+
+    .initial-image {
+        height: 100%;
+        max-height: 400px;
+    }
+
+    .movies-thumbnail {
+        height: 100%;
+        max-height: 400px;
+    }
 }
