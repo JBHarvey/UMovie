@@ -1,7 +1,7 @@
 <head>
     <title>{{name}}</title>
 </head>
-
+<!--
 <div class="movie">
     <div class="movie-name"> {{trackName}}</div>
     <div class="movie-cover"> <img src="{{artworkUrl100}}"/></div>
@@ -11,20 +11,33 @@
     <div class="movie-price">Price : {{trackPrice}}</div>
     <div class="movie-description">Description: {{longDescription}}</div>
 </div>
-
-<div class="movie-general">
-    <div class="movie-general-background"></div>
-    <div class="movie-thumbnail-image"></div>
-    <div class="movie-title"></div>
+-->
+<div class="movie-general-background">
+    <img src="url(../../img/background-movie2.png">
 </div>
+
+<div class="movie-bar">
+    <div class="movie-thumbnail-image">
+        <img src="{{artworkUrl100}}"/></div>
+    <div class="movie-bar-info">
+        <div class="movie-bar-title">{{trackName}}</div>
+        <div class="movie-bar-genre">{{primaryGenreName}}</div>
+    </div>
+
+</div>
+
 
 <div class="movie-short-technical-info">
-    <div class="movie-length"></div>
-    <div class="movie-year"></div>
+    <!--<div class="movie-length">{{trackTimeMillis}}</div>
+    <div class="movie-year">{{releaseDate}}</div>-->
+    <div class="movie-length">240 min</div>
+    <div class="movie-year">2001</div>
+    <div class="movie-country">{{country}}</div>
+
 </div>
 
-<div class="movie-summary"></div>
-
+<div class="movie-summary">{{longDescription}}</div>
+<!--
 <div class="movie-info">
     <ul>
         <li>
@@ -37,4 +50,4 @@
 
 <div class="movie-preview">
     <div class="movie-preview"> Preview <span>{{previewUrl}}</span></div>
-</div>
+</div>-->

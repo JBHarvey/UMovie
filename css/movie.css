@@ -1,0 +1,48 @@
+html{
+    font-family: "Helvetica Neue";
+}
+
+.movie-general-background img{
+    max-width:100%;
+}
+
+.movie-thumbnail-image img {
+    margin-top: -40%;
+    padding: 15% 10px 10px 10px;
+    width: 110px;
+}
+.movie-bar {
+    display: flex;
+    background-color: #132340;
+    padding-right: 2%;
+}
+
+.movie-bar-title{
+    font-size: 18px;
+    margin-top: 10%;
+}
+
+.movie-bar-genre{
+    margin-top: 5%;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.movie-short-technical-info div{
+    display: inline;
+    margin: 0 8%;
+}
+
+.movie-short-technical-info{
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+    /* width: 100%; */
+    background-color: #05052B;
+    padding: 5% 10%;
+}
+
+.movie-summary{
+    background-color: #0E0F11;
+    padding: 4% 4%;
+    line-height: 1.7em;
+}
