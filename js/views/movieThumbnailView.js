@@ -13,6 +13,8 @@ define([
 
 var MovieThumbnailView = Backbone.View.extend({
 
+        comparator: 'trackName',
+
         initialize: function () {
         },
 
