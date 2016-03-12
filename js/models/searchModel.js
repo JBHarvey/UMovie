@@ -1,10 +1,13 @@
 /**
  * Created by Jean-Benoît on 3/8/2016.
  */
+
+"use strict";
+
 define([
     'jquery',
     'underscore',
-    'backbone',
+    'backbone'
 ], function ($, _, Backbone) {
 
     var SearchModel = Backbone.Model.extend({
@@ -13,7 +16,7 @@ define([
             type: '',
             name: '',
             limit: '',
-            genre: '',
+            genre: ''
         },
         addedParameters: 0,
         url: function () {
