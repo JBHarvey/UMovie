@@ -2,6 +2,10 @@ html{
     font-family: "Helvetica Neue";
 }
 
+.movie-page {
+    background-color: #0E0F11;
+}
+
 .movie-general-background img{
     max-width:100%;
 }
@@ -39,7 +43,6 @@ html{
 }
 
 .movie-summary{
-    background-color: #0E0F11;
     padding: 4% 4%;
     line-height: 1.7em;
 }
@@ -113,4 +116,12 @@ html{
 
 .movie-info-price-icon{
     background-image: url('../img/movie-content/svg/movie-info-price-icon.svg');
+}
+
+.movie-preview {
+    margin-top: 5%;
+}
+
+.movie-preview span{
+    margin-left: 5%;
 }
