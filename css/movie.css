@@ -48,3 +48,11 @@ html{
     /*background-image: url('../img/movie-content/clock.svg');*/
     background-size: 90%;
 }
+
+.movie-info-icon img{
+    width: 6%;
+}
+
+.movie-info-title{
+    display: none;
+}
