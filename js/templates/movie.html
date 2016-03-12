@@ -3,6 +3,7 @@
 </head>
 
 <div class="movie-page">
+    <div class="desktop-title">{{trackName}}</div>
     <div class="movie-general-background">
         <img src="url(../../img/background-movie2.png">
     </div>
@@ -13,18 +14,36 @@
         <div class="movie-bar-info">
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
+            <div class="movie-info-box-desktop">
+                <div class="movie-info-subject">
+                    <span class="movie-info-title">Genre:</span>
+                    <span class="movie-info-title">Movie:</span>
+                    <span class="movie-info-title">PG-Rating:</span>
+                    <span class="movie-info-title">Studio:</span>
+                    <span class="movie-info-title">Writers:</span>
+                    <span class="movie-info-title">Language:</span>
+                    <span class="movie-info-title">Price:</span>
+                </div>
+                <div class="movie-info-subject-content">
+                    <span>{{primaryGenreName}}</span>
+                    <span> {{trackName}}</span>
+                    <span>{{contentAdvisoryRating}}</span>
+                    <span>{{artistName}}</span>
+                    <span>{{productionHouse}}</span>
+                    <span>{{writers}}</span>
+                    <span>{{language}}</span>
+                    <span>{{trackPrice}} {{currency}}</span>
+                </div>
+            </div>
         </div>
 
     </div>
 
 
     <div class="movie-short-technical-info">
-        <!--<div class="movie-length">{{trackTimeMillis}}</div>
-        <div class="movie-year">{{releaseDate}}</div>-->
-        <div class="movie-length">240 min</div>
-        <div class="movie-year">2001</div>
+        <div class="movie-length">Fix me{{convertDuration}}</div>
+        <div class="movie-year">Fix me{{releaseYear}}</div>
         <div class="movie-country">{{country}}</div>
-
     </div>
 
     <div class="movie-summary">{{longDescription}}</div>
@@ -32,37 +51,30 @@
     <div class="movie-info-box">
         <div class="movie-info-subject">
             <span class="movie-info-name-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{trackName}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-pgrating-icon icon"></span>
-            <span class="movie-info-title"></span>
             Rated {{contentAdvisoryRating}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-director-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{artistName}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-productionhouse-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{productionHouse}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-writers-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{writers}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-language-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{language}}
         </div>
         <div class="movie-info-subject">
             <span class="movie-info-price-icon icon"></span>
-            <span class="movie-info-title"></span>
             {{trackPrice}} {{currency}}
         </div>
     </div>

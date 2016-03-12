@@ -6,65 +6,61 @@ html{
     background-color: #0E0F11;
 }
 
+.desktop-title{
+    display: none;
+}
+
 .movie-general-background img{
     max-width:100%;
 }
 
 .movie-thumbnail-image img {
     margin-top: -40%;
-    padding: 15% 10% 10px 10px;
-    width: 110px;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
 }
+
 .movie-bar {
     display: flex;
     background-color: #132340;
-    padding-right: 2%;
+    padding-right: 1em;
 }
 
 .movie-bar-title{
     font-size: 1em;
-    margin-top: 10%;
+    margin-top: 1em;
 }
 
 .movie-bar-genre{
-    margin-top: 5%;
-    font-size: 14px;
+    margin-top: 0.8em;
+    font-size: .8em;
     font-style: italic;
 }
 
 .movie-short-technical-info div{
     display: inline;
-    margin: 0 8%;
+    font-size: 1em;
+    margin: 0 2.1em;
 }
 
 .movie-short-technical-info{
+    padding: 0.6em 0;
     background-color: #05052B;
-    padding: 5% 10%;
 }
 
 .movie-summary{
-    padding: 4% 4%;
+    padding: 0.6em 1em;
     line-height: 1.7em;
-}
-
-.movie-length{
-    /*background-image: url('../img/movie-content/clock.svg');*/
-    background-size: 90%;
 }
 
 .movie-info-box{
     background-color: #05052B;
+    text-align:-webkit-center;
 }
 
-
-.movie-info-box{
-    display:block;
-    font-size: 14px;
-}
 .movie-info-subject{
+    display: flex;
     width:100%;
-    padding:0;
-    margin: 0;
 }
 
 .icon {
@@ -76,7 +72,6 @@ html{
     border: none;
     width: 100%;
     max-width: 32px;
-    height: 100%;
     max-height: 32px;
     display: inline-block;
     background-size: 80% 80%;
@@ -121,7 +116,12 @@ html{
     margin-left: 5%;
 }
 
+.movie-info-box-desktop{
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
+
     .movie-page{
         font-size: 2em;
     }
@@ -131,16 +131,108 @@ html{
     }
 
     .movie-info-subject{
-        font-size: 1.6em;
+        text-align: left;
     }
 
     .movie-thumbnail-image img {
-        margin-top: -40%;
-        padding: 15% 10% 10px 40px;
-        width: 210px;
+        width:9.5em;
     }
+
+    .movie-short-technical-info div{
+        padding: 0 1.5em;
+    }
+
+    .movie-summary{
+        margin: 0.7em 0;
+    }
+
+    .movie-info-box{
+        padding: 0.4em 0;
+    }
+
+    .movie-info-name-icon{
+        margin-top:-.4em;
+    }
+
+    .movie-info-price-icon{
+        margin-bottom:-.4em;
+    }
+
 }
 
 @media screen and (min-width: 980px) {
 
+    .movie-bar-genre, .movie-bar-title {
+        display: none;
+    }
+
+    .movie-info-subject, .movie-info-subject-content{
+        display: block;
+        font-size: 1.6em;
+    }
+
+    .desktop-title{
+        margin-top: 100px;
+        font-size: 30px;
+        margin-left: 35%;
+        display: flex;
+    }
+
+    .movie-general-background{
+        display: none;
+    }
+    .movie-page{
+        font-size:1em;
+    }
+
+    .movie-bar-title .movie-bar-genre{
+        display:none;
+    }
+
+    .movie-bar{
+        background-color:#0E0F11;
+        display:inline-flex;
+        width: 100%;
+    }
+
+    .movie-short-technical-info{
+        max-width:300px;
+    }
+
+    .movie-thumbnail-image{
+        margin-left: 5%;
+    }
+
+    .movie-info-box-desktop{
+        margin-top:5%;
+        display:inline-flex;
+        width: 80%;
+        margin-left: %;
+        font-size: 16px;
+    }
+
+    .movie-info-box-desktop .icon{
+        display:none;
+    }
+
+    .movie-info-box{
+        display:none;
+    }
+
+    .movie-info-box-desktop .movie-info-subject span{
+        display: block;
+        text-align: right;
+        width: 100%;
+        color:blueviolet;
+    }
+
+    .movie-info-box-desktop .movie-info-subject-content span{
+        display: block;
+        width: 100%;
+    }
+
+
+    .movie-short-technical-info{
+        min-width: 20%;
+    }
 }
