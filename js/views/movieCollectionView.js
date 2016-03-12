@@ -8,8 +8,9 @@ define([
     'backbone',
     'collections/movies',
     'views/movieThumbnailView',
-    'handlebars'
-], function ($, _, Backbone, Movies, MovieThumbnailView, Handlebars) {
+    'handlebars',
+    'models/searchModel'
+], function ($, _, Backbone, Movies, MovieThumbnailView, Handlebars, searchModel) {
 
 
     var MovieCollectionView = Backbone.View.extend({
@@ -17,8 +18,9 @@ define([
         el: $('#content'),
 
         initialize: function () {
+            this.searchManager = new searchModel();
             this.collection = new Movies();
-            this.collection.url = this.collection.moviesDefaultQuery;
+            this.collection.url = this.generateDefaultQuery();
             this.listenTo(this.collection, 'sync', this.render);
             this.collection.fetch();
         },
@@ -30,6 +32,14 @@ define([
                 var movieThumbnail = new MovieThumbnailView({model: movie});
                 that.$el.append(movieThumbnail.render());
             });
+        },
+
+        generateDefaultQuery: function() {
+            this.searchManager.setSearchType('movies');
+            this.searchManager.setSearchName('dead');
+            this.searchManager.setSearchLimit(0);
+            this.searchManager.setSearchGenre('');
+            return this.searchManager.url();
         }
     });
     return MovieCollectionView;
