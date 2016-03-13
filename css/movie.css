@@ -161,7 +161,7 @@ html{
 @media screen and (min-width: 980px) {
 
     .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
-    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info {
+    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info, .movie-summary {
         display: none;
     }
 
@@ -238,10 +238,6 @@ html{
         width: 20em;
         background-color:red;
         display: block;
-    }
-
-    .movie-summary{
-        display: none;
     }
 
     .movie-preview{

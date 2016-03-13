@@ -12,16 +12,18 @@ define([
             if (data.results != undefined) {
                 return data.results[0];
             } else {
+                data.convertDuration = this.convertDuration(data.trackTimeMillis);
+                data.releaseYear = this.releaseYear(data.releaseDate);
                 return data;
             }
         },
 
-        convertDuration() {
-            return `${Math.ceil(this.trackTimeMillis / 60000)} minutes`;
+        convertDuration(duration) {
+            return `${Math.ceil(duration / 60000)} minutes`;
         },
 
-        releaseYear() {
-            return new Date(this.releaseDate).getFullYear;
+        releaseYear(date) {
+            return new Date(date).getFullYear();
         },
 
         defaults: {
@@ -39,11 +41,13 @@ define([
             "artworkUrl100": "http://is2.mzstatic.com/image/pf/us/r30/Music/af/37/e2/dj.fsfobjrm.100x100-75.jpg",
             "collectionPrice": 9.99,
             "trackPrice": 9.99,
+            "convertDuration": 104 minutes,
             "trackRentalPrice": 2.99,
             "collectionHdPrice": 12.99,
             "trackHdPrice": 12.99,
             "trackHdRentalPrice": 3.99,
             "releaseDate": "2004-10-29T07:00:00Z",
+            "releaseYear": 2004,
             "collectionExplicitness": "notExplicit",
             "trackExplicitness": "notExplicit",
             "trackTimeMillis": 6187486,
