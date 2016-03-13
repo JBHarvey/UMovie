@@ -116,7 +116,7 @@ html{
     margin-left: 5%;
 }
 
-.movie-info-box-desktop{
+.movie-info-box-desktop, .movie-summary-desktop, .movie-short-technical-info-desktop{
     display: none;
 }
 
@@ -162,31 +162,34 @@ html{
 
 @media screen and (min-width: 980px) {
 
-    .movie-bar-genre, .movie-bar-title {
+    .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
+    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info {
         display: none;
     }
 
     .movie-info-subject, .movie-info-subject-content{
-        display: block;
-        font-size: 1.6em;
+        display: inline-flex;
+        /* text-align: left; */
+        font-size: 1.4em;
+        width: 45em;
     }
 
     .desktop-title{
-        margin-top: 100px;
-        font-size: 30px;
-        margin-left: 35%;
+        margin-top: 100px; /*Tobe changed */
+        font-size: 1.5em;
+        width: 60%;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto;
         display: flex;
     }
 
-    .movie-general-background{
-        display: none;
-    }
     .movie-page{
+        margin:0;
+        padding:0;
+        background-color:#0E0F11;
         font-size:1em;
-    }
-
-    .movie-bar-title .movie-bar-genre{
-        display:none;
+        width:auto;
     }
 
     .movie-bar{
@@ -196,43 +199,102 @@ html{
     }
 
     .movie-short-technical-info{
-        max-width:300px;
+        background-color:#0E0F11;
     }
 
     .movie-thumbnail-image{
-        margin-left: 5%;
+        margin: 13% 2em 0 10%;
+    }
+
+    .movie-thumbnail-image img{
+        width: 300px;
     }
 
     .movie-info-box-desktop{
-        margin-top:5%;
-        display:inline-flex;
-        width: 80%;
+        /* padding: 2em 2em 0 0; */
+    }
+
+    .movie-info-box-desktop{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        display: block;
+        width: 100%;
         margin-left: %;
-        font-size: 16px;
+        font-size: 13px;
     }
 
-    .movie-info-box-desktop .icon{
-        display:none;
-    }
-
-    .movie-info-box{
-        display:none;
-    }
-
-    .movie-info-box-desktop .movie-info-subject span{
+    .movie-info-box-desktop{
         display: block;
         text-align: right;
-        width: 100%;
-        color:blueviolet;
+        width: 40%;
+        /* color: rgba(43, 105, 226, 0.99); */
     }
 
     .movie-info-box-desktop .movie-info-subject-content span{
         display: block;
-        width: 100%;
+        width: 40em;
     }
 
 
     .movie-short-technical-info{
-        min-width: 20%;
+        background-color:blue;
+        width: 30%;
+        margin-left:4em;
     }
+
+    .movie-summary-desktop{
+        width: 20em;
+        background-color:red;
+        display: block;
+    }
+
+    .movie-summary{
+        display: none;
+    }
+    .movie-preview{
+        width:40%;
+        background-color:red;
+    }
+
+    .movie-bar-info{
+        width: 100%;
+    }
+
+    .movie-info-price-icon{
+        margin-bottom:4em;
+    }
+
+    .movie-info-preview video{
+        width:80%;
+        /* background-color:red; */
+    }
+
+    .movie-info-title-desktop{
+        width: 5em;
+        text-align: right;
+        margin-right: 1em;
+        color: rgba(43, 105, 226, 0.99);
+    }
+
+    .desktop-preview{
+        margin-top: 3em;
+    }
+
+    .desktop-preview video {
+        width: 400px;
+    }
+
+    .desktop-summary{
+        margin-top: 3em;
+    }
+
+
+    .movie-short-technical-info-desktop{
+        display: inline-flex;
+    }
+    .movie-short-technical-info-desktop div{
+        font-size: 0.7em;
+        margin: 0 2.1em;
+    }
+
 }

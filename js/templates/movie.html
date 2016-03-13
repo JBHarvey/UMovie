@@ -10,31 +10,65 @@
 
     <div class="movie-bar">
         <div class="movie-thumbnail-image">
-            <img src="{{artworkUrl100}}"/></div>
+            <img src="{{artworkUrl100}}"/>
+            <div class="movie-short-technical-info-desktop">
+                <div class="movie-length">Fix me{{convertDuration}}</div>
+                <div class="movie-year">Fix me{{releaseYear}}</div>
+                <div class="movie-country">{{country}}</div>
+            </div>
+        </div>
         <div class="movie-bar-info">
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
             <div class="movie-info-box-desktop">
                 <div class="movie-info-subject">
-                    <span class="movie-info-title">Genre:</span>
-                    <span class="movie-info-title">Movie:</span>
-                    <span class="movie-info-title">PG-Rating:</span>
-                    <span class="movie-info-title">Studio:</span>
-                    <span class="movie-info-title">Writers:</span>
-                    <span class="movie-info-title">Language:</span>
-                    <span class="movie-info-title">Price:</span>
-                </div>
-                <div class="movie-info-subject-content">
+                    <span class="movie-info-title-desktop">Genre:</span>
                     <span>{{primaryGenreName}}</span>
-                    <span> {{trackName}}</span>
-                    <span>{{contentAdvisoryRating}}</span>
-                    <span>{{artistName}}</span>
-                    <span>{{productionHouse}}</span>
-                    <span>{{writers}}</span>
-                    <span>{{language}}</span>
-                    <span>{{trackPrice}} {{currency}}</span>
                 </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Movie:</span>
+                    <span>{{trackName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">PG-Rating:</span>
+                    <span>{{contentAdvisoryRating}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Director:</span>
+                    <span>{{artistName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Studio:</span>
+                    <span>{{productionHouse}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Writers:</span>
+                    <span>{{productionHouse}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Language:</span>
+                    <span>{{language}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Price:</span>
+                    <span>{{trackPrice}}</span>
+                </div>
+                <div class="movie-info-subject desktop-summary">
+                    <span class="movie-info-title-desktop">Summary:</span>
+                    <span>{{longDescription}}</span>
+                </div>
+                <div class="movie-info-subject desktop-preview">
+                    <span class="movie-info-title-desktop">Trailer:</span>
+                    <span class="movie-info-preview">
+                        <video width=100% controls>
+                            <source src={{previewUrl}} type="video/m4v">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </span>
+                </div>
+
             </div>
+
         </div>
 
     </div>
