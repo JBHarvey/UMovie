@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/tvshow.html',
-    'models/tvShowModel',
+    '../models/tvShowSeasonModel',
     'handlebars'
 ], function ($, _, Backbone, tvShowTemplate, TvShowModel, Handlebars) {
 
