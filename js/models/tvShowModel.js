@@ -43,7 +43,10 @@ define([
                 "contentAdvisoryRating": "TV-MA",
                 "shortDescription": "In the pilot episode of this series, Caesar ends eight years of war with victory in Gaul, but a personal loss at home.",
                 "longDescription": "52 B.C. Eager to return to Rome after eight long years of war, Gaius Julius Caesar ends his campaign with a big triumph in Gaul--and news of a shattering personal loss at home. When his army's gold standard is stolen, Caesar's cousin and commander Mark Antony enlists two soldiers, Centurion Lucius Vorenus and Legionnaire Titus Pullo, to track it down.",
-                "radioStationUrl": "https://itunes.apple.com/station/idra.279753813"
+                "radioStationUrl": "https://itunes.apple.com/station/idra.279753813",
+                "productionHouse": "N/A",
+                "writers": "N/A",
+                "language": "English"
             }
 
     });

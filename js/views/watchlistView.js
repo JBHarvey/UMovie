@@ -10,30 +10,51 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/watchlistPage.html',
+    'text!templates/watchlistItem.html',
+    'text!templates/pageHeader.html',
     'handlebars',
-    '../models/watchlistItemModel'
-], function ($, _, Backbone, watchlistTemplate, Handlebars, watchlistItemModel) {
+    'models/watchlistItemModel'
+], function ($, _, Backbone, WatchlistTemplate ,PageHeaderTemplate ,Handlebars, watchlistItemModel) {
 
     var WatchlistView = Backbone.View.extend({
 
-    el: $('#content'),
+        el: $('#content'),
 
-    initialize: function() {
-        this.render();
-    },
-    render : function(){
-        var template = Handlebars.compile(watchlistTemplate);
-        var initial = new watchlistModel();
-        var resultWatchlist = template(initial.defaults);
+        initialize: function () {
+            this.render();
+        },
 
-        this.$el.html(resultWatchlist);
+        render: function () {
+            var pageHeaderTemplate = Handlebars.compile(PageHeaderTemplate);
+            var template = Handlebars.compile(WatchlistTemplate);
+            var initial = new watchlistItemModel();
+
+            // faire l'ajout du header.
+            // var header = new PageHeaderTemplate
+            var resultWatchlist = template(initial.defaults);
+
+            //render le result avec le reste de la page.
+            //this.$el.html(resultHeader);
+            this.$el.html(resultWatchlist);
+
+        },
+
+        events: {
+            "click .button-ajouter": "createWatchlist",
+            "click .button-supprimer" : "deleteWatchlist"
+        },
+
+        createWatchlist: function () {
+            console.log("Creation d'une nouvelle watchlist en cours.");
+
+        },
+
+        deleteWatchlist : function(id){
+          console.log("Suppression de la watchlist...")
+        }
 
 
-
-    }
-
-});
-  return WatchlistView;
+    });
+    return WatchlistView;
 
 });

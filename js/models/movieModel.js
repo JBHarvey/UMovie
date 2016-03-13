@@ -10,18 +10,21 @@ define([
         urlRoot: "https://umovie.herokuapp.com/movies",
         parse(data){
             if (data.results != undefined) {
+                res = data.results[0];
+                res.convertDuration = this.convertDuration(res.trackTimeMillis);
+                res.releaseYear = this.releaseYear(res.releaseDate);
                 return data.results[0];
             } else {
                 return data;
             }
         },
 
-        convertDuration() {
-            return `${Math.ceil(this.trackTimeMillis / 60000)} minutes`;
+        convertDuration(duration) {
+            return `${Math.ceil(duration / 60000)} minutes`;
         },
 
-        releaseYear() {
-            return new Date(this.releaseDate).getFullYear;
+        releaseYear(date) {
+            return new Date(date).getFullYear();
         },
 
         defaults: {
@@ -39,11 +42,13 @@ define([
             "artworkUrl100": "http://is2.mzstatic.com/image/pf/us/r30/Music/af/37/e2/dj.fsfobjrm.100x100-75.jpg",
             "collectionPrice": 9.99,
             "trackPrice": 9.99,
+            "convertDuration": "104 minutes",
             "trackRentalPrice": 2.99,
             "collectionHdPrice": 12.99,
             "trackHdPrice": 12.99,
             "trackHdRentalPrice": 3.99,
             "releaseDate": "2004-10-29T07:00:00Z",
+            "releaseYear": 2004,
             "collectionExplicitness": "notExplicit",
             "trackExplicitness": "notExplicit",
             "trackTimeMillis": 6187486,
@@ -53,6 +58,9 @@ define([
             "contentAdvisoryRating": "R",
             "longDescription": "Would you die to live? That's what two men, Adam (Leigh Whannell) and Gordon (Cary Elwes), have to ask themselves when they're paired up in a deadly situation. Abducted by a serial killer, they're trapped up in a prison constructed with such ingenuity that they may not be able to escape before their captor decides it's time to dismantle their bodies in his signature way. Attempting to break free may kill them, but staying definitely will.",
             "radioStationUrl": "https://itunes.apple.com/station/idra.265727087",
+            "productionHouse": "N/A",
+            "writers": "N/A",
+            "language": "English"
         }
 
     });

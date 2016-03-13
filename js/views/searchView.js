@@ -7,9 +7,9 @@ define([
     'underscore',
     'backbone',
     'collections/movies',
-    'views/movieThumbnailView',
+    'thumbnailView',
     'handlebars'
-], function ($, _, Backbone, Movies, MovieThumbnailView, Handlebars) {
+], function ($, _, Backbone, Movies, ThumbnailView, Handlebars) {
 
 
     var SearchView = Backbone.View.extend({
@@ -17,8 +17,10 @@ define([
         el: $('#content'),
 
         initialize: function () {
+            // To fix
             this.collection = new Movies();
             this.collection.url = this.collection.moviesDefaultQuery;
+
             this.listenTo(this.collection, 'sync', this.render);
             this.collection.fetch();
         },
@@ -26,8 +28,10 @@ define([
         render: function () {
             that = this;
             this.$el.html("");
+
+            //That too
             this.collection.each(function(movie){
-                var movieThumbnail = new MovieThumbnailView({model: movie});
+                var movieThumbnail = new ThumbnailView({model: movie});
                 that.$el.append(movieThumbnail.render());
             });
         }
