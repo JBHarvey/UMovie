@@ -30,7 +30,7 @@ define([
             this.$el.html("");
             this.collection.each(function(tvShows){
                 var thumbnail = new ThumbnailView({model: tvShows});
-                that.$el.append(thumbnail.render());
+                that.$el.append(thumbnail.renderSeason());
             });
         },
 

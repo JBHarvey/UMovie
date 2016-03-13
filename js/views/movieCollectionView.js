@@ -30,7 +30,7 @@ define([
             this.$el.html("");
             this.collection.each(function(movie){
                 var thumbnail = new ThumbnailView({model: movie});
-                that.$el.append(thumbnail.render());
+                that.$el.append(thumbnail.renderMovie());
             });
         },
 
