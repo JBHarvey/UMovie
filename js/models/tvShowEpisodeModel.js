@@ -6,7 +6,7 @@ define([
     'backbone'
 ], function (_, Backbone) {
 
-    var TvShowModel = Backbone.Model.extend({
+    var TvShowEpisodeModel = Backbone.Model.extend({
         defaults: {
                 "wrapperType": "track",
                 "kind": "tv-episode",
@@ -51,5 +51,5 @@ define([
 
     });
 
-    return TvShowModel;
+    return TvShowEpisodeModel;
 });

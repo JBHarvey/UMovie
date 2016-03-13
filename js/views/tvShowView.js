@@ -6,13 +6,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/tvshow.html',
-    '../models/tvShowSeasonModel',
+    'text!templates/tvShowEpisode.html',
+    '../models/tvShowEpisodeModel',
     'handlebars'
-], function ($, _, Backbone, tvShowTemplate, TvShowModel, Handlebars) {
+], function ($, _, Backbone, tvShowEpisodeTemplate, TvShowEpisodeModel, Handlebars) {
 
 
-    var TvShowView = Backbone.View.extend({
+    var TvShowEpisodeView = Backbone.View.extend({
 
         el: $('#content'),
 
@@ -24,13 +24,13 @@ define([
         render: function () {
 
             //The data used in the template
-            var template = Handlebars.compile(tvShowTemplate);
+            var template = Handlebars.compile(tvShowEpisodeTemplate);
 
-            var source = new TvShowModel();
-            var resultTvShow = template(source.defaults);
-            this.$el.html(resultTvShow);
+            var source = new TvShowEpisodeModel();
+            var resultTvShowEpisode = template(source.defaults);
+            this.$el.html(resultTvShowEpisode);
         }
     });
-    return TvShowView;
+    return TvShowEpisodeView;
 
 });
