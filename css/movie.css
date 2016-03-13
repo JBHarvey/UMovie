@@ -1,0 +1,287 @@
+html{
+    font-family: "Helvetica Neue"; /* Temporary*/
+}
+
+.movie-page {
+    background-color: #0E0F11;
+}
+
+.movie-general-background img{
+    max-width:100%;
+}
+
+.movie-thumbnail-image img {
+    margin-top: -40%;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
+}
+
+.movie-bar {
+    display: flex;
+    background-color: #132340;
+    padding-right: 1em;
+}
+
+.movie-bar-title{
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.movie-bar-genre{
+    margin-top: 0.8em;
+    font-size: .8em;
+    font-style: italic;
+}
+
+.movie-short-technical-info div{
+    display: inline;
+    font-size: 1em;
+    margin: 0 2.1em;
+}
+
+.movie-short-technical-info{
+    padding: 0.6em 0;
+    background-color: #05052B;
+}
+
+.movie-summary{
+    padding: 0.6em 1em;
+    line-height: 1.7em;
+}
+
+.movie-info-box{
+    background-color: #05052B;
+    text-align:-webkit-center;
+}
+
+.movie-info-subject{
+    display: flex;
+    text-align: left;
+    width:100%;
+}
+
+.icon {
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 4%;
+    border: none;
+    width: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    display: inline-block;
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: #132340;
+    background-repeat: no-repeat;
+}
+
+.movie-info-name-icon{
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+}
+
+.movie-info-pgrating-icon{
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+}
+
+.movie-info-director-icon{
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+}
+
+.movie-info-productionhouse-icon{
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
+}
+
+.movie-info-writers-icon{
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
+}
+
+.movie-info-language-icon{
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
+}
+
+.movie-info-price-icon{
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
+}
+
+.movie-preview {
+    margin-top: 5%;
+}
+
+.movie-preview span{
+    margin-left: 5%;
+}
+
+.movie-info-box-desktop, .movie-summary-desktop, .desktop-title, .movie-short-technical-info-desktop{
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .movie-page {
+        font-size: 2em;
+    }
+
+    .movie-bar-genre{
+        font-size: 1em;
+    }
+
+    .movie-info-subject{
+        text-align: left;
+    }
+
+    .movie-thumbnail-image img {
+        width:9.5em;
+    }
+
+    .movie-short-technical-info div{
+        padding: 0 1.5em;
+    }
+
+    .movie-summary{
+        margin: 0.7em 0;
+    }
+
+    .movie-info-box{
+        padding: 0 0;
+    }
+
+    .movie-info-name-icon{
+        margin-top:-.7em;
+    }
+
+    .movie-info-price-icon{
+        margin-bottom:-.4em;
+    }
+
+}
+
+@media screen and (min-width: 980px) {
+
+    .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
+    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info, .movie-summary {
+        display: none;
+    }
+
+    .movie-info-subject, .movie-info-subject-content{
+        display: inline-flex;
+        font-size: 1.4em;
+        width: 45em;
+    }
+
+    .desktop-title{
+        margin-top: 100px; /*To be changed */
+        font-size: 1.5em;
+        width: 60%;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .movie-page {
+        margin:0;
+        padding:0;
+        background-color:#0E0F11;
+        font-size:1em;
+        width:auto;
+    }
+
+    .movie-bar{
+        background-color:#0E0F11;
+        display:inline-flex;
+        width: 100%;
+    }
+
+    .movie-short-technical-info{
+        background-color:#0E0F11;
+    }
+
+    .movie-thumbnail-image{
+        margin: 13% 2em 0 10%;
+    }
+
+    .movie-thumbnail-image img{
+        width: 300px;
+    }
+
+    .movie-info-box-desktop{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        display: block;
+        width: 100%;
+        margin-left: %;
+        font-size: 13px;
+    }
+
+    .movie-info-box-desktop{
+        display: block;
+        text-align: right;
+        width: 40%;
+    }
+
+    .movie-info-box-desktop .movie-info-subject-content span{
+        display: block;
+        width: 40em;
+    }
+
+
+    .movie-short-technical-info{
+        background-color:blue;
+        width: 30%;
+        margin-left:4em;
+    }
+
+    .movie-summary-desktop{
+        width: 20em;
+        background-color:red;
+        display: block;
+    }
+
+    .movie-preview{
+        width:40%;
+    }
+
+    .movie-bar-info{
+        width: 100%;
+    }
+
+    .movie-info-price-icon{
+        margin-bottom:4em;
+    }
+
+    .movie-info-preview video{
+        width:80%;
+    }
+
+    .movie-info-title-desktop{
+        width: 5em;
+        text-align: right;
+        margin-right: 1em;
+        color: rgba(43, 105, 226, 0.99);
+    }
+
+    .desktop-preview{
+        margin-top: 3em;
+    }
+
+    .desktop-preview video {
+        width: 400px;
+    }
+
+    .desktop-summary{
+        margin-top: 3em;
+    }
+
+    .movie-short-technical-info-desktop{
+        display: inline-flex;
+    }
+
+    .movie-short-technical-info-desktop div{
+        font-size: 0.7em;
+        margin: 0 2.1em;
+    }
+
+}

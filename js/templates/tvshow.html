@@ -1,17 +1,124 @@
--<head>
-	-    <title>{{collectionName}}</title>
-	-</head>
--
--<div class="tvShow">
-	-    <div class="tvShow-name">{{collectionName}}</div>
-	-    <div class="tvShow-image"><img src="{{artworkUrl100}}"/></div>
-	-    <div class="tvShow-genre">Genre : {{primaryGenreName}}</div>
-	-    <div class="tvShow-date">Release date : {{releaseDate}}</div>
-	-    <div class="tvShow-rating">Rating : {{contentAdvisoryRating}}</div>
-	-    <div class="tvShow-price">Season price : {{collectionPrice}}</div>
-	-    <div class="tvShow-description"> {{longDescription}}</div>
-	-</div>
--
--<div class="tvShow-preview">
-	-	<div class="tvShow-preview">Preview <span>{{previewUrl}}</span></div>
+<head>
+    <title>{{collectionName}}</title>
+</head>
+
+<div class="tvShow-page">
+    <div class="desktop-title">{{trackName}}</div>
+    <div class="tvShow-general-background">
+        <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
+    </div>
+
+    <div class="tvShow-bar">
+        <div class="tvShow-thumbnail-image">
+            <img src="{{artworkUrl100}}"/>
+            <div class="tvShow-short-technical-info-desktop">
+                <div class="tvShow-length">Fix me{{convertDuration}}</div>
+                <div class="tvShow-year">Fix me{{releaseYear}}</div>
+                <div class="tvShow-country">{{country}}</div>
+            </div>
+        </div>
+        <div class="tvShow-bar-info">
+            <div class="tvShow-bar-title">{{trackName}}</div>
+            <div class="tvShow-bar-genre">{{primaryGenreName}}</div>
+            <div class="tvShow-info-box-desktop">
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">Genre:</span>
+                    <span>{{primaryGenreName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Serie:</span>
+                    <span>{{artistName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Season:</span>
+                    <span>{{collectionName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Episode:</span>
+                    <span>{{trackName}}</span>
+                </div>
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">PG-Rating:</span>
+                    <span>{{contentAdvisoryRating}}</span>
+                </div>
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">Studio:</span>
+                    <span>{{productionHouse}}</span>
+                </div>
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">Writers:</span>
+                    <span>{{productionHouse}}</span>
+                </div>
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">Language:</span>
+                    <span>{{language}}</span>
+                </div>
+                <div class="tvShow-info-subject">
+                    <span class="tvShow-info-title-desktop">Price:</span>
+                    <span>{{trackPrice}}</span>
+                </div>
+                <div class="tvShow-info-subject desktop-summary">
+                    <span class="tvShow-info-title-desktop">Summary:</span>
+                    <span>{{longDescription}}</span>
+                </div>
+                <div class="tvShow-info-subject desktop-preview">
+                    <span class="tvShow-info-title-desktop">Trailer:</span>
+                    <span class="tvShow-info-preview">
+                        <video width=100% controls>
+                            <source src={{previewUrl}} type="video/m4v">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="tvShow-short-technical-info">
+        <div class="tvShow-length">Fix me{{convertDuration}}</div>
+        <div class="tvShow-year">Fix me{{releaseYear}}</div>
+        <div class="tvShow-country">{{country}}</div>
+    </div>
+
+    <div class="tvShow-summary">{{longDescription}}</div>
+
+    <div class="tvShow-info-box">
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-name-icon icon"></span>
+            {{trackName}}
+        </div>
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-pgrating-icon icon"></span>
+            Rated {{contentAdvisoryRating}}
+        </div>
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-productionhouse-icon icon"></span>
+            {{productionHouse}}
+        </div>
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-writers-icon icon"></span>
+            {{writers}}
+        </div>
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-language-icon icon"></span>
+            {{language}}
+        </div>
+        <div class="tvShow-info-subject">
+            <span class="tvShow-info-price-icon icon"></span>
+            {{trackPrice}} {{currency}}
+        </div>
+    </div>
+
+    <div class="tvShow-preview">
+        <span>Trailer</span>
+        <video width=100% controls>
+            <source src={{previewUrl}} type="video/m4v">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
 </div>
