@@ -10,10 +10,11 @@ define([
         urlRoot: "https://umovie.herokuapp.com/movies",
         parse(data){
             if (data.results != undefined) {
+                res = data.results[0];
+                res.convertDuration = this.convertDuration(res.trackTimeMillis);
+                res.releaseYear = this.releaseYear(res.releaseDate);
                 return data.results[0];
             } else {
-                data.convertDuration = this.convertDuration(data.trackTimeMillis);
-                data.releaseYear = this.releaseYear(data.releaseDate);
                 return data;
             }
         },
@@ -41,7 +42,7 @@ define([
             "artworkUrl100": "http://is2.mzstatic.com/image/pf/us/r30/Music/af/37/e2/dj.fsfobjrm.100x100-75.jpg",
             "collectionPrice": 9.99,
             "trackPrice": 9.99,
-            "convertDuration": 104 minutes,
+            "convertDuration": "104 minutes",
             "trackRentalPrice": 2.99,
             "collectionHdPrice": 12.99,
             "trackHdPrice": 12.99,
