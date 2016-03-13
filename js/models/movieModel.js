@@ -10,9 +10,9 @@ define([
         urlRoot: "https://umovie.herokuapp.com/movies",
         parse(data){
             if (data.results != undefined) {
-                res = data.results[0];
-                res.convertDuration = this.convertDuration(res.trackTimeMillis);
-                res.releaseYear = this.releaseYear(res.releaseDate);
+                result = data.results[0];
+                result.convertDuration = this.convertDuration(result.trackTimeMillis);
+                result.releaseYear = this.releaseYear(result.releaseDate);
                 return data.results[0];
             } else {
                 return data;
