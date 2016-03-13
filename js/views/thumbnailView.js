@@ -7,23 +7,25 @@ define([
     'underscore',
     'backbone',
     'text!templates/movieThumbnail.html',
+    'text!templates/tvShowSeasonThumbnail.html',
+    'text!templates/tvShowEpisodeThumbnail.html',
     'handlebars'
 ], function ($, _, Backbone, movieThumbnailTemplate, Handlebars) {
 
-
-var MovieThumbnailView = Backbone.View.extend({
+    var ThumbnailView = Backbone.View.extend({
 
         comparator: 'trackName',
 
         initialize: function () {
         },
 
+
         render: function () {
-            var template = Handlebars.compile(movieThumbnailTemplate);
+            var template = Handlebars.compile(thumbnailTemplate);
             var source = this.model.attributes;
             return template(source);
         }
     });
-    return MovieThumbnailView;
+    return ThumbnailView;
 
 });
