@@ -20,9 +20,10 @@ define([
     'views/movieView',
     'views/movieCollectionView',
     'views/tvShowView',
+    'models/actorModel',
     'views/actorView',
     'views/watchlistView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, ActorView, WatchlistView) {
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, ActorModel, ActorView, WatchlistView) {
 
 
     var UMovieRouter = Backbone.Router.extend({
@@ -33,7 +34,7 @@ define([
             'movie/:movieId': 'displaySpecificMovie',
             'tvShows': 'displayTvShows',
             'tvShow/:tvShowId': 'displaySpecificTvShow',
-            'actors': 'displayActors',
+            'actors': 'displaySpecificActor',
             'actor/:actorId': 'displaySpecificActor',
 
             'watchlists': 'displayWatchlists',
@@ -142,16 +143,18 @@ define([
 
         //Actors
         uMovieRouter.on('route:displayActors', function () {
-            /*
-             * THIS PART IS <b> VERY </b> TEMPORARY
-             * It shall stay as long as we do not have an actor collection along with its presentation
-             */
+
+            //this.model = new ActorModel({id: actorId});
+
             var actorView = new ActorView();
+            console.log('The actor dialog should be displayed now');
         });
 
-        uMovieRouter.on('route:displaySpecificActor', function (actorName) {
+        uMovieRouter.on('route:displaySpecificActor', function (actorId) {
             // This should be the actual actorView page.
-            var actorView = new ActorView();
+            var modelId =  actorId ?  actorId : 253584821;
+            var actorModel = new ActorModel({id: modelId});
+            var actorView = new ActorView({model: actorModel});
         });
 
 

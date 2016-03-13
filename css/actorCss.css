@@ -115,9 +115,10 @@
         width: 30%;
     }
     .imgActor{
+
         float: none;
-        max-width: 100%;
-        margin: 0;
+        max-width: 80%;
+        margin: 10% 10%;
     }
     .itunes{
         max-width: 100%;
@@ -131,6 +132,7 @@
     }
     .genre{
         font-size: 170%;
+        margin-left: 7%;
         font-weight: bold;
     }
     #header{
@@ -144,8 +146,9 @@
     #text{
         font-size: 100%;
     }
-    #genre{
-        font-size: 130%;
+    .genre{
+       margin-left: 7%;
+        font-size: 100%;
         font-weight: bold;
     }
     .movie-image{
@@ -171,7 +174,10 @@
     .movie-menu li{
         flex-basis: 25%;
         width: 25%;
-
+    }
+    .itunes {
+        width: 50%;
+        margin: 0 25%;
     }
 
     .youtube {
@@ -179,6 +185,11 @@
         height: 100%;
         max-width: 100%;
 
+    }
+
+    .imgActor {
+        max-width: 50%;
+        margin: 10% 25%;
     }
 }
 

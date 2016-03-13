@@ -9,10 +9,13 @@ define([
     'underscore',
     'backbone',
     'text!templates/actorCollection.html',
-    'views/actors'
+    'handlebars'
 ], function ($, _, Backbone, actorCollectionTemplate, Handlebars) {
 
     var ActorsCollectionView = Backbone.View.extend({
+
+        comperator: 'trackName',
+
         initialize: function() {
         },
 
