@@ -2,7 +2,7 @@ html{
     font-family: "Helvetica Neue";
 }
 
-.movie-page {
+.tvShow-page {
     background-color: #0E0F11;
 }
 
@@ -10,57 +10,56 @@ html{
     display: none;
 }
 
-.movie-general-background img{
+.tvShow-general-background img{
     max-width:100%;
 }
 
-.movie-thumbnail-image img {
+.tvShow-thumbnail-image img {
     margin-top: -40%;
     padding: 1em 1em 0.6em 0.6em;
     width: 6.5em;
 }
 
-.movie-bar {
+.tvShow-bar {
     display: flex;
     background-color: #132340;
     padding-right: 1em;
 }
 
-.movie-bar-title{
+.tvShow-bar-title{
     font-size: 1em;
     margin-top: 1em;
 }
 
-.movie-bar-genre{
+.tvShow-bar-genre{
     margin-top: 0.8em;
     font-size: .8em;
     font-style: italic;
 }
 
-.movie-short-technical-info div{
+.tvShow-short-technical-info div{
     display: inline;
     font-size: 1em;
     margin: 0 2.1em;
 }
 
-.movie-short-technical-info{
+.tvShow-short-technical-info{
     padding: 0.6em 0;
     background-color: #05052B;
 }
 
-.movie-summary{
+.tvShow-summary{
     padding: 0.6em 1em;
     line-height: 1.7em;
 }
 
-.movie-info-box{
+.tvShow-info-box{
     background-color: #05052B;
     text-align:-webkit-center;
 }
 
-.movie-info-subject{
+.tvShow-info-subject{
     display: flex;
-    text-align: left;
     width:100%;
 }
 
@@ -81,94 +80,98 @@ html{
     background-repeat: no-repeat;
 }
 
-.movie-info-name-icon{
+.tvShow-info-name-icon{
     background-image: url('../img/movie-content/svg/movie-info-name-icon.svg');
 }
 
-.movie-info-pgrating-icon{
+.tvShow-info-pgrating-icon{
     background-image: url('../img/movie-content/svg/movie-info-pgrating-icon.svg');
 }
 
-.movie-info-director-icon{
+.tvShow-info-director-icon{
     background-image: url('../img/movie-content/svg/movie-info-director-icon.svg');
 }
 
-.movie-info-productionhouse-icon{
+.tvShow-info-productionhouse-icon{
     background-image: url('../img/movie-content/svg/movie-info-productionhouse-icon.svg');
 }
 
-.movie-info-writers-icon{
+.tvShow-info-writers-icon{
     background-image: url('../img/movie-content/svg/movie-info-writers-icon.svg');
 }
 
-.movie-info-language-icon{
+.tvShow-info-language-icon{
     background-image: url('../img/movie-content/svg/movie-info-language-icon.svg');
 }
 
-.movie-info-price-icon{
+.tvShow-info-price-icon{
     background-image: url('../img/movie-content/svg/movie-info-price-icon.svg');
 }
 
-.movie-preview {
+.tvShow-preview {
     margin-top: 5%;
 }
 
-.movie-preview span{
+.tvShow-preview span{
     margin-left: 5%;
 }
 
-.movie-info-box-desktop, .movie-summary-desktop, .movie-short-technical-info-desktop{
+.tvShow-info-box-desktop, .tvShow-summary-desktop, .tvShow-short-technical-info-desktop{
     display: none;
 }
 
 @media screen and (min-width: 768px) {
 
-    .movie-page {
+    .tvShow-page {
         font-size: 2em;
     }
 
-    .movie-bar-genre{
+    .tvShow-bar-genre{
         font-size: 1em;
     }
 
-    .movie-info-subject{
+    .tvShow-info-subject{
         text-align: left;
     }
 
-    .movie-thumbnail-image img {
+    .tvShow-thumbnail-image img {
         width:9.5em;
     }
 
-    .movie-short-technical-info div{
+    .tvShow-short-technical-info div{
         padding: 0 1.5em;
     }
 
-    .movie-summary{
+    .tvShow-summary{
         margin: 0.7em 0;
     }
 
-    .movie-info-box{
+    .tvShow-info-box{
         padding: 0.4em 0;
     }
 
-    .movie-info-name-icon{
+    .tvShow-info-name-icon{
         margin-top:-.4em;
     }
 
-    .movie-info-price-icon{
+    .tvShow-info-price-icon{
         margin-bottom:-.4em;
+    }
+
+    .tvShow-general-background img{
+        width:100%;
     }
 
 }
 
 @media screen and (min-width: 980px) {
 
-    .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
-    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info {
+    .tvShow-bar-genre, .tvShow-bar-title, .tvShow-general-background, .tvShow-bar-title .tvShow-bar-genre,
+    .tvShow-info-box-desktop .icon, .tvShow-info-box, .tvShow-preview, .tvShow-short-technical-info {
         display: none;
     }
 
-    .movie-info-subject, .movie-info-subject-content{
+    .tvShow-info-subject, .tvShow-info-subject-content{
         display: inline-flex;
         /* text-align: left; */
         font-size: 1.4em;
@@ -185,7 +188,7 @@ html{
         display: flex;
     }
 
-    .movie-page {
+    .tvShow-page {
         margin:0;
         padding:0;
         background-color:#0E0F11;
@@ -193,29 +196,29 @@ html{
         width:auto;
     }
 
-    .movie-bar{
+    .tvShow-bar{
         background-color:#0E0F11;
         display:inline-flex;
         width: 100%;
     }
 
-    .movie-short-technical-info{
+    .tvShow-short-technical-info{
         background-color:#0E0F11;
     }
 
-    .movie-thumbnail-image{
+    .tvShow-thumbnail-image{
         margin: 13% 2em 0 10%;
     }
 
-    .movie-thumbnail-image img{
+    .tvShow-thumbnail-image img{
         width: 300px;
     }
 
-    .movie-info-box-desktop{
+    .tvShow-info-box-desktop{
         /* padding: 2em 2em 0 0; */
     }
 
-    .movie-info-box-desktop{
+    .tvShow-info-box-desktop{
         margin-top: 10%;
         margin-bottom: 10%;
         display: block;
@@ -224,53 +227,53 @@ html{
         font-size: 13px;
     }
 
-    .movie-info-box-desktop{
+    .tvShow-info-box-desktop{
         display: block;
         text-align: right;
         width: 40%;
         /* color: rgba(43, 105, 226, 0.99); */
     }
 
-    .movie-info-box-desktop .movie-info-subject-content span{
+    .tvShow-info-box-desktop .tvShow-info-subject-content span{
         display: block;
         width: 40em;
     }
 
 
-    .movie-short-technical-info{
+    .tvShow-short-technical-info{
         background-color:blue;
         width: 30%;
         margin-left:4em;
     }
 
-    .movie-summary-desktop{
+    .tvShow-summary-desktop{
         width: 20em;
         background-color:red;
         display: block;
     }
 
-    .movie-summary{
+    .tvShow-summary{
         display: none;
     }
-    .movie-preview{
+    .tvShow-preview{
         width:40%;
         background-color:red;
     }
 
-    .movie-bar-info{
+    .tvShow-bar-info{
         width: 100%;
     }
 
-    .movie-info-price-icon{
+    .tvShow-info-price-icon{
         margin-bottom:4em;
     }
 
-    .movie-info-preview video{
+    .tvShow-info-preview video{
         width:80%;
         /* background-color:red; */
     }
 
-    .movie-info-title-desktop{
+    .tvShow-info-title-desktop{
         width: 5em;
         text-align: right;
         margin-right: 1em;
@@ -289,11 +292,10 @@ html{
         margin-top: 3em;
     }
 
-
-    .movie-short-technical-info-desktop{
+    .tvShow-short-technical-info-desktop{
         display: inline-flex;
     }
-    .movie-short-technical-info-desktop div{
+    .tvShow-short-technical-info-desktop div{
         font-size: 0.7em;
         margin: 0 2.1em;
     }
