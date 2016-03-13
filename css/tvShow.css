@@ -81,31 +81,31 @@ html{
 }
 
 .tvShow-info-name-icon{
-    background-image: url('../img/movie-content/svg/movie-info-name-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
 }
 
 .tvShow-info-pgrating-icon{
-    background-image: url('../img/movie-content/svg/movie-info-pgrating-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
 }
 
 .tvShow-info-director-icon{
-    background-image: url('../img/movie-content/svg/movie-info-director-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
 }
 
 .tvShow-info-productionhouse-icon{
-    background-image: url('../img/movie-content/svg/movie-info-productionhouse-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
 }
 
 .tvShow-info-writers-icon{
-    background-image: url('../img/movie-content/svg/movie-info-writers-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
 }
 
 .tvShow-info-language-icon{
-    background-image: url('../img/movie-content/svg/movie-info-language-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
 }
 
 .tvShow-info-price-icon{
-    background-image: url('../img/movie-content/svg/movie-info-price-icon.svg');
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
 }
 
 .tvShow-preview {
@@ -179,7 +179,7 @@ html{
     }
 
     .desktop-title{
-        margin-top: 100px; /*Tobe changed */
+        margin-top: 100px; /*To be changed */
         font-size: 1.5em;
         width: 60%;
         text-align: center;

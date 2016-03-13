@@ -2,16 +2,10 @@
     <title>{{collectionName}}</title>
 </head>
 
-<div class="tvShow">
-    <div class="tvShow-name">{{collectionName}}</div>
-<head>
-    <title>{{collectionName}}</title>
-</head>
-
 <div class="tvShow-page">
     <div class="desktop-title">{{trackName}}</div>
     <div class="tvShow-general-background">
-        <img src="url(../../img/background-tvShow.png">
+        <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
     </div>
 
     <div class="tvShow-bar">
@@ -31,8 +25,16 @@
                     <span class="tvShow-info-title-desktop">Genre:</span>
                     <span>{{primaryGenreName}}</span>
                 </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Movie:</span>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Serie:</span>
+                    <span>{{artistName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Season:</span>
+                    <span>{{collectionName}}</span>
+                </div>
+                <div class="movie-info-subject">
+                    <span class="movie-info-title-desktop">Episode:</span>
                     <span>{{trackName}}</span>
                 </div>
                 <div class="tvShow-info-subject">
@@ -107,7 +109,7 @@
         </div>
         <div class="tvShow-info-subject">
             <span class="tvShow-info-price-icon icon"></span>
-            {{collectionPrice}} {{currency}}
+            {{trackPrice}} {{currency}}
         </div>
     </div>
 
