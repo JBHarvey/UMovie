@@ -36,7 +36,7 @@ define([
 
         generateDefaultQuery: function() {
             this.searchManager.setSearchType('tvshows/seasons');
-            this.searchManager.setSearchName('The');
+            this.searchManager.setSearchName('dead');
             this.searchManager.setSearchLimit(100);
             this.searchManager.setSearchGenre('');
             return this.searchManager.url();
