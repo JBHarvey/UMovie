@@ -19,6 +19,7 @@ define([
             id: -1
 
         }
+
     });
 
     return WatchlistModel;

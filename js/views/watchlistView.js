@@ -40,12 +40,17 @@ define([
         },
 
         events: {
-            "click .button-ajouter": "createWatchlist"
+            "click .button-ajouter": "createWatchlist",
+            "click .button-supprimer" : "deleteWatchlist"
         },
 
         createWatchlist: function () {
             console.log("Creation d'une nouvelle watchlist en cours.");
 
+        },
+
+        deleteWatchlist : function(id){
+          console.log("Suppression de la watchlist...")
         }
 
 
