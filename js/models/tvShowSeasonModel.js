@@ -49,7 +49,7 @@ define([
                 "longDescription": "Every city has its secrets. HBO presents Season 1 of this epic series about generals and soldiers, masters and slaves, husbands and wives &#8212; all entwined in the furious historical events that saw the death of a republic and the birth of an empire. The season begins in 52 B.C. as Gaius Julius Caesar completes his quest of Gaul after eight years of war and prepares to return with his army to Rome. But while Caesar's self-interested niece Atia and long-lost paramour Servilia anxiously await his return, the ruling patricians despair that Caesar's homecoming will disrupt the status quo. As Caesar's legions move closer to Rome, allegiances are put to the test for both soldiers and civilians &#8212; and the escalating tensions climax with a full-scale conflict destined to change history. The ensemble cast includes Kevin McKidd, Ray Stevenson, Polly Walker, Kenneth Cranham, Tobias Menzies, James Purefoy, and Ciar&#225;n Hinds."
                 "productionHouse": "N/A",
                 "writers": "N/A",
-                "language": "English"
+                "language": "English",
             }
 
     });
