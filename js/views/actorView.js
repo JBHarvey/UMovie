@@ -19,14 +19,15 @@ define([
         initialize: function(){
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
+            this.model.updateInformationsFromTMDB();
         },
 
         render: function() {
-            this.model.updateInformationsFromTMDB();
 
             var source = this.model.attributes;
             var template = Handlebars.compile(actorTemplate);
 
+            console.log(`${source.artistName} Hast Been Rendered`);
             this.$el.html(template(source));
         }
 

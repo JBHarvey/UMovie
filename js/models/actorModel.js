@@ -44,20 +44,32 @@ define([
 
             $.ajax({
                 type: "GET",
-                url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
+                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
+                url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
                 dataType: 'jsonp',
                 jsonCallback: 'test',
                 contentType: 'application/json',
                 success: function(data) {
-                    if(data.results[0]) {
-                        if(data.results[0].profile_path) {
-                            var newImage = dataBaseImg + data.results[0].profile_path;
-                            that.attributes.imgActor = newImage;
+
+                    var actorInfo = data.results[0];
+                    if(actorInfo) {
+
+                        var newImage;
+                        if(actorInfo.profile_path) {
+                            newImage = dataBaseImg + actorInfo.profile_path;
                         }
-                        if (data.results[0].id) {
+                        else {
+                            newImage = "url(../../img/actor/defaultProfile.png";
+                        }
+                        that.attributes.imgActor = newImage;
+                        console.log(that.attributes);
+
+
+
+                        if (actorInfo.id) {
                             $.ajax({
                                 type: "GET",
-                                url: dataBaseUrl + "/person/" + data.results[0].id + dataBaseApiKey,
+                                url: dataBaseUrl + "/person/" + actorInfo.id + dataBaseApiKey,
                                 dataType: "jsonp",
                                 jsonpCallback: 'test',
                                 contentType: 'application/json',
@@ -68,6 +80,7 @@ define([
                             });
                         }
                     }
+
                 }
             });
         }
