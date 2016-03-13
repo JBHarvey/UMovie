@@ -12,8 +12,8 @@ define([
         defaults:{
             movies: undefined,
             owner:{
-                email: "",
-                name: "",
+                email: "hello@world.com",
+                name: "Test Drive mate",
                 id: -1
             },
             id: -1
