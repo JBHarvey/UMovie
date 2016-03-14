@@ -6,18 +6,18 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/tvShowEpisode.html',
-    '../models/tvShowEpisodeModel',
+    'text!templates/tvshow.html',
+    '../models/tvShowSeasonModel',
     'handlebars'
-], function ($, _, Backbone, tvShowEpisodeTemplate, TvShowEpisodeModel, Handlebars) {
+], function ($, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel, Handlebars) {
 
 
-    var TvShowEpisodeView = Backbone.View.extend({
+    var TvShowSeasonView = Backbone.View.extend({
 
         el: $('#content'),
 
         initialize: function (tvShowId) {
-            this.model = new TvShowEpisodeModel({id: tvShowId});
+            this.model = new TvShowSeasonModel({id: tvShowId});
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
         },
@@ -25,14 +25,14 @@ define([
         render: function () {
 
             //The data used in the template
-            var template = Handlebars.compile(tvShowEpisodeTemplate);
+            var template = Handlebars.compile(TvShowSeasonTemplate);
 
             var source = this.model.attributes;
-            var resultTvShowEpisode = template(source);
-
-            this.$el.html(resultTvShowEpisode);
+            var resultTvShowSeason = template(source);
+            console.log(resultTvShowSeason);
+            this.$el.html(resultTvShowSeason);
         }
     });
-    return TvShowEpisodeView;
+    return TvShowSeasonView;
 
 });
