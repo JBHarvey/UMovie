@@ -21,7 +21,9 @@ define([
         el: $('#content'),
 
         initialize: function () {
-            this.render();
+            this.model = new watchlistItemModel;
+            this.listenTo(this.model, "change", this.render);
+            this.model.fetch();
         },
 
         render: function () {
