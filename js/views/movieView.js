@@ -20,7 +20,6 @@ define([
             this.model = new MovieModel({id: movieId});
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
-
         },
 
         render: function () {

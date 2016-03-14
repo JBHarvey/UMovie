@@ -12,14 +12,22 @@
         <div class="movie-thumbnail-image">
             <img src="{{artworkUrl100}}"/>
             <div class="movie-short-technical-info-desktop">
-                <div class="movie-length">{{convertDuration}}</div>
-                <div class="movie-year">{{releaseYear}}</div>
-                <div class="movie-country">{{country}}</div>
+                <div class="movie-short-general-info-desktop-group">
+                    <div class="movie-length">{{convertDuration}}</div>
+                    <div class="movie-year">{{releaseYear}}</div>
+                    <div class="movie-country">{{country}}</div>
+                </div>
+                <div>
+                    <a href="#" class="watchlist-button-desktop">Add to watchlist</a>
+                </div>
             </div>
         </div>
         <div class="movie-bar-info">
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
+            <div class="watchlist-button">
+                <a href="#" class="myButton">Add to watchlist</a>
+            </div>
             <div class="movie-info-box-desktop">
                 <div class="movie-info-subject">
                     <span class="movie-info-title-desktop">Genre:</span>

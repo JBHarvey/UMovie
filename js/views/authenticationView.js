@@ -45,7 +45,6 @@ define([
 
 
         sendAuthentication: function () {
-            console.log("test");
             user.validateEmail($('#email').val());
             if (this.signup) {
                 user.attemptSignUp($('#name').val(), $('#password').val());

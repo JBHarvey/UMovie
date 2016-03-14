@@ -1,5 +1,5 @@
 /**
- * Created by seydou on 16-02-07.
+ * Created by Jean-Benoît on 16-02-07.
  */
 
 define([
@@ -17,8 +17,9 @@ define([
         el: $('#content'),
 
         initialize: function (tvShowId) {
-            this.id = tvShowId;
-            this.render();
+            this.model = new TvShowEpisodeModel({id: tvShowId});
+            this.listenTo(this.model, "change", this.render);
+            this.model.fetch();
         },
 
         render: function () {
@@ -26,8 +27,9 @@ define([
             //The data used in the template
             var template = Handlebars.compile(tvShowEpisodeTemplate);
 
-            var source = new TvShowEpisodeModel();
-            var resultTvShowEpisode = template(source.defaults);
+            var source = this.model.attributes;
+            var resultTvShowEpisode = template(source);
+
             this.$el.html(resultTvShowEpisode);
         }
     });

@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/watchlistItemModel'
+    '../models/watchlistModel'
 ], function ($, _, Backbone, Cookie, WatchListModel) {
 
     var Watchlists = Backbone.Collection.extend({
@@ -20,8 +20,7 @@ define([
 
         pageHeader: {
             option: [
-                {action: 'ajouter'},
-                {action: 'delete'}]
+                {optionClass: 'add-watchlist', action: 'Ajouter'}]
         }
     });
     return Watchlists;
