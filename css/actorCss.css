@@ -142,6 +142,7 @@
 @media screen and (min-width: 960px){
     #header{
         font-size: 200%;
+        margin-left: 7%;
     }
     #text{
         font-size: 100%;

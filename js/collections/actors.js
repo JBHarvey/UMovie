@@ -8,13 +8,14 @@ define([
     'backbone',
     'jscookie',
     'models/actorModel'
-], function($, _, Backbone, Cookie, MovieModel) {
+], function($, _, Backbone, Cookie, ActorModel) {
 
         var Actors = Backbone.Collection.extend({
-            model: actorModel,
+            model: ActorModel,
             url: '/actors',
 
             parse: function(response) {
+                console.log(response);
                 return response.results;
             }
         });

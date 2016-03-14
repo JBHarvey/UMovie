@@ -12,7 +12,7 @@ define([
         urlRoot: "https://umovie.herokuapp.com/actors",
 
         parse(data) {
-          if (data.results != undefined) {
+          if (data.results) {
               return data.results[0];
           }else {
               return data;
@@ -35,6 +35,7 @@ define([
 
         updateInformationsFromTMDB: function () {
             var that = this;
+            var otherCall = true;
 
             //Appel d'api externe
             var dataBaseUrl =  "https://api.themoviedb.org/3";
@@ -44,8 +45,8 @@ define([
 
             $.ajax({
                 type: "GET",
-                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
-                url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
+                url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
+                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
                 dataType: 'jsonp',
                 jsonCallback: 'test',
                 contentType: 'application/json',
@@ -80,7 +81,10 @@ define([
                             });
                         }
                     }
-
+                    otherCall = true;
+                },
+                error: function() {
+                    otherCall = false;
                 }
             });
         }

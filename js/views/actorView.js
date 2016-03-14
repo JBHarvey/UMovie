@@ -7,7 +7,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!../templates/actor.html',
+    'text!templates/actor.html',
     "models/actorModel",
     'handlebars'
     ], function($, _, Backbone, actorTemplate, ActorModel, Handlebars) {
@@ -16,15 +16,20 @@ define([
 
         el: $('#content'),
 
-        initialize: function(){
-            this.listenTo(this.model, "change", this.render);
+        initialize: function(actorId){
+            this.model = new ActorModel({id: actorId});
+
+            this.model.otherCall = false;
             this.model.fetch();
             this.model.updateInformationsFromTMDB();
+            this.model.render();
         },
 
         render: function() {
 
+            console.log(this.model);
             var source = this.model.attributes;
+            console.log(source);
             var template = Handlebars.compile(actorTemplate);
 
             console.log(`${source.artistName} Hast Been Rendered`);

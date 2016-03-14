@@ -8,21 +8,41 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/actorCollection.html',
-    'handlebars'
-], function ($, _, Backbone, actorCollectionTemplate, Handlebars) {
+    'collections/actors',
+    'views/thumbnailView',
+    'handlebars',
+    'models/searchModel'
+], function ($, _, Backbone, Actors, ThumbnailView, Handlebars, searchModel) {
 
     var ActorsCollectionView = Backbone.View.extend({
 
-        comperator: 'trackName',
+        comperator: 'artistName',
 
         initialize: function() {
+            this.searchManager = new searchModel();
+            this.collection = new Actors();
+            this.collection.url = this.generateDefaultQuery();
+            this.listenTo(this.collection, 'sync', this.render);
+            this.collection.fetch();
         },
 
         render: function() {
-            var template = Handlebars.compile(actorCollectionTemplate);
-            var source = this.model.attributes;
-            return template(source);
+            that = this;
+            this.$el.html("");
+            this.collection.each(function(actor){
+                var thumbnail = new ThumbnailView({model: actor});
+                that.$el.append(thumbnail.renderActor());
+            });
+            console.log(this.$el);
+
+        },
+
+        generateDefaultQuery: function() {
+            this.searchManager.setSearchType('actors');
+            this.searchManager.setSearchName('Brad');
+            this.searchManager.setSearchLimit(10);
+            return this.searchManager.url();
+
         }
     });
     return ActorsCollectionView;

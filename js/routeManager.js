@@ -17,15 +17,28 @@ define([
         'views/homeView',
         'views/authenticationView',
         'models/userModel',
+        'models/actorModel',
         'views/movieView',
         'views/movieCollectionView',
         'views/tvShowView',
         'views/tvShowsCollectionView',
-
-        'models/actorModel',
         'views/actorView',
+        'views/actorsCollectionView',
         'views/watchlistView'
-    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowCollectionView, ActorModel, ActorView, WatchlistView) {
+    ], function ($, _, Backbone,
+                 Cookie,
+                 NavigationBarView,
+                 HomeView,
+                 AuthenticationView,
+                 UserModel,
+                 ActorModel,
+                 MovieView,
+                 MovieCollectionView,
+                 TvShowView,
+                 TvShowCollectionView,
+                 ActorView,
+                 ActorCollectionView,
+                 WatchlistView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -35,7 +48,7 @@ define([
                 'movie/:movieId': 'displaySpecificMovie',
                 'tvShows': 'displayTvShows',
                 'tvShow/:tvShowId': 'displaySpecificTvShow',
-                'actors': 'displaySpecificActor',
+                'actors': 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 'watchlists': 'displayWatchlists',
                 'user': 'showUser',
@@ -141,18 +154,11 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-
-                //this.model = new ActorModel({id: actorId});
-
-                var actorView = new ActorView();
-                console.log('The actor dialog should be displayed now');
+                var actors = new ActorCollectionView();
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                // This should be the actual actorView page.
-                var modelId = actorId ? actorId : 253584821;
-                var actorModel = new ActorModel({id: modelId});
-                var actorView = new ActorView({model: actorModel});
+                var actorView = new ActorView(actorId);
             });
 
 
