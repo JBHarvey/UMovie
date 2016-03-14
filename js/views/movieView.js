@@ -29,14 +29,14 @@ define([
             var template = Handlebars.compile(movieTemplate);
 
             // Call to Youtube's API
-            var googleKey = "AIzaSyBG8B9W-Yw88Sj-kWm85l5xY4nsnocnGAA";
+            var googleKey = "AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k";
             // Encode the URI and replace the space by '+'
             var searchRequest = encodeURI(this.model.get('trackName') + ' trailer')
                 .replace(/%20/g, '+');
             var requestURL = 'https://www.googleapis.com/youtube/v3/' +
                 'search?part=snippet&maxResults=1&q=' +
                 searchRequest +
-                '&type=video&videoEmbeddable=true&key=' + googleKey;
+                '&type=video&videoEmbeddable=true&fields=items(id)&key=' + googleKey;
             var youtubeSearchModel = new YoutubeSearchModel();
             youtubeSearchModel.urlRoot = requestURL;
             youtubeSearchModel.fetch();
