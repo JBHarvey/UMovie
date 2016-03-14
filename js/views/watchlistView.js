@@ -10,49 +10,45 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/watchlistItem.html',
-    'text!templates/pageHeader.html',
     'handlebars',
-    'models/watchlistItemModel'
-], function ($, _, Backbone, WatchlistTemplate ,PageHeaderTemplate ,Handlebars, watchlistItemModel) {
+    'text!templates/watchlist.html',
+    '../models/watchlistModel',
+    'jscookie'
+], function ($, _, Backbone, Handlebars, WatchlistTemplate, WatchlistModel, Cookie) {
 
     var WatchlistView = Backbone.View.extend({
 
         el: $('#content'),
 
         initialize: function () {
-            this.model = new watchlistItemModel;
+            this.model = new WatchlistModel();
             this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, "sync", console.log('onSync!'));
+            this.listenTo(this.model, "change", console.log('onChange!'));
             this.model.fetch();
         },
 
         render: function () {
-            var pageHeaderTemplate = Handlebars.compile(PageHeaderTemplate);
+
             var template = Handlebars.compile(WatchlistTemplate);
-            var initial = new watchlistItemModel();
+            return template(this.model.attributes);
 
-            // faire l'ajout du header.
-            // var header = new PageHeaderTemplate
-            var resultWatchlist = template(initial.defaults);
-
-            //render le result avec le reste de la page.
-            //this.$el.html(resultHeader);
-            this.$el.html(resultWatchlist);
 
         },
 
         events: {
-            "click .button-ajouter": "createWatchlist",
-            "click .button-supprimer" : "deleteWatchlist"
+            "click .button-add-watchlist": "createWatchlist",
+            "click .button-supprimer": "deleteWatchlist"
         },
 
         createWatchlist: function () {
-            console.log("Creation d'une nouvelle watchlist en cours.");
+            /*trouver l,info du nom de la watchlist a ajouter dans le document //ex:  var newName = $('.new-watchlist-name') */
+            this.model = new WatchlistModel({name: newName, owner: `${Cookie.get('email')}`});
 
         },
 
-        deleteWatchlist : function(id){
-          console.log("Suppression de la watchlist...")
+        deleteWatchlist: function (id) {
+            console.log("Suppression de la watchlist...")
         }
 
 

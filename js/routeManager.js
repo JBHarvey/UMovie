@@ -22,8 +22,8 @@ define([
     'views/tvShowView',
     'views/tvShowsCollectionView',
     'views/actorView',
-    'views/watchlistView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowCollectionView, ActorView, WatchlistView) {
+    'collections/watchlists'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowCollectionView, ActorView, WatchlistCollectionView) {
 
 
     var UMovieRouter = Backbone.Router.extend({
@@ -155,7 +155,7 @@ define([
 
         uMovieRouter.on('route:displayWatchlists', function () {
             if (uMovieRouter.checkCredentials()) {
-                var watchlistModel = new WatchlistView();
+                var watchlistModel = new WatchlistCollectionView();
                 console.log("Showing Watchlists");
             }
 
