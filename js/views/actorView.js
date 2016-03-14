@@ -8,27 +8,37 @@ define([
     'underscore',
     'backbone',
     'text!templates/actor.html',
-    "models/actorModel",
     'handlebars'
-    ], function($, _, Backbone, actorTemplate, ActorModel, Handlebars) {
+    ], function($, _, Backbone, actorTemplate, Handlebars) {
 
     var ActorView = Backbone.View.extend({
 
         el: $('#content'),
 
-        initialize: function(actorId){
-            this.model = new ActorModel({id: actorId});
+        waitForRender: _.after(2, function() {
+            that.render();
+        }),
 
-            this.model.otherCall = false;
-            this.model.fetch();
-            this.model.updateInformationsFromTMDB();
-            this.model.render();
+        initialize: function(){
+
+
+
+            this.model.attributes.firstAPIDone = false;
+            that = this;
+
+            this.listenTo(this.model.attributes.firstAPIDone, "change", that.render);
+            this.model.fetch({success: that.waitForRender});
+            this.model.updateInformationsFromTMDB(that.waitForRender);
+            that.render();
+
+
+
         },
 
         render: function() {
 
-            console.log(this.model);
             var source = this.model.attributes;
+            console.log("ICI");
             console.log(source);
             var template = Handlebars.compile(actorTemplate);
 

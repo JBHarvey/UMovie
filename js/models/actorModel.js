@@ -35,7 +35,7 @@ define([
 
         updateInformationsFromTMDB: function () {
             var that = this;
-            var otherCall = true;
+
 
             //Appel d'api externe
             var dataBaseUrl =  "https://api.themoviedb.org/3";
@@ -46,11 +46,12 @@ define([
             $.ajax({
                 type: "GET",
                 url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
-                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
+                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Hall".split(' ').join('+'),
                 dataType: 'jsonp',
                 jsonCallback: 'test',
                 contentType: 'application/json',
                 success: function(data) {
+
 
                     var actorInfo = data.results[0];
                     if(actorInfo) {
@@ -63,8 +64,6 @@ define([
                             newImage = "url(../../img/actor/defaultProfile.png";
                         }
                         that.attributes.imgActor = newImage;
-                        console.log(that.attributes);
-
 
 
                         if (actorInfo.id) {
@@ -77,14 +76,17 @@ define([
                                 success: function (Data) {
                                     var newBiography = Data.biography;
                                     that.attributes.biography = newBiography;
+
                                 }
+
                             });
                         }
                     }
-                    otherCall = true;
+                    that.attributes.firstAPIDone = true;
                 },
                 error: function() {
-                    otherCall = false;
+                    that.firstAPIDone = false;
+
                 }
             });
         }

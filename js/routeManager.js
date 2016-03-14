@@ -158,7 +158,9 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                var actorView = new ActorView(actorId);
+
+                var newActor = new ActorModel({id: actorId});
+                var actorView = new ActorView({model: newActor});
             });
 
 

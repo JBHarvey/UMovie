@@ -16,7 +16,7 @@ define([
 
     var ActorsCollectionView = Backbone.View.extend({
 
-        comperator: 'artistName',
+        el: $('#content'),
 
         initialize: function() {
             this.searchManager = new searchModel();
@@ -33,7 +33,6 @@ define([
                 var thumbnail = new ThumbnailView({model: actor});
                 that.$el.append(thumbnail.renderActor());
             });
-            console.log(this.$el);
 
         },
 
