@@ -19,13 +19,13 @@ define([
         'models/userModel',
         'views/movieView',
         'views/movieCollectionView',
-        'views/tvShowView',
+        'views/tvShowSeasonView',
         'views/tvShowsCollectionView',
         'views/actorView',
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView'
-    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView) {
+    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowSeasonView, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView) {
 
 
         var UMovieRouter = Backbone.Router.extend({
@@ -136,7 +136,7 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-                var tvShowView = new TvShowView(tvShowId);
+                var tvShowView = new TvShowSeasonView(tvShowId);
             });
 
 
