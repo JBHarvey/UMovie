@@ -20,7 +20,7 @@ define([
 
         pageHeader: {
             option: [
-                {optionClass: 'add-watchlist', action: 'ajouter'}]
+                {optionClass: 'add-watchlist', action: 'Ajouter'}]
         }
     });
     return Watchlists;

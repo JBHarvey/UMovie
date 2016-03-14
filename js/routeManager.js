@@ -22,7 +22,7 @@ define([
     'views/tvShowView',
     'views/tvShowsCollectionView',
     'views/actorView',
-    'collections/watchlists'
+    'views/watchlistCollectionView'
 ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowCollectionView, ActorView, WatchlistCollectionView) {
 
 
@@ -155,7 +155,7 @@ define([
 
         uMovieRouter.on('route:displayWatchlists', function () {
             if (uMovieRouter.checkCredentials()) {
-                var watchlistModel = new WatchlistCollectionView();
+                var watchlistView = new WatchlistCollectionView();
                 console.log("Showing Watchlists");
             }
 

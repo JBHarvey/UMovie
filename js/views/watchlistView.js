@@ -32,16 +32,15 @@ define([
 
             var template = Handlebars.compile(WatchlistTemplate);
             return template(this.model.attributes);
-
-
         },
 
         events: {
-            "click .button-add-watchlist": "createWatchlist",
-            "click .button-supprimer": "deleteWatchlist"
+            "click .button-add-watchlist": "createWatchlist"
         },
 
         createWatchlist: function () {
+            console.log("je click");
+            console.log("Ajout de la watchlist");
             /*trouver l,info du nom de la watchlist a ajouter dans le document //ex:  var newName = $('.new-watchlist-name') */
             this.model = new WatchlistModel({name: newName, owner: `${Cookie.get('email')}`});
 
