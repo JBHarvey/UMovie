@@ -5,7 +5,7 @@
 </head>
 
 <div class="tvShow-page">
-    <div class="desktop-title">{{trackName}}</div>
+    <div class="desktop-title">{{collectionName}}</div>
     <div class="tvShow-general-background">
         <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
     </div>
@@ -15,7 +15,7 @@
             <img src="{{artworkUrl100}}"/>
             <div class="tvShow-short-technical-info-desktop">
                 <div>
-                    <div class="tvShow-length">{{convertDuration}}</div>
+                    <div class="tvShow-length">{{trackCount}} episodes</div>
                     <div class="tvShow-year">{{releaseYear}}</div>
                     <div class="tvShow-country">{{country}}</div>
                 </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="tvShow-bar-info">
-            <div class="tvShow-bar-title">{{trackName}}</div>
+            <div class="tvShow-bar-title">{{collectionName}}</div>
             <div class="tvShow-bar-genre">{{primaryGenreName}}</div>
             <div class="watchlist-tvShow-button">
                 <a href="#" class="tvShow-myButton">Add to watchlist</a>
@@ -38,14 +38,6 @@
                 <div class="movie-info-subject">
                     <span class="movie-info-title-desktop">Serie:</span>
                     <span>{{artistName}}</span>
-                </div>
-                <div class="movie-info-subject">
-                    <span class="movie-info-title-desktop">Season:</span>
-                    <span>{{collectionName}}</span>
-                </div>
-                <div class="movie-info-subject">
-                    <span class="movie-info-title-desktop">Episode:</span>
-                    <span>{{trackName}}</span>
                 </div>
                 <div class="tvShow-info-subject">
                     <span class="tvShow-info-title-desktop">PG-Rating:</span>
@@ -65,7 +57,7 @@
                 </div>
                 <div class="tvShow-info-subject">
                     <span class="tvShow-info-title-desktop">Price:</span>
-                    <span>{{trackPrice}}</span>
+                    <span>{{collectionPrice}}</span>
                 </div>
                 <div class="tvShow-info-subject desktop-summary">
                     <span class="tvShow-info-title-desktop">Summary:</span>
@@ -89,7 +81,7 @@
 
 
     <div class="tvShow-short-technical-info">
-        <div class="tvShow-length">{{convertDuration}}</div>
+        <div class="tvShow-length">{{trackCount}} episodes</div>
         <div class="tvShow-year">{{releaseYear}}</div>
         <div class="tvShow-country">{{country}}</div>
     </div>
@@ -99,7 +91,7 @@
     <div class="tvShow-info-box">
         <div class="tvShow-info-subject">
             <span class="tvShow-info-name-icon icon"></span>
-            {{trackName}}
+            {{collectionName}}
         </div>
         <div class="tvShow-info-subject">
             <span class="tvShow-info-pgrating-icon icon"></span>
@@ -119,7 +111,7 @@
         </div>
         <div class="tvShow-info-subject">
             <span class="tvShow-info-price-icon icon"></span>
-            {{trackPrice}} {{currency}}
+            {{collectionPrice}} {{currency}}
         </div>
     </div>
 

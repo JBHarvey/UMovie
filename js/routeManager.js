@@ -9,54 +9,57 @@
  */
 
 define([
-        'jquery',
-        'underscore',
-        'backbone',
-        'jscookie',
-        'views/navigationBarView',
-        'views/homeView',
-        'views/authenticationView',
-        'models/userModel',
-        'views/movieView',
-        'views/movieCollectionView',
-        'views/tvShowSeasonView',
-        'views/tvShowsCollectionView',
-        'views/actorView',
-        'models/actorModel',
-        'views/actorsCollectionView',
-        'views/watchlistCollectionView'
-    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowSeasonView, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'jscookie',
+    'views/navigationBarView',
+    'views/homeView',
+    'views/authenticationView',
+    'models/userModel',
+    'views/movieView',
+    'views/movieCollectionView',
+    'views/tvShowView',
+    'views/tvShowSeasonView',
+    'views/tvShowsCollectionView',
+    'views/actorView',
+    'models/actorModel',
+    'views/actorsCollectionView',
+    'views/watchlistCollectionView'
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
+             UserModel, MovieView, MovieCollectionView, TvShowView, TvShowSeasonView,
+             TvShowCollectionView,ActorView, ActorModel, ActorCollectionView,WatchlistCollectionView) {
+
+    var UMovieRouter = Backbone.Router.extend({
+
+        routes: {
+            '': 'goHome',
+            'movies': 'displayMovies',
+            'movie/:movieId': 'displaySpecificMovie',
+            'tvShows': 'displayTvShows',
+            'tvShow/:tvShowId': 'displaySpecificTvShow',
+            'actors': 'displayActors',
+            'actor/:actorId': 'displaySpecificActor',
+            'watchlists': 'displayWatchlists',
+            'user': 'showUser',
+            'otherUsers': 'browseUsers',
+            'settings': 'settings',
+            'login': 'login',
+            'signup': 'signup',
+            'disconnect': 'disconnect',
+
+            //Default
+            '*actions': 'defaultAction'
+        },
+
+        go: function (route) {
+            console.log(route);
+            this.navigate(route, {trigger: yes});
+        }
 
 
-        var UMovieRouter = Backbone.Router.extend({
+    });
 
-            routes: {
-                '': 'goHome',
-                'movies': 'displayMovies',
-                'movie/:movieId': 'displaySpecificMovie',
-                'tvShows': 'displayTvShows',
-                'tvShow/:tvShowId': 'displaySpecificTvShow',
-                'actors': 'displayActors',
-                'actor/:actorId': 'displaySpecificActor',
-                'watchlists': 'displayWatchlists',
-                'user': 'showUser',
-                'otherUsers': 'browseUsers',
-                'settings': 'settings',
-                'login': 'login',
-                'signup': 'signup',
-                'disconnect': 'disconnect',
-
-                //Default
-                '*actions': 'defaultAction'
-            },
-
-            go: function (route) {
-                console.log(route);
-                this.navigate(route, {trigger: yes});
-            }
-
-
-        });
 
         var initialize = function () {
 
@@ -136,7 +139,7 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-                var tvShowView = new TvShowSeasonView(tvShowId);
+                var tvShowSeasonView = new TvShowSeasonView(tvShowId);
             });
 
 
