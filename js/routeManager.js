@@ -23,9 +23,12 @@ define([
     'views/tvShowSeasonView',
     'views/tvShowsCollectionView',
     'views/actorView',
+    'models/actorModel',
+    'views/actorsCollectionView',
     'views/watchlistCollectionView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView, UserModel, MovieView, MovieCollectionView, TvShowView, TvShowSeasonView,TvShowCollectionView, ActorView, WatchlistCollectionView) {
-
+], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
+             UserModel, MovieView, MovieCollectionView, TvShowView, TvShowSeasonView,
+             TvShowCollectionView,ActorView, ActorModel, ActorCollectionView,WatchlistCollectionView) {
 
     var UMovieRouter = Backbone.Router.extend({
 
@@ -57,28 +60,6 @@ define([
 
     });
 
-    var initialize = function () {
-
-        var authenticationView;
-        var homeView;
-        var uMovieRouter = new UMovieRouter();
-
-        var user = new UserModel();
-        var navigationBarView = new NavigationBarView();
-
-
-        uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
-
-        var lastAuthState = 'disconnected';
-        updateNavigationBar = function () {
-            if (Cookie.get('token') === undefined && lastAuthState == 'connected') {
-                navigationBarView.render();
-            } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected') {
-                navigationBarView.render();
-            }
-
-
-        });
 
         var initialize = function () {
 
