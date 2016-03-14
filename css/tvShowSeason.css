@@ -1,0 +1,303 @@
+html{
+    font-family: "Helvetica Neue";
+}
+
+.tvShowSeason-page {
+    background-color: #0E0F11;
+}
+
+.desktop-title{
+    display: none;
+}
+
+.tvShowSeason-general-background img{
+    max-width:100%;
+}
+
+.tvShowSeason-thumbnail-image img {
+    margin-top: -40%;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
+}
+
+.tvShowSeason-bar {
+    display: flex;
+    background-color: #132340;
+    padding-right: 1em;
+}
+
+.tvShowSeason-bar-title{
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.tvShowSeason-bar-genre{
+    margin-top: 0.8em;
+    font-size: .8em;
+    font-style: italic;
+}
+
+.tvShowSeason-short-technical-info div{
+    display: inline;
+    font-size: 1em;
+    margin: 0 2.1em;
+}
+
+.tvShowSeason-short-technical-info{
+    padding: 0.6em 0;
+    background-color: #05052B;
+}
+
+.tvShowSeason-summary{
+    padding: 0.6em 1em;
+    line-height: 1.7em;
+}
+
+.tvShowSeason-info-box{
+    background-color: #05052B;
+    text-align:-webkit-center;
+}
+
+.tvShowSeason-info-subject{
+    display: flex;
+    width:100%;
+}
+
+.icon {
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 4%;
+    border: none;
+    width: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    display: inline-block;
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: #132340;
+    background-repeat: no-repeat;
+}
+
+.tvShowSeason-info-name-icon{
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+}
+
+.tvShowSeason-info-pgrating-icon{
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+}
+
+.tvShowSeason-info-director-icon{
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+}
+
+.tvShowSeason-info-productionhouse-icon{
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
+}
+
+.tvShowSeason-info-writers-icon{
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
+}
+
+.tvShowSeason-info-language-icon{
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
+}
+
+.tvShowSeason-info-price-icon{
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
+}
+
+.tvShowSeason-preview {
+    margin-top: 5%;
+}
+
+.tvShowSeason-preview span{
+    margin-left: 5%;
+}
+
+.tvShowSeason-info-box-desktop, .tvShowSeason-summary-desktop, .tvShowSeason-short-technical-info-desktop{
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+
+    .tvShowSeason-page {
+        font-size: 2em;
+    }
+
+    .tvShowSeason-bar-genre{
+        font-size: 1em;
+    }
+
+    .tvShowSeason-info-subject{
+        text-align: left;
+    }
+
+    .tvShowSeason-thumbnail-image img {
+        width:9.5em;
+    }
+
+    .tvShowSeason-short-technical-info div{
+        padding: 0 1.5em;
+    }
+
+    .tvShowSeason-summary{
+        margin: 0.7em 0;
+    }
+
+    .tvShowSeason-info-box{
+        padding: 0.4em 0;
+    }
+
+    .tvShowSeason-info-name-icon{
+        margin-top:-.4em;
+    }
+
+    .tvShowSeason-info-price-icon{
+        margin-bottom:-.4em;
+    }
+
+    .tvShowSeason-general-background img{
+        width:100%;
+    }
+
+}
+
+@media screen and (min-width: 980px) {
+
+    .tvShowSeason-bar-genre, .tvShowSeason-bar-title, .tvShowSeason-general-background, .tvShowSeason-bar-title .tvShowSeason-bar-genre,
+    .tvShowSeason-info-box-desktop .icon, .tvShowSeason-info-box, .tvShowSeason-preview, .tvShowSeason-short-technical-info {
+        display: none;
+    }
+
+    .tvShowSeason-info-subject, .tvShowSeason-info-subject-content{
+        display: inline-flex;
+        /* text-align: left; */
+        font-size: 1.4em;
+        width: 45em;
+    }
+
+    .desktop-title{
+        margin-top: 100px; /*To be changed */
+        font-size: 1.5em;
+        width: 60%;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .tvShowSeason-page {
+        margin:0;
+        padding:0;
+        background-color:#0E0F11;
+        font-size:1em;
+        width:auto;
+    }
+
+    .tvShowSeason-bar{
+        background-color:#0E0F11;
+        display:inline-flex;
+        width: 100%;
+    }
+
+    .tvShowSeason-short-technical-info{
+        background-color:#0E0F11;
+    }
+
+    .tvShow-thumbnail-image{
+        margin: 13% 2em 0 10%;
+    }
+
+    .tvShow-thumbnail-image img{
+        width: 300px;
+    }
+
+    .tvShowSeason-info-box-desktop{
+        /* padding: 2em 2em 0 0; */
+    }
+
+    .tvShowSeason-info-box-desktop{
+        margin-top: 10%;
+        margin-bottom: 10%;
+        display: block;
+        width: 100%;
+        margin-left: %;
+        font-size: 13px;
+    }
+
+    .tvShowSeason-info-box-desktop{
+        display: block;
+        text-align: right;
+        width: 40%;
+        /* color: rgba(43, 105, 226, 0.99); */
+    }
+
+    .tvShowSeason-info-box-desktop .tvShowSeason-info-subject-content span{
+        display: block;
+        width: 40em;
+    }
+
+
+    .tvShowSeason-short-technical-info{
+        background-color:blue;
+        width: 30%;
+        margin-left:4em;
+    }
+
+    .tvShowSeason-summary-desktop{
+        width: 20em;
+        background-color:red;
+        display: block;
+    }
+
+    .tvShowSeason-summary{
+        display: none;
+    }
+    .tvShowSeason-preview{
+        width:40%;
+        background-color:red;
+    }
+
+    .tvShowSeason-bar-info{
+        width: 100%;
+    }
+
+    .tvShowSeason-info-price-icon{
+        margin-bottom:4em;
+    }
+
+    .tvShowSeason-info-preview video{
+        width:80%;
+        /* background-color:red; */
+    }
+
+    .tvShowSeason-info-title-desktop{
+        width: 5em;
+        text-align: right;
+        margin-right: 1em;
+        color: rgba(43, 105, 226, 0.99);
+    }
+
+    .desktop-preview{
+        margin-top: 3em;
+    }
+
+    .desktop-preview video {
+        width: 400px;
+    }
+
+    .desktop-summary{
+        margin-top: 3em;
+    }
+
+    .tvShowSeason-short-technical-info-desktop{
+        display: inline-flex;
+    }
+    .tvShowSeason-short-technical-info-desktop div{
+        font-size: 0.7em;
+        margin: 0 2.1em;
+    }
+
+}

@@ -1,13 +1,15 @@
 /**
- * Created by seydou on 16-02-07.
+ * Created by Jean-Benoît on 16-03-07.
  */
 define([
     'underscore',
     'backbone'
 ], function (_, Backbone) {
 
-    var TvShowModel = Backbone.Model.extend({
-
+    var TvShowEpisodeModel = Backbone.Model.extend({
+        url: function () {
+            return `https://umovie.herokuapp.com/seasons/${this.collectionId}`;
+        },
         parse(data){
             if (data.results != undefined) {
                 result = data.results[0];
@@ -70,5 +72,5 @@ define([
 
     });
 
-    return TvShowModel;
+    return TvShowEpisodeModel;
 });
