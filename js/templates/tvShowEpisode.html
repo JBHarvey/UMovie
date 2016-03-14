@@ -12,14 +12,22 @@
         <div class="tvShow-thumbnail-image">
             <img src="{{artworkUrl100}}"/>
             <div class="tvShow-short-technical-info-desktop">
-                <div class="tvShow-length">Fix me{{convertDuration}}</div>
-                <div class="tvShow-year">Fix me{{releaseYear}}</div>
-                <div class="tvShow-country">{{country}}</div>
+                <div>
+                    <div class="tvShow-length">{{convertDuration}}</div>
+                    <div class="tvShow-year">{{releaseYear}}</div>
+                    <div class="tvShow-country">{{country}}</div>
+                </div>
+                <div>
+                    <a href="#" class="watchlist-tvShow-button-desktop">Add to watchlist</a>
+                </div>
             </div>
         </div>
         <div class="tvShow-bar-info">
             <div class="tvShow-bar-title">{{trackName}}</div>
             <div class="tvShow-bar-genre">{{primaryGenreName}}</div>
+            <div class="watchlist-tvShow-button">
+                <a href="#" class="tvShow-myButton">Add to watchlist</a>
+            </div>
             <div class="tvShow-info-box-desktop">
                 <div class="tvShow-info-subject">
                     <span class="tvShow-info-title-desktop">Genre:</span>
@@ -79,8 +87,8 @@
 
 
     <div class="tvShow-short-technical-info">
-        <div class="tvShow-length">Fix me{{convertDuration}}</div>
-        <div class="tvShow-year">Fix me{{releaseYear}}</div>
+        <div class="tvShow-length">{{convertDuration}}</div>
+        <div class="tvShow-year">{{releaseYear}}</div>
         <div class="tvShow-country">{{country}}</div>
     </div>
 
