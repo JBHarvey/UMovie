@@ -2,6 +2,33 @@ html{
     font-family: "Helvetica Neue"; /* Temporary*/
 }
 
+.myButton {
+    background-color: #C17E00;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    /* border:1px solid #124d77; */
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    margin-left: 0;
+    margin-top: 1.1em;
+    font-family:Arial;
+    font-size: 0.8em;
+    padding: 0.5em 1.1em;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #154682;
+}
+
+.myButton:hover {
+    background-color:#0061a7;
+}
+
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
 .movie-page {
     background-color: #0E0F11;
 }
@@ -156,12 +183,15 @@ html{
         margin-bottom:-.4em;
     }
 
+    .myButton-desktop {
+        display : none;
+    }
 }
 
 @media screen and (min-width: 980px) {
 
     .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
-    .movie-info-box-desktop .icon, .movie-info-box, .movie-preview, .movie-short-technical-info, .movie-summary {
+    .movie-info-box-desktop .icon, .movie-info-box, .myButton, .movie-preview, .movie-short-technical-info, .movie-summary {
         display: none;
     }
 
@@ -276,12 +306,34 @@ html{
     }
 
     .movie-short-technical-info-desktop{
-        display: inline-flex;
+        display: block;
+    }
+
+    .movie-short-general-info-desktop-group div{
+        font-size: 0.7em;
+        margin: 0 2.1em;
+    }
+
+    .watchlist-button-desktop {
+        background-color: #C17E00;
+        -moz-border-radius:28px;
+        -webkit-border-radius:28px;
+        border-radius:28px;
+        /* border:1px solid #124d77; */
+        display:block;
+        cursor:pointer;
+        color:#ffffff;
+        margin-left: 6em;
+        margin-top: 1.1em;
+        font-family:Arial;
+        font-size: 0.8em;
+        padding: 0.5em 1.1em;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #154682;
     }
 
     .movie-short-technical-info-desktop div{
-        font-size: 0.7em;
-        margin: 0 2.1em;
+        display: inline-flex;
     }
 
 }
