@@ -2,7 +2,7 @@
  * Created by Jean-Benoît on 16-01-26.
  */
 
-define('gapi', [
+define([
     'jquery',
     'underscore',
     'backbone',
@@ -10,8 +10,8 @@ define('gapi', [
     'models/movieModel',
     'models/youtubeSearchModel',
     'handlebars',
-    'async!https://apis.google.com/js/client.js!onload'
-], function ($, _, Backbone, movieTemplate, MovieModel, YoutubeSearchModel, Handlebars, GoogleClient) {
+    'googleAPI'
+], function ($, _, Backbone, movieTemplate, MovieModel, YoutubeSearchModel, Handlebars, gapi) {
 
 
     var MovieView = Backbone.View.extend({
@@ -44,7 +44,8 @@ define('gapi', [
                 }
             });
             */
-            var request = GoogleClient.client.youtube.search.list({
+            console.log(gapi);
+            var request = gapi.client.youtube.search.list({
               q: searchRequest,
               part: 'snippet',
               maxResults: 1,
@@ -52,7 +53,7 @@ define('gapi', [
               videoEmbeddable: true,
               fields: 'items(id)'
             });
-            console.log(GoogleClient);
+            console.log(gapi);
             this.model.set('trailerURL', trailerURL);
 
             this.listenTo(this.model, "change", this.render);

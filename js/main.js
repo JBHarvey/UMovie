@@ -22,7 +22,7 @@ require.config({
         googleAPI: {
             deps: ['async', 'propertyParser'],
             enforceDefine: true,
-            exports: 'googleAPI'
+            exports: 'gapi'
         }
     }
 });
@@ -32,3 +32,8 @@ require([
         UMovie.initialize();
     }
 );
+
+require(["utils/google-api"], function (gapi) {
+    "use strict";
+
+})();
