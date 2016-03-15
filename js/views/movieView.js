@@ -19,15 +19,6 @@ define([
 
         initialize: function (movieId) {
             this.model = new MovieModel({id: movieId});
-            this.listenTo(this.model, "change", this.render);
-            this.model.fetch();
-
-        },
-
-        render: function () {
-
-            //The data used in the template
-            var template = Handlebars.compile(movieTemplate);
 
             // Call to Youtube's API
             var googleKey = "AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k";
@@ -38,12 +29,22 @@ define([
                 'search?part=snippet&maxResults=1&q=' +
                 searchRequest +
                 '&type=video&videoEmbeddable=true&fields=items(id)&key=' + googleKey;
+            console.log(requestURL);
             var youtubeSearchModel = new YoutubeSearchModel();
             youtubeSearchModel.urlRoot = requestURL;
             youtubeSearchModel.fetch();
             var trailerURL = 'https://youtube.com/watch?v=' + youtubeSearchModel.get('id').videoId;
-
             this.model.set('trailerURL', trailerURL);
+
+            this.listenTo(this.model, "change", this.render);
+            this.model.fetch();
+
+        },
+
+        render: function () {
+
+            //The data used in the template
+            var template = Handlebars.compile(movieTemplate);
             var source = this.model.attributes;
             var resultMovie = template(source);
 
