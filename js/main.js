@@ -13,7 +13,17 @@ require.config({
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
-        jscookie: 'lib/js.cookie'
+        jscookie: 'lib/js.cookie',
+        async: 'plugins/requirejs/async',
+        propertyParser: 'plugins/requirejs/propertyParser',
+        googleAPI: 'plugins/requirejs/goog'
+    },
+    shim: {
+        googleAPI: {
+            deps: ['async', 'propertyParser'],
+            enforceDefine: true,
+            exports: 'googleAPI'
+        }
     }
 });
 
