@@ -53,7 +53,6 @@ define([
 
         addToWatchList: function (event) {
             "use strict";
-            console.log("Helo");
             var selectedItem = event.currentTarget;
             var createWatchlistMenu = $('.new-watchlist');
             if (selectedItem.value === 'create-watchlist') {

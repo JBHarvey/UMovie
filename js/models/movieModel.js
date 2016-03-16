@@ -8,6 +8,23 @@ define([
 
     var MovieModel = Backbone.Model.extend({
         urlRoot: "https://umovie.herokuapp.com/movies",
+
+        sync: function (method, model, options) {
+            // To add to watchlist, you will have to pass watchlist ID
+            // in the options
+            "use strict";
+            if ('update' === method || 'create' === method) {
+                method = 'create';
+                options.url = 'https://umovie.herokuapp.com/watchlists/' +
+                        options.watchlistID + '/movies';
+            } else if ('DELETE' === method) {
+                options.url = 'https://umovie.herokuapp.com/watchlists/' +
+                        options.watchlistID + '/movies/' + this.attributes.id;
+            }
+
+            return Backbone.sync(method, model, options);
+        },
+
         parse(data){
                 if (data.results != undefined) {
                     result = data.results[0];
