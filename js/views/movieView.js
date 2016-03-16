@@ -47,7 +47,7 @@ define([
 
         addToWatchList: function (event) {
             "use strict";
-            
+
         }
     });
     return MovieView;
