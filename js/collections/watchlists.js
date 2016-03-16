@@ -12,7 +12,7 @@ define([
 
     var Watchlists = Backbone.Collection.extend({
         model: WatchListModel,
-        url: '/watchlists',
+        url: 'https://umovie.herokuapp.com/watchlists',
 
         parse: function (response) {
             return response.results;
