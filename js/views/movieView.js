@@ -31,7 +31,6 @@ define([
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
 
-            console.log(this.watchlists);
             var source = this.model.attributes;
             if (!_.isEmpty(this.watchlists.models)) {
                 source.watchlists = this.watchlists.models;
