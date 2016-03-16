@@ -17,16 +17,21 @@
                     <div class="movie-year">{{releaseYear}}</div>
                     <div class="movie-country">{{country}}</div>
                 </div>
-                <div>
-                    <a href="#" class="watchlist-button-desktop">Add to watchlist</a>
+                <div class="movie-watchlist-view">
+                    <select class="watchlist-button-desktop" name="Add to watchlist">
+                    </select>
                 </div>
             </div>
         </div>
         <div class="movie-bar-info">
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
-            <div class="watchlist-button">
-                <a href="#" class="myButton">Add to watchlist</a>
+            <div class="watchlist-button movie-watchlist-view">
+                <select class="myButton" name="Add to watchlist">
+                    {{#each watchlists as |watchlist|}}
+                        <option class="watchlist-select-group" value="{{watchlist.id}}"> watchlist.name </option>
+                    {{/each}}
+                </select>
             </div>
             <div class="movie-info-box-desktop">
                 <div class="movie-info-subject">
