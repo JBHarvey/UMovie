@@ -29,6 +29,68 @@ html{
     top:1px;
 }
 
+.watchlist-menu-group {
+    display: none;
+}
+
+.watchlist-menu {
+    padding: 0;
+
+    background-color: #0E0F11;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+
+    list-style-type: none;
+}
+
+.watchlist-select-group {
+    padding: 1em;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    transition: opacity ease-in-out .55s;
+
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.watchlist-select-group:hover {
+    opacity: 0.8;
+}
+
+.watchlist-select-group:first-of-type {
+    border-top: none;
+}
+
+.watchlist-select-group:last-of-type {
+    border-bottom: none;
+}
+
+.new-watchlist {
+    background-color: #0E0F11;
+
+    padding: 1em;
+    margin-bottom: 1em;
+
+    border: 1px solid darkgray;
+    border-radius: 2px;
+}
+
+.new-watchlist-input {
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transition: border-color ease-in-out .15s,box-shadow cubic-bezier(1,0,0,1) .15s;
+}
+
+.new-watchlist-input:focus {
+    outline: 0;
+    border: 1px solid darkgray;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
 .movie-page {
     background-color: #0E0F11;
 }

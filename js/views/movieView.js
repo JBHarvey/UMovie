@@ -37,6 +37,7 @@ define([
             var template = Handlebars.compile(movieTemplate);
 
             var source = this.model.attributes;
+            console.log(this.watchlists);
             if (!_.isEmpty(this.watchlists.models)) {
                 source.watchlists = this.watchlists.models;
             }
@@ -46,17 +47,25 @@ define([
         },
 
         events: {
+            'click .myButton': 'toggleWatchlistMenu',
+            'click .watchlist-button-desktop': 'toggleWatchlistMenu',
             'click .watchlist-select-group': 'addToWatchList',
             'keyup .new-watchlist-input': 'checkCreateWatchlistInput',
             'click .submit-new-watchlist': 'createNewWatchlist'
+        },
+
+        toggleWatchlistMenu: function (event) {
+            "use strict";
+            $('.watchlist-menu-group').toggle();
+            $('.new-watchlist').hide();
         },
 
         addToWatchList: function (event) {
             "use strict";
             var selectedItem = event.currentTarget;
             var createWatchlistMenu = $('.new-watchlist');
-            if (selectedItem.value === 'create-watchlist') {
-                createWatchlistMenu.show();
+            if (selectedItem.dataset.id === 'create-watchlist') {
+                createWatchlistMenu.toggle();
             } else {
                 createWatchlistMenu.hide();
             }

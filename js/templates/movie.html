@@ -18,16 +18,18 @@
                     <div class="movie-country">{{country}}</div>
                 </div>
                 <div class="movie-watchlist-view">
-                    <select class="watchlist-button-desktop" name="Add to watchlist">
-                        <option class="dummy-watchlist-option" selected> </option>
-                        <option class="watchlist-select-group" value="create-watchlist"> New watchlist... </option>
-                        {{#each watchlists as |watchlist|}}
-                            <option class="watchlist-select-group" value="{{watchlist.id}}"> watchlist.name </option>
-                        {{/each}}
-                    </select>
-                    <div class="new-watchlist" style="display: none;">
-                        <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
-                        <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                    <button class="watchlist-button-desktop">Add to watchlist</button>
+                    <div class="watchlist-menu-group">
+                        <ul class="watchlist-menu">
+                            <li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+                            {{#each watchlists as |watchlist|}}
+                            <li class="watchlist-select-group" data-id="{{watchlist.id}}"> watchlist.name </li>
+                            {{/each}}
+                        </ul>
+                        <div class="new-watchlist" style="display: none;">
+                            <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
+                            <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,16 +38,18 @@
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
             <div class="watchlist-button movie-watchlist-view">
-                <select class="myButton" name="Add to watchlist">
-                    <option class="dummy-watchlist-option" selected> </option>
-                    <option class="watchlist-select-group" value="create-watchlist" selected> New watchlist... </option>
-                    {{#each watchlists as |watchlist|}}
-                        <option class="watchlist-select-group" value="{{watchlist.id}}"> watchlist.name </option>
-                    {{/each}}
-                </select>
-                <div class="new-watchlist" style="display: none;">
-                    <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
-                    <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                <button class="myButton">Add to watchlist</button>
+                <div class="watchlist-menu-group">
+                    <ul class="watchlist-menu">
+                        <li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+                        {{#each watchlists as |watchlist|}}
+                        <li class="watchlist-select-group" data-id="{{watchlist.id}}"> watchlist.name </li>
+                        {{/each}}
+                    </ul>
+                    <div class="new-watchlist" style="display: none;">
+                        <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
+                        <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                    </div>
                 </div>
             </div>
             <div class="movie-info-box-desktop">
