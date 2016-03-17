@@ -26,7 +26,9 @@ define([
             this.model.fetch();
             this.watchlists.fetch({
                 success: function () {
+                    "use strict";
                     that.listenTo(that.watchlists, 'update', that.render);
+                    that.render();
                 }
             });
         },
@@ -37,7 +39,6 @@ define([
             var template = Handlebars.compile(movieTemplate);
 
             var source = this.model.attributes;
-            console.log(this.watchlists);
             if (!_.isEmpty(this.watchlists.models)) {
                 source.watchlists = this.watchlists.models;
             }
@@ -75,7 +76,7 @@ define([
             "use strict";
             var currentInputValue = event.currentTarget.value;
             var submitNewWatchlistButton = $('.submit-new-watchlist');
-            if (/^(\w+?\d+?)+$/.test(currentInputValue)) {
+            if (/^((\w*\d*[^\s])+\s?)+$/.test(currentInputValue)) {
                 submitNewWatchlistButton.prop('disabled', false);
             } else {
                 submitNewWatchlistButton.prop('disabled', true);
@@ -86,8 +87,8 @@ define([
             "use strict";
 
             var goodInputValue = document.getElementsByClassName('new-watchlist-input');
-            goodInputValue = _.filter(goodInputValue, function (inputValue) {
-                return /^(\w+?\d+?)+$/.test(goodInputValue.value);
+            goodInputValue = _.find(goodInputValue, function (inputValue) {
+                return /^((\w*\d*[^\s])+\s?)+$/.test(inputValue.value);
             });
 
             var watchlist = new Watchlist({
@@ -96,9 +97,8 @@ define([
 
             var that = this;
             watchlist.save({
-                wait: true,
                 success: function (data) {
-                    console.log(watchlist);
+                    console.log(data);
                     that.watchlists.add(watchlist);
                 }
             });
