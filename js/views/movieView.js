@@ -56,7 +56,7 @@ define([
             query.execute(function (answer) {
                 $('.movie-video-preview').each(function() {
                     $(this).html(
-                        '<iframe width="90%" class="w100 video" height="350" ' +
+                        '<iframe width="100%" class="w100 video" height="350" ' +
                         'src="//www.youtube.com/embed/' +
                         answer.items[0].id.videoId +
                         '" frameborder="0" allowfullscreen>' +
