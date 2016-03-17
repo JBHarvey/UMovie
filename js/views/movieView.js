@@ -102,6 +102,9 @@ define([
                     that.watchlists.add(watchlist);
                 }
             });
+            that.model.save(that.model, {
+                watchlistID: watchlist.attributes.id
+            });
         }
     });
     return MovieView;
