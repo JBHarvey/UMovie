@@ -13,27 +13,16 @@ require.config({
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
-        jscookie: 'lib/js.cookie',
-        async: 'plugins/requirejs/async',
-        propertyParser: 'plugins/requirejs/propertyParser',
-        googleAPI: 'plugins/requirejs/goog'
-    },
-    shim: {
-        googleAPI: {
-            deps: ['async', 'propertyParser'],
-            enforceDefine: true,
-            exports: 'gapi'
-        }
+        jscookie: 'lib/js.cookie'
     }
 });
 
 require([
-        'umovie'], function (UMovie) {
+    'plugins/google/google-api.min',
+    'umovie'
+], function (gapi, UMovie) {
+        gapi.client.setApiKey("AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k");
         UMovie.initialize();
     }
 );
 
-require(["utils/google-api"], function (gapi) {
-    "use strict";
-
-})();

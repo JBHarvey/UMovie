@@ -8,10 +8,8 @@ define([
     'backbone',
     'text!templates/movie.html',
     'models/movieModel',
-    'models/youtubeSearchModel',
-    'handlebars',
-    'googleAPI'
-], function ($, _, Backbone, movieTemplate, MovieModel, YoutubeSearchModel, Handlebars, gapi) {
+    'handlebars'
+], function ($, _, Backbone, movieTemplate, MovieModel, Handlebars) {
 
 
     var MovieView = Backbone.View.extend({
@@ -21,47 +19,16 @@ define([
         initialize: function (movieId) {
             this.model = new MovieModel({id: movieId});
 
-            // Call to Youtube's API
-            /*
-            var googleKey = "AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k";*/
-            // Encode the URI and replace the space by '+'
-            var searchRequest = encodeURI(this.model.get('trackName') + ' trailer')
-                .replace(/%20/g, '+');
-            /*
-            var requestURL = 'https://www.googleapis.com/youtube/v3/' +
-                'search?part=snippet&maxResults=1&q=' +
-                searchRequest +
-                '&type=video&videoEmbeddable=true&fields=items(id)&key=' + googleKey;
-            var youtubeSearchModel = new YoutubeSearchModel();
-            youtubeSearchModel.urlRoot = requestURL;
-            */
-            var trailerURL = undefined;
-            /*
-            youtubeSearchModel.fetch({
-                success: function () {
-                    "use strict";
-                    trailerURL = 'https://youtube.com/watch?v=' + youtubeSearchModel.get('id').videoId;
-                }
-            });
-            */
-            console.log(gapi);
-            var request = gapi.client.youtube.search.list({
-              q: searchRequest,
-              part: 'snippet',
-              maxResults: 1,
-              type: 'video',
-              videoEmbeddable: true,
-              fields: 'items(id)'
-            });
-            console.log(gapi);
-            this.model.set('trailerURL', trailerURL);
-
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
+
 
         },
 
         render: function () {
+            // Encode the URI and replace the space by '+'
+            var searchRequest = encodeURI(this.model.get('trackName') + ' trailer')
+                .replace(/%20/g, '+');
 
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
@@ -69,6 +36,38 @@ define([
             var resultMovie = template(source);
 
             this.$el.html(resultMovie);
+
+            var that = this;
+            gapi.client.load("youtube", "v3", function () {
+                "use strict";
+                that.getYoutubeVideo(searchRequest);
+            });
+        },
+
+        getYoutubeVideo: function (searchRequest) {
+            "use strict";
+            var query = gapi.client.youtube.search.list({
+                fields: 'items(id)',
+                q: searchRequest + " trailer",
+                order: "relevance",
+                maxResults: 1,
+                videoEmbeddable: true,
+                part: "snippet",
+                type: "video"
+            });
+
+            query.execute(function (answer) {
+                $('.movie-video-preview').each(function() {
+                    $(this).html(
+                        '<iframe width="90%" class="w100 video" height="350" ' +
+                        'src="//www.youtube.com/embed/' +
+                        answer.items[0].id.videoId +
+                        '" frameborder="0" allowfullscreen>' +
+                        '</iframe>'
+                    );
+                });
+                return this;
+            });
         }
     });
     return MovieView;
