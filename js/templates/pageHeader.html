@@ -3,7 +3,7 @@
     <div id="page-options">
         {{#each option}}
             <div class="watchlist-page-option">
-                <input id="add-watchlist-text" type="text" placeholder="Enter watchlist name"/>
+                <input id="{{optionClass}}-text" type="text" placeholder="Enter watchlist name"/>
                 <button disabled="disabled" id="{{optionClass}}-button" class="button-{{optionClass}}">{{action}}</button>
             </div>
         {{/each}}

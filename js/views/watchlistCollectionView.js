@@ -60,6 +60,19 @@ define([
             });
         },
 
+        checkAddWatchlistText: function (event) {
+            "use strict";
+            var currentInputValue = event.currentTarget.value;
+            var submitButton = $('#add-watchlist-button');
+            if (/^((\w*\d*[^\s])+\s?)+$/.test(currentInputValue)) {
+                submitButton.prop('disabled', false);
+            } else {
+                submitButton.prop('disabled', true);
+            }
+        },
+
+        
+
         generateDefaultQuery: function () {
             return this.searchManager.url();
         }
