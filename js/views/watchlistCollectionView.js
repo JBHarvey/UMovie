@@ -80,7 +80,7 @@ define([
             });
 
             var that = this;
-            watchlist.save({
+            watchlist.save(null, {
                 success: function (data) {
                     that.collection.add(data);
                 }
