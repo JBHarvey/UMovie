@@ -21,7 +21,6 @@ require([
     'plugins/google/google-api.min',
     'umovie'
 ], function (gapi, UMovie) {
-        gapi.client.setApiKey("AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k");
         UMovie.initialize();
     }
 );

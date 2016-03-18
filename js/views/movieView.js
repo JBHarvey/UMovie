@@ -8,8 +8,9 @@ define([
     'backbone',
     'text!templates/movie.html',
     'models/movieModel',
+    'views/youtubeVideos',
     'handlebars'
-], function ($, _, Backbone, movieTemplate, MovieModel, Handlebars) {
+], function ($, _, Backbone, movieTemplate, MovieModel, YoutubeVideo, Handlebars) {
 
 
     var MovieView = Backbone.View.extend({
@@ -35,38 +36,10 @@ define([
 
             this.$el.html(resultMovie);
 
-            var that = this;
-            gapi.client.load("youtube", "v3", function () {
-                "use strict";
-                that.getYoutubeVideo(searchRequest);
-            });
-        },
-
-        getYoutubeVideo: function (searchRequest) {
-            "use strict";
-            var query = gapi.client.youtube.search.list({
-                fields: 'items(id)',
-                q: searchRequest + " trailer",
-                order: "relevance",
-                maxResults: 1,
-                videoEmbeddable: true,
-                part: "snippet",
-                type: "video"
-            });
-
-            query.execute(function (answer) {
-                $('.movie-video-preview').each(function() {
-                    $(this).html(
-                        '<iframe width="100%" class="w100 video" height="350" ' +
-                        'src="//www.youtube.com/embed/' +
-                        answer.items[0].id.videoId +
-                        '" frameborder="0" allowfullscreen>' +
-                        '</iframe>'
-                    );
-                });
-                return this;
-            });
+            // Adds the youtube trailer to the right HTML tag with the corresponding class
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
         }
+
     });
     return MovieView;
 
