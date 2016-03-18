@@ -35,11 +35,12 @@ define([
         },
 
         generateDefaultQuery: function() {
-            this.searchManager.setSearchType('movies');
-            this.searchManager.setSearchName('dead');
-            this.searchManager.setSearchLimit(100);
-            this.searchManager.setSearchGenre('');
-            return this.searchManager.url();
+            return this.searchManager
+                .setSearchType('movies')
+                .setSearchName('dead')
+                .setSearchLimit(100)
+                .setSearchGenre('')
+                .url();
         }
     });
     return MovieCollectionView;

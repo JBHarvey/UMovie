@@ -22,14 +22,16 @@ define([
             var that = this;
             this.model = new MovieModel({id: movieId});
             this.watchlists = new Watchlists();
-            this.listenTo(this.model, "change", this.render);
-            this.model.fetch();
+            //this.listenTo(this.model, "change", this.render);
+            var syncRendering = _.after(2, function () {
+                "use strict";
+                that.render();
+            });
+            this.model.fetch({
+                success: syncRendering
+            });
             this.watchlists.fetch({
-                success: function () {
-                    "use strict";
-                    that.listenTo(that.watchlists, 'update', that.render);
-                    that.render();
-                }
+                success: syncRendering
             });
         },
 
