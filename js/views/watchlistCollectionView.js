@@ -12,8 +12,9 @@ define([
     'text!templates/watchlist.html',
     'text!templates/pageHeader.html',
     'views/watchlistView',
-    'models/searchModel'
-], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, searchModel) {
+    'models/searchModel',
+    'models/watchlistModel'
+], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, searchModel, WatchListModel) {
 
     var WatchlistCollectionView = Backbone.View.extend({
         el: $('#content'),
@@ -71,7 +72,20 @@ define([
             }
         },
 
-        
+        addWatchlist: function (event) {
+            "use strict";
+            var watchlistInput = $('#add-watchlist-text');
+            var watchlist = new WatchListModel({
+                name: watchlistInput.val()
+            });
+
+            var that = this;
+            watchlist.save({
+                success: function (data) {
+                    that.collection.add(data);
+                }
+            });
+        },
 
         generateDefaultQuery: function () {
             return this.searchManager.url();

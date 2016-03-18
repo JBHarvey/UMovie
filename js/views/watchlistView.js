@@ -32,7 +32,7 @@ define([
 
             var template = Handlebars.compile(WatchlistTemplate);
             return template(this.model.attributes);
-        },
+        }/*,
 
         events: {
             "click .button-add-watchlist": "createWatchlist"
@@ -47,6 +47,7 @@ define([
 
         deleteWatchlist: function (id) {
         }
+        */
 
 
     });
