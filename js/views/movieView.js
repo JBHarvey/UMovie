@@ -23,10 +23,12 @@ define([
             this.model = new MovieModel({id: movieId});
             this.watchlists = new Watchlists();
             //this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
                 "use strict";
                 that.render();
             });
+
             this.model.fetch({
                 success: syncRendering
             });
@@ -101,12 +103,17 @@ define([
             watchlist.save({
                 success: function (data) {
                     console.log(data);
-                    that.watchlists.add(watchlist);
+                    that.watchlists.add(data);
+                },
+                error: function (model, response) {
+                    console.log(model);
                 }
             });
+            /*
             that.model.save(that.model, {
                 watchlistID: watchlist.attributes.id
             });
+            */
         }
     });
     return MovieView;
