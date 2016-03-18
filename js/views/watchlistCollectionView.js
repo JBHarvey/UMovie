@@ -14,8 +14,8 @@ define([
     'views/watchlistView',
     'models/searchModel'
 ], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, searchModel) {
-    var WatchlistCollectionView = Backbone.View.extend({
 
+    var WatchlistCollectionView = Backbone.View.extend({
         el: $('#content'),
 
         initialize: function () {
@@ -35,12 +35,14 @@ define([
                 var watchListView = new WatchListView(watchlist);
                 that.$el.append(watchListView.render());
             });
+            that.$el.append('<button class="delete-btn btn"> Delete </button>');
         },
 
         generateDefaultQuery: function () {
             return this.searchManager.url();
         }
     });
+
     return WatchlistCollectionView;
 });
 

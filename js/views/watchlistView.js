@@ -39,8 +39,10 @@ define([
         },
 
         createWatchlist: function () {
-            this.model = new WatchlistModel({name: newName, owner: `${Cookie.get('email')}`});
-
+            this.model = new WatchlistModel({
+                name: newName,
+                owner: `${Cookie.get('email')}`
+            });
         },
 
         deleteWatchlist: function (id) {
