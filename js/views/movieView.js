@@ -100,20 +100,15 @@ define([
             });
 
             var that = this;
-            watchlist.save({
+            watchlist.save(null, {
                 success: function (data) {
                     console.log(data);
                     that.watchlists.add(data);
-                },
-                error: function (model, response) {
-                    console.log(model);
+                    that.model.save(null, {
+                        watchlistID: watchlist.attributes.id
+                    });
                 }
             });
-            /*
-            that.model.save(that.model, {
-                watchlistID: watchlist.attributes.id
-            });
-            */
         }
     });
     return MovieView;
