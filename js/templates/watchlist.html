@@ -1,6 +1,6 @@
 <div class="watchlist-box">
     <div class="selection-box">
-        <input type="checkbox" value="{{id}}"/>
+        <input class="delete-watchlist-checkbox" type="checkbox" value="{{id}}"/>
     </div>
 
     <div class="watchlist-aside">
@@ -9,7 +9,7 @@
         <div class="watchlist-movies">
             {{#each movies}}
             <div class="watchlist-movie-select-box">
-                <input type="checkbox" value="{{trackId}}"/>
+                <input class="delete-watchlist-movie-checkbox" type="checkbox" value="{{trackId}}"/>
             </div>
 
             <a class="movies-box" href="#movie/{{trackId}}">
@@ -35,6 +35,7 @@
                     </div>
                 </div>
             </a>
+            <button class="remove-watchlist-movie">Remove</button>
             {{/each}}
         </div>
     </div>

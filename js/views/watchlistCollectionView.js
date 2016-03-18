@@ -23,6 +23,7 @@ define([
             this.collection = new WatchLists();
             //this.collection.url = this.generateDefaultQuery();
             this.listenTo(this.collection, 'sync', this.render);
+            this.listenTo(this.collection, 'update', this.render)
             this.collection.fetch();
         },
 
@@ -35,7 +36,28 @@ define([
                 var watchListView = new WatchListView(watchlist);
                 that.$el.append(watchListView.render());
             });
-            that.$el.append('<button class="delete-btn btn"> Delete </button>');
+            that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete </button>');
+        },
+
+        events: {
+            'click #delete-watchlist': 'deleteWatchlists',
+            'keyup #add-watchlist-text': 'checkAddWatchlistText',
+            'click #add-watchlist-button': 'addWatchlist'
+        },
+
+        deleteWatchlists: function (event) {
+            "use strict";
+
+            var checkedValues = $('.delete-watchlist-checkbox:checkbox:checked')
+                .map(function() {
+                    return this.value;
+            }).get();
+
+            var that = this;
+            checkedValues.forEach(function (id) {
+                var watchlist = that.collection.remove(id);
+                watchlist.destroy();
+            });
         },
 
         generateDefaultQuery: function () {
