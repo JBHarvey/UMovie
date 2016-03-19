@@ -39,7 +39,7 @@ define([
                 var watchListView = new WatchListView(watchlist);
                 that.$el.append(watchListView.render());
             });
-            that.$el.append('<button class="remove-watchlist-movie">Remove Movies</button>');
+            that.$el.append('<button id="remove-watchlist-movie" class="delete-btn btn">Remove Movies</button>');
             that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete Watchlists</button>');
         },
 
@@ -47,7 +47,7 @@ define([
             'click #delete-watchlist': 'deleteWatchlists',
             'keyup #add-watchlist-text': 'checkAddWatchlistText',
             'click #add-watchlist-button': 'addWatchlist',
-            'click .remove-watchlist-movie': 'removeWatchlistMovie'
+            'click #remove-watchlist-movie': 'removeWatchlistMovie'
         },
 
         deleteWatchlists: function (event) {
