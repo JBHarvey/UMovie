@@ -39,7 +39,8 @@ define([
                 var watchListView = new WatchListView(watchlist);
                 that.$el.append(watchListView.render());
             });
-            that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete </button>');
+            that.$el.append('<button class="remove-watchlist-movie">Remove Movies</button>');
+            that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete Watchlists</button>');
         },
 
         events: {
