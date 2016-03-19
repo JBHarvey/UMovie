@@ -20,7 +20,8 @@ define([
 
         initialize: function (movieId) {
             var that = this;
-            this.model = new MovieModel({trackId: movieId});
+            var id = parseInt(movieId);
+            this.model = new MovieModel({trackId: id});
             this.watchlists = new Watchlists();
             //this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
@@ -48,12 +49,10 @@ define([
                 // Only returns the watchlist which do not already contain the movie
                 var that = this;
                 source.watchlists = _.filter(this.watchlists.models, function (model) {
-                    console.log(model);
-                    return _.some(model.attributes.movies, function (movie) {
-                        return that.model.get('trackId') == movie.trackId;
-                    });
+                    return !(_.some(model.attributes.movies, function (movie) {
+                        return that.model.get('trackId') === movie.trackId;
+                    }));
                 });
-                console.log(source.watchlists);
             }
             var resultMovie = template(source);
 
@@ -86,6 +85,9 @@ define([
                 this.model.save(null, {
                     watchlistID: selectedItem.dataset.id,
                     success: function (data) {
+                        that.watchlists.get(selectedItem.dataset.id)
+                            .get('movies')
+                            .push(that.model.attributes);
                         that.render();
                     }
                 });
