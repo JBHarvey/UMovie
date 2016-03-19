@@ -102,14 +102,12 @@ define([
 
             var that = this;
             checkedValues.forEach(function (idObject) {
-                //var watchlist = that.collection.get(idObject.watchlistID);
-                //var movies = new MovieCollection(watchlist.get('movies'));
                 var movies = new MovieCollection(that.collection
                     .get(idObject.watchlistID)
                     .get('movies'));
                 var movie = movies.get(idObject.movieID);
-                //watchlist.removeMovie(movie);
                 that.collection.get(idObject.watchlistID).removeMovie(movie);
+
                 // Strangely, we have to set the URL or it doesn't work...
                 // Although it works with the save method...
                 movie.url = 'https://umovie.herokuapp.com/watchlists/' +

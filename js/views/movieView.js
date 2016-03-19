@@ -38,13 +38,22 @@ define([
         },
 
         render: function () {
-
+            "use strict";
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
 
             var source = this.model.attributes;
             if (!_.isEmpty(this.watchlists.models)) {
-                source.watchlists = this.watchlists.models;
+
+                // Only returns the watchlist which do not already contain the movie
+                var that = this;
+                source.watchlists = _.filter(this.watchlists.models, function (model) {
+                    console.log(model);
+                    return _.some(model.attributes.movies, function (movie) {
+                        return that.model.get('trackId') == movie.trackId;
+                    });
+                });
+                console.log(source.watchlists);
             }
             var resultMovie = template(source);
 
@@ -73,6 +82,13 @@ define([
                 createWatchlistMenu.toggle();
             } else {
                 createWatchlistMenu.hide();
+                let that = this;
+                this.model.save(null, {
+                    watchlistID: selectedItem.dataset.id,
+                    success: function (data) {
+                        that.render();
+                    }
+                });
             }
         },
 
