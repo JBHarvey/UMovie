@@ -22,9 +22,12 @@ define([
 
         initialize: function () {
             this.collection = new WatchLists();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.listenTo(this.collection, 'update', this.render)
-            this.collection.fetch();
+            //this.listenTo(this.collection, 'sync', this.render);
+            this.listenTo(this.collection, 'update', this.render);
+            this.listenTo(this.collection, 'change', this.render);
+            this.collection.fetch({
+                success: this.render
+            });
         },
 
         render: function () {
@@ -99,8 +102,11 @@ define([
 
             var that = this;
             checkedValues.forEach(function (idObject) {
-                var watchlist = that.collection.get(idObject.watchlistID);
-                var movies = new MovieCollection(watchlist.get('movies'));
+                //var watchlist = that.collection.get(idObject.watchlistID);
+                //var movies = new MovieCollection(watchlist.get('movies'));
+                var movies = new MovieCollection(that.collection
+                    .get(idObject.watchlistID)
+                    .get('movies'));
                 var movie = movies.get(idObject.movieID);
                 //watchlist.removeMovie(movie);
                 that.collection.get(idObject.watchlistID).removeMovie(movie);
@@ -108,11 +114,7 @@ define([
                 // Although it works with the save method...
                 movie.url = 'https://umovie.herokuapp.com/watchlists/' +
                         idObject.watchlistID + '/movies/' + idObject.movieID;
-                movie.destroy(null, {
-                    success: function () {
-                        trigger('update');
-                    }
-                });
+                movie.destroy();
             });
         }
     });
