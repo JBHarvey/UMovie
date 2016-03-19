@@ -11,10 +11,8 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'text!templates/watchlist.html',
-    '../models/watchlistModel',
-    'jscookie'
-], function ($, _, Backbone, Handlebars, WatchlistTemplate, WatchlistModel, Cookie) {
+    'text!templates/watchlist.html'
+], function ($, _, Backbone, Handlebars, WatchlistTemplate) {
 
     var WatchlistView = Backbone.View.extend({
 
@@ -22,35 +20,14 @@ define([
 
         initialize: function (watchlist) {
             this.model = watchlist;
-            /*this.listenTo(this.model, "change", this.render);
-            this.listenTo(this.model, "sync", console.log('onSync!'));
-            this.listenTo(this.model, "change", console.log('onChange!'));
-            this.model.fetch();*/
         },
 
         render: function () {
 
             var template = Handlebars.compile(WatchlistTemplate);
             return template(this.model.attributes);
-        }/*,
-
-        events: {
-            "click .button-add-watchlist": "createWatchlist"
-        },
-
-        createWatchlist: function () {
-            this.model = new WatchlistModel({
-                name: newName,
-                owner: `${Cookie.get('email')}`
-            });
-        },
-
-        deleteWatchlist: function (id) {
         }
-        */
-
-
     });
-    return WatchlistView;
 
+    return WatchlistView;
 });

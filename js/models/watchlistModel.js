@@ -16,6 +16,13 @@ define([
             } else {
                 return response;
             }
+        },
+
+        removeMovie: function (movieModel) {
+            "use strict";
+            this.set('movies', _.reject(this.get('movies'), function (movie) {
+                return movie.trackID === movieModel.get('trackID');
+            }));
         }
     });
 

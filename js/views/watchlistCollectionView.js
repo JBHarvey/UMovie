@@ -12,17 +12,16 @@ define([
     'text!templates/watchlist.html',
     'text!templates/pageHeader.html',
     'views/watchlistView',
-    'models/searchModel',
-    'models/watchlistModel'
-], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, searchModel, WatchListModel) {
+    'models/watchlistModel',
+    'models/movieModel',
+    'collections/movies'
+], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, WatchListModel, MovieModel, MovieCollection) {
 
     var WatchlistCollectionView = Backbone.View.extend({
         el: $('#content'),
 
         initialize: function () {
-            //this.searchManager = new searchModel();
             this.collection = new WatchLists();
-            //this.collection.url = this.generateDefaultQuery();
             this.listenTo(this.collection, 'sync', this.render);
             this.listenTo(this.collection, 'update', this.render)
             this.collection.fetch();
@@ -43,7 +42,8 @@ define([
         events: {
             'click #delete-watchlist': 'deleteWatchlists',
             'keyup #add-watchlist-text': 'checkAddWatchlistText',
-            'click #add-watchlist-button': 'addWatchlist'
+            'click #add-watchlist-button': 'addWatchlist',
+            'click .remove-watchlist-movie': 'removeWatchlistMovie'
         },
 
         deleteWatchlists: function (event) {
@@ -87,8 +87,33 @@ define([
             });
         },
 
-        generateDefaultQuery: function () {
-            return this.searchManager.url();
+        removeWatchlistMovie: function (event) {
+            "use strict";
+            var checkedValues = $('.delete-watchlist-movie-checkbox:checkbox:checked')
+                .map(function() {
+                    return {
+                        "movieID": this.value,
+                        "watchlistID": this.dataset.id
+                    };
+                }).get();
+
+            var that = this;
+            checkedValues.forEach(function (idObject) {
+                var watchlist = that.collection.get(idObject.watchlistID);
+                var movies = new MovieCollection(watchlist.get('movies'));
+                var movie = movies.get(idObject.movieID);
+                //watchlist.removeMovie(movie);
+                that.collection.get(idObject.watchlistID).removeMovie(movie);
+                // Strangely, we have to set the URL or it doesn't work...
+                // Although it works with the save method...
+                movie.url = 'https://umovie.herokuapp.com/watchlists/' +
+                        idObject.watchlistID + '/movies/' + idObject.movieID;
+                movie.destroy(null, {
+                    success: function () {
+                        trigger('update');
+                    }
+                });
+            });
         }
     });
 

@@ -20,7 +20,7 @@ define([
 
         initialize: function (movieId) {
             var that = this;
-            this.model = new MovieModel({id: movieId});
+            this.model = new MovieModel({trackId: movieId});
             this.watchlists = new Watchlists();
             //this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
@@ -102,7 +102,6 @@ define([
             var that = this;
             watchlist.save(null, {
                 success: function (data) {
-                    console.log(data);
                     that.watchlists.add(data);
                     that.model.save(null, {
                         watchlistID: watchlist.attributes.id
