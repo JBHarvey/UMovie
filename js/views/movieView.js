@@ -11,6 +11,7 @@ define([
     'collections/watchlists',
     'models/watchlistModel',
     'views/youtubeVideos',
+    'handlebars'
 ], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Handlebars) {
 
 
@@ -63,8 +64,10 @@ define([
                 });
             }
             var resultMovie = template(source);
-
             this.$el.html(resultMovie);
+
+            // Adds the youtube trailer to the right HTML tag with the corresponding class
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
         },
 
         events: {
@@ -134,8 +137,6 @@ define([
                     });
                 }
             });
-            // Adds the youtube trailer to the right HTML tag with the corresponding class
-            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
         }
 
     });

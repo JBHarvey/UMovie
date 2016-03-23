@@ -158,7 +158,6 @@ define([
             uMovieRouter.on('route:displayWatchlists', function () {
                 if (uMovieRouter.checkCredentials()) {
                     var watchlistView = new WatchlistCollectionView();
-                    console.log("Showing Watchlists");
                 }
             });
 

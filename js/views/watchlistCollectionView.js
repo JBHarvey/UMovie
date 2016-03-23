@@ -16,21 +16,30 @@ define([
     'models/movieModel',
     'collections/movies'
 ], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, WatchListModel, MovieModel, MovieCollection) {
+    "use strict";
 
     var WatchlistCollectionView = Backbone.View.extend({
         el: $('#content'),
 
         initialize: function () {
             this.collection = new WatchLists();
-            //this.listenTo(this.collection, 'sync', this.render);
-            this.listenTo(this.collection, 'update', this.render);
-            this.listenTo(this.collection, 'change', this.render);
-            this.collection.fetch({
-                success: this.render
+
+            var that = this;
+
+            var sync = _.after(1, function() {
+                that.render();
+                that.listenTo(that.collection, 'change', that.render);
+                that.listenTo(that.collection, 'update', that.render);
             });
+            this.collection.fetch({
+                success: sync
+            });
+
+
         },
 
         render: function () {
+
             var pageHeaderTemplate = Handlebars.compile(PageHeaderTemplate);
             this.$el.html(pageHeaderTemplate(this.collection.pageHeader));
 
@@ -41,6 +50,7 @@ define([
             });
             that.$el.append('<button id="remove-watchlist-movie" class="delete-btn btn">Remove Movies</button>');
             that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete Watchlists</button>');
+
         },
 
         events: {
