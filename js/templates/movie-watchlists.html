@@ -1,0 +1,4 @@
+<li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+{{#each watchlists as |watchlist|}}
+    <li class="watchlist-select-group" data-id="{{watchlist.id}}">{{watchlist.name}}</li>
+{{/each}}
