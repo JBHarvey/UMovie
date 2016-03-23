@@ -4,7 +4,7 @@ define([
     'backbone'
 ], function ($, _, Backbone) {
     "use strict";
-    console.log(Backbone);
+
     var YoutubeVideo = Backbone.View.extend({
 
         initialize: function(searchRequest, className) {
