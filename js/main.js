@@ -18,7 +18,10 @@ require.config({
 });
 
 require([
-        'umovie'], function (UMovie) {
+    'plugins/google/google-api.min',
+    'umovie'
+], function (gapi, UMovie) {
         UMovie.initialize();
     }
 );
+

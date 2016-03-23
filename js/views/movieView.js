@@ -10,8 +10,8 @@ define([
     'models/movieModel',
     'collections/watchlists',
     'models/watchlistModel',
-    'handlebars'
-], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, Handlebars) {
+    'views/youtubeVideos',
+], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Handlebars) {
 
 
     var MovieView = Backbone.View.extend({
@@ -19,11 +19,12 @@ define([
         el: $('#content'),
 
         initialize: function (movieId) {
+
             var that = this;
             var id = parseInt(movieId);
             this.model = new MovieModel({trackId: id});
             this.watchlists = new Watchlists();
-            //this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
                 "use strict";
@@ -38,11 +39,18 @@ define([
             });
         },
 
-        render: function () {
+        generateSearchRequest: function () {
+            return encodeURI(this.model.get('trackName') + ' trailer').replace(/%20/g, '+');
+        }
+
+        , render: function () {
             "use strict";
+            // Encode the URI and replace the space by '+'
+            var searchRequest = this.generateSearchRequest();
+
+
             //The data used in the template
             var template = Handlebars.compile(movieTemplate);
-
             var source = this.model.attributes;
             if (!_.isEmpty(this.watchlists.models)) {
 
@@ -126,7 +134,10 @@ define([
                     });
                 }
             });
+            // Adds the youtube trailer to the right HTML tag with the corresponding class
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
         }
+
     });
     return MovieView;
 
