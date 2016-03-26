@@ -22,5 +22,6 @@ Here are the different links that you can reach within our website:
 </ul>
 You must be logged in to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html), which is also the home page of the application.
 
+
 Search bar:
 The search bar allows a search in the page where the user is. For instance, it is possible to make a search for different actors while the user is in the actor page. 
