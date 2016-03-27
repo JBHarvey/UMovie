@@ -34,18 +34,22 @@ define([
 
         setSearchType: function (type) {
             this.parameters.type = type;
+            return this;
         },
 
         setSearchLimit: function (limit) {
             this.parameters.limit = limit != 0 ? `limit=${limit}` : '';
+            return this;
         },
 
         setSearchGenre: function (genre) {
             this.parameters.genre = genre != '' ? `genre=${genre}` : '';
+            return this;
         },
 
         setSearchName: function (name) {
             this.parameters.name = name != '' ? `q=${name}` : '';
+            return this;
         },
 
         formatParameter: function (parameterToAdd) {

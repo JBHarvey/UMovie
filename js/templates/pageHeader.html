@@ -1,10 +1,11 @@
 <h1>Your Watchlists</h1>
 <div>
-    <span id="page-header-title">
-        </span>
-    <span id="page-options">
+    <div id="page-options">
         {{#each option}}
-        <span class="button-{{optionClass}}">{{action}}</span>
+            <div class="watchlist-page-option">
+                <input id="{{optionClass}}-text" type="text" placeholder="Enter watchlist name"/>
+                <button disabled="disabled" id="{{optionClass}}-button" class="button-{{optionClass}}">{{action}}</button>
+            </div>
         {{/each}}
-    </span>
+    </div>
 </div>

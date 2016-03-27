@@ -17,16 +17,40 @@
                     <div class="movie-year">{{releaseYear}}</div>
                     <div class="movie-country">{{country}}</div>
                 </div>
-                <div>
-                    <a href="#" class="watchlist-button-desktop">Add to watchlist</a>
+                <div class="movie-watchlist-view">
+                    <button class="watchlist-button-desktop">Add to watchlist</button>
+                    <div class="watchlist-menu-group">
+                        <ul class="watchlist-menu">
+                            <li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+                            {{#each watchlists}}
+                            <li class="watchlist-select-group" data-id="{{id}}">{{name}}</li>
+                            {{/each}}
+                        </ul>
+                        <div class="new-watchlist" style="display: none;">
+                            <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
+                            <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="movie-bar-info">
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
-            <div class="watchlist-button">
-                <a href="#" class="myButton">Add to watchlist</a>
+            <div class="watchlist-button movie-watchlist-view">
+                <button class="myButton">Add to watchlist</button>
+                <div class="watchlist-menu-group">
+                    <ul class="watchlist-menu">
+                        <li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+                        {{#each watchlists}}
+                        <li class="watchlist-select-group" data-id="{{id}}">{{name}}</li>
+                        {{/each}}
+                    </ul>
+                    <div class="new-watchlist" style="display: none;">
+                        <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
+                        <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+                    </div>
+                </div>
             </div>
             <div class="movie-info-box-desktop">
                 <div class="movie-info-subject">

@@ -26,7 +26,7 @@ define([
         },
 
         render: function () {
-            that = this;
+            var that = this;
             this.$el.html("");
             this.collection.each(function(movie){
                 var thumbnail = new ThumbnailView({model: movie});
@@ -35,11 +35,12 @@ define([
         },
 
         generateDefaultQuery: function() {
-            this.searchManager.setSearchType('movies');
-            this.searchManager.setSearchName('dead');
-            this.searchManager.setSearchLimit(100);
-            this.searchManager.setSearchGenre('');
-            return this.searchManager.url();
+            return this.searchManager
+                .setSearchType('movies')
+                .setSearchName('dead')
+                .setSearchLimit(100)
+                .setSearchGenre('')
+                .url();
         }
     });
     return MovieCollectionView;

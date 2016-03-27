@@ -1,9 +1,43 @@
-<!--Showing an item of a watchlist type -->
-<div>
-    {{id}}
+<div class="watchlist-box">
+    <div class="selection-box">
+        <input class="delete-watchlist-checkbox" type="checkbox" value="{{id}}"/>
+    </div>
 
-    <span>{{name}}</span>
+    <div class="watchlist-aside">
+        <h4 class="watchlist-title">{{name}}</h4>
 
-    <span>{{email}}</span>
+        <div class="watchlist-movies">
+            {{#each movies}}
+            <div class="watchlist-movie">
+                <div class="watchlist-movie-select-box">
+                    <input class="delete-watchlist-movie-checkbox" type="checkbox" data-id="{{../id}}" value="{{trackId}}"/>
+                </div>
 
+                <a class="movies-box" href="#movie/{{trackId}}">
+                    <div class="thumbnail">
+                        <div class="initial-image">
+                            <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+                        </div>
+                    </div>
+
+                    <div class="movies-top-box">
+                        <div class="movies-header">
+                            <h3 class="movies-title">{{trackName}}</h3>
+                            <div class="initial-release-date">{{releaseYear}}</div>
+                        </div>
+
+                        <div class="movies-description">
+                            <p class="movies-description-text">{{longDescription}}</p>
+                        </div>
+
+                        <div class="movies-footer">
+                            <div class="content-advisory-rating">{{convertDuration}}</div>
+                            <div class="duration">{{convertDuration}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </div>
