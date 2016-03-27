@@ -22,45 +22,54 @@ define([
             }
         },
 
+
+        // To login or signup, different data must be passed.
+        // They are set here
+        sync: function (method, model, options) {
+            "use strict";
+            /* Forces a POST to be send, for when the model has already been
+             POST-ed once, it will be send with a PUT every following request
+             */
+            if ('update' === method || 'create' === method) {
+                method = 'create';
+                options.data = model.data;
+                options.success = model.success;
+                options.error = model.error;
+            }
+
+            return Backbone.sync(method, model, options);
+        },
+
         prepareForSignUp: function (newName, newPassword) {
             var that = this;
-            //that.set(defaults = {
-            //    id: undefined,
-            //    email: that.email,
-            //    name: newName,
-            //    password: newPassword
-            //});
-            that.set({
-                id: undefined,
+            that.data = {
                 email: that.email,
                 name: newName,
-                password: newPassword,
-                url: function () {
-                    return that.signupURL
-                },
-                success: function (data) {
-                    that.name = data.name;
-                    that.id = data.id;
-                    window.history.pushState("", "", "/UMovie/#login");
-                    document.location.reload(true);
-                },
-                error: function (jqXHR, textStatus) {
-                    console.log('Error on signup: ', jqXHR);
-                    console.log('Content type : ', jqXHR.contentType);
-                }
-            });
+                password: newPassword
+            };
+            that.changeUrlDestination(that.signupURL);
+            success = function (data) {
+                that.name = data.name;
+                that.id = data.id;
+                window.history.pushState("", "", "/UMovie/#login");
+                document.location.reload(true);
+            };
+            error = function (jqXHR, textStatus) {
+                console.log('Error on signup: ', jqXHR);
+                console.log('Content type : ', jqXHR.contentType);
+            };
+
         },
 
         prepareForLogIn: function (newPassword) {
-
             var that = this;
-
-            that.id = undefined;
-            that.password = newPassword;
-            that.url = function () {
-                return that.loginURL
+            that.data = {
+                email: that.email,
+                password: newPassword
             };
+            that.changeUrlDestination(that.loginURL);
             that.success = function (data) {
+                console.log(data);
                 that.name = data.name;
                 that.connected = true;
                 Cookie.set('token', data.token, {expires: 365, path: '/'});
@@ -88,6 +97,12 @@ define([
                 following: undefined,
                 connected: false
             });
+        },
+
+        changeUrlDestination: function (newDestination) {
+            url = function () {
+                return newDestination;
+            };
         }
 
     });

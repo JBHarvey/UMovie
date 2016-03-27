@@ -51,12 +51,7 @@ define([
             } else {
                 user.prepareForLogIn($('#password').val());
             }
-            user.save({
-                email: user.email,
-                password: user.password,
-                success: user.success,
-                error: user.error
-            });
+            user.save();
         }
     });
     return AuthenticationView;
