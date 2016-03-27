@@ -9,71 +9,70 @@
  */
 
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'jscookie',
-    'views/navigationBarView',
-    'views/homeView',
-    'views/authenticationView',
-    'models/userModel',
-    'views/movieView',
-    'views/movieCollectionView',
-    'views/tvShowView',
-    'views/tvShowSeasonView',
-    'views/tvShowsCollectionView',
-    'views/actorView',
-    'models/actorModel',
-    'views/actorsCollectionView',
-    'views/watchlistCollectionView'
-], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-             UserModel, MovieView, MovieCollectionView, TvShowView, TvShowSeasonView,
-             TvShowCollectionView,ActorView, ActorModel, ActorCollectionView,WatchlistCollectionView) {
+        'jquery',
+        'underscore',
+        'backbone',
+        'jscookie',
+        'views/navigationBarView',
+        'views/homeView',
+        'views/authenticationView',
+        'models/userModel',
+        'views/movieView',
+        'views/movieCollectionView',
+        'views/tvShowView',
+        'views/tvShowSeasonView',
+        'views/tvShowsCollectionView',
+        'views/actorView',
+        'models/actorModel',
+        'views/actorsCollectionView',
+        'views/watchlistCollectionView'
+    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
+                 UserModel, MovieView, MovieCollectionView, TvShowView, TvShowSeasonView,
+                 TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView) {
 
-    var UMovieRouter = Backbone.Router.extend({
+        var UMovieRouter = Backbone.Router.extend({
 
-        routes: {
-            '': 'goHome',
-            'movies': 'displayMovies',
-            'movie/:movieId': 'displaySpecificMovie',
-            'tvShows': 'displayTvShows',
-            'tvShow/:tvShowId': 'displaySpecificTvShow',
-            'actors': 'displayActors',
-            'actor/:actorId': 'displaySpecificActor',
-            'watchlists': 'displayWatchlists',
-            'user': 'showUser',
-            'otherUsers': 'browseUsers',
-            'settings': 'settings',
-            'login': 'login',
-            'signup': 'signup',
-            'disconnect': 'disconnect',
+            routes: {
+                '': 'goHome',
+                'movies': 'displayMovies',
+                'movie/:movieId': 'displaySpecificMovie',
+                'tvShows': 'displayTvShows',
+                'tvShow/:tvShowId': 'displaySpecificTvShow',
+                'actors': 'displayActors',
+                'actor/:actorId': 'displaySpecificActor',
+                'watchlists': 'displayWatchlists',
+                'user': 'showUser',
+                'otherUsers': 'browseUsers',
+                'settings': 'settings',
+                'login': 'login',
+                'signup': 'signup',
+                'disconnect': 'disconnect',
 
-            //Default
-            '*actions': 'defaultAction'
-        },
+                //Default
+                '*actions': 'defaultAction'
+            },
 
-        go: function (route) {
-            console.log(route);
-            this.navigate(route, {trigger: yes});
-        }
-
-
-    });
+            go: function (route) {
+                console.log(route);
+                this.navigate(route, {trigger: yes});
+            }
+        });
 
 
         var initialize = function () {
 
             var authenticationView;
-            var homeView;
+            var homeView, movies, movieView, tvShows, tvShowSeasonView, actors, actorView, watchlistView;
+            var currentView;
             var uMovieRouter = new UMovieRouter();
 
-            var user = new UserModel();
+            var session = new UserModel();
             var navigationBarView = new NavigationBarView();
-
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
 
             var lastAuthState = 'disconnected';
+
             updateNavigationBar = function () {
                 if (Cookie.get('token') === undefined && lastAuthState == 'connected') {
                     navigationBarView.render();
@@ -82,17 +81,16 @@ define([
                 }
             };
 
-            uMovieRouter.setHeaderAuthorization = function () {
+            setHeaderAuthorization = function () {
                 $(document).ajaxSend(function (e, xhr, options) {
                     xhr.setRequestHeader("Authorization", Cookie.get('token'));
                 });
             };
 
-            uMovieRouter.checkCredentials = function () {
-                updateNavigationBar();
+            checkCredentials = function () {
                 if (Cookie.get('token') === undefined) {
                     lastAuthState = 'disconnected';
-                    Backbone.trigger('route:login');
+                    Backbone.trigger('route:disconnect');
                     return false;
                 } else {
                     lastAuthState = 'connected';
@@ -100,19 +98,27 @@ define([
                 }
             };
 
+
+            updateMainView = function (ViewClass, model) {
+                if (checkCredentials()) {
+                    currentView = new ViewClass();
+                }
+                updateNavigationBar();
+            };
+
             //Shows the login at start up. If the user has already logged in, the home page will be shown.
-            authenticationView = new AuthenticationView(user, false);
-            if (uMovieRouter.checkCredentials()) {
+            authenticationView = new AuthenticationView(session, false);
+            updateMainView(function () {
                 if (!homeView) {
                     homeView = new HomeView();
                 } else {
                     homeView.render();
                 }
-            }
+            });
 
 
             uMovieRouter.on('route:goHome', function () {
-                if (uMovieRouter.checkCredentials()) {
+                if (checkCredentials()) {
                     navigationBarView.render();
                     homeView.render();
                 }
@@ -120,56 +126,52 @@ define([
 
             // Movies
             uMovieRouter.on('route:displayMovies', function () {
-                /*
-                 * THIS PART IS <b> VERY </b> TEMPORARY
-                 * It shall stay as long as we do not have a movie collection along with its presentation
-                 */
-                var movies = new MovieCollectionView();
+                movies = new MovieCollectionView();
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
                 // This should be the actual movieView page.
-                var movieView = new MovieView(movieId);
+                movieView = new MovieView(movieId);
             });
 
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                var tvShows = new TvShowCollectionView();
+                tvShows = new TvShowCollectionView();
             });
 
             uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-                var tvShowSeasonView = new TvShowSeasonView(tvShowId);
+                tvShowSeasonView = new TvShowSeasonView(tvShowId);
             });
 
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                var actors = new ActorCollectionView();
+                actors = new ActorCollectionView();
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
 
                 var newActor = new ActorModel({id: actorId});
-                var actorView = new ActorView({model: newActor});
+                actorView = new ActorView({model: newActor});
             });
 
 
             uMovieRouter.on('route:displayWatchlists', function () {
-                if (uMovieRouter.checkCredentials()) {
-                    var watchlistView = new WatchlistCollectionView();
+                if (checkCredentials()) {
+                    watchlistView = new WatchlistCollectionView();
                     console.log("Showing Watchlists");
                 }
             });
 
             uMovieRouter.on('route:showUser', function () {
-                if (uMovieRouter.checkCredentials()) {
+                if (checkCredentials()) {
                     console.log('The user (id still to be determined) should be displayed now');
                 }
             });
 
             uMovieRouter.on('route:settings', function () {
-                if (uMovieRouter.checkCredentials()) {
+                if (checkCredentials()) {
                     console.log('The settings should be displayed now');
                 }
             });
@@ -183,7 +185,7 @@ define([
             });
 
             uMovieRouter.on('route:disconnect', function () {
-                user.disconnect();
+                session.disconnect();
                 navigationBarView.render();
                 authenticationView.render(false);
             });
@@ -193,7 +195,8 @@ define([
             });
 
 
-            uMovieRouter.setHeaderAuthorization();
+            setHeaderAuthorization();
+
             Backbone.history.start({root: '/UMovie'});
 
         };
