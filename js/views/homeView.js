@@ -20,8 +20,6 @@ define([
         },
 
         render: function() {
-
-
             var template = Handlebars.compile(homeTemplate);
 
             var source = new HomeModel();

@@ -17,9 +17,7 @@ define([
 
         el: $('#content'),
 
-        initialize: function (movieId) {
-            this.model = new MovieModel({id: movieId});
-
+        initialize: function () {
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
         },
