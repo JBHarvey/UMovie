@@ -23,8 +23,10 @@ define([
         },
 
 
-        // To login or signup, different data must be passed.
-        // They are set here
+        /*
+            Setting the different HTTP header parameters that need to be passed
+            for the call to succeed.
+         */
         sync: function (method, model, options) {
             "use strict";
             /* Forces a POST to be send, for when the model has already been
