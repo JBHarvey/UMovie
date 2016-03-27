@@ -102,7 +102,7 @@ define([
         },
 
         changeUrlDestination: function (newDestination) {
-            url = function () {
+            this.url = function () {
                 return newDestination;
             };
         }
