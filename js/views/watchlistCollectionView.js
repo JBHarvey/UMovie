@@ -57,7 +57,8 @@ define([
             'click #delete-watchlist': 'deleteWatchlists',
             'keyup #add-watchlist-text': 'checkAddWatchlistText',
             'click #add-watchlist-button': 'addWatchlist',
-            'click #remove-watchlist-movie': 'removeWatchlistMovie'
+            'click #remove-watchlist-movie': 'removeWatchlistMovie',
+            'dblclick .watchlist-title-box': 'editWatchlist'
         },
 
         deleteWatchlists: function (event) {
@@ -125,6 +126,27 @@ define([
                         idObject.watchlistID + '/movies/' + idObject.movieID;
                 movie.destroy();
             });
+        },
+
+        editWatchlist: function (event) {
+            "use strict";
+            var previousWatchlist = document.getElementsByClassName('watchlist-title-box');
+            previousWatchlist = Array.prototype.filter.call(previousWatchlist, function (element) {
+                return element.getElementsByClassName('watchlist-title-input').length;
+            });
+
+            if (previousWatchlist.length) {
+                previousWatchlist = previousWatchlist[0];
+                var previousWatchlistModel = this.collection.get(previousWatchlist.dataset.id);
+                previousWatchlist.innerHTML = '<h4 class="watchlist-title">'
+                    + previousWatchlistModel.get('name') + '</h4>';
+            }
+
+            var currentTarget = event.currentTarget;
+            var currentWatchlist = this.collection.get(currentTarget.dataset.id);
+            currentTarget.innerHTML = '<input class="watchlist-title-input" value="'
+                + currentWatchlist.get('name') + '" type="text" placeholder="Enter watchlist name">';
+            currentTarget.insertAdjacentHTML('beforeend', '<button type="button">Submit</button>');
         }
     });
 
