@@ -9,6 +9,9 @@ define([
 
     var UserModel = Backbone.Model.extend({
         connected: false,
+        loginURL: 'https://umovie.herokuapp.com/login',
+        signupURL: 'https://umovie.herokuapp.com/signup',
+
 
         validateEmail: function (emailToCheck) {
             var emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,63 +22,59 @@ define([
             }
         },
 
-        attemptSignUp: function (newName, newPassword) {
-            this.set(defaults = {
-                email: this.email,
+        prepareForSignUp: function (newName, newPassword) {
+            var that = this;
+            //that.set(defaults = {
+            //    id: undefined,
+            //    email: that.email,
+            //    name: newName,
+            //    password: newPassword
+            //});
+            that.set({
+                id: undefined,
+                email: that.email,
                 name: newName,
-                password: newPassword
-            });
-            $.ajax({
-                url: 'https://umovie.herokuapp.com/signup',
-                type: 'POST',
-                data: {
-                    name: newName,
-                    email: this.email,
-                    password: newPassword
+                password: newPassword,
+                url: function () {
+                    return that.signupURL
                 },
-                contentType: 'application/x-www-form-urlencoded'
-            }).done(
-                function (data) {
-                    this.name = data.name;
-                    this.id = data.id;
-                    window.history.pushState("","", "/UMovie/#login");
+                success: function (data) {
+                    that.name = data.name;
+                    that.id = data.id;
+                    window.history.pushState("", "", "/UMovie/#login");
                     document.location.reload(true);
+                },
+                error: function (jqXHR, textStatus) {
+                    console.log('Error on signup: ', jqXHR);
+                    console.log('Content type : ', jqXHR.contentType);
                 }
-            ).fail(
-                function (jqXHR, textStatus) {
-                    return false;
-                }
-            );
+            });
         },
 
-        attemptLogIn: function (newPassword) {
-            this.set(defaults = ({
-                email: this.email,
-                password: newPassword
-            }));
-            $.ajax({
-                url: 'https://umovie.herokuapp.com/login',
-                type: 'POST',
-                data: {
-                    email: this.email,
-                    password: newPassword
-                },
-                contentType: 'application/x-www-form-urlencoded'
-            }).done(
-                function (data) {
-                    this.name = data.name;
-                    this.connected = true;
-                    Cookie.set('token', data.token, {expires: 365, path: '/'});
-                    Cookie.set('name', data.name, {expires: 365, path: '/'});
-                    Cookie.set('email', data.email, {expires: 365, path: '/'});
-                    window.history.pushState("","", "/UMovie/#");
-                    document.location.reload(true);
-                }
-            ).fail(
-                function (jqXHR, textStatus) {
-                    return false;
-                }
-            );
+        prepareForLogIn: function (newPassword) {
+
+            var that = this;
+
+            that.id = undefined;
+            that.password = newPassword;
+            that.url = function () {
+                return that.loginURL
+            };
+            that.success = function (data) {
+                that.name = data.name;
+                that.connected = true;
+                Cookie.set('token', data.token, {expires: 365, path: '/'});
+                Cookie.set('name', data.name, {expires: 365, path: '/'});
+                Cookie.set('email', data.email, {expires: 365, path: '/'});
+                window.history.pushState("", "", "/UMovie/#");
+                document.location.reload(true);
+            };
+            that.error = function (jqXHR, textStatus) {
+                console.log('Error on login: ', jqXHR);
+                console.log('Content type : ', jqXHR.contentType);
+            };
+
+            console.log(that);
         },
 
         disconnect: function () {
@@ -83,6 +82,7 @@ define([
             Cookie.remove('name', {path: '/'});
             Cookie.remove('email', {path: '/'});
             this.set({
+                id: undefined,
                 name: undefined,
                 email: undefined,
                 following: undefined,
