@@ -19,7 +19,7 @@ define([
     "use strict";
 
     var WatchlistCollectionView = Backbone.View.extend({
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
             this.collection = new WatchLists();
@@ -59,7 +59,17 @@ define([
             'click #add-watchlist-button': 'addWatchlist',
             'click #remove-watchlist-movie': 'removeWatchlistMovie',
             'dblclick .watchlist-title': 'editWatchlist',
-            'click .watchlist-cancel': 'cancelEditing'
+            'click .watchlist-cancel': 'cancelEditing',
+            'keyup .watchlist-title-input': 'checkChangeTitleText'
+        },
+
+        isTextValid: function (selectorName, inputText) {
+            var submitButton = $(selectorName);
+            if (/^((\w*\d*[^\s])+\s?)+$/.test(inputText)) {
+                submitButton.prop('disabled', false);
+            } else {
+                submitButton.prop('disabled', true);
+            }
         },
 
         deleteWatchlists: function (event) {
@@ -80,12 +90,7 @@ define([
         checkAddWatchlistText: function (event) {
             "use strict";
             var currentInputValue = event.currentTarget.value;
-            var submitButton = $('#add-watchlist-button');
-            if (/^((\w*\d*[^\s])+\s?)+$/.test(currentInputValue)) {
-                submitButton.prop('disabled', false);
-            } else {
-                submitButton.prop('disabled', true);
-            }
+            this.isTextValid('#add-watchlist-button', currentInputValue);
         },
 
         addWatchlist: function (event) {
@@ -143,12 +148,12 @@ define([
                     + previousWatchlistModel.get('name') + '</h4>';
             }
 
-            var currentTarget = event.currentTarget.parentElement;
-            var currentWatchlist = this.collection.get(currentTarget.dataset.id);
-            currentTarget.innerHTML = '<input class="watchlist-title-input" value="'
+            var currentTargetParent = event.currentTarget.parentElement;
+            var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
+            currentTargetParent.innerHTML = '<input class="watchlist-title-input" value="'
                 + currentWatchlist.get('name') + '" type="text" placeholder="Enter watchlist name">';
-            currentTarget.insertAdjacentHTML('beforeend', '<button type="button">Submit</button>');
-            currentTarget.insertAdjacentHTML('beforeend', '<button type="button" class="watchlist-cancel">' +
+            currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button" type="button" disabled="disabled">Submit</button>');
+            currentTargetParent.insertAdjacentHTML('beforeend', '<button type="button" class="watchlist-cancel">' +
                 '<div class="cancel-button-box"><span></span><span></span>' +
                 '</div></button>');
         },
@@ -159,6 +164,12 @@ define([
             var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
             currentTargetParent.innerHTML = '<h4 class="watchlist-title">'
                 + currentWatchlist.get('name') + '</h4>';
+        },
+
+        checkChangeTitleText: function (event) {
+            "use strict";
+            var currentInputValue = event.currentTarget.value;
+            this.isTextValid('.watchlist-submit-button', currentInputValue);
         }
     });
 
