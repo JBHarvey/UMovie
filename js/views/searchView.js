@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/movies',
+    '../collections/movieCollection',
     'thumbnailView',
     'handlebars'
 ], function ($, _, Backbone, Movies, ThumbnailView, Handlebars) {

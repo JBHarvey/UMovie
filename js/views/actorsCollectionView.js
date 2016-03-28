@@ -8,7 +8,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/actors',
+    '../collections/actorCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel'
