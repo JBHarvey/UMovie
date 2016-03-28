@@ -2,29 +2,40 @@ html{
     font-family: "Helvetica Neue"; /* Temporary*/
 }
 
-.myButton {
-    background-color: #C17E00;
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
-    border-radius:28px;
-    /* border:1px solid #124d77; */
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    margin-left: 0;
-    margin-top: 1.1em;
-    font-family:Arial;
-    font-size: 0.8em;
-    padding: 0.5em 1.1em;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #154682;
+.watchlist-button-desktop {
+    background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:    -moz-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:     -ms-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:      -o-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:         linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    padding: 6px;
+    display: inline-block;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+    box-sizing: padding-box;
+    font-size: 0.9em;
+    font-family: Arial;
+    color: rgba(255,255,255,1);
+}
+.watchlist-button-desktop:hover {
+    background-image: -webkit-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:    -moz-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:     -ms-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:      -o-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:         linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    color: rgba(230,230,230,1);
 }
 
-.myButton:hover {
-    background-color:#0061a7;
-}
-
-.myButton:active {
+.watchlist-button-desktop:active {
     position:relative;
     top:1px;
 }
@@ -38,7 +49,7 @@ html{
 
     max-height: 100px;
     overflow-y: scroll;
-    
+
     background-color: #0E0F11;
     border: 1px solid darkgray;
     border-radius: 2px;
@@ -252,8 +263,12 @@ html{
 
 @media screen and (min-width: 980px) {
 
-    .movie-bar-genre, .movie-bar-title, .movie-general-background, .movie-bar-title .movie-bar-genre,
-    .movie-info-box-desktop .icon, .movie-info-box, .myButton, .movie-preview, .movie-short-technical-info, .movie-summary {
+    .movie-thumbnail-image img {
+        margin-top: -100%;
+    }
+
+    .movie-bar-genre, .movie-bar-title, .movie-bar-title .movie-bar-genre,
+    .movie-info-box-desktop .icon, .movie-info-box, .mobile-watchlist, .movie-short-technical-info, .movie-summary {
         display: none;
     }
 
@@ -296,7 +311,7 @@ html{
     }
 
     .movie-thumbnail-image img{
-        width: 300px;
+        width: 60%;
     }
 
     .movie-info-box-desktop{
@@ -308,11 +323,6 @@ html{
         font-size: 13px;
     }
 
-    .movie-info-box-desktop{
-        display: block;
-        text-align: right;
-        width: 40%;
-    }
 
     .movie-info-box-desktop .movie-info-subject-content span{
         display: block;
@@ -333,7 +343,10 @@ html{
     }
 
     .movie-preview{
-        width:40%;
+        display: inline;
+        float: right;
+        width:50%;
+        margin-right: 10%;
     }
 
     .movie-bar-info{
@@ -360,7 +373,7 @@ html{
     }
 
     .desktop-preview video {
-        width: 400px;
+        width: 80%;
     }
 
     .desktop-summary{
@@ -374,24 +387,6 @@ html{
     .movie-short-general-info-desktop-group div{
         font-size: 0.7em;
         margin: 0 2.1em;
-    }
-
-    .watchlist-button-desktop {
-        background-color: #C17E00;
-        -moz-border-radius:28px;
-        -webkit-border-radius:28px;
-        border-radius:28px;
-        /* border:1px solid #124d77; */
-        display:block;
-        cursor:pointer;
-        color:#ffffff;
-        margin-left: 6em;
-        margin-top: 1.1em;
-        font-family:Arial;
-        font-size: 0.8em;
-        padding: 0.5em 1.1em;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #154682;
     }
 
     .movie-short-technical-info-desktop div{

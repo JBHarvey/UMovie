@@ -4,8 +4,12 @@
 
 <div class="movie-page">
     <div class="desktop-title">{{trackName}}</div>
-    <div class="movie-general-background">
-        <img src="url(../../img/movie-tvShow-content/background-movie.png">
+    <div class="movie-general-background desktop-preview">
+        <!--<img src="url(../../img/movie-tvShow-content/background-movie.png">-->
+        <div class="movie-preview">
+            <div class="movie-video-preview">
+            </div>
+        </div>
     </div>
 
     <div class="movie-bar">
@@ -38,12 +42,12 @@
             <div class="movie-bar-title">{{trackName}}</div>
             <div class="movie-bar-genre">{{primaryGenreName}}</div>
             <div class="watchlist-button movie-watchlist-view">
-                <button class="myButton">Add to watchlist</button>
-                <div class="watchlist-menu-group">
-                    <ul class="watchlist-menu">
-                        <li class="watchlist-select-group" data-id="create-watchlist"> New watchlist... </li>
+                <button class="watchlist-button-desktop mobile-watchlist">Add to watchlist</button>
+                <div class="watchlist-menu-group mobile-watchlist">
+                    <ul class="watchlist-menu mobile-watchlist">
+                        <li class="watchlist-select-group mobile-watchlist" data-id="create-watchlist"> New watchlist... </li>
                         {{#each watchlists}}
-                        <li class="watchlist-select-group" data-id="{{id}}">{{name}}</li>
+                        <li class="watchlist-select-group mobile-watchlist" data-id="{{id}}">{{name}}</li>
                         {{/each}}
                     </ul>
                     <div class="new-watchlist" style="display: none;">
@@ -89,11 +93,6 @@
                     <span class="movie-info-title-desktop">Summary:</span>
                     <span>{{longDescription}}</span>
                 </div>
-                <div class="movie-info-subject desktop-preview">
-                    <span class="movie-info-title-desktop">Trailer:</span>
-                    <span class="movie-video-preview movie-info-preview">
-                    </span>
-                </div>
 
             </div>
 
@@ -138,12 +137,6 @@
         <div class="movie-info-subject">
             <span class="movie-info-price-icon icon"></span>
             {{trackPrice}} {{currency}}
-        </div>
-    </div>
-
-    <div class="movie-preview">
-        <span>Trailer</span>
-        <div class="movie-video-preview">
         </div>
     </div>
 
