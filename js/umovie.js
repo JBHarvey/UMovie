@@ -8,7 +8,6 @@ define([
     'routeManager'
 ], function ($, _, Backbone, Router) {
     var initialize = function () {
-        Backbone.emulateJSON = true;
         Router.initialize();
     };
 
