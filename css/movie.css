@@ -279,11 +279,13 @@ html{
     }
 
     .desktop-title{
-        margin-top: 100px; /*To be changed */
+        margin-top: 100px;
+        padding-top: 4%;
+        margin-bottom: -9%;
         font-size: 1.5em;
-        width: 60%;
+        width: 80%;
         text-align: center;
-        margin-left:auto;
+        margin-left: auto;
         margin-right: auto;
         display: flex;
     }
