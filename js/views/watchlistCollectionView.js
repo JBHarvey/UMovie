@@ -60,7 +60,8 @@ define([
             'click #remove-watchlist-movie': 'removeWatchlistMovie',
             'dblclick .watchlist-title': 'editWatchlist',
             'click .watchlist-cancel': 'cancelEditing',
-            'keyup .watchlist-title-input': 'checkChangeTitleText'
+            'keyup .watchlist-title-input': 'checkChangeTitleText',
+            'click .watchlist-submit-button': 'submitChanges'
         },
 
         isTextValid: function (selectorName, inputText) {
@@ -150,9 +151,11 @@ define([
 
             var currentTargetParent = event.currentTarget.parentElement;
             var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
+
             currentTargetParent.innerHTML = '<input class="watchlist-title-input" value="'
                 + currentWatchlist.get('name') + '" type="text" placeholder="Enter watchlist name">';
-            currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button" type="button" disabled="disabled">Submit</button>');
+            currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button" ' +
+                'type="button" disabled="disabled">Submit</button>');
             currentTargetParent.insertAdjacentHTML('beforeend', '<button type="button" class="watchlist-cancel">' +
                 '<div class="cancel-button-box"><span></span><span></span>' +
                 '</div></button>');
@@ -170,6 +173,15 @@ define([
             "use strict";
             var currentInputValue = event.currentTarget.value;
             this.isTextValid('.watchlist-submit-button', currentInputValue);
+        },
+
+        submitChanges: function (event) {
+            "use strict";
+            var inputElement = event.currentTarget.previousSibling;
+            var parentElement = event.currentTarget.parentElement;
+            var currentWatchlist = this.collection.get(parentElement.dataset.id);
+            currentWatchlist.set('name', inputElement.value);
+            currentWatchlist.save();
         }
     });
 
