@@ -19,12 +19,12 @@ define([
 
         el: $('#content'),
 
-        initialize: function (movieId) {
+
+        initialize: function () {
 
             var that = this;
-            var id = parseInt(movieId);
-            this.model = new MovieModel({trackId: id});
             this.watchlists = new Watchlists();
+
             this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
