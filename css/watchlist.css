@@ -1,25 +1,49 @@
+.page-options {
+    display: flex;
+}
+
+.watchlist-page-option {
+    display: flex;
+}
+
+.add-watchlist-text {
+}
+
+.button-add-watchlist {
+}
+
 .watchlist-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
 .selection-box {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .delete-watchlist-checkbox {
 }
 
 .watchlist-aside {
+    width: 100%;
 }
 
 .watchlist-title {
 }
 
 .watchlist-movies {
+    width: 100%;
 }
 
 .watchlist-movie {
+    display: flex;
 }
 
 .watchlist-movie-select-box {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .delete-watchlist-movie-checkbox {
