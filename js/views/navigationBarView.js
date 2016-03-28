@@ -82,14 +82,12 @@ define([
         openMember: function () {
             if (!this.isMemberOpen()) {
                 this.setMemberMenuId("member-menu-open");
-                console.log("member", "open");
             }
         },
 
         closeMember: function () {
             if (this.isMemberOpen()) {
                 this.setMemberMenuId("member-menu-closed");
-                console.log("member", "close");
             }
         },
 
@@ -97,7 +95,6 @@ define([
             if (!this.isMenuOpen()) {
                 this.setMenuId("menu-open");
                 this.changeMenuIcon("cross");
-                console.log("menu", "open");
             }
         },
 
@@ -105,7 +102,6 @@ define([
             if (this.isMenuOpen()) {
                 this.setMenuId("menu-closed");
                 this.changeMenuIcon("hamburger");
-                console.log("menu", "close");
             }
         },
 

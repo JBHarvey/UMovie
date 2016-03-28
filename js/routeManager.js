@@ -93,8 +93,14 @@ define([
             var checkCredentials = function () {
                 if (Cookie.get('token') === undefined) {
                     lastAuthState = 'disconnected';
+                    if (lastAuthState === 'connected') {
+
+                    }
                     return false;
                 } else {
+                    if (lastAuthState === 'disconnected') {
+
+                    }
                     lastAuthState = 'connected';
                     return true;
                 }
