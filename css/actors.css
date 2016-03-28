@@ -1,4 +1,43 @@
 
-.actorThumbail {
+.actorThumbnail {
+    /*height: 200px;*/
+    /*margin: 2%  5% ;*/
+    display: flex;
+    border-bottom: solid;
+    border-bottom-color: darkgrey;
+    /*position: relative;*/
+}
+.actor-box {
+    text-decoration:  none;
+    color: inherit;
+}
+
+.thumbnailImg {
+
+    height:90%;
+    width: auto;
+    margin: 0 0 2% 0;
+
+}
+.descriptionThumbnail {
+    /*margin: 1% 0 0 5%;*/
+}
+
+.thumbnailNomArtist {
+
+}
+
+.shortBio {
+    height: 10%;
+    min-height: 10%;
+    max-height: 10%;
+    position: relative;
+
+    /*white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;*/
+
+
 
 }

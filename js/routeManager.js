@@ -82,7 +82,7 @@ define([
             };
 
             var updateNavigationBar = function () {
-                if ((Cookie.get('token') === undefined && lastAuthState == 'connected')||
+                if ((Cookie.get('token') === undefined && lastAuthState == 'connected') ||
                     (Cookie.get('token') !== undefined && lastAuthState == 'disconnected')) {
                     navigationBarView.render();
                 }
@@ -155,6 +155,7 @@ define([
 
             uMovieRouter.on('route:displayWatchlists', function () {
                 updateMainView(WatchlistCollectionView, undefined);
+
             });
 
             uMovieRouter.on('route:showUser', function () {
