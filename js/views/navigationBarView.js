@@ -29,9 +29,9 @@ define([
                 source.connect(Cookie.get('name'));
             }
             var resultNavigationBar = template(source.defaults);
-            console.log(resultNavigationBar);
-            //closeMenusIfNeeded();
+
             this.$el.html(resultNavigationBar);
+
         },
 
 
@@ -52,7 +52,6 @@ define([
         launchSearch: function (inputText) {
             console.log(inputText);
         },
-
 
 
         /*   Menus animations   */
