@@ -2,11 +2,11 @@
     .umovie-logo {
         z-index: 10000;
     }
-    
+
     .navigation-options {
         z-index: 100;
     }
-    
+
     .member-menu {
         z-index: 1000;
         height: 30%;
@@ -351,6 +351,14 @@ button {
     }
 }
 
+#menu-initial-closed {
+    left: -250px;
+    -webkit-animation: .00s slideOut ease-in;
+    -moz-animation: .00s slideOut ease-in;
+    -o-animation: .00s slideOut ease-in;
+    animation: .00s slideOut ease-in;
+}
+
 #menu-closed {
     left: -250px;
     -webkit-animation: .35s slideOut ease-in;
@@ -442,7 +450,7 @@ button {
 }
 
 .input-bar input.search-input::-webkit-input-placeholder {
-    
+
     color: #65737e;
 }
 
@@ -585,14 +593,14 @@ button {
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
     }
-    
+
     /* ------ NAV-BAR  ----- */
     #menu-content {
         height: 70px;
         position: relative;
         flex-direction: row;
     }
-    
+
     .navigation-bar {
         box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 1);
         box-sizing: border-box;
@@ -605,20 +613,20 @@ button {
         top: 0;
         margin: 0;
     }
-    
-    
+
+
     /* ------ Left side nav-bar ------ */
-    
+
     .umovie-logo {
         background: none;
         position: relative;
         width: 20%;
     }
-    
+
     #expend-menu-icon {
         display: none;
     }
-    
+
     #site-logo {
         width: 100%;
         height: auto;
@@ -627,9 +635,9 @@ button {
         left: 0;
         background: transparent;
     }
-    
+
     /* ------ Middle side nav-bar ------ */
-    
+
     .navigation-options {
         overflow: hidden;
         position: initial;
@@ -640,7 +648,7 @@ button {
         background: #33333;
         background-color: transparent;
     }
-    
+
     .navigation-options li {
         padding: 1em 1em 0.5em 1em;
         top: 1em;
@@ -656,7 +664,7 @@ button {
         transition: color .55s ease;
 
     }
-    
+
     .navigation-options li:hover {
         background-color: transparent;
         -webkit-transition: color .55s ease;
@@ -666,7 +674,7 @@ button {
         transition: color .55s ease;
 
     }
-    
+
     .navigation-options a {
         text-decoration: none;
         color: #96948B;
@@ -676,7 +684,7 @@ button {
         -o-transition: color .55s ease;
         transition: color .55s ease;
     }
-    
+
     .navigation-options li a:hover {
         background-color: transparent;
         border: none;
@@ -688,7 +696,7 @@ button {
         transition: color .55s ease;
 
     }
-    
+
     /* ------ Right side nav-bar ------ */
     .search-bar {
         display: inline-flex;
@@ -696,17 +704,17 @@ button {
         float: right;
         width: 26em;
     }
-    
+
     .search-bar li a:hover {
         background-color: transparent;
         border: none;
         color: white;
     }
-    
+
     .research-options {
         color: transparent;
     }
-    
+
     .search-input {
         margin-left: 0;
         color: black;
@@ -718,16 +726,16 @@ button {
         padding-top: 0.3em;
         padding-left: 1.4em;
     }
-    
+
     .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
         color: black;
         background: #FFCC00;
     }
-    
+
     .go-research {
         background: transparent;
     }
-    
+
     /* ------ PAGE CONTENT ------ */
     div #content {
         max-width: 100%;
@@ -735,22 +743,22 @@ button {
         background-color: black;
         color: white;
     }
-    
+
     #container {
         background: black;
         position: relative;
         margin-top: -70px;
     }
-    
+
     .text h1, h2 {
         color: #FFCC00;
     }
-    
+
     .text h1 {
         font-size: 4.1em;
         text-align: center;
     }
-    
+
     .text h2 {
         text-align: center;
         font-size: 1.6em;
@@ -761,31 +769,31 @@ button {
 /* ------  Pour desktop exclusivement ------  */
 
 @media (min-width: 960px) {
-    
+
     html {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
     }
-    
-    
+
+
     .text h1 {
         font-size: 4.1em;
         text-align: center;
-        
+
         margin-top: -4.7em;
     }
-    
+
     .text h2 {
         text-align: center;
         font-size: 1.6em;
     }
-    
+
     .member-menu {
         z-index: 1000;
         height: 900px;
     }
-    
+
     .authentification {
         background-color: black;
         opacity: 0.6;
@@ -794,27 +802,27 @@ button {
         width: 20em;
         height: 12em;
         position: absolute;
-        
+
         top: 35%;
         left: 63%;
-        
+
         border-top-left-radius: 1.2em;
         border-bottom-left-radius: 1.2em;
         border-top-right-radius: 1.2em;
         border-bottom-right-radius: 1.2em;
         border: solid 1px black;
-    
+
     }
-    
+
     .connect p {
         position: absolute;
         margin-top: -50px;
         margin-left: -10px;
         top: 35%;
         left: 25%;
-    
+
     }
-    
+
     .authentification input {
         background-color: white;
         margin: 0.7em;
@@ -823,11 +831,11 @@ button {
         width: 100%;
         height: 3em;
     }
-    
+
     .search-container {
         width: 100%;
     }
-    
+
     .navigation-bar {
         opacity: 0.7;
     }

@@ -19,9 +19,12 @@ define([
 
         el: $('#content'),
 
+
         initialize: function () {
+
             var that = this;
             this.watchlists = new Watchlists();
+
             this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {

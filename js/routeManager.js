@@ -61,6 +61,7 @@ define([
         });
 
 
+
         var initialize = function () {
 
             var authenticationView;
@@ -86,6 +87,7 @@ define([
                     (Cookie.get('token') !== undefined && lastAuthState == 'disconnected')) {
                     navigationBarView.render();
                 }
+                navigationBarView.closeMenusIfNeeded();
             };
 
             var checkCredentials = function () {
@@ -106,7 +108,7 @@ define([
              */
             var updateMainView = function (ViewClass, newModel) {
                 if (checkCredentials()) {
-                    currentView = newModel ? new ViewClass(newModel) : new ViewClass();
+                    currentView = newModel ? new ViewClass({model:newModel}) : new ViewClass();
                 } else {
                     noAuthPage(false);
                 }
@@ -128,7 +130,8 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
-                var newMovie = new MovieModel({id: movieId});
+                var id = parseInt(movieId);
+                var newMovie = new MovieModel({trackId: id});
                 updateMainView(MovieView, newMovie);
             });
 
@@ -155,7 +158,6 @@ define([
 
             uMovieRouter.on('route:displayWatchlists', function () {
                 updateMainView(WatchlistCollectionView, undefined);
-
             });
 
             uMovieRouter.on('route:showUser', function () {
