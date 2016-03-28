@@ -26,7 +26,7 @@ define([
             this.model.attributes.firstAPIDone = false;
             that = this;
 
-            this.listenTo(this.model.attributes.firstAPIDone, "change", that.render);
+            this.listenTo(this.model, "change", that.render);
             this.model.fetch({success: that.waitForRender});
             this.model.updateInformationsFromTMDB(that.waitForRender);
             that.render();

@@ -6,22 +6,27 @@
 define([
     'underscore',
     'backbone'
-],function(_, Backbone) {
+], function (_, Backbone) {
 
     var ActorModel = Backbone.Model.extend({
         urlRoot: "https://umovie.herokuapp.com/actors",
 
         parse(data) {
-          if (data.results) {
-              return data.results[0];
-          }else {
-              return data;
-          }
+            if (data.results) {
+                return data.results[0];
+            } else {
+                return data;
+            }
         },
 
+        shortenText: function (textToShortent, length) {
+            var newLenght = length || 200;
+            return `${textToShortent.slice(0, newLenght)} ... `;
 
-        defaults:{
-            "urlRoot" : 'https://umovie.herokuapp.com/actors/253584821',
+        },
+
+        defaults: {
+            "urlRoot": 'https://umovie.herokuapp.com/actors/253584821',
             "wrapperTyper": "artist",
             "artistType": "Artist",
             "artistName": "John Sawyer",
@@ -38,7 +43,7 @@ define([
 
 
             //Appel d'api externe
-            var dataBaseUrl =  "https://api.themoviedb.org/3";
+            var dataBaseUrl = "https://api.themoviedb.org/3";
             var dataBaseApiKey = "?api_key=8e2fb63d78986604185e4448ce8fbaad";
             var dataBaseImg = "https://image.tmdb.org/t/p/original";
             var actorName = "&query=" + that.attributes.artistName.split(' ').join('+');
@@ -46,49 +51,55 @@ define([
             $.ajax({
                 type: "GET",
                 url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
-                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Hall".split(' ').join('+'),
+                //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
                 dataType: 'jsonp',
                 jsonCallback: 'test',
                 contentType: 'application/json',
-                success: function(data) {
-
-
-                    var actorInfo = data.results[0];
-                    if(actorInfo) {
-
-                        var newImage;
-                        if(actorInfo.profile_path) {
-                            newImage = dataBaseImg + actorInfo.profile_path;
-                        }
-                        else {
-                            newImage = "url(../../img/actor/noProfile.png";
-                        }
-                        that.attributes.imgActor = newImage;
-
-
-                        if (actorInfo.id) {
-                            $.ajax({
-                                type: "GET",
-                                url: dataBaseUrl + "/person/" + actorInfo.id + dataBaseApiKey,
-                                dataType: "jsonp",
-                                jsonpCallback: 'test',
-                                contentType: 'application/json',
-                                success: function (Data) {
-                                    var newBiography = Data.biography;
-                                    that.attributes.biography = newBiography;
-
-                                }
-
-                            });
-                        }
-                    }
-                    that.attributes.firstAPIDone = true;
-                },
-                error: function() {
+                success: fetchInformationsFromPerson(data),
+                error: function () {
                     that.firstAPIDone = false;
 
                 }
             });
+
+
+        },
+
+        fetchInformationsFromPerson: function (data) {
+
+
+            var actorInfo = data.results[0];
+            if (actorInfo) {
+
+                var newImage;
+                if (actorInfo.profile_path) {
+                    newImage = dataBaseImg + actorInfo.profile_path;
+                }
+                else {
+                    newImage = "url(../../img/actor/noProfile.png";
+                }
+                that.attributes.imgActor = newImage;
+
+
+                if (actorInfo.id) {
+                    $.ajax({
+                        type: "GET",
+                        url: dataBaseUrl + "/person/" + actorInfo.id + dataBaseApiKey,
+                        dataType: "jsonp",
+                        jsonpCallback: 'test',
+                        contentType: 'application/json',
+                        success: function (data) {
+                            console.log(data);
+                            var newBiography = data.biography;
+                            that.attributes.biography = newBiography;
+                            that.set({shortenBio : that.shortenText(newBiography)});
+
+                        }
+
+                    });
+                }
+            }
+            that.attributes.firstAPIDone = true;
         }
 
     });

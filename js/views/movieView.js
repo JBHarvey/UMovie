@@ -42,9 +42,9 @@ define([
 
         generateSearchRequest: function () {
             return encodeURI(this.model.get('trackName') + ' trailer').replace(/%20/g, '+');
-        }
+        },
 
-        , render: function () {
+        render: function () {
             "use strict";
             // Encode the URI and replace the space by '+'
             var searchRequest = this.generateSearchRequest();
