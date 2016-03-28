@@ -9,6 +9,9 @@ define([
 ], function ($, _, Backbone, Router) {
     var initialize = function () {
         Backbone.emulateJSON = true;
+        Backbone.shortenText = function (textToShorten) {
+            return textToShorten;
+        };
         Router.initialize();
     };
 
