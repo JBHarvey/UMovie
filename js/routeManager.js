@@ -147,7 +147,8 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
-                var newTvShowSeason = new TvShowSeasonModel({id: tvShowId});
+                var newId = parseInt(tvShowId);
+                var newTvShowSeason = new TvShowSeasonModel({id: newId});
                 updateMainView(TvShowSeasonView, newTvShowSeason);
             });
 

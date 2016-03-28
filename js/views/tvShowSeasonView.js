@@ -16,8 +16,7 @@ define([
 
         el: $('#content'),
 
-        initialize: function (tvShowId) {
-            this.model = new TvShowSeasonModel({id: tvShowId});
+        initialize: function () {
             this.listenTo(this.model, "change", this.render);
             this.model.fetch();
         },
