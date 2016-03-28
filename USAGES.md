@@ -13,19 +13,19 @@ To access the different pages of the site, please refer to the navigation bar on
 
 It is possible to create an account using a valid email address with a new password and your name. It is also possible to find and follow different users to access their actual watch lists.
 
-## Helpful links:
+## Helpful links
 
 Here are the different links that you can reach within our website:
 
-- UMovie/index.html#movies Links to the page of the movies collection. 
-- UMovie/index.html#tvShows Link to the page of the TV shows collection.
-- UMovie/index.html#actors Links to the page of the actors collection.
-- UMovie/index.html#watchlists While in connected mode, links to the user watchlist page.
-- UMovie/index.html#user While in connected mode, links to the user account page.
-- UMovie/index.html#settings While in connected mode, links to the user preferences.
+- `UMovie/index.html#movies`: Links to the page of the movies collection. 
+- `UMovie/index.html#tvShows`: Link to the page of the TV shows collection.
+- `UMovie/index.html#actors`: Links to the page of the actors collection.
+- `UMovie/index.html#watchlists`: While in connected mode, links to the user watchlist page.
+- `UMovie/index.html#user`: While in connected mode, links to the user account page.
+- `UMovie/index.html#settings`: While in connected mode, links to the user preferences.
 
 You must be logged in to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html), which is also the home page of the application.
 
-## Search bar:
+## Search bar
 
 The search bar allows a search in the page where the user is. For instance, it is possible to make a search for different actors while the user is in the actor page. 
