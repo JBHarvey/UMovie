@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/tvShows',
+    '../collections/tvShowCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel'
