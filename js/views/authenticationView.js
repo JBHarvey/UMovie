@@ -47,10 +47,11 @@ define([
         sendAuthentication: function () {
             user.validateEmail($('#email').val());
             if (this.signup) {
-                user.attemptSignUp($('#name').val(), $('#password').val());
+                user.prepareForSignUp($('#name').val(), $('#password').val());
             } else {
-                user.attemptLogIn($('#password').val());
+                user.prepareForLogIn($('#password').val());
             }
+            user.save();
         }
     });
     return AuthenticationView;
