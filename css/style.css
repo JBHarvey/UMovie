@@ -13,6 +13,17 @@
     }
 }
 
+.member-hamburger {
+    display: block;
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    top: 0.8em;
+    right: 0.5em;
+    z-index: 10000;
+}
+
+
 .text h1, h2 {
     color: #FFCC00;
 }
@@ -107,18 +118,12 @@ button {
     font-size: 13px;
 
 }
-.member-hamburger {
-    border: none;
-    background-color: transparent;
-    position: fixed;
-    top: 0.8em;
-    right: 0.5em;
-}
-
 .member-hamburger img {
     background-color: transparent;
     width: 30px;
     height: 30px;
+    float: right;
+    margin-right: 1.5em;
 }
 
 #member-menu-open {
@@ -700,7 +705,7 @@ button {
     /* ------ Right side nav-bar ------ */
     .search-bar {
         display: inline-flex;
-        padding: 1em 1em 0.5em;
+        padding: 2em 1em 0.5em;
         float: right;
         width: 26em;
     }
@@ -774,6 +779,10 @@ button {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    .search-bar {
+        padding: 1em 1em 0.5em;
     }
 
 

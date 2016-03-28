@@ -5,7 +5,6 @@
         </span>
 
         <span id="expend-member-menu-icon">
-            <button class="member-hamburger"><div class="username">user</div><img src="img/member_icon.png"/></button>
         </span>
         <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
     </div>
@@ -22,25 +21,30 @@
 
         <div class="search-container" id="member-menu-closed">
             <div class="input-bar">
+
                 <input placeholder="Search..." class="search-input">
                 <span class="go-research">
-                    <img id="search-icon" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png">
+                    <img id="search-icon"
+                         src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png">
                 </span>
+                <button class="member-hamburger">
+                    <div class="username">{{user}}</div>
+                    <img src="img/member_icon.png"/>
+                </button>
             </div>
-            <div class="user-name"> {{idName}} </div>
             <div class="research-options collapsed">advanced research</div>
         </div>
 
         <div class="member-menu">
-        {{#if connected}}
-        {{#each menuOptionConnected}}
-        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-        {{/each}}
-        {{else}}
-        {{#each menuOptionDisconnected}}
-        <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
-        {{/each}}
-        {{/if}}
+            {{#if connected}}
+            {{#each menuOptionConnected}}
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+            {{/each}}
+            {{else}}
+            {{#each menuOptionDisconnected}}
+            <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
+            {{/each}}
+            {{/if}}
         </div>
 
     </div>
