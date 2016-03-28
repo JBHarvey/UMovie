@@ -34,8 +34,6 @@ define([
             this.collection.fetch({
                 success: sync
             });
-
-
         },
 
         render: function () {
