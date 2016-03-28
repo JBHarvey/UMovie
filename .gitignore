@@ -3,11 +3,8 @@
 *.iml
 
 ## Directory-based project format:
-.idea/*
-<<<<<<< .merge_file_a03560
-=======
-./.idea/*
->>>>>>> .merge_file_a06436
+**/.idea
+**/*.log
 
 # Vim related
 *.swap
