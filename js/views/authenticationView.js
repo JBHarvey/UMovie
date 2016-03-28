@@ -51,7 +51,9 @@ define([
             } else {
                 user.prepareForLogIn($('#password').val());
             }
+            Backbone.emulateJSON = true;
             user.save();
+            Backbone.emulateJSON = false;
         }
     });
     return AuthenticationView;
