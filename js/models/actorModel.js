@@ -61,7 +61,7 @@ define([
                             newImage = dataBaseImg + actorInfo.profile_path;
                         }
                         else {
-                            newImage = "url(../../img/actor/defaultProfile.png";
+                            newImage = "url(../../img/actor/noProfile.png";
                         }
                         that.attributes.imgActor = newImage;
 
