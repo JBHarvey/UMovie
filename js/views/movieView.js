@@ -8,7 +8,7 @@ define([
     'backbone',
     'text!templates/movie.html',
     'models/movieModel',
-    'collections/watchlists',
+    '../collections/watchlistCollection',
     'models/watchlistModel',
     'views/youtubeVideos',
     'handlebars'

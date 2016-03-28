@@ -8,13 +8,13 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'collections/watchlists',
+    '../collections/watchlistCollection',
     'text!templates/watchlist.html',
     'text!templates/pageHeader.html',
     'views/watchlistView',
     'models/watchlistModel',
     'models/movieModel',
-    'collections/movies'
+    '../collections/movieCollection'
 ], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, WatchListModel, MovieModel, MovieCollection) {
     "use strict";
 
