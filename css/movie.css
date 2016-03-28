@@ -317,11 +317,10 @@ html{
     }
 
     .movie-info-box-desktop{
-        margin-top: 10%;
+        margin-top: 2%;
         margin-bottom: 10%;
         display: block;
         width: 100%;
-        margin-left: 10%;
         font-size: 13px;
     }
 
