@@ -2,8 +2,8 @@
 
 To launch the program, go to `UMovie/index.html` under WebStorm.
 
-*Make sure that the downloaded file contains the folder UMovie as the root as the projet.*
-If UMovie is not the root written exactly in this way, it is possible that the front end will not work correctly.
+*Make sure that the downloaded file contains the folder UMovie as the root as the projet.
+If UMovie is not the root written exactly in this way, it is possible that the front end will not work correctly.*
 
 ## Buttons
 
