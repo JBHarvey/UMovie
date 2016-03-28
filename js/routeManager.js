@@ -61,6 +61,7 @@ define([
     });
 
 
+
         var initialize = function () {
 
             var authenticationView;
@@ -70,6 +71,33 @@ define([
             var user = new UserModel();
             var navigationBarView = new NavigationBarView();
 
+            /*
+            ------------------------------------------------
+             navigationBarView.closeMenusIfNeeded();
+             ------------------------------------------------
+
+             ------------------------------------------------
+
+             ------------------------------------------------
+
+             ------------------------------------------------
+               CETTE LIGNE DEVRA ÊTRE AJOUTÉ DANS LA FONCTION
+             ------------------------------------------------
+               QUI MET L'A MAIN VIEW À JOUR DÈS QUE LE MERGE
+             ------------------------------------------------
+               SERA FAIT. ELLE DEVRAIT PERMETTRE DE FERMER LES
+             ------------------------------------------------
+                MENUS INSTANTANÉMEMENT DÈS QU'UNE ROUTE EST
+             ------------------------------------------------
+                CHARGÉE.
+             ------------------------------------------------
+
+             ------------------------------------------------
+
+             ------------------------------------------------
+
+             ------------------------------------------------
+            */
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
 
