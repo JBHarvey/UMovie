@@ -74,18 +74,23 @@ define([
 
             var lastAuthState = 'disconnected';
 
-            updateNavigationBar = function () {
-                if (Cookie.get('token') === undefined && lastAuthState == 'connected') {
-                    navigationBarView.render();
-                } else if (Cookie.get('token') !== undefined && lastAuthState == 'disconnected') {
+
+            var noAuthPage = function (signUp) {
+                session.disconnect();
+                navigationBarView.render();
+                authenticationView.render(signUp);
+            };
+
+            var updateNavigationBar = function () {
+                if ((Cookie.get('token') === undefined && lastAuthState == 'connected')||
+                    (Cookie.get('token') !== undefined && lastAuthState == 'disconnected')) {
                     navigationBarView.render();
                 }
             };
 
-            checkCredentials = function () {
+            var checkCredentials = function () {
                 if (Cookie.get('token') === undefined) {
                     lastAuthState = 'disconnected';
-                    Backbone.trigger('route:disconnect');
                     return false;
                 } else {
                     lastAuthState = 'connected';
@@ -95,13 +100,15 @@ define([
 
             /**
              * Sets the main view information to the ones of the passed class,
-             * with the correspondant model, if any is given
+             * with the correspondent model, if any is given
              * @param ViewClass The class to be set as principalView
              * @param newModel the model to give to the class so it can render it
              */
-            updateMainView = function (ViewClass, newModel) {
+            var updateMainView = function (ViewClass, newModel) {
                 if (checkCredentials()) {
                     currentView = newModel ? new ViewClass(newModel) : new ViewClass();
+                } else {
+                    noAuthPage(false);
                 }
                 updateNavigationBar();
             };
@@ -112,10 +119,7 @@ define([
 
 
             uMovieRouter.on('route:goHome', function () {
-                if (checkCredentials()) {
-                    navigationBarView.render();
-                    homeView.render();
-                }
+                updateMainView(HomeView, undefined);
             });
 
             // Movies
@@ -166,24 +170,22 @@ define([
             });
 
             uMovieRouter.on('route:signup', function () {
-                authenticationView.render(true);
+                noAuthPage(true);
             });
 
             uMovieRouter.on('route:login', function () {
-                authenticationView.render(false);
+                noAuthPage(false);
             });
 
             uMovieRouter.on('route:disconnect', function () {
-                session.disconnect();
-                navigationBarView.render();
-                authenticationView.render(false);
+                noAuthPage(false);
             });
 
             uMovieRouter.on('route:defaultAction', function (actions) {
                 console.log('Error : no route to', actions);
             });
 
-            setHeaderAuthorization = function () {
+            var setHeaderAuthorization = function () {
                 $(document).ajaxSend(function (e, xhr, options) {
                     xhr.setRequestHeader("Authorization", Cookie.get('token'));
                 });
