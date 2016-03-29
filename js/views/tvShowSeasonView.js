@@ -54,7 +54,7 @@ define([
             this.$el.html(resultTvShowSeason);
             this.collection.each(function(tvShowEpisode) {
                 var thumbnail = new ThumbnailView({model: tvShowEpisode});
-                that.$el.append(thumbnail.renderEpisode());
+                $(".tvShow-episodes-box").append(thumbnail.renderEpisode());
             });
         },
 
@@ -63,7 +63,6 @@ define([
             this.searchManager.setSearchName('Rome');
             this.searchManager.setSearchLimit(10);
             this.searchManager.setSearchGenre('');
-            console.log(this.searchManager.url());
             return this.searchManager.url();
         }
     });
