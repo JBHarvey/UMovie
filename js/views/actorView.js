@@ -41,7 +41,7 @@ define([
         },
 
         generateSearchName: function () {
-           return this.model.get('artistName').split(' ').join('+');
+           return encodeURI(this.model.get('artistName'));
         },
 
 
