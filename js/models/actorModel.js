@@ -10,6 +10,7 @@ define([
 
     var ActorModel = Backbone.Model.extend({
         urlRoot: "https://umovie.herokuapp.com/actors",
+        artist: '',
 
         parse(data) {
             if (data.results) {
@@ -20,8 +21,8 @@ define([
         },
 
         shortenText: function (textToShortent, length) {
-            var newLenght = length || 200;
-            return `${textToShortent.slice(0, newLenght)} ... `;
+            var newLength = length || 200;
+            return `${textToShortent.slice(0, newLength)} ... `;
 
         },
 
@@ -36,34 +37,66 @@ define([
             "primaryGenreName": "Tribute",
             "primaryGenreId": 100022,
             "radioStationUrl": "https://itunes.apple.com/station/idra.253584821"
-        },
+        }/*,*/
 
-        updateInformationsFromTMDB: function () {
+
+
+
+/*
+
+        findArtistInfo: function (artistName) {
             var that = this;
+            that.changeUrlDestination(that.actorUrl(artistName));
+            success = function(data) {
+                that.artist =  data.result[0];
+                that.attributes.artistTmdbId = artist.id;
 
+            };
 
-            //Appel d'api externe
-            var dataBaseUrl = "https://api.themoviedb.org/3";
-            var dataBaseApiKey = "?api_key=8e2fb63d78986604185e4448ce8fbaad";
-            var dataBaseImg = "https://image.tmdb.org/t/p/original";
-            var actorName = "&query=" + that.attributes.artistName.split(' ').join('+');
-
-            $.ajax({
+           $.ajax({
                 type: "GET",
                 url: dataBaseUrl + "/search/person" + dataBaseApiKey + actorName,
                 //url: dataBaseUrl + "/search/person" + dataBaseApiKey + "&query=" + "Brad Pitt".split(' ').join('+'),
                 dataType: 'jsonp',
                 jsonCallback: 'test',
                 contentType: 'application/json',
-                success: fetchInformationsFromPerson(data),
+                success: that.fetchInformationsFromPerson(data),
                 error: function () {
                     that.firstAPIDone = false;
 
                 }
             });
 
-
         },
+
+        findArtistImage: function (){
+
+            var that = this;
+            if (that.artist) {
+                var newImage;
+                if (artist.profile_path) {
+                    newImage = that.dataBaseImg + that.artist.profile_path;
+                }
+                else {
+                    newImage = "url(../../img/actor/noProfile.png";
+                }
+                that.attributes.imgActor = newImage;
+            }
+        },
+
+        findArtistBio: function (){
+            var that = this;
+            that.changeUrlDestination(that.actorDataUrl(that.artist.id));
+            that.success = function(data) {
+                var newBio = data.biography;
+                that.attributes.biography = newBio;
+                that.set({shortenBio : that.shortenText(newBio)});
+            };
+            that.error = function (jqXHR, textStatus){
+
+            }
+        },
+
 
         fetchInformationsFromPerson: function (data) {
 
@@ -99,8 +132,7 @@ define([
                     });
                 }
             }
-            that.attributes.firstAPIDone = true;
-        }
+        }*/
 
     });
 
