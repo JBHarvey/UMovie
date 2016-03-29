@@ -10,6 +10,11 @@ define([
 
 
         initialize: function (searchRequest, imgClassName, bioClassName) {
+<<<<<<< HEAD
+=======
+            console.log(theMovieDb);
+            theMovieDb.common.api_key = '8e2fb63d78986604185e4448ce8fbaad';
+>>>>>>> origin/ActorCollection
             this.searchRequest = searchRequest;
             this.imgClassName = imgClassName;
             this.bioClassName = bioClassName;
@@ -30,7 +35,22 @@ define([
 
            // var query = theMovieDb.common.generateQuery(searchOptions);
 
+            var errorCB = function (data) {
+                console.log(data);
+            };
 
+            var searchSuccessCallback = function (data) {
+                var artistSearch = JSON.parse(data);
+                var artistSearchInfo = artistSearch.results[0]
+
+                theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
+                    var artistInfo = JSON.parse(data);
+                    that.modifyBiography(artistInfo.biography)
+                        .modifyImage(artistSearchInfo.profile_path);
+                }, errorCB);
+            };
+
+<<<<<<< HEAD
             var searchArtist = theMovieDb.search
                 .getPerson(searchOptions, that.successCB, that.errorCB); //plante ici
             console.log("ici");
@@ -42,9 +62,10 @@ define([
 
             var artistInfo = theMovieDb.people
                 .getById({'id': artistSearchInfo.id}, successCD, errorCD);
+=======
+            theMovieDb.search.getPerson({query: query}, searchSuccessCallback, errorCB);
+>>>>>>> origin/ActorCollection
 
-            that.modifyBiography(artistInfo.biography)
-                .modifyImage(artistSearchInfo.profile_path);
 
         },
 
@@ -60,7 +81,7 @@ define([
         modifyImage: function (image) {
             var that = this;
             if (image) {
-                var path = theMovieDb.images_uri + image;
+                var path = theMovieDb.common.images_uri + 'original' + image;
                 $(that.imgClassName).attr("src", path);
             }
 
