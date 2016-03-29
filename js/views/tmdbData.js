@@ -4,12 +4,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    //'tmdb'
-], function($, _, Backbone/*, theMovieDb*/) {
+    'theMovieDb'
+], function($, _, Backbone, theMovieDb) {
     var TmdbModel = Backbone.View.extend({
 
 
         initialize: function (searchRequest, imgClassName, bioClassName) {
+            console.log(theMovieDb);
+            theMovieDb.common.api_key = '8e2fb63d78986604185e4448ce8fbaa';
             this.searchRequest = searchRequest;
             this.imgClassName = imgClassName;
             this.bioClassName = bioClassName;

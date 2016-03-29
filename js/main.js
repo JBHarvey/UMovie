@@ -14,7 +14,7 @@ require.config({
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
         jscookie: 'lib/js.cookie',
-        tmdb: 'lib/themoviedb'
+        theMovieDb: 'lib/themoviedb'
     }
 });
 
