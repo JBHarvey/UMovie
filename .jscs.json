@@ -4,5 +4,6 @@
     "requireCamelCaseOrUpperCaseIdentifiers": null,
     "maximumLineLength": null,
     "validateLineBreaks": null,
+    "validateQuoteMarks": "'",
     "excludeFiles": [ "js/lib/**", "js/plugins/**" ]
 }

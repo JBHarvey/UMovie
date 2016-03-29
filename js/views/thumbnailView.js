@@ -3,14 +3,14 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!templates/movieThumbnail.html",
-    "text!templates/tvShowSeasonThumbnail.html",
-    "text!templates/tvShowEpisodeThumbnail.html",
-    "text!templates/actorThumbnail.html",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/movieThumbnail.html',
+    'text!templates/tvShowSeasonThumbnail.html',
+    'text!templates/tvShowEpisodeThumbnail.html',
+    'text!templates/actorThumbnail.html',
+    'handlebars'
 ], function( $, _, Backbone,
              movieThumbnailTemplate,
              seasonThumbnailTemplate,
@@ -20,7 +20,7 @@ define( [
 
     var ThumbnailView = Backbone.View.extend( {
 
-        comparator: "trackName",
+        comparator: 'trackName',
 
         initialize: function() {
         },

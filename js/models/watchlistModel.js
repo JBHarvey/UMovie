@@ -5,11 +5,11 @@
  */
 
 define( [
-    "underscore",
-    "backbone"
+    'underscore',
+    'backbone'
 ], function( _, Backbone ) {
     var WatchlistModel = Backbone.Model.extend( {
-        urlRoot: "https://umovie.herokuapp.com/watchlists",
+        urlRoot: 'https://umovie.herokuapp.com/watchlists',
         parse: function( response ) {
             if ( _.isObject( response.results ) ) {
                 return response.results[ 0 ];
@@ -19,9 +19,9 @@ define( [
         },
 
         removeMovie: function( movieModel ) {
-            "use strict";
-            this.set( "movies", _.reject( this.get( "movies" ), function( movie ) {
-                return movie.trackID === movieModel.get( "trackID" );
+            'use strict';
+            this.set( 'movies', _.reject( this.get( 'movies' ), function( movie ) {
+                return movie.trackID === movieModel.get( 'trackID' );
             } ) );
         }
     } );

@@ -1,19 +1,19 @@
 define( [
-    "jquery",
-    "underscore",
-    "backbone"
+    'jquery',
+    'underscore',
+    'backbone'
 ], function( $, _, Backbone ) {
-    "use strict";
+    'use strict';
 
     var YoutubeVideo = Backbone.View.extend( {
 
         initialize: function( searchRequest, className ) {
             this.searchRequest = searchRequest;
             this.className = className;
-            gapi.client.setApiKey( "AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k" );
+            gapi.client.setApiKey( 'AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k' );
 
             var that = this;
-            gapi.client.load( "youtube", "v3", function() {
+            gapi.client.load( 'youtube', 'v3', function() {
                 that.getYoutubeVideo();
             } );
         },
@@ -29,13 +29,13 @@ define( [
             // part: The specific part
             // type: the type of the results
             var query = gapi.client.youtube.search.list( {
-                fields: "items(id)",
+                fields: 'items(id)',
                 q: this.searchRequest,
-                order: "relevance",
+                order: 'relevance',
                 maxResults: 1,
                 videoEmbeddable: true,
-                part: "snippet",
-                type: "video"
+                part: 'snippet',
+                type: 'video'
             } );
 
             var that = this;
@@ -46,7 +46,7 @@ define( [
                         'src="//www.youtube.com/embed/' +
                         answer.items[ 0 ].id.videoId +
                         '" frameborder="0" allowfullscreen>' +
-                        "</iframe>"
+                        '</iframe>'
                     );
                 } );
                 return this;

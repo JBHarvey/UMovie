@@ -3,16 +3,16 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!templates/actor.html",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/actor.html',
+    'handlebars'
     ], function( $, _, Backbone, actorTemplate, Handlebars ) {
 
     var ActorView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         waitForRender: _.after( 2, function() {
             that.render();
@@ -23,7 +23,7 @@ define( [
             this.model.attributes.firstAPIDone = false;
             that = this;
 
-            this.listenTo( this.model.attributes.firstAPIDone, "change", that.render );
+            this.listenTo( this.model.attributes.firstAPIDone, 'change', that.render );
             this.model.fetch( { success: that.waitForRender } );
             this.model.updateInformationsFromTMDB( that.waitForRender );
             that.render();
@@ -33,7 +33,7 @@ define( [
         render: function() {
 
             var source = this.model.attributes;
-            console.log( "ICI" );
+            console.log( 'ICI' );
             console.log( source );
             var template = Handlebars.compile( actorTemplate );
 

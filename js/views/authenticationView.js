@@ -2,18 +2,18 @@
  * Created by Jean-Benoît on 2016-01-27.
  */
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "jscookie",
-    "text!templates/authentication.html",
-    "models/authenticationModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'jscookie',
+    'text!templates/authentication.html',
+    'models/authenticationModel',
+    'handlebars'
 ], function( $, _, Backbone, Cookie, authenticationTemplate, AuthenticationModel, Handlebars ) {
 
     var AuthenticationView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function( globalUser ) {
 
@@ -39,15 +39,15 @@ define( [
         },
 
         events: {
-            "click .submitAuthentication": "sendAuthentication"
+            'click .submitAuthentication': 'sendAuthentication'
         },
 
         sendAuthentication: function() {
-            user.validateEmail( $( "#email" ).val() );
+            user.validateEmail( $( '#email' ).val() );
             if ( this.signup ) {
-                user.prepareForSignUp( $( "#name" ).val(), $( "#password" ).val() );
+                user.prepareForSignUp( $( '#name' ).val(), $( '#password' ).val() );
             } else {
-                user.prepareForLogIn( $( "#password" ).val() );
+                user.prepareForLogIn( $( '#password' ).val() );
             }
             Backbone.emulateJSON = true;
             user.save();

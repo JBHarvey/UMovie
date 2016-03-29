@@ -2,18 +2,18 @@
  * Created by Jean-Benoît on 2016-01-26.
  */
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "jscookie",
-    "text!../templates/navigationBar.html",
-    "models/navigationBarModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'jscookie',
+    'text!../templates/navigationBar.html',
+    'models/navigationBarModel',
+    'handlebars'
 ], function( $, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars ) {
 
     return Backbone.View.extend( {
 
-        el: $( "#menu-content" ),
+        el: $( '#menu-content' ),
 
         initialize: function() {
             this.model = new NavigationBarModel();
@@ -23,10 +23,10 @@ define( [
         render: function() {
             var template = Handlebars.compile( navigationBarTemplate );
             var source = this.model;
-            if ( Cookie.get( "token" ) === undefined ) {
+            if ( Cookie.get( 'token' ) === undefined ) {
                 source.disconnect();
             } else {
-                source.connect( Cookie.get( "name" ) );
+                source.connect( Cookie.get( 'name' ) );
             }
             var resultNavigationBar = template( source.defaults );
 
@@ -35,10 +35,10 @@ define( [
         },
 
         events: {
-            "click .hamburger": "toggleMenu",
-            "click .member-hamburger": "toggleMember",
-            "click .go-research": "launchSearchFromButton",
-            "press .search-input": "launchSearchFromInput"
+            'click .hamburger': 'toggleMenu',
+            'click .member-hamburger': 'toggleMember',
+            'click .go-research': 'launchSearchFromButton',
+            'press .search-input': 'launchSearchFromInput'
         },
 
         launchSearchFromButton: function( searchGoButton ) {
@@ -72,58 +72,58 @@ define( [
         },
 
         isMemberOpen() {
-            return this.getMemberMenuId() === "member-menu-open";
+            return this.getMemberMenuId() === 'member-menu-open';
         },
 
         isMenuOpen() {
-            return this.getMenuId() === "menu-open";
+            return this.getMenuId() === 'menu-open';
         },
 
         openMember: function() {
             if ( !this.isMemberOpen() ) {
-                this.setMemberMenuId( "member-menu-open" );
+                this.setMemberMenuId( 'member-menu-open' );
             }
         },
 
         closeMember: function() {
             if ( this.isMemberOpen() ) {
-                this.setMemberMenuId( "member-menu-closed" );
+                this.setMemberMenuId( 'member-menu-closed' );
             }
         },
 
         openMenu: function() {
             if ( !this.isMenuOpen() ) {
-                this.setMenuId( "menu-open" );
-                this.changeMenuIcon( "cross" );
+                this.setMenuId( 'menu-open' );
+                this.changeMenuIcon( 'cross' );
             }
         },
 
         closeMenu: function() {
             if ( this.isMenuOpen() ) {
-                this.setMenuId( "menu-closed" );
-                this.changeMenuIcon( "hamburger" );
+                this.setMenuId( 'menu-closed' );
+                this.changeMenuIcon( 'hamburger' );
             }
         },
 
         getMemberMenuId: function() {
-            return document.getElementsByClassName( "member-menu" )[ 0 ].id;
+            return document.getElementsByClassName( 'member-menu' )[ 0 ].id;
         },
 
         setMemberMenuId: function( newId ) {
-            document.getElementsByClassName( "member-menu" )[ 0 ].id = newId;
+            document.getElementsByClassName( 'member-menu' )[ 0 ].id = newId;
         },
 
         getMenuId: function() {
-            return document.getElementsByClassName( "navigation-options" )[ 0 ].id;
+            return document.getElementsByClassName( 'navigation-options' )[ 0 ].id;
         },
         setMenuId: function( newId ) {
-            document.getElementsByClassName( "navigation-options" )[ 0 ].id = newId;
+            document.getElementsByClassName( 'navigation-options' )[ 0 ].id = newId;
         },
 
         changeMenuIcon: function( menuIcon ) {
-            document.getElementsByClassName( "hamburger" )[ 0 ]
+            document.getElementsByClassName( 'hamburger' )[ 0 ]
                 .firstElementChild
-                .setAttribute( "src", `img/${menuIcon}_menu.svg` );
+                .setAttribute( 'src', `img/${menuIcon}_menu.svg` );
         }
     } );
 } )

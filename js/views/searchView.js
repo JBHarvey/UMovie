@@ -3,17 +3,17 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "../collections/movieCollection",
-    "thumbnailView",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    '../collections/movieCollection',
+    'thumbnailView',
+    'handlebars'
 ], function( $, _, Backbone, Movies, ThumbnailView, Handlebars ) {
 
     var SearchView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function() {
 
@@ -21,13 +21,13 @@ define( [
             this.collection = new Movies();
             this.collection.url = this.collection.moviesDefaultQuery;
 
-            this.listenTo( this.collection, "sync", this.render );
+            this.listenTo( this.collection, 'sync', this.render );
             this.collection.fetch();
         },
 
         render: function() {
             that = this;
-            this.$el.html( "" );
+            this.$el.html( '' );
 
             //That too
             this.collection.each( function( movie ) {

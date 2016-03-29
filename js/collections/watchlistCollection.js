@@ -3,22 +3,22 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "jscookie",
-    "models/watchlistModel"
+    'jquery',
+    'underscore',
+    'backbone',
+    'jscookie',
+    'models/watchlistModel'
 ], function( $, _, Backbone, Cookie, WatchListModel ) {
 
     var Watchlists = Backbone.Collection.extend( {
         model: WatchListModel,
-        url: "https://umovie.herokuapp.com/watchlists",
+        url: 'https://umovie.herokuapp.com/watchlists',
         initialize: function( userEmail ) {
-            "use strict";
+            'use strict';
             if ( _.isObject( userEmail ) ) {
                 this.email = userEmail;
             } else {
-                this.email = Cookie.get( "email" );
+                this.email = Cookie.get( 'email' );
             }
         },
 
@@ -26,7 +26,7 @@ define( [
             var that = this;
 
             var filter = function( data ) {
-                "use strict";
+                'use strict';
                 return _.filter( data, function( model ) {
                     var ownerPresent = _.isObject( model.owner );
                     return ownerPresent ? model.owner.email === that.email : false;
@@ -42,8 +42,8 @@ define( [
         pageHeader: {
             option: [
                 {
-                    optionClass: "add-watchlist",
-                    action: "Ajouter"
+                    optionClass: 'add-watchlist',
+                    action: 'Ajouter'
                 }
             ]
         }

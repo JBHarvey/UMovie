@@ -3,20 +3,20 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!templates/tvshow.html",
-    "../models/tvShowSeasonModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/tvshow.html',
+    '../models/tvShowSeasonModel',
+    'handlebars'
 ], function( $, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel, Handlebars ) {
 
     var TvShowSeasonView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function() {
-            this.listenTo( this.model, "change", this.render );
+            this.listenTo( this.model, 'change', this.render );
             this.model.fetch();
         },
 

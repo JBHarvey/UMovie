@@ -3,17 +3,17 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!templates/tvShowEpisode.html",
-    "../models/tvShowEpisodeModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/tvShowEpisode.html',
+    '../models/tvShowEpisodeModel',
+    'handlebars'
 ], function( $, _, Backbone, tvShowEpisodeTemplate, TvShowEpisodeModel, Handlebars ) {
 
     var TvShowEpisodeView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function( tvShowId ) {
             this.id = tvShowId;

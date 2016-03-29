@@ -3,24 +3,24 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone"
+    'jquery',
+    'underscore',
+    'backbone'
 ], function( $, _, Backbone ) {
-    "use strict";
+    'use strict';
 
     var SearchModel = Backbone.Model.extend( {
-        baseURL: "https://umovie.herokuapp.com/search",
+        baseURL: 'https://umovie.herokuapp.com/search',
         parameters: {
-            type: "",
-            name: "",
-            limit: "",
-            genre: ""
+            type: '',
+            name: '',
+            limit: '',
+            genre: ''
         },
         addedParameters: 0,
         url: function() {
             this.addedParameters = 0;
-            let type = `${this.parameters.type === "" ? "" : "/"}${this.parameters.type}`;
+            let type = `${this.parameters.type === '' ? '' : '/'}${this.parameters.type}`;
             let name = this.formatParameter( this.parameters.name );
             let limit = this.formatParameter( this.parameters.limit );
             let genre = this.formatParameter( this.parameters.genre );
@@ -37,22 +37,22 @@ define( [
         },
 
         setSearchLimit: function( limit ) {
-            this.parameters.limit = limit !== 0 ? `limit=${limit}` : "";
+            this.parameters.limit = limit !== 0 ? `limit=${limit}` : '';
             return this;
         },
 
         setSearchGenre: function( genre ) {
-            this.parameters.genre = genre !== "" ? `genre=${genre}` : "";
+            this.parameters.genre = genre !== '' ? `genre=${genre}` : '';
             return this;
         },
 
         setSearchName: function( name ) {
-            this.parameters.name = name !== "" ? `q=${name}` : "";
+            this.parameters.name = name !== '' ? `q=${name}` : '';
             return this;
         },
 
         formatParameter: function( parameterToAdd ) {
-            let formattedParameter = "";
+            let formattedParameter = '';
             if ( parameterToAdd ) {
                 formattedParameter = `${this.addParamSplitter()}${parameterToAdd}`;
                 this.addedParameters++;
@@ -62,7 +62,7 @@ define( [
         },
 
         addParamSplitter: function() {
-            return this.addedParameters === 0 ? "?" : "&";
+            return this.addedParameters === 0 ? '?' : '&';
         }
 
     } );

@@ -2,13 +2,13 @@
  * Created by Jean-Benoît on 2016-01-27.
  */
 define( [
-    "backbone"
+    'backbone'
 ], function( Backbone ) {
 
     var MovieGenreModel = Backbone.Model.extend( {
         defaults: {
             id: 404,
-            name: "Genre not found"
+            name: 'Genre not found'
         }
 
     } );

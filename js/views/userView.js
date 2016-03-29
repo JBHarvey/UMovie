@@ -2,17 +2,17 @@
  * Created by Jean-Benoît on 2016-01-26.
  */
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!../templates/user.html",
-    "models/userModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!../templates/user.html',
+    'models/userModel',
+    'handlebars'
 ], function( $, _, Backbone, UserTemplate, UserModel, Handlebars ) {
 
     var UserView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function() {
             this.render();

@@ -3,17 +3,17 @@
  */
 
 define( [
-    "jquery",
-    "underscore",
-    "backbone",
-    "text!templates/home.html",
-    "models/homeModel",
-    "handlebars"
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/home.html',
+    'models/homeModel',
+    'handlebars'
 ], function( $, _, Backbone, homeTemplate, HomeModel, Handlebars ) {
 
     var HomeView = Backbone.View.extend( {
 
-        el: $( "#content" ),
+        el: $( '#content' ),
 
         initialize: function() {
             this.render();
