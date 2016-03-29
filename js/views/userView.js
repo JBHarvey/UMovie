@@ -21,7 +21,7 @@ define([
         render: function (user) {
 
             var source;
-            var template = Handlebars.compile(navigationBarTemplate);
+            var template = Handlebars.compile(UserTemplate);
 
             if (user) {
                 source = new UserModel();
@@ -29,9 +29,9 @@ define([
                 source = user;
             }
 
-            var resultNavigationBar = template(source.defaults);
+            var resultUser = template(source);
 
-            this.$el.append(resultNavigationBar);
+            this.$el.append(resultUser);
 
         }
     });

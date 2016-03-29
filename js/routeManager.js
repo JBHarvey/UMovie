@@ -27,10 +27,12 @@ define([
         'views/actorView',
         'models/actorModel',
         'views/actorsCollectionView',
-        'views/watchlistCollectionView'
+        'views/watchlistCollectionView',
+        'views/userSettingsView'
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, TvShowView, TvShowSeasonView,
-                 TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView) {
+                 TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView,
+                 UserView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -168,9 +170,8 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                if (checkCredentials()) {
+                    updateMainView(UserView, session);
                     console.log('The user (id still to be determined) should be displayed now');
-                }
             });
 
             uMovieRouter.on('route:settings', function () {
