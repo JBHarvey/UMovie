@@ -1,17 +1,26 @@
-<a class="movies-box" href="#episode/{{trackId}}">
-    <div class="thumbnail">
-        <div class="initial-image">
-            <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+<a class="episode-thumbnail-box" href="#episode/{{trackId}}">
+    <!--<div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>Modal Box</h2>
+            <p>This is a sample modal box that can be created using the powers of CSS3.</p>
+            <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
         </div>
-        <div class="movies-top-box">
-            <div class="movies-header">
-                <h3 class="movies-title"> {{trackName}} </h3>
+    </div> -->
+
+    <div class="episode-thumbnail">
+        <div class="episode-initial-image">
+            <img class="episode-thumbnail" src="{{artworkUrl60}}"/>
+        </div>
+        <div class="episode-thumbnail-top-box">
+            <div class="episode-thumbnail-header">
+                <h3 class="episode-title"> {{trackName}} </h3>
                 <div class="initial-release-date">{{releaseYear}}</div>
             </div>
-            <div class="movies-description">
-                <p class="movies-description-text">{{longDescription}}</p>
+            <div class="episode-description">
+                <p class="episode-description-text">{{longDescription}}</p>
             </div>
-            <div class="movies-footer">
+            <div class="episode-thumbnail-footer">
                 <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
                 <div class="duration">{{convertDuration}}</div>
             </div>

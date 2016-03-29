@@ -1,0 +1,121 @@
+.episode-thumbnail-box{
+    font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+    background-color: #282A2F;
+    transition: opacity ease-in-out .55s;
+    border: 3px solid #1B1D22;
+    border-bottom: none;
+    text-decoration: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+}
+
+.initial-release-date {
+    color: #97999F;
+    font-size: 90%;
+}
+
+.episode-thumbnail-box:hover {
+    opacity: 0.8;
+}
+
+.episode-thumbnail-box:last-of-type {
+    border-bottom: 3px solid #1B1D22;
+}
+
+.episode-thumbnail {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.episode-initial-image {
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+    max-width: 70px;
+    align-items: stretch;
+    flex: 1 1 auto;
+    height: 100%;
+}
+
+.episode-thumbnail {
+    align-items: stretch;
+    height: 100%;
+}
+
+.episode-thumbnail-top-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 0.5em;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.episode-title {
+    font-size: 95%;
+    color: #634ED5;
+    margin-top: 0;
+    margin-bottom: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.episode-description-text {
+    font-size: 90%;
+    color: #B2B5BB;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.episode-thumbnail-footer {
+    color: #97999F;
+    font-size: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 640px) {
+
+}
+
+@media screen and (min-width: 970px) {
+    .episode-thumbnail-box{
+        font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+        background-color: #171717;
+        transition: opacity ease-in-out .55s;
+        border: 3px solid #1B1D22;
+        border-bottom: none;
+        text-decoration: none;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
+    .episode-thumbnail {
+        align-items: center;
+        flex: 1 1 100%;
+        height: 100%;
+    }
+
+
+    .episode-initial-image {
+        flex: 1 1 100%;
+        min-width: 0;
+        height: 100%;
+        max-height: 400px;
+        width: 100%;
+    }
+
+
+}
