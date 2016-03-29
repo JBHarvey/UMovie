@@ -1,3 +1,7 @@
 {
-    "test": "make test"
+    "scripts": {
+        "checkCodeStyle": "jscs js/**",
+        "lintCode": "jshint js/**",
+        "test": "npm run-script checkCodeStyle && npm run lintCode"
+    }
 }

@@ -59,13 +59,16 @@ define( [
 
         toggleMenu: function() {
             this.closeMember();
+            /* jshint ignore:start */
             this.isMenuOpen() ? this.closeMenu() : this.openMenu();
+            /* jshint ignore:end */
         },
 
         toggleMember: function() {
             this.closeMenu();
+            /* jshint ignore:start */
             this.isMemberOpen() ? this.closeMember() : this.openMember();
-
+            /* jshint ignore:end */
         },
 
         isMemberOpen() {
