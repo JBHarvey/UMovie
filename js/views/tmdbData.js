@@ -10,8 +10,6 @@ define([
 
 
         initialize: function (searchRequest, imgClassName, bioClassName) {
-            console.log(theMovieDb);
-            theMovieDb.common.api_key = '8e2fb63d78986604185e4448ce8fbaa';
             this.searchRequest = searchRequest;
             this.imgClassName = imgClassName;
             this.bioClassName = bioClassName;
@@ -26,18 +24,22 @@ define([
 
             var searchOptions = {
                 query: that.searchRequest,
-                page: 1,
-                include_adult: true,
-                search_Type: 'phrase'
-            };
-            console.log(searchOptions);
 
-            var query = theMovieDb.common.generateQuery(searchOptions);
+            };
+
+
+           // var query = theMovieDb.common.generateQuery(searchOptions);
 
 
             var searchArtist = theMovieDb.search
-                .getPerson(query, theMovieDb.successCB(data), theMovieDb.errorCB(data));
+                .getPerson(searchOptions, that.successCB, that.errorCB); //plante ici
+            console.log("ici");
+            console.log(searchArtist);
             var artistSearchInfo = searchArtist.results[0];
+
+            console.log("ici " + searchArtist);
+            console.log(artistSearchInfo);
+
             var artistInfo = theMovieDb.people
                 .getById({'id': artistSearchInfo.id}, successCD, errorCD);
 
@@ -63,6 +65,14 @@ define([
             }
 
             return this;
+        },
+        successCB: function(data){
+            console.log(data);
+            return this;
+        },
+        errorCB: function() {
+            console.log("Error!");
+            return this
         }
 
     });
