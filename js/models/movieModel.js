@@ -1,48 +1,49 @@
 /**
  * Created by Jean-Benoît on 16-01-27.
  */
-define([
-    'underscore',
-    'backbone'
-], function (_, Backbone) {
+define( [
+    "underscore",
+    "backbone"
+], function( _, Backbone ) {
 
-    var MovieModel = Backbone.Model.extend({
+    var MovieModel = Backbone.Model.extend( {
         urlRoot: "https://umovie.herokuapp.com/movies",
         idAttribute: "trackId",
 
-        sync: function (method, model, options) {
+        sync: function( method, model, options ) {
+
             // To add to watchlist, you will have to pass watchlist ID in the options
             "use strict";
-            if ('update' === method || 'create' === method) {
-                method = 'create';
-                options.url = 'https://umovie.herokuapp.com/watchlists/' +
-                        options.watchlistID + '/movies';
+            if ( "update" === method || "create" === method ) {
+                method = "create";
+                options.url = "https://umovie.herokuapp.com/watchlists/" +
+                        options.watchlistID + "/movies";
             }
 
-            return Backbone.sync(method, model, options);
+            return Backbone.sync( method, model, options );
         },
 
-        parse(data){
-                if (data.results != undefined) {
-                    result = data.results[0];
-                    result.convertDuration = this.convertDuration(result.trackTimeMillis);
-                    result.releaseYear = this.releaseYear(result.releaseDate);
-                    return data.results[0];
+        parse( data ) {
+                if ( data.results != undefined ) {
+                    result = data.results[ 0 ];
+                    result.convertDuration = this.convertDuration( result.trackTimeMillis );
+                    result.releaseYear = this.releaseYear( result.releaseDate );
+                    return data.results[ 0 ];
                 } else {
                     return data;
                 }
         },
 
-        convertDuration(duration) {
-            return `${Math.ceil(duration / 60000)} minutes`;
+        convertDuration( duration ) {
+            return `${Math.ceil( duration / 60000 )} minutes`;
         },
 
-        releaseYear(date) {
-            return new Date(date).getFullYear();
+        releaseYear( date ) {
+            return new Date( date ).getFullYear();
         },
 
         defaults: {
-            "urlRoot": 'https://umovie.herokuapp.com/movie/265727087',
+            "urlRoot": "https://umovie.herokuapp.com/movie/265727087",
             "wrapperType": "track",
             "kind": "feature-movie",
             "trackId": 265727087,
@@ -77,7 +78,7 @@ define([
             "language": "English"
         }
 
-    });
+    } );
 
     return MovieModel;
-});
+} );

@@ -1,32 +1,32 @@
 /**
  * Created by Jean-Benoît on 16-03-07.
  */
-define([
-    'underscore',
-    'backbone'
-], function (_, Backbone) {
+define( [
+    "underscore",
+    "backbone"
+], function( _, Backbone ) {
 
-    var TvShowEpisodeModel = Backbone.Model.extend({
-        url: function () {
+    var TvShowEpisodeModel = Backbone.Model.extend( {
+        url: function() {
             return `https://umovie.herokuapp.com/tvshows/season/${this.attributes.collectionId}/episodes`;
         },
-        parse(data){
-            if (data.results != undefined) {
-                result = data.results[0];
-                result.convertDuration = this.convertDuration(result.trackTimeMillis);
-                result.releaseYear = this.releaseYear(result.releaseDate);
-                return data.results[0];
+        parse( data ) {
+            if ( data.results != undefined ) {
+                result = data.results[ 0 ];
+                result.convertDuration = this.convertDuration( result.trackTimeMillis );
+                result.releaseYear = this.releaseYear( result.releaseDate );
+                return data.results[ 0 ];
             } else {
                 return data;
             }
         },
 
-        convertDuration(duration) {
-            return `${Math.ceil(duration / 60000)} minutes`;
+        convertDuration( duration ) {
+            return `${Math.ceil( duration / 60000 )} minutes`;
         },
 
-        releaseYear(date) {
-            return new Date(date).getFullYear();
+        releaseYear( date ) {
+            return new Date( date ).getFullYear();
         },
         defaults: {
             "wrapperType": "track",
@@ -70,7 +70,7 @@ define([
             "language": "English"
         }
 
-    });
+    } );
 
     return TvShowEpisodeModel;
-});
+} );

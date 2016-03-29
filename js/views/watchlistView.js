@@ -6,28 +6,28 @@
  * online.
  */
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'handlebars',
-    'text!templates/watchlist.html'
-], function ($, _, Backbone, Handlebars, WatchlistTemplate) {
+define( [
+    "jquery",
+    "underscore",
+    "backbone",
+    "handlebars",
+    "text!templates/watchlist.html"
+], function( $, _, Backbone, Handlebars, WatchlistTemplate ) {
 
-    var WatchlistView = Backbone.View.extend({
+    var WatchlistView = Backbone.View.extend( {
 
-        el: $('#content'),
+        el: $( "#content" ),
 
-        initialize: function (watchlist) {
+        initialize: function( watchlist ) {
             this.model = watchlist;
         },
 
-        render: function () {
+        render: function() {
 
-            var template = Handlebars.compile(WatchlistTemplate);
-            return template(this.model.attributes);
+            var template = Handlebars.compile( WatchlistTemplate );
+            return template( this.model.attributes );
         }
-    });
+    } );
 
     return WatchlistView;
-});
+} );

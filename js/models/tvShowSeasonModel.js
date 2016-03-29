@@ -1,25 +1,25 @@
 /**
  * Created by seydou on 16-02-07.
  */
-define([
-    'underscore',
-    'backbone'
-], function (_, Backbone) {
+define( [
+    "underscore",
+    "backbone"
+], function( _, Backbone ) {
 
-    var TvShowSeasonModel = Backbone.Model.extend({
+    var TvShowSeasonModel = Backbone.Model.extend( {
         urlRoot: "https://umovie.herokuapp.com/tvshows/season",
 
-        parse(data){
-            if (data.results != undefined) {
-                result = data.results[0];
-                result.releaseYear = this.releaseYear(result.releaseDate);
-                return data.results[0];
+        parse( data ) {
+            if ( data.results != undefined ) {
+                result = data.results[ 0 ];
+                result.releaseYear = this.releaseYear( result.releaseDate );
+                return data.results[ 0 ];
             } else {
             return data;
 }
         },
-        releaseYear(date) {
-            return new Date(date).getFullYear();
+        releaseYear( date ) {
+            return new Date( date ).getFullYear();
         },
 
         defaults: {
@@ -51,7 +51,7 @@ define([
             "language": "English"
         }
 
-    });
+    } );
 
     return TvShowSeasonModel;
-});
+} );

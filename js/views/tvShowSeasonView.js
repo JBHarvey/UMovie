@@ -2,36 +2,35 @@
  * Created by Jean-Benoît on 16-02-07.
  */
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'text!templates/tvshow.html',
-    '../models/tvShowSeasonModel',
-    'handlebars'
-], function ($, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel, Handlebars) {
+define( [
+    "jquery",
+    "underscore",
+    "backbone",
+    "text!templates/tvshow.html",
+    "../models/tvShowSeasonModel",
+    "handlebars"
+], function( $, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel, Handlebars ) {
 
+    var TvShowSeasonView = Backbone.View.extend( {
 
-    var TvShowSeasonView = Backbone.View.extend({
+        el: $( "#content" ),
 
-        el: $('#content'),
-
-        initialize: function () {
-            this.listenTo(this.model, "change", this.render);
+        initialize: function() {
+            this.listenTo( this.model, "change", this.render );
             this.model.fetch();
         },
 
-        render: function () {
+        render: function() {
 
             //The data used in the template
-            var template = Handlebars.compile(TvShowSeasonTemplate);
+            var template = Handlebars.compile( TvShowSeasonTemplate );
 
             var source = this.model.attributes;
-            var resultTvShowSeason = template(source);
-            console.log(resultTvShowSeason);
-            this.$el.html(resultTvShowSeason);
+            var resultTvShowSeason = template( source );
+            console.log( resultTvShowSeason );
+            this.$el.html( resultTvShowSeason );
         }
-    });
+    } );
     return TvShowSeasonView;
 
-});
+} );
