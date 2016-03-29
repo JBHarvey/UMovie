@@ -24,8 +24,6 @@ define([
             'use strict';
             var that = this;
 
-
-
             var searchOptions = {
                 query: that.searchRequest,
                 page: 1,
@@ -37,12 +35,14 @@ define([
             var query = theMovieDb.common.generateQuery(searchOptions);
 
 
-            var searchArtist = theMovieDb.search.getPerson(query, theMovieDb.successCB(data), theMovieDb.errorCB(data));
+            var searchArtist = theMovieDb.search
+                .getPerson(query, theMovieDb.successCB(data), theMovieDb.errorCB(data));
             var artistSearchInfo = searchArtist.results[0];
-            var artistInfo = theMovieDb.people.getById({'id': artistSearchInfo.id}, successCD, errorCD);
+            var artistInfo = theMovieDb.people
+                .getById({'id': artistSearchInfo.id}, successCD, errorCD);
 
-            that.modifyBiography(artistInfo.biography);
-            that.modifyImage(artistSearchInfo.profile_path);
+            that.modifyBiography(artistInfo.biography)
+                .modifyImage(artistSearchInfo.profile_path);
 
         },
 
@@ -50,8 +50,8 @@ define([
             var that = this;
             $(that.bioClassName).each(function () {
                 $(this).text(biography);
-
             });
+
             return this;
         },
 
@@ -61,6 +61,7 @@ define([
                 var path = theMovieDb.images_uri + image;
                 $(that.imgClassName).attr("src", path);
             }
+
             return this;
         }
 
