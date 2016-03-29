@@ -11,13 +11,7 @@ define([
         connected: false,
         loginURL: 'https://umovie.herokuapp.com/login',
         signupURL: 'https://umovie.herokuapp.com/signup',
-
-        defaults:{
-            name :'',
-            email: '',
-            followers:[]
-        },
-
+        userSettingURL: 'https://umovie.herokuapp.com/users',
 
 
         validateEmail: function (emailToCheck) {
@@ -47,6 +41,15 @@ define([
             }
 
             return Backbone.sync(method, model, options);
+        },
+
+        parse(data){
+            if (data.results != undefined) {
+                result = data.results[0];
+                return data.results[0];
+            } else {
+                return data;
+            }
         },
 
         prepareForSignUp: function (newName, newPassword) {
@@ -80,6 +83,7 @@ define([
             that.success = function (data) {
                 console.log(data);
                 that.name = data.name;
+                that.id = data.id;
                 that.connected = true;
                 Cookie.set('token', data.token, {expires: 365, path: '/'});
                 Cookie.set('name', data.name, {expires: 365, path: '/'});

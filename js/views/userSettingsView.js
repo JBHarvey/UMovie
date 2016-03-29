@@ -16,22 +16,25 @@ define([
     var UserSettingsView = Backbone.View.extend({
 
     initialize: function(){
+        var that = this;
+        this.model.url = function(){
+            return `https://umovie.herokuapp.com/users/${that.model.id}` ;
+        }
+        that.listenTo(this.model, "change", this.render);
+        that.model.fetch();
+
+        that.render();
 
     },
 
-    render: function(user){
+    render: function(){
         var template = Handlebars.compile(UserTemplate);
         var source = this.model.attributes;
         console.log(source + "ici la source");
-        if (user) {
-            source = new UserModel();
-        } else {
-            source = user;
-        }
 
         var resultUser = template(source);
 
-        this.$el.append(resultUser);
+        this.$el.html(resultUser);
     },
 
     });

@@ -170,6 +170,7 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
+                    console.log(session);
                     updateMainView(UserView, session);
                     console.log('The user (id still to be determined) should be displayed now');
             });
