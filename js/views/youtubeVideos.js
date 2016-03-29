@@ -14,13 +14,11 @@ define( [
 
             var that = this;
             gapi.client.load( "youtube", "v3", function() {
-                "use strict";
                 that.getYoutubeVideo();
             } );
         },
 
         getYoutubeVideo: function() {
-            "use strict";
 
             // Creates the query with the relevant parameters:
             // fields: Restrict the JSON fields

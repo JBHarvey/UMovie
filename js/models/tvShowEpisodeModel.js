@@ -11,7 +11,7 @@ define( [
             return `https://umovie.herokuapp.com/tvshows/season/${this.attributes.collectionId}/episodes`;
         },
         parse( data ) {
-            if ( data.results != undefined ) {
+            if ( data.results !== undefined ) {
                 result = data.results[ 0 ];
                 result.convertDuration = this.convertDuration( result.trackTimeMillis );
                 result.releaseYear = this.releaseYear( result.releaseDate );

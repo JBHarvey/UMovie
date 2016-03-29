@@ -60,8 +60,6 @@ define( [
         },
 
         deleteWatchlists: function( event ) {
-            "use strict";
-
             var checkedValues = $( ".delete-watchlist-checkbox:checkbox:checked" )
                 .map( function() {
                     return this.value;
@@ -75,7 +73,6 @@ define( [
         },
 
         checkAddWatchlistText: function( event ) {
-            "use strict";
             var currentInputValue = event.currentTarget.value;
             var submitButton = $( "#add-watchlist-button" );
             if ( /^((\w*\d*[^\s])+\s?)+$/.test( currentInputValue ) ) {
@@ -86,7 +83,6 @@ define( [
         },
 
         addWatchlist: function( event ) {
-            "use strict";
             var watchlistInput = $( "#add-watchlist-text" );
             var watchlist = new WatchListModel( {
                 name: watchlistInput.val()
@@ -101,7 +97,6 @@ define( [
         },
 
         removeWatchlistMovie: function( event ) {
-            "use strict";
             var checkedValues = $( ".delete-watchlist-movie-checkbox:checkbox:checked" )
                 .map( function() {
                     return {

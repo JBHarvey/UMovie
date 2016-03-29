@@ -32,7 +32,7 @@ define( [
         },
 
         setName: function( name ) {
-            this.name = name != "" ? "&query=" +  name.split( " " ).join( "+" ) : "";
+            this.name = name !== "" ? "&query=" +  name.split( " " ).join( "+" ) : "";
         },
 
         formatParameter: function( parameterToAdd ) {
@@ -44,7 +44,7 @@ define( [
         },
 
         addParamSplitter: function() {
-            return this.addedParameters == 0 ? "?" : "&";
+            return this.addedParameters === 0 ? "?" : "&";
         }
 
     } );

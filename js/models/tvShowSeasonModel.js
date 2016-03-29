@@ -10,7 +10,7 @@ define( [
         urlRoot: "https://umovie.herokuapp.com/tvshows/season",
 
         parse( data ) {
-            if ( data.results != undefined ) {
+            if ( data.results !== undefined ) {
                 result = data.results[ 0 ];
                 result.releaseYear = this.releaseYear( result.releaseDate );
                 return data.results[ 0 ];

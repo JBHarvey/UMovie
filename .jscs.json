@@ -1,5 +1,8 @@
 {
     "preset": "jquery",
     "fix": true,
+    "requireCamelCaseOrUpperCaseIdentifiers": null,
+    "maximumLineLength": null,
+    "validateLineBreaks": null,
     "excludeFiles": [ "js/lib/**", "js/plugins/**" ]
 }
