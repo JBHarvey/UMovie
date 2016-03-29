@@ -6,17 +6,17 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    '../models/tvShowEpisodeModel',
-], function ($, _, Backbone, Cookie, TvShowModel) {
+    '../models/tvShowEpisodeModel'
+], function ($, _, Backbone, Cookie, TvShowEpisodeModel) {
 
-    var TvShows = Backbone.Collection.extend({
-        model: TvShowModel,
-        url: '/tvShows/season',
+    var Episodes = Backbone.Collection.extend({
+        model: TvShowEpisodeModel,
+        url: '/tvShows/episodes',
 
         parse: function (response) {
             return response.results;
         },
     });
-    return TvShows;
+    return Episodes;
 
 });
