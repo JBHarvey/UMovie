@@ -11,7 +11,7 @@ define([
 
         initialize: function (searchRequest, imgClassName, bioClassName) {
             console.log(theMovieDb);
-            theMovieDb.common.api_key = '8e2fb63d78986604185e4448ce8fbaa';
+            theMovieDb.common.api_key = '8e2fb63d78986604185e4448ce8fbaad';
             this.searchRequest = searchRequest;
             this.imgClassName = imgClassName;
             this.bioClassName = bioClassName;
@@ -34,15 +34,23 @@ define([
 
             var query = theMovieDb.common.generateQuery(searchOptions);
 
+            var errorCB = function (data) {
+                console.log(data);
+            };
 
-            var searchArtist = theMovieDb.search
-                .getPerson(query, theMovieDb.successCB(data), theMovieDb.errorCB(data));
-            var artistSearchInfo = searchArtist.results[0];
-            var artistInfo = theMovieDb.people
-                .getById({'id': artistSearchInfo.id}, successCD, errorCD);
+            var searchSuccessCallback = function (data) {
+                var artistSearch = JSON.parse(data);
+                var artistSearchInfo = artistSearch.results[0]
 
-            that.modifyBiography(artistInfo.biography)
-                .modifyImage(artistSearchInfo.profile_path);
+                theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
+                    var artistInfo = JSON.parse(data);
+                    that.modifyBiography(artistInfo.biography)
+                        .modifyImage(artistSearchInfo.profile_path);
+                }, errorCB);
+            };
+
+            theMovieDb.search.getPerson({query: query}, searchSuccessCallback, errorCB);
+
 
         },
 
@@ -58,7 +66,7 @@ define([
         modifyImage: function (image) {
             var that = this;
             if (image) {
-                var path = theMovieDb.images_uri + image;
+                var path = theMovieDb.common.images_uri + 'original' + image;
                 $(that.imgClassName).attr("src", path);
             }
 
