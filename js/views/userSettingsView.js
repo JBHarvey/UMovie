@@ -13,7 +13,7 @@ define([
 ], function($, _, Backbone, UserModel, Handlebars, UserTemplate){
 
     var UserSettingsView = Backbone.View.extend({
-        el: $('#content'),
+        el: '#content',
 
     initialize: function(){
         var that = this;

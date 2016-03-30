@@ -28,11 +28,12 @@ define([
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
-        'views/userSettingsView'
+        'views/userSettingsView',
+        'views/userView'
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, TvShowView, TvShowSeasonView,
                  TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView,
-                 UserView) {
+                 UserSettingsView, UserView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
