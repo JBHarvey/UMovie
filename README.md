@@ -43,3 +43,7 @@ You can find the way we use Git in the [wiki](https://github.com/GLO3102/team01/
 ### Program Usage
 
 You can find how to use our software in the [usage page](USAGES.md).
+
+### Contributing
+
+You can find more about how to contribute in the [contribute page](CONTRIBUTING.md).
