@@ -1,4 +1,4 @@
-.movies-box {
+.episode-thumbnail-box{
     font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
     background-color: #282A2F;
     transition: opacity ease-in-out .55s;
@@ -17,36 +17,37 @@
     font-size: 90%;
 }
 
-.movies-box:hover {
+.episode-thumbnail-box:hover {
     opacity: 0.8;
 }
 
-.movies-box:last-of-type {
+.episode-thumbnail-box:last-of-type {
     border-bottom: 3px solid #1B1D22;
 }
 
-.thumbnail {
+.episode-thumbnail {
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     align-items: stretch;
 }
 
-.initial-image {
+.episode-initial-image {
     opacity: 0.9;
     margin: 0;
     padding: 0;
+    max-width: 70px;
     align-items: stretch;
     flex: 1 1 auto;
     height: 100%;
 }
 
-.movies-thumbnail {
+.episode-thumbnail {
     align-items: stretch;
     height: 100%;
 }
 
-.movies-top-box {
+.episode-thumbnail-top-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,7 +56,7 @@
     flex: 1 1 auto;
 }
 
-.movies-title {
+.episode-title {
     font-size: 95%;
     color: #634ED5;
     margin-top: 0;
@@ -67,7 +68,7 @@
     white-space: nowrap;
 }
 
-.movies-description-text {
+.episode-description-text {
     font-size: 90%;
     color: #B2B5BB;
     text-overflow: ellipsis;
@@ -75,7 +76,7 @@
     white-space: nowrap;
 }
 
-.movies-footer {
+.episode-thumbnail-footer {
     color: #97999F;
     font-size: 90%;
     display: flex;
@@ -83,80 +84,38 @@
 }
 
 @media screen and (min-width: 640px) {
-    .movies-box:first-of-type {
-        margin-top: 15%;
-    }
+
 }
 
 @media screen and (min-width: 970px) {
-    .movies-box {
-        margin-left: auto;
-        margin-right: auto;
-        background-color: transparent;
-        border: none;
-        
-        display: inline-flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        flex-flow: column;
-        justify-content: center;
-        align-content: center;
-        align-items: stretch;
-        width: 100%;
-        max-width: 200px;
-        height: 100%;
-        max-height: 400px;
-    }
-
-    .movies-box:last-of-type {
+    .episode-thumbnail-box{
+        font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+        background-color: #171717;
+        transition: opacity ease-in-out .55s;
+        border: 3px solid #1B1D22;
         border-bottom: none;
+        text-decoration: none;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: center;
     }
 
-    .thumbnail {
-        margin-left: auto;
-        margin-right: auto;
+    .episode-thumbnail {
         align-items: center;
         flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
-        width: 100%;
-        max-width: 200px;
         height: 100%;
     }
 
-    .movies-top-box {
-        display: none;
-        width: 0;
-        height: 0;
-    }
 
-    .movies-header {
-        display: none;
-    }
-
-    .movies-description {
-        display: none;
-    }
-
-    .movies-footer {
-        display: none;
-    }
-
-    .initial-image {
+    .episode-initial-image {
         flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
+        min-width: 0;
         height: 100%;
         max-height: 400px;
         width: 100%;
-        max-width: 200px;
     }
 
-    .movies-thumbnail {
-        flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
-        height: 100%;
-        max-height: 400px;
-        width: 100%;
-        max-width: 200px;
 
-    }
 }

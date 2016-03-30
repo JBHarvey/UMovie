@@ -23,7 +23,6 @@ define([
         },
 
         render: function () {
-
             var template = Handlebars.compile(WatchlistTemplate);
             return template(this.model.attributes);
         },

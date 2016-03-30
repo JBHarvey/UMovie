@@ -19,17 +19,11 @@
                     <div class="tvShow-year">{{releaseYear}}</div>
                     <div class="tvShow-country">{{country}}</div>
                 </div>
-                <div>
-                    <a href="#" class="watchlist-tvShow-button-desktop">Add to watchlist</a>
-                </div>
             </div>
         </div>
         <div class="tvShow-bar-info">
             <div class="tvShow-bar-title">{{collectionName}}</div>
             <div class="tvShow-bar-genre">{{primaryGenreName}}</div>
-            <div class="watchlist-tvShow-button">
-                <a href="#" class="tvShow-myButton">Add to watchlist</a>
-            </div>
             <div class="tvShow-info-box-desktop">
                 <div class="tvShow-info-subject">
                     <span class="tvShow-info-title-desktop">Genre:</span>
@@ -63,13 +57,9 @@
                     <span class="tvShow-info-title-desktop">Summary:</span>
                     <span>{{longDescription}}</span>
                 </div>
-                <div class="tvShow-info-subject desktop-preview">
+                <div class="tvShow-info-subject ">
                     <span class="tvShow-info-title-desktop">Trailer:</span>
-                    <span class="tvShow-info-preview">
-                        <video width=100% controls>
-                            <source src={{previewUrl}} type="video/m4v">
-                            Your browser does not support HTML5 video.
-                        </video>
+                    <span class="tvShow-season-video-preview tvShow-info-preview">
                     </span>
                 </div>
 
@@ -117,10 +107,12 @@
 
     <div class="tvShow-preview">
         <span>Trailer</span>
-        <video width=100% controls>
-            <source src={{previewUrl}} type="video/m4v">
-            Your browser does not support HTML5 video.
-        </video>
+        <div class="tvShow-season-video-preview"></div>
     </div>
 
 </div>
+
+<div class="tvShow-episodes-box">
+    <span>Episodes</span>
+</div>
+

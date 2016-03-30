@@ -24,7 +24,6 @@ define([
 
         parse: function (response) {
             var that = this;
-
             var filter = function (data) {
                 'use strict';
                 return _.filter(data, function (model) {
