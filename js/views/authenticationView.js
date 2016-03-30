@@ -1,60 +1,62 @@
 /**
  * Created by Jean-Benoît on 2016-01-27.
  */
-define( [
+define([
     'jquery',
     'underscore',
     'backbone',
     'jscookie',
     'text!templates/authentication.html',
     'models/authenticationModel',
-    'handlebars'
-], function( $, _, Backbone, Cookie, authenticationTemplate, AuthenticationModel, Handlebars ) {
+    'handlebars',
+], function ($, _, Backbone, Cookie, authenticationTemplate, AuthenticationModel, Handlebars) {
 
-    var AuthenticationView = Backbone.View.extend( {
+    var AuthenticationView = Backbone.View.extend({
 
-        el: $( '#content' ),
+        el: '#content',
 
-        initialize: function( globalUser ) {
+        initialize: function (globalUser) {
 
-            user = globalUser;
+            this.user = globalUser;
             this.render();
         },
 
-        render: function( signup ) {
+        render: function (signup) {
 
             this.signup = signup;
-            this.template = Handlebars.compile( authenticationTemplate );
+            this.template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
 
             //If the user is not signing up, he is login in
-            if ( this.signup ) {
-                resultAuthentication = this.template( source.signup );
+            if (this.signup) {
+                resultAuthentication = this.template(source.signup);
             } else {
-                resultAuthentication = this.template( source.login );
+                resultAuthentication = this.template(source.login);
             }
 
-            this.$el.html( resultAuthentication );
+            this.$el.html(resultAuthentication);
             this.$el.show();
         },
 
         events: {
-            'click .submitAuthentication': 'sendAuthentication'
+            'click .submitAuthentication': 'sendAuthentication',
         },
 
-        sendAuthentication: function() {
-            user.validateEmail( $( '#email' ).val() );
-            if ( this.signup ) {
-                user.prepareForSignUp( $( '#name' ).val(), $( '#password' ).val() );
+        sendAuthentication: function () {
+            this.user.validateEmail($('#email').val());
+            if (this.signup) {
+                this.user.prepareForSignUp($('#name').val(), $('#password').val());
             } else {
-                user.prepareForLogIn( $( '#password' ).val() );
+                this.user.prepareForLogIn($('#password').val());
             }
+
             Backbone.emulateJSON = true;
-            user.save();
+            this.user.save();
             Backbone.emulateJSON = false;
-        }
-    } );
+        },
+    });
     return AuthenticationView;
 
-} )
+})
+
 ;

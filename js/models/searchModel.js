@@ -2,70 +2,71 @@
  * Created by Jean-Benoît on 3/8/2016.
  */
 
-define( [
+define([
     'jquery',
     'underscore',
-    'backbone'
-], function( $, _, Backbone ) {
+    'backbone',
+], function ($, _, Backbone) {
     'use strict';
 
-    var SearchModel = Backbone.Model.extend( {
+    var SearchModel = Backbone.Model.extend({
         baseURL: 'https://umovie.herokuapp.com/search',
         parameters: {
             type: '',
             name: '',
             limit: '',
-            genre: ''
+            genre: '',
         },
         addedParameters: 0,
-        url: function() {
+        url: function () {
             this.addedParameters = 0;
             let type = `${this.parameters.type === '' ? '' : '/'}${this.parameters.type}`;
-            let name = this.formatParameter( this.parameters.name );
-            let limit = this.formatParameter( this.parameters.limit );
-            let genre = this.formatParameter( this.parameters.genre );
+            let name = this.formatParameter(this.parameters.name);
+            let limit = this.formatParameter(this.parameters.limit);
+            let genre = this.formatParameter(this.parameters.genre);
             return `${this.baseURL}${type}${name}${limit}${genre}`;
         },
 
-        parse: function( response ) {
+        parse: function (response) {
             return response.results;
         },
 
-        setSearchType: function( type ) {
+        setSearchType: function (type) {
             this.parameters.type = type;
             return this;
         },
 
-        setSearchLimit: function( limit ) {
+        setSearchLimit: function (limit) {
             this.parameters.limit = limit !== 0 ? `limit=${limit}` : '';
             return this;
         },
 
-        setSearchGenre: function( genre ) {
+        setSearchGenre: function (genre) {
             this.parameters.genre = genre !== '' ? `genre=${genre}` : '';
             return this;
         },
 
-        setSearchName: function( name ) {
+        setSearchName: function (name) {
             this.parameters.name = name !== '' ? `q=${name}` : '';
             return this;
         },
 
-        formatParameter: function( parameterToAdd ) {
+        formatParameter: function (parameterToAdd) {
             let formattedParameter = '';
-            if ( parameterToAdd ) {
+            if (parameterToAdd) {
                 formattedParameter = `${this.addParamSplitter()}${parameterToAdd}`;
                 this.addedParameters++;
             }
+
             return formattedParameter;
 
         },
 
-        addParamSplitter: function() {
+        addParamSplitter: function () {
             return this.addedParameters === 0 ? '?' : '&';
-        }
+        },
 
-    } );
+    });
     return SearchModel;
 
-} );
+});

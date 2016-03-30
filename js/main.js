@@ -5,21 +5,21 @@
  * loads the initial dependencies to the project.
  */
 
-require.config( {
+require.config({
     paths: {
         jquery: 'lib/jquery-2.2.0',
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
-        jscookie: 'lib/js.cookie'
-    }
-} );
+        jscookie: 'lib/js.cookie',
+    },
+});
 
-require( [
+require([
     'plugins/google/google-api.min',
-    'umovie'
-], function( gapi, UMovie ) {
+    'umovie',
+], function (gapi, UMovie) {
         UMovie.initialize();
     }
 );

@@ -2,6 +2,7 @@
     "preset": "airbnb",
     "fix": true,
     "requireCamelCaseOrUpperCaseIdentifiers": null,
+    "disallowYodaConditions": null,
     "safeContextKeyword": "that",
     "maximumLineLength": null,
     "validateLineBreaks": null,

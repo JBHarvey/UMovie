@@ -1,15 +1,15 @@
 /**
  * Created by Jean-Benoît on 2016-01-27.
  */
-define( [
+define([
     'backbone',
-    'models/movieGenreModel'
-], function( Backbone, MovieGenreModel ) {
+    'models/movieGenreModel',
+], function (Backbone, MovieGenreModel) {
 
-    var MovieGenres = Backbone.Model.Collection( {
+    var MovieGenres = Backbone.Model.Collection({
         url: '/genres/movies',
-        model: MovieGenreModel
-    } );
+        model: MovieGenreModel,
+    });
 
     return HomeModel;
-} );
+});

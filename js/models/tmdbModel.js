@@ -1,11 +1,11 @@
 
 
-define( [
+define([
     'jquery',
     'underscore',
-    'backbone'
-], function( $, _, Backbone ) {
-    var TmdbModel = Backbone.Model.extend( {
+    'backbone',
+], function ($, _, Backbone) {
+    var TmdbModel = Backbone.Model.extend({
 
         dataBaseUrl: 'https://api.themoviedb.org/3',
         dataBaseApiKey: '?api_key=8e2fb63d78986604185e4448ce8fbaad',
@@ -13,39 +13,40 @@ define( [
 
         name: '',
         addedParameters: 0,
-        url: function() {
+        url: function () {
             this.addedParameters = 0;
-            let name = this.formatParameter( this.name );
+            let name = this.formatParameter(this.name);
 
         },
 
-        actorUrl: function() {
+        actorUrl: function () {
             return '';
         },
 
-        actorImageUrl: function() {
+        actorImageUrl: function () {
             return '';
         },
 
-        parse: function( response ) {
+        parse: function (response) {
             return response.results;
         },
 
-        setName: function( name ) {
-            this.name = name !== '' ? '&query=' +  name.split( ' ' ).join( '+' ) : '';
+        setName: function (name) {
+            this.name = name !== '' ? '&query=' +  name.split(' ').join('+') : '';
         },
 
-        formatParameter: function( parameterToAdd ) {
+        formatParameter: function (parameterToAdd) {
             let formattedParameter = '';
-            if ( parameterToAdd ) {
+            if (parameterToAdd) {
                 formattedParameter = `${this.addParamSplitter()} ${parameterToAdd}`;
             }
+
             return formattedParameter;
         },
 
-        addParamSplitter: function() {
+        addParamSplitter: function () {
             return this.addedParameters === 0 ? '?' : '&';
-        }
+        },
 
-    } );
-} );
+    });
+});
