@@ -302,10 +302,6 @@ html{
         margin-bottom:4em;
     }
 
-    .tvShow-info-preview video{
-        width:80%;
-    }
-
     .tvShow-info-title-desktop{
         width: 5em;
         text-align: right;
@@ -315,10 +311,6 @@ html{
 
     .desktop-preview{
         margin-top: 3em;
-    }
-
-    .desktop-preview video {
-        width: 400px;
     }
 
     .desktop-summary{

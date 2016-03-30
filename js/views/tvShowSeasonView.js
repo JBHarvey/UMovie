@@ -11,9 +11,9 @@ define([
     'views/thumbnailView',
     'models/tvShowEpisodeModel',
     'handlebars',
-    'models/searchModel'
+    'views/youtubeVideos'
 ], function ($, _, Backbone, TvShowSeasonTemplate,TvShowEpisodeCollection,
-             ThumbnailView, TvShowEpisodeModel, Handlebars, SearchModel) {
+             ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
 
     var TvShowSeasonView = Backbone.View.extend({
 
@@ -23,7 +23,6 @@ define([
 
             var that = this;
             var seasonId = this.model.id;
-            this.searchManager = new SearchModel();
             this.collection = new TvShowEpisodeCollection(seasonId);
             this.listenTo(this.model, "change", this.render);
 
@@ -41,12 +40,19 @@ define([
             });
         },
 
+        generateSearchRequest: function () {
+            return encodeURI(this.model.get('collectionName') + ' trailer').replace(/%20/g, '+');
+        },
+
         render: function () {
+            var searchRequest = this.generateSearchRequest();
+
             var template = Handlebars.compile(TvShowSeasonTemplate);
             var source = this.model.attributes;
             var resultTvShowSeason = template(source);
 
             this.$el.html(resultTvShowSeason);
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
             this.collection.each(function(tvShowEpisode) {
                 var thumbnail = new ThumbnailView({model: tvShowEpisode});
                 $(".tvShow-episodes-box").append(thumbnail.renderEpisode());
