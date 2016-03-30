@@ -168,9 +168,7 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                if (checkCredentials()) {
-                    console.log('The user (id still to be determined) should be displayed now');
-                }
+
             });
 
             uMovieRouter.on('route:settings', function () {
