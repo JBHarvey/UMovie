@@ -11,7 +11,10 @@ define([
 
     var Episodes = Backbone.Collection.extend({
         model: TvShowEpisodeModel,
-        url: '/tvShows/episodes',
+
+        initialize: function(seasonId) {
+            this.url = 'https://umovie.herokuapp.com/tvShows/season/'+ seasonId + '/episodes';
+        },
 
         parse: function (response) {
             return response.results;

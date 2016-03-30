@@ -14,18 +14,14 @@ define([
     'handlebars'
 ], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Handlebars) {
 
-
     var MovieView = Backbone.View.extend({
 
         el: $('#content'),
-
 
         initialize: function () {
 
             var that = this;
             this.watchlists = new Watchlists();
-            console.log(this.watchlists);
-
             this.listenTo(this.model, "change", this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
@@ -56,7 +52,6 @@ define([
             var template = Handlebars.compile(movieTemplate);
             var source = this.model.attributes;
             if (!_.isEmpty(this.watchlists.models)) {
-                console.log(this.watchlists.models);
                 // Only returns the watchlist which do not already contain the movie
                 var that = this;
                 source.watchlists = _.filter(this.watchlists.models, function (model) {

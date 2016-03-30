@@ -26,7 +26,7 @@ define([
         },
 
         render: function () {
-            that = this;
+            var that = this;
             this.$el.html("");
             this.collection.each(function(tvShows){
                 var thumbnail = new ThumbnailView({model: tvShows});
