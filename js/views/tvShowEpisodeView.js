@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/tvshowEpisode.html',
+    'text!templates/tvShowEpisode.html',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel'
@@ -14,7 +14,7 @@ define([
 
     var TvShowEpisodeView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
 
