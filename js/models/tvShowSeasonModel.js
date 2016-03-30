@@ -11,13 +11,17 @@ define([
 
         parse(data){
             if (data.results != undefined) {
-                result = data.results[0];
-                result.releaseYear = this.releaseYear(result.releaseDate);
-                return data.results[0];
+                return processData(data.results[0]);
             } else {
-            return data;
-}
+                return this.processData(data);
+            }
         },
+
+        processData(data){
+            data.releaseYear = this.releaseYear(data.releaseDate);
+            return data;
+        },
+
         releaseYear(date) {
             return new Date(date).getFullYear();
         },
