@@ -146,3 +146,23 @@
 
 .delete-watchlist {
 }
+
+.delete-btn {
+    color: white;
+    background-color: #CA3C3C;
+
+
+    margin: 1em;
+    padding: 0.4em;
+
+    transition: background-color ease-in-out .25s;
+}
+
+.delete-btn:hover {
+    background-color: #971A1A;
+}
+
+.btn {
+    border: none;
+    border-radius: 4px;
+}
