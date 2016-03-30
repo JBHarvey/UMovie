@@ -7,10 +7,52 @@
     justify-content: center;
 }
 
-.add-watchlist-text {
+.submit-bar {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+
+    padding-left: 0.5em;
+
+    transition: background-color ease-in-out .55s;
+    background-color: rgb(43, 48, 59);
 }
 
-.button-add-watchlist {
+.submit-bar::-webkit-input-placeholder {
+    color: #65737e;
+}
+
+.submit-bar:-moz-placeholder {
+    color: #65737e;
+}
+
+.submit-bar::-moz-placeholder {
+    color: #65737e;
+}
+
+.submit-bar:-ms-input-placeholder {
+    color: #65737e;
+}
+
+.submit-bar:hover, .submit-bar:focus, .submit-bar:active {
+    outline: none;
+    background: #ffffff;
+}
+
+.submit-btn {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: none;
+
+    transition: background-color, color ease-in-out .25s;
+    background-color: #335A99;
+    color: #E6EEFE;
+}
+
+.submit-btn:disabled {
+    cursor: auto;
+    color: #8E9EBC;
+    background-color: #264372;
 }
 
 .watchlist-box {
@@ -31,6 +73,10 @@
     width: 100%;
 }
 
+.watchlist-title-box {
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+}
 .watchlist-title {
 }
 

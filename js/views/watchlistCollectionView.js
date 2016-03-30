@@ -147,9 +147,9 @@ define([
             var currentTargetParent = event.currentTarget.parentElement;
             var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
 
-            currentTargetParent.innerHTML = '<input class="watchlist-title-input" value="' +
+            currentTargetParent.innerHTML = '<input class="watchlist-title-input submit-bar" value="' +
                 currentWatchlist.get('name') + '" type="text" placeholder="Enter watchlist name">';
-            currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button" ' +
+            currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button submit-btn" ' +
                 'type="button" disabled="disabled">Submit</button>');
             currentTargetParent.insertAdjacentHTML('beforeend', '<button type="button" class="watchlist-cancel">' +
                 '<div class="cancel-button-box"><span></span><span></span>' +
