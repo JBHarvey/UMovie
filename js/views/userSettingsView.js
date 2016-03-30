@@ -9,28 +9,23 @@ define([
     'backbone',
     'models/userModel',
     'handlebars',
-    'text!templates/user.html',
-    'jscookie'
-], function($, _, Backbone, UserModel, Handlebars, UserTemplate, Cookie){
+    'text!templates/user.html'
+], function($, _, Backbone, UserModel, Handlebars, UserTemplate){
 
     var UserSettingsView = Backbone.View.extend({
+        el: $('#content'),
 
     initialize: function(){
         var that = this;
-        this.model.url = function(){
-            return `https://umovie.herokuapp.com/users/${that.model.id}` ;
-        }
-        that.listenTo(this.model, "change", this.render);
+        this.model.url = that.model.changeUrlForUserInfo();
+        that.listenTo(this.model, "change", that.render);
         that.model.fetch();
-
-        that.render();
 
     },
 
     render: function(){
         var template = Handlebars.compile(UserTemplate);
         var source = this.model.attributes;
-        console.log(source + "ici la source");
 
         var resultUser = template(source);
 

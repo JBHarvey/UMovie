@@ -1,11 +1,22 @@
+
+
 <div class="user">
     <div class="personnalInfo">
         <div>
             <label>Name :  </label> <span class="userInfo"> {{name}}</span>
+            <div>
+            <input class="inputNewName"> </input>
+            <a class="inputNewNameButton">Update</a>
+            </div>
         </div>
         <div>
             <label>Email : </label> <span class="userInfo"> {{email}}</span>
+            <div>
+            <input class="inputNewEmail"> </input>
+            <button id="inputNewEmailButton">Update</button>
+            </div>
         </div>
+
     </div>
     <div class="following">
         {{#each following}}

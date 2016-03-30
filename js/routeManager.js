@@ -170,9 +170,8 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                    console.log(session);
-                    updateMainView(UserView, session);
-                    console.log('The user (id still to be determined) should be displayed now');
+                session = new UserModel({id:Cookie.get('id')});
+                updateMainView(UserView, session);
             });
 
             uMovieRouter.on('route:settings', function () {

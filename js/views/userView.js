@@ -12,14 +12,28 @@ define([
 
     var UserView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
             this.render();
+            console.log("render after initialize");
+
+            var sync = _.after(1, function(){
+                this.render();
+                this.listenTo(this, 'change', this.render());
+                this.listenTo(this, 'update', this.render());
+            });
+            this.fetch({
+               success: sync
+            });
         },
 
-        render: function (user) {
+        events:{
+            'click .inputNewNameButton': 'updateModelName'
 
+        },
+        render: function (user) {
+            console.log("je passe dans le render");
             var source;
             var template = Handlebars.compile(UserTemplate);
 
@@ -33,6 +47,24 @@ define([
 
             this.$el.append(resultUser);
 
+        },
+
+        updateModelName: function(){
+            "use strict";
+
+            console.log("Je passe dans la methode...");
+            var newNameButton = event.currentTarget;
+            var $newName = $('.inputNewName');
+
+            if($newName != this.model.name){
+                this.model.name = $newName;
+            }
+
+            else{
+                console.log("Le nom entre est le meme !");
+            }
+
+            this.render();
         }
     });
 

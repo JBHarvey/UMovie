@@ -744,6 +744,7 @@ button {
     /* ------ PAGE CONTENT ------ */
     div #content {
         max-width: 100%;
+        margin-top: 10%;
         padding: 0;
         background-color: black;
         color: white;
