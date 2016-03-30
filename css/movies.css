@@ -1,3 +1,4 @@
+
 .movies-box {
     font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
     background-color: #282A2F;
@@ -40,6 +41,7 @@
     align-items: stretch;
     flex: 1 1 auto;
     height: 100%;
+    position: inherit;
 }
 
 .movies-thumbnail {
@@ -91,9 +93,12 @@
 
 @media screen and (min-width: 970px) {
 
-
     .movies-box:last-of-type {
         border-bottom: none;
+    }
+
+    .thumbnail{
+        position:relative;
     }
 
     .thumbnail, .initial-image, .movies-thumbnail, .movies-box {
@@ -101,11 +106,10 @@
         margin-right: auto;
         align-items: center;
         flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
+        /*min-width: 0; !* for Firefox and future Chrome etc. *!*/
         width: 100%;
-        max-width: 200px;
+        max-width: 7em;
         height: 100%;
-
     }
 
     .movies-box {
@@ -120,24 +124,29 @@
         align-items: stretch;
     }
 
-
-    .movies-top-box {
-
-
+    .movies-title {
+        white-space: normal;
     }
 
-    .movies-header {
-        position:relative;
-        font-size: 100%;
+    .movies-footer{
+        vertical-align: bottom;
     }
 
-    .movies-description {
-        position:relative;
+    .movies-description-text {
+        white-space: normal;
+        text-overflow: ellipsis;
+        font-size: 0.6em;
+        max-height: 7em;
+        margin: 1em 0 -1.2em 0;
     }
 
-    .movies-footer {
-        position:relative;
-        font-size: 50%;
+    .content-advisory-rating, .duration {
+        font-size: 0.6em;
+    }
+
+    .ellipsis{
+        font-size: 0.6em;
+        color:#B2B5BB;
     }
 
 }

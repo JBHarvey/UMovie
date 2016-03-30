@@ -33,9 +33,6 @@ define([
         processData(data) {
             data.convertDuration = this.convertDuration(data.trackTimeMillis);
             data.releaseYear = this.releaseYear(data.releaseDate);
-            if(data.contentAdvisoryRating.includes('Unrated')) {
-                data.contentAdvisoryRating = '-';
-            }
             return data;
         },
 
