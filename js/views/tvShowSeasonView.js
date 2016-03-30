@@ -7,15 +7,13 @@ define([
     'underscore',
     'backbone',
     'text!templates/tvshow.html',
-    '../models/tvShowSeasonModel',
     '../collections/tvShowEpisodeCollection',
     'views/thumbnailView',
     'models/tvShowEpisodeModel',
     'handlebars',
     'models/searchModel'
-], function ($, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel,
-             TvShowEpisodeCollection, ThumbnailView, TvShowEpisodeModel,
-             Handlebars, SearchModel) {
+], function ($, _, Backbone, TvShowSeasonTemplate,TvShowEpisodeCollection,
+             ThumbnailView, TvShowEpisodeModel, Handlebars, SearchModel) {
 
     var TvShowSeasonView = Backbone.View.extend({
 
@@ -23,13 +21,12 @@ define([
 
         initialize: function () {
 
+            var that = this;
             var seasonId = this.model.id;
             this.searchManager = new SearchModel();
-            this.collection = new TvShowEpisodeCollection();
-            this.collection.url = this.generateDefaultQuery();
-
+            this.collection = new TvShowEpisodeCollection(seasonId);
             this.listenTo(this.model, "change", this.render);
-            this.listenTo(this.collection, 'sync', this.render);
+
             var syncRendering = _.after(2, function () {
                 "use strict";
                 that.render();
@@ -38,14 +35,13 @@ define([
             this.model.fetch({
                 success: syncRendering
             });
+
             this.collection.fetch({
                 success: syncRendering
             });
         },
 
         render: function () {
-
-            that = this;
             var template = Handlebars.compile(TvShowSeasonTemplate);
             var source = this.model.attributes;
             var resultTvShowSeason = template(source);
@@ -55,15 +51,8 @@ define([
                 var thumbnail = new ThumbnailView({model: tvShowEpisode});
                 $(".tvShow-episodes-box").append(thumbnail.renderEpisode());
             });
-        },
-
-        generateDefaultQuery: function() {
-            this.searchManager.setSearchType('tvshows/episodes');
-            this.searchManager.setSearchName('Rome');
-            this.searchManager.setSearchLimit(10);
-            this.searchManager.setSearchGenre('');
-            return this.searchManager.url();
         }
+
     });
     return TvShowSeasonView;
 

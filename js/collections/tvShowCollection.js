@@ -14,7 +14,6 @@ define([
         url: '/tvShows',
 
         parse: function (response) {
-            console.log(response);
             return response.results;
         },
     });
