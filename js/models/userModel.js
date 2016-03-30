@@ -4,14 +4,13 @@
 define([
     'jquery',
     'backbone',
-    'jscookie'
+    'jscookie',
 ], function ($, Backbone, Cookie) {
 
     var UserModel = Backbone.Model.extend({
         connected: false,
         loginURL: 'https://umovie.herokuapp.com/login',
         signupURL: 'https://umovie.herokuapp.com/signup',
-
 
         validateEmail: function (emailToCheck) {
             var emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -22,13 +21,12 @@ define([
             }
         },
 
-
         /*
             Setting the different HTTP header parameters that need to be passed
             for the call to succeed.
          */
         sync: function (method, model, options) {
-            "use strict";
+            'use strict';
             /* Forces a POST to be send, for when the model has already been
              POST-ed once, it will be send with a PUT every following request
              */
@@ -47,15 +45,16 @@ define([
             that.data = {
                 email: that.email,
                 name: newName,
-                password: newPassword
+                password: newPassword,
             };
             that.changeUrlDestination(that.signupURL);
             success = function (data) {
                 that.name = data.name;
                 that.id = data.id;
-                window.history.pushState("", "", "/UMovie/#login");
+                window.history.pushState('', '', '/UMovie/#login');
                 document.location.reload(true);
             };
+
             error = function (jqXHR, textStatus) {
                 console.log('Error on signup: ', jqXHR);
                 console.log('Content type : ', jqXHR.contentType);
@@ -67,19 +66,20 @@ define([
             var that = this;
             that.data = {
                 email: that.email,
-                password: newPassword
+                password: newPassword,
             };
             that.changeUrlDestination(that.loginURL);
             that.success = function (data) {
                 console.log(data);
                 that.name = data.name;
                 that.connected = true;
-                Cookie.set('token', data.token, {expires: 365, path: '/'});
-                Cookie.set('name', data.name, {expires: 365, path: '/'});
-                Cookie.set('email', data.email, {expires: 365, path: '/'});
-                window.history.pushState("", "", "/UMovie/#");
+                Cookie.set('token', data.token, { expires: 365, path: '/' });
+                Cookie.set('name', data.name, { expires: 365, path: '/' });
+                Cookie.set('email', data.email, { expires: 365, path: '/' });
+                window.history.pushState('', '', '/UMovie/#');
                 document.location.reload(true);
             };
+
             that.error = function (jqXHR, textStatus) {
                 console.log('Error on login: ', jqXHR);
                 console.log('Content type : ', jqXHR.contentType);
@@ -89,15 +89,15 @@ define([
         },
 
         disconnect: function () {
-            Cookie.remove('token', {path: '/'});
-            Cookie.remove('name', {path: '/'});
-            Cookie.remove('email', {path: '/'});
+            Cookie.remove('token', { path: '/' });
+            Cookie.remove('name', { path: '/' });
+            Cookie.remove('email', { path: '/' });
             this.set({
                 id: undefined,
                 name: undefined,
                 email: undefined,
                 following: undefined,
-                connected: false
+                connected: false,
             });
         },
 
@@ -105,11 +105,11 @@ define([
             this.url = function () {
                 return newDestination;
             };
-        }
+        },
 
     });
 
-
     return UserModel;
 })
+
 ;

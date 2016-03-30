@@ -8,16 +8,15 @@ define([
     'backbone',
     'text!templates/tvshow.html',
     '../models/tvShowSeasonModel',
-    'handlebars'
+    'handlebars',
 ], function ($, _, Backbone, TvShowSeasonTemplate, TvShowSeasonModel, Handlebars) {
-
 
     var TvShowSeasonView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
             this.model.fetch();
         },
 
@@ -30,7 +29,7 @@ define([
             var resultTvShowSeason = template(source);
             console.log(resultTvShowSeason);
             this.$el.html(resultTvShowSeason);
-        }
+        },
     });
     return TvShowSeasonView;
 
