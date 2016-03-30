@@ -1,9 +1,11 @@
 {
-    "preset": "jquery",
+    "preset": "airbnb",
     "fix": true,
     "requireCamelCaseOrUpperCaseIdentifiers": null,
+    "safeContextKeyword": "that",
     "maximumLineLength": null,
     "validateLineBreaks": null,
     "validateQuoteMarks": "'",
+    "validateIndentation": 4,
     "excludeFiles": [ "js/lib/**", "js/plugins/**" ]
 }
