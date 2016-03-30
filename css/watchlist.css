@@ -74,10 +74,54 @@
 }
 
 .watchlist-title-box {
+    display: flex;
     margin-top: 1.3em;
     margin-bottom: 1.3em;
 }
+
+/* Taken from: http://codepen.io/MarvinVk/pen/GEjio */
+
+.watchlist-cancel {
+  margin-left: 0.5em;
+  background-color: transparent;
+  border: none;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 20px;
+  display: inline-block;
+}
+
+.watchlist-cancel:before,
+.watchlist-cancel:after {
+  transform: rotate(-45deg);
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -10px;
+  display: block;
+  height: 2px;
+  width: 20px;
+  background-color: #fff;
+  transition: all 0.2s ease-out;
+}
+
+.watchlist-cancel:after {
+  transform: rotate(45deg);
+}
+
+.watchlist-cancel:hover:before,
+.watchlist-cancel:hover:after {
+  transform: rotate(0deg);
+}
+
+/* --------------------------------- */
+
 .watchlist-title {
+    margin-top: 0;
 }
 
 .watchlist-movies {
