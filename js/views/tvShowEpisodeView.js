@@ -10,7 +10,7 @@ define([
     'views/thumbnailView',
     'handlebars',
 ], function ($, _, Backbone, TvShowEpisodeTemplate, ThumbnailView, Handlebars) {
-    "use strict";
+    'use strict';
 
     var TvShowEpisodeView = Backbone.View.extend({
 
@@ -18,13 +18,13 @@ define([
 
         initialize: function () {
 
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
             var syncRendering = _.after(2, function () {
                 that.render();
             });
 
             this.model.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
         },
 
