@@ -229,6 +229,29 @@ iframe {
 }
 
 @media screen and (min-width: 768px) {
+    .page-box {
+        font-size: 2em;
+    }
+
+    .cover-thumbnail img {
+        width:220px;
+        height:280px;
+    }
+
+    .movie-info-name-icon {
+        margin-top:-.7em;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+    }
+
+    .mobile-watchlist {
+        width: 250px;
+        padding: 1em 0;
+        margin-left: 250px;
+    }
 
 }
 
