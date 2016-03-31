@@ -9,7 +9,8 @@ define([
     'text!../templates/navigationBar.html',
     'models/navigationBarModel',
     'handlebars',
-], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars) {
+    'views/gravatarIcon',
+], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon) {
 
     return Backbone.View.extend({
 
@@ -33,6 +34,7 @@ define([
 
             this.$el.html(resultNavigationBar);
 
+            var gravatarIcons = new GravatarIcon('.user-icon');
         },
 
         events: {
