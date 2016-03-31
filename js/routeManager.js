@@ -172,7 +172,7 @@ define([
 
             uMovieRouter.on('route:showUser', function () {
                 session = new UserModel({id:Cookie.get('id')});
-                updateMainView(UserView, session);
+                updateMainView(UserSettingsView, session);
             });
 
             uMovieRouter.on('route:settings', function () {

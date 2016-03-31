@@ -19,18 +19,12 @@ define([
             var that = this;
             var sync = _.after(1, function(){
                 that.render();
-                that.listenTo(that, 'change', that.render());
-                that.listenTo(that, 'update', that.render());
             });
 
             this.model.url = this.model.changeUrlForUserInfo();
             this.model.fetch({
                success: sync
             });
-        },
-
-        events:{
-            'click .inputNewNameButton': 'updateModelName'
         },
 
         render: function (user) {
@@ -50,19 +44,7 @@ define([
 
         },
 
-        updateModelName: function(){
-            console.log("Je passe dans la methode...");
-            var newNameButton = event.currentTarget;
-            var $newName = $('.inputNewName');
 
-            if($newName != this.model.name){
-                this.model.name = $newName;
-            }
-
-            else{
-                console.log("Le nom entre est le meme !");
-            }
-        }
     });
 
     return UserView;

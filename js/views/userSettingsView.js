@@ -17,10 +17,16 @@ define([
 
     initialize: function(){
         var that = this;
+        that.listenTo(that, 'change', that.render());
+        that.listenTo(that, 'update', that.render());
         this.model.url = that.model.changeUrlForUserInfo();
         that.listenTo(this.model, "change", that.render);
         that.model.fetch();
 
+    },
+
+    events:{
+        'click .inputNewNameButton': 'updateModelName'
     },
 
     render: function(){
@@ -31,6 +37,22 @@ define([
 
         this.$el.html(resultUser);
     },
+
+    updateModelName: function(){
+        var model = this.model;
+        console.log("Je passe dans la methode...");
+        var newNameButton = event.currentTarget;
+        var newName = $('.inputNewName').val();
+
+        if(newName != model.name){
+            model.name = newName;
+
+        }
+
+        else{
+            console.log("Le nom entre est le meme !");
+        }
+    }
 
     });
 
