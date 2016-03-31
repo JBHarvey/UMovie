@@ -34,7 +34,7 @@ define([
 
             this.$el.html(resultNavigationBar);
 
-            var gravatarIcons = new GravatarIcon('.user-icon');
+            var gravatarIcons = new GravatarIcon('.user-icon', Cookie.get('email'));
         },
 
         events: {

@@ -1,16 +1,13 @@
 define([
     'jquery',
     'backbone',
-    'jscookie',
     'crypto',
-], function ($, Backbone, Cookie, Crypto) {
+], function ($, Backbone, Crypto) {
     'use strict';
 
     return Backbone.View.extend({
-        initialize: function (imageClass) {
+        initialize: function (imageClass, email) {
             var encodedEmail;
-            var email = Cookie.get('email');
-            console.log(email);
             if (typeof email === 'string' || email instanceof String) {
                 encodedEmail = Crypto.MD5(email);
             } else {
