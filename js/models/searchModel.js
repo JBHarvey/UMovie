@@ -55,7 +55,7 @@ define([
             let formattedParameter = '';
             if (parameterToAdd) {
                 formattedParameter = `${this.addParamSplitter()}${parameterToAdd}`;
-                this.addedParameters++;
+                ++this.addedParameters;
             }
 
             return formattedParameter;

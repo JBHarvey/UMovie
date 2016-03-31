@@ -34,11 +34,12 @@ define([
         },
 
         generateDefaultQuery: function () {
-            this.searchManager.setSearchType('tvshows/seasons');
-            this.searchManager.setSearchName('dead');
-            this.searchManager.setSearchLimit(100);
-            this.searchManager.setSearchGenre('');
-            return this.searchManager.url();
+            return this.searchManager
+                .setSearchType('tvshows/seasons')
+                .setSearchName('dead')
+                .setSearchLimit(100)
+                .setSearchGenre('')
+                .url();
         },
     });
     return TvShowsCollectionView;
