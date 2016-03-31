@@ -111,6 +111,9 @@ define([
              * @param newModel the model to give to the class so it can render it
              */
             var updateMainView = function (ViewClass, newModel) {
+                if (_.isObject(currentView)) {
+                    currentView.undelegateEvents();
+                }
                 if (checkCredentials()) {
                     currentView = newModel ? new ViewClass({ model:newModel }) : new ViewClass();
                 } else {
