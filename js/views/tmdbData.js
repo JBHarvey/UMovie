@@ -9,10 +9,11 @@ define([
     var TmdbModel = Backbone.View.extend({
 
 
-        initialize: function (searchRequest, imgClassName, bioClassName) {
+        initialize: function (searchRequest, imgIdName, bioIdName) {
             this.searchRequest = searchRequest;
-            this.imgClassName = imgClassName;
-            this.bioClassName = bioClassName;
+            this.imgIdName = imgIdName;
+            this.bioIdName = bioIdName;
+            console.log(this.imgIdName);
             var that = this;
             that.getTmdbData();
         },
@@ -28,9 +29,9 @@ define([
                 include_adult: true
             };
 
-           // var query = theMovieDb.common.generateQuery(searchOptions);
 
             var errorCB = function (data) {
+                console.log("Erreur");
                 console.log(data);
             };
 
@@ -47,7 +48,7 @@ define([
             };
 
 
-            theMovieDb.search.getPerson( searchOptions, searchSuccessCallback, errorCB);
+            theMovieDb.search.getPerson(searchOptions, searchSuccessCallback, errorCB);
 
 
 
@@ -64,7 +65,7 @@ define([
         modifySingleActorBio: function (biography) {
             var that = this;
 
-            $(that.bioClassName).each(function () {
+            $(that.bioIdName).each(function () {
                 $(this).text(biography);
             });
 
@@ -75,7 +76,8 @@ define([
             var that = this;
             if (image) {
                 var path = theMovieDb.common.images_uri + 'original' + image;
-                $(that.imgClassName).attr("src", path);
+               
+                $(that.imgIdName).attr("src", path);
 
                 //that.actor.attributes.imgActor = path;
             }

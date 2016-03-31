@@ -30,13 +30,23 @@ define([
         render: function() {
             var that = this;
             var tmdbData;
-            this.$el.html("");
-            this.collection.each(function(actor){
+            that.$el.html("");
+            that.collection.each(function(actor){
                 var thumbnail = new ThumbnailView({model: actor});
                 that.$el.append(thumbnail.renderActor());
-                //console.log(actor.attributes.artistName);
+
+                var nameEncode = encodeURI(actor.attributes.artistName);
+                var idImg = nameEncode + "Img";
+                var idBio = nameEncode + "Bio";
+
+                $('#idTmpImg').attr("id", idImg);
+                $('#idTmpBio').attr("id", idBio);
+
+                idImg = "#" + idImg;
+                idBio = "#" + idBio;
+
                 var searchRequest = encodeURI(actor.attributes.artistName);
-                tmdbData = new TmdbData(searchRequest, '.imageThumbnail', '.shortBio', actor);
+                tmdbData = new TmdbData(searchRequest, idImg, idBio);
 
             });
 
