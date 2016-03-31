@@ -22,7 +22,7 @@ define([
 
             var that = this;
             this.watchlists = new Watchlists();
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
                 'use strict';
@@ -38,12 +38,10 @@ define([
         },
 
         generateSearchRequest: function () {
-            return encodeURI(this.model.get('trackName') + ' trailer').replace(/%20/g, '+');
-        }, render: function () {
+            return this.model.get('trackName') + ' trailer';
+        },
 
-            'use strict';
-
-            // Encode the URI and replace the space by '+'
+        render: function () {
             var searchRequest = this.generateSearchRequest();
 
             //The data used in the template

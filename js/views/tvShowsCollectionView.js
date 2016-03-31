@@ -26,19 +26,20 @@ define([
 
         render: function () {
             var that = this;
-            this.$el.html("");
-            this.collection.each(function(tvShows){
-                var thumbnail = new ThumbnailView({model: tvShows});
+            this.$el.html('');
+            this.collection.each(function (tvShows) {
+                var thumbnail = new ThumbnailView({ model: tvShows });
                 that.$el.append(thumbnail.renderSeason());
             });
         },
 
         generateDefaultQuery: function () {
-            this.searchManager.setSearchType('tvshows/seasons');
-            this.searchManager.setSearchName('dead');
-            this.searchManager.setSearchLimit(100);
-            this.searchManager.setSearchGenre('');
-            return this.searchManager.url();
+            return this.searchManager
+                .setSearchType('tvshows/seasons')
+                .setSearchName('dead')
+                .setSearchLimit(100)
+                .setSearchGenre('')
+                .url();
         },
     });
     return TvShowsCollectionView;

@@ -8,7 +8,8 @@ define([
     var YoutubeVideo = Backbone.View.extend({
 
         initialize: function (searchRequest, className) {
-            this.searchRequest = searchRequest;
+            // Encode the URI of the search request
+            this.searchRequest = encodeURI(searchRequest).replace(/%20/g, '+');
             this.className = className;
             gapi.client.setApiKey('AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k');
 
