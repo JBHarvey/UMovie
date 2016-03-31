@@ -1,0 +1,210 @@
+/* General */
+.page-box {
+    background-color: #0E0F11;
+}
+
+/* Title and background image */
+.content-background-image img {
+    max-width:100%;
+}
+
+/* Cover image and preview video */
+.container-up-section {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #132340;
+    padding-right: 1em;
+}
+
+/* Cover image and main information(duration, release year, country) */
+.cover-thumbnail-image img {
+    margin-top: -20%;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
+}
+
+.main-info div {
+    display: inline;
+    font-size: 1em;
+    margin: 0 2em;
+}
+
+.main-info{
+    padding: 0.6em 0;
+    background-color: #05052B;
+}
+
+/* Preview video box */
+.preview-box span {
+    display: none;
+}
+
+/* Summary and detailed information */
+.summary{
+    padding: 0.6em 1em;
+    line-height: 1.7em;
+}
+
+.detailed-info {
+    background-color: #05052B;
+}
+
+.detailed-info-subject{
+    display: flex;
+}
+
+.movie-info-name-icon {
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+}
+
+.movie-info-pgrating-icon {
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+}
+
+.movie-info-director-icon {
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+}
+
+.movie-info-productionhouse-icon {
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
+}
+
+.movie-info-writers-icon {
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
+}
+
+.movie-info-language-icon{
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
+}
+
+.movie-info-price-icon {
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
+}
+
+.icon {
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 4%;
+    border: none;
+    width: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    display: inline-block;
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: #132340;
+    background-repeat: no-repeat;
+}
+
+/* Watchlist box */
+
+.watchlist-button-desktop {
+    background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:    -moz-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:     -ms-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:      -o-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:         linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    padding: 6px;
+    display: inline-block;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+    box-sizing: padding-box;
+    font-size: 0.9em;
+    font-family: Arial;
+    color: rgba(255,255,255,1);
+}
+.watchlist-button-desktop:hover {
+    background-image: -webkit-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:    -moz-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:     -ms-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:      -o-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:         linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    color: rgba(230,230,230,1);
+}
+
+.watchlist-button-desktop:active {
+    position:relative;
+    top:1px;
+}
+
+.watchlist-menu-group {
+    display: none;
+}
+
+.watchlist-menu {
+    padding: 0;
+
+    max-height: 100px;
+    overflow-y: scroll;
+
+    background-color: #0E0F11;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+
+    list-style-type: none;
+}
+
+.watchlist-select-group {
+    padding: 1em;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    transition: opacity ease-in-out .55s;
+}
+
+.watchlist-select-group:hover {
+    opacity: 0.8;
+}
+
+.watchlist-select-group:first-of-type {
+    border-top: none;
+}
+
+.watchlist-select-group:last-of-type {
+    border-bottom: none;
+}
+
+.new-watchlist {
+    background-color: #0E0F11;
+
+    padding: 1em;
+    margin-bottom: 1em;
+
+    border: 1px solid darkgray;
+    border-radius: 2px;
+}
+
+.new-watchlist-input {
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transition: border-color ease-in-out .15s,box-shadow cubic-bezier(1,0,0,1) .15s;
+}
+
+.new-watchlist-input:focus {
+    outline: 0;
+    border: 1px solid darkgray;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 980px) {
+
+}
