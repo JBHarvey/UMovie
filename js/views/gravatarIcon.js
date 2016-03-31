@@ -4,7 +4,7 @@ define([
     'jscookie',
     'crypto',
 ], function ($, Backbone, Cookie, Crypto) {
-    "use strict";
+    'use strict';
 
     return Backbone.View.extend({
         initialize: function (imageClass) {
