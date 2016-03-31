@@ -8,7 +8,7 @@
     max-width:100%;
 }
 
-/* Cover image and preview video */
+/* Main information */
 .container-up-section {
     width: 100%;
     display: flex;
@@ -18,7 +18,25 @@
 }
 
 /* Cover image and main information(duration, release year, country) */
-.cover-thumbnail-image img {
+.cover-thumbnail {
+    display: flex;
+}
+
+.cover-thumbnail span {
+    display: block;
+}
+
+.cover-thumbnail span:first-child {
+    font-size: 1em;
+    margin: 1em 0 .6em 0;
+}
+
+.cover-thumbnail span:last-child {
+    font-size: 0.8em;
+    margin: 0 0 1.4em 0;
+}
+
+.cover-thumbnail img {
     margin-top: -20%;
     padding: 1em 1em 0.6em 0.6em;
     width: 6.5em;

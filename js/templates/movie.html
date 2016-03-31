@@ -10,14 +10,19 @@
         <img src="url(../../img/movie-tvShow-content/background-movie.png">
     </div>
 
-    <!-- Cover image and preview video -->
+    <!-- Main information -->
     <div class="container-up-section movie-thumbnail-image">
 
         <!-- Cover image and main information(duration, release year, country) -->
         <div class="cover-box">
-            <div class="cover-thumbnail-image">
+            <div class="cover-thumbnail">
                 <img src="{{artworkUrl100}}"/>
+                <div>
+                    <span>{{trackName}}</span>
+                    <span>{{primaryGenreName}}</span>
+                </div>
             </div>
+
             <div class="main-info movie-short-technical-info-desktop movie-short-general-info-desktop-group">
                 <div class="movie-length">{{convertDuration}}</div>
                 <div class="movie-year">{{releaseYear}}</div>
@@ -32,7 +37,7 @@
         </div>
     </div>
 
-    <!-- Summary and detailed information -->
+    <!-- Summary and detailed information - Need refactor with Handlebars-->
     <div class="container-down-section">
         <div class="summary">{{longDescription}}</div>
 
