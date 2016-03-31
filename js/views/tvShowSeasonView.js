@@ -14,6 +14,7 @@ define([
     'views/youtubeVideos'
 ], function ($, _, Backbone, TvShowSeasonTemplate,TvShowEpisodeCollection,
              ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
+    "use strict";
 
     var TvShowSeasonView = Backbone.View.extend({
 
@@ -27,7 +28,6 @@ define([
             this.listenTo(this.model, "change", this.render);
 
             var syncRendering = _.after(2, function () {
-                "use strict";
                 that.render();
             });
 
@@ -41,7 +41,7 @@ define([
         },
 
         generateSearchRequest: function () {
-            return encodeURI(this.model.get('collectionName') + ' trailer').replace(/%20/g, '+');
+            return this.model.get('collectionName') + ' trailer';
         },
 
         render: function () {

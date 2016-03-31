@@ -38,12 +38,10 @@ define([
         },
 
         generateSearchRequest: function () {
-            return encodeURI(this.model.get('trackName') + ' trailer').replace(/%20/g, '+');
-        }, render: function () {
+            return this.model.get('trackName') + ' trailer';
+        },
 
-            'use strict';
-
-            // Encode the URI and replace the space by '+'
+        render: function () {
             var searchRequest = this.generateSearchRequest();
 
             //The data used in the template
