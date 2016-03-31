@@ -11,8 +11,8 @@ define([
     'views/thumbnailView',
     'models/tvShowEpisodeModel',
     'handlebars',
-    'views/youtubeVideos'
-], function ($, _, Backbone, TvShowSeasonTemplate,TvShowEpisodeCollection,
+    'views/youtubeVideos',
+], function ($, _, Backbone, TvShowSeasonTemplate, TvShowEpisodeCollection,
              ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
 
     var TvShowSeasonView = Backbone.View.extend({
@@ -24,19 +24,19 @@ define([
             var that = this;
             var seasonId = this.model.id;
             this.collection = new TvShowEpisodeCollection(seasonId);
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
 
             var syncRendering = _.after(2, function () {
-                "use strict";
+                'use strict';
                 that.render();
             });
 
             this.model.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
 
             this.collection.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
         },
 
@@ -53,11 +53,11 @@ define([
 
             this.$el.html(resultTvShowSeason);
             var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
-            this.collection.each(function(tvShowEpisode) {
-                var thumbnail = new ThumbnailView({model: tvShowEpisode});
-                $(".tvShow-episodes-box").append(thumbnail.renderEpisode());
+            this.collection.each(function (tvShowEpisode) {
+                var thumbnail = new ThumbnailView({ model: tvShowEpisode });
+                $('.tvShow-episodes-box').append(thumbnail.renderEpisode());
             });
-        }
+        },
 
     });
     return TvShowSeasonView;
