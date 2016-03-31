@@ -29,7 +29,7 @@ define([
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
         'views/tvShowEpisodeView',
-        'models/tvShowEpisodeModel'
+        'models/tvShowEpisodeModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, TvShowView, TvShowSeasonView,
                  TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView,
@@ -44,7 +44,7 @@ define([
                 tvShows: 'displayTvShows',
                 'tvShow/:tvShowId': 'displaySpecificTvShow',
                 'episode/:episodeId':'displaySpecificEpisode',
-                'actors': 'displayActors',
+                actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
                 user: 'showUser',
@@ -152,7 +152,7 @@ define([
 
             uMovieRouter.on('route:displaySpecificEpisode', function (episodeId) {
                 var newId = parseInt(episodeId);
-                var newTvShowEpisode = new TvShowEpisodeModel({id: newId});
+                var newTvShowEpisode = new TvShowEpisodeModel({ id: newId });
                 updateMainView(TvShowEpisodeView, newTvShowEpisode);
             });
 

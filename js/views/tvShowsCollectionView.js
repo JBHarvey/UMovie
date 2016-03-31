@@ -26,9 +26,9 @@ define([
 
         render: function () {
             var that = this;
-            this.$el.html("");
-            this.collection.each(function(tvShows){
-                var thumbnail = new ThumbnailView({model: tvShows});
+            this.$el.html('');
+            this.collection.each(function (tvShows) {
+                var thumbnail = new ThumbnailView({ model: tvShows });
                 that.$el.append(thumbnail.renderSeason());
             });
         },
