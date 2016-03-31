@@ -13,6 +13,7 @@ require.config({
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
         jscookie: 'lib/js.cookie',
+        crypto: 'plugins/google/md5',
     },
 });
 
