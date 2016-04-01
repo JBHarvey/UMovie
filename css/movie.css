@@ -22,7 +22,7 @@
 }
 
 /* Cover image and main information(duration, release year, country) */
-.cover-thumbnail {
+.cover-thumbnail, .cover-thumbnail title {
     display: flex;
 }
 
@@ -311,6 +311,10 @@ iframe {
     .cover-thumbnail img {
         width: 280px;
         height: 370px;
+    }
+
+    .cover-thumbnail, .cover-thumbnail title {
+        display: none;
     }
 
     .cover-box {

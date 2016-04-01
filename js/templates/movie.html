@@ -1,14 +1,26 @@
+<!-- name = Movie, collectionName = tvShow -->
 <head>
+    {{#if name}}
     <title>{{name}}</title>
+    {{else}}
+    <title>{{collectionName}}</title>
+    {{/if}}
 </head>
 
 <div class="page-box">
 
     <!-- Title and background image -->
+    {{#if trackName}}
     <div class="movie-title">{{trackName}}</div>
     <div class="movie-background-image">
         <img src="url(../../img/movie-tvShow-content/background-movie.png">
     </div>
+    {{else}}
+    <div class="movie-title">{{collectionName}}</div>
+    <div class="movie-background-image">
+        <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
+    </div>
+    {{/if}}
 
     <!-- Main information -->
     <div class="container-up-section">
@@ -18,13 +30,21 @@
             <div class="cover-thumbnail">
                 <img src="{{artworkUrl100}}"/>
                 <div>
-                    <span>{{trackName}}</span>
+                    {{#if trackName}}
+                    <title>{{trackName}}</title>
+                    {{else}}
+                    <title>{{collectionName}}</title>
+                    {{/if}}
                     <span>{{primaryGenreName}}</span>
                 </div>
             </div>
 
             <div class="main-info">
+                {{#if convertDuration}}
                 <div class="movie-length">{{convertDuration}}</div>
+                {{else}}
+                <div class="movie-length">{{trackCount}} episodes</div>
+                {{/if}}
                 <div class="movie-year">{{releaseYear}}</div>
                 <div class="movie-country">{{country}}</div>
             </div>
@@ -47,8 +67,13 @@
         <div class="detailed-info">
             <div class="detailed-info-subject">
                 <span class="movie-name movie-icon"></span>
+                {{#if trackName}}
                 <span>Title: </span>
                 {{trackName}}
+                {{else}}
+                <span>Serie: </span>
+                {{artistName}}
+                {{/if}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-rating movie-icon"></span>
@@ -57,8 +82,13 @@
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-director movie-icon"></span>
+                {{#if artistName}}
                 <span>Director: </span>
                 {{artistName}}
+                {{else}}
+                <span>Season: </span>
+                {{collectionName}}
+                {{/if}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-studio movie-icon"></span>
@@ -78,7 +108,11 @@
             <div class="detailed-info-subject">
                 <span class="movie-price movie-icon"></span>
                 <span>Price: </span>
+                {{#if collectionPrice}}
+                {{collectionPrice}} {{currency}}
+                {{else}}
                 {{trackPrice}} {{currency}}
+                {{/if}}
             </div>
         </div>
     </div>

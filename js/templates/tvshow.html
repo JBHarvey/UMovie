@@ -1,118 +1,137 @@
-<!-- Is not use right now -->
-
+<!-- name = Movie, collectionName = tvShow -->
 <head>
+    {{#if name}}
+    <title>{{name}}</title>
+    {{else}}
     <title>{{collectionName}}</title>
+    {{/if}}
 </head>
 
-<div class="tvShow-page">
-    <div class="desktop-title">{{collectionName}}</div>
-    <div class="tvShow-general-background">
+<div class="page-box">
+
+    <!-- Title and background image -->
+    {{#if trackName}}
+    <div class="movie-title">{{trackName}}</div>
+    <div class="movie-background-image">
+        <img src="url(../../img/movie-tvShow-content/background-movie.png">
+    </div>
+    {{else}}
+    <div class="movie-title">{{collectionName}}</div>
+    <div class="movie-background-image">
         <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
     </div>
+    {{/if}}
 
-    <div class="tvShow-bar">
-        <div class="tvShow-thumbnail-image">
-            <img src="{{artworkUrl100}}"/>
-            <div class="tvShow-short-technical-info-desktop">
+    <!-- Main information -->
+    <div class="container-up-section">
+
+        <!-- Cover image and main information(duration, release year, country) -->
+        <div class="cover-box">
+            <div class="cover-thumbnail">
+                <img src="{{artworkUrl100}}"/>
                 <div>
-                    <div class="tvShow-length">{{trackCount}} episodes</div>
-                    <div class="tvShow-year">{{releaseYear}}</div>
-                    <div class="tvShow-country">{{country}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="tvShow-bar-info">
-            <div class="tvShow-bar-title">{{collectionName}}</div>
-            <div class="tvShow-bar-genre">{{primaryGenreName}}</div>
-            <div class="tvShow-info-box-desktop">
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Genre:</span>
+                    {{#if name}}
+                    <title>{{trackName}}</title>
+                    {{else}}
+                    <title>{{collectionName}}</title>
+                    {{/if}}
                     <span>{{primaryGenreName}}</span>
                 </div>
-                <div class="movie-info-subject">
-                    <span class="movie-info-title-desktop">Serie:</span>
-                    <span>{{artistName}}</span>
-                </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">PG-Rating:</span>
-                    <span>{{contentAdvisoryRating}}</span>
-                </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Studio:</span>
-                    <span>{{productionHouse}}</span>
-                </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Writers:</span>
-                    <span>{{productionHouse}}</span>
-                </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Language:</span>
-                    <span>{{language}}</span>
-                </div>
-                <div class="tvShow-info-subject">
-                    <span class="tvShow-info-title-desktop">Price:</span>
-                    <span>{{collectionPrice}}</span>
-                </div>
-                <div class="tvShow-info-subject desktop-summary">
-                    <span class="tvShow-info-title-desktop">Summary:</span>
-                    <span>{{longDescription}}</span>
-                </div>
-                <div class="tvShow-info-subject ">
-                    <span class="tvShow-info-title-desktop">Trailer:</span>
-                    <span class="tvShow-season-video-preview tvShow-info-preview">
-                    </span>
-                </div>
-
             </div>
 
+            <div class="main-info">
+                {{#if convertDuration}}
+                <div class="movie-length">{{convertDuration}}</div>
+                {{else}}
+                <div class="movie-length">{{trackCount}} episodes</div>
+                {{/if}}
+                <div class="movie-year">{{releaseYear}}</div>
+                <div class="movie-country">{{country}}</div>
+            </div>
         </div>
 
-    </div>
-
-
-    <div class="tvShow-short-technical-info">
-        <div class="tvShow-length">{{trackCount}} episodes</div>
-        <div class="tvShow-year">{{releaseYear}}</div>
-        <div class="tvShow-country">{{country}}</div>
-    </div>
-
-    <div class="tvShow-summary">{{longDescription}}</div>
-
-    <div class="tvShow-info-box">
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-name-icon icon"></span>
-            {{collectionName}}
-        </div>
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-pgrating-icon icon"></span>
-            Rated {{contentAdvisoryRating}}
-        </div>
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-productionhouse-icon icon"></span>
-            {{productionHouse}}
-        </div>
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-writers-icon icon"></span>
-            {{writers}}
-        </div>
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-language-icon icon"></span>
-            {{language}}
-        </div>
-        <div class="tvShow-info-subject">
-            <span class="tvShow-info-price-icon icon"></span>
-            {{collectionPrice}} {{currency}}
+        <!-- Preview video box -->
+        <div class="preview-box">
+            <div class="preview-content-video movie-video-preview"></div>
         </div>
     </div>
 
-    <div class="tvShow-preview">
-        <span>Trailer</span>
-        <div class="tvShow-season-video-preview"></div>
+    <!-- Summary and detailed information -->
+    <div class="container-down-section">
+
+        <div class="summary">
+            <span>Summary:</span>
+            {{longDescription}}
+        </div>
+
+        <div class="detailed-info">
+            <div class="detailed-info-subject">
+                <span class="movie-name movie-icon"></span>
+                {{#if name}}
+                <span>Title: </span>
+                {{trackName}}
+                {{else}}
+                <span>Serie: </span>
+                {{artistName}}
+                {{/if}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-rating movie-icon"></span>
+                <span>Rating: </span>
+                Rated {{contentAdvisoryRating}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-director movie-icon"></span>
+                {{#if artistName}}
+                <span>Director: </span>
+                {{artistName}}
+                {{else}}
+                <span>Season: </span>
+                {{collectionName}}
+                {{/if}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-studio movie-icon"></span>
+                <span>Studio: </span>
+                {{productionHouse}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-writers movie-icon"></span>
+                <span>Writer: </span>
+                {{writers}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-language movie-icon"></span>
+                <span>Language: </span>
+                {{language}}
+            </div>
+            <div class="detailed-info-subject">
+                <span class="movie-price movie-icon"></span>
+                <span>Price: </span>
+                {{#if collectionPrice}}
+                {{collectionPrice}} {{currency}}
+                {{else}}
+                {{trackPrice}} {{currency}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Watchlist box -->
+    <div class="watchlist-button movie-watchlist-view">
+        <button class="watchlist-button-desktop mobile-watchlist">Add to watchlist</button>
+        <div class="watchlist-menu-group mobile-watchlist">
+            <ul class="watchlist-menu mobile-watchlist">
+                <li class="watchlist-select-group mobile-watchlist" data-id="create-watchlist"> New watchlist... </li>
+                {{#each watchlists}}
+                <li class="watchlist-select-group mobile-watchlist" data-id="{{id}}">{{name}}</li>
+                {{/each}}
+            </ul>
+            <div class="new-watchlist" style="display: none;">
+                <input type="text" class="new-watchlist-input" placeholder="Enter new watchlist name"/>
+                <button type="button" class="submit-new-watchlist" disabled="disabled">Submit</button>
+            </div>
+        </div>
     </div>
 
 </div>
-
-<div class="tvShow-episodes-box">
-    <span>Episodes</span>
-</div>
-
