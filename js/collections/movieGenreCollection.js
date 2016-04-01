@@ -3,14 +3,13 @@
  */
 define([
     'backbone',
-    'models/movieGenreModel'
+    'models/movieGenreModel',
 ], function (Backbone, MovieGenreModel) {
 
     var MovieGenres = Backbone.Model.Collection({
         url: '/genres/movies',
-        model: MovieGenreModel
+        model: MovieGenreModel,
     });
-
 
     return HomeModel;
 });

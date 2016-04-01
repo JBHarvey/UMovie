@@ -11,22 +11,21 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'text!templates/watchlist.html'
+    'text!templates/watchlist.html',
 ], function ($, _, Backbone, Handlebars, WatchlistTemplate) {
 
     var WatchlistView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function (watchlist) {
             this.model = watchlist;
         },
 
         render: function () {
-
             var template = Handlebars.compile(WatchlistTemplate);
             return template(this.model.attributes);
-        }
+        },
     });
 
     return WatchlistView;

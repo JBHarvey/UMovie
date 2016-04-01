@@ -1,5 +1,7 @@
 # UMovie
 
+[![Build Status](https://travis-ci.com/GLO3102/team01.svg?token=z8MuAdp4BiCLDyKa2y46&branch=master)](https://travis-ci.com/GLO3102/team01)
+
 ## About
 
 This project is made in a class context from the GLO-3102 course as Web Application Developpment at the Laval University. The project consists in creating a front-end (client) using an API given by the teachers. The project is mainly based on the client experience optimisation and the importance of the responsiveness. We decided not to use any tool for the CSS so that we could learn more on how to create great things using pure CSS. Eventually, the project will be linked to a MongoDB database to store user data and allow hosting on a real server.
@@ -41,3 +43,7 @@ You can find the way we use Git in the [wiki](https://github.com/GLO3102/team01/
 ### Program Usage
 
 You can find how to use our software in the [usage page](USAGES.md).
+
+### Contributing
+
+You can find more about how to contribute in the [contribute page](CONTRIBUTING.md).

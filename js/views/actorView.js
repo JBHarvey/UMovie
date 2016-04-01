@@ -2,7 +2,6 @@
  * Created by rives on 2016-01-28.
  */
 
-
 define([
     'jquery',
     'underscore',
@@ -10,12 +9,13 @@ define([
     'text!templates/actor.html',
     '../collections/movieCollection',
     'views/tmdbData',
-    'handlebars'
+    'handlebars',
     ], function($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
 
-    var ActorView = Backbone.View.extend({
 
-        el: $('#content'),
+        var ActorView = Backbone.View.extend({
+
+            el: '#content',
 
 
         initialize: function(){
@@ -37,8 +37,8 @@ define([
                 success: waitForRender
             });
 
-
         },
+
 
         generateSearchName: function () {
            return encodeURI(this.model.get('artistName'));
@@ -59,6 +59,6 @@ define([
             var tmdbData = new TmdbData(searchRequest,'imgActor', 'description');
         }
 
+        });
+        return ActorView;
     });
-    return ActorView;
-});

@@ -2,24 +2,22 @@
  * Created by rives on 2016-01-28.
  */
 
-
 define([
     'underscore',
-    'backbone'
+    'backbone',
 ], function (_, Backbone) {
 
     var ActorModel = Backbone.Model.extend({
-        urlRoot: "https://umovie.herokuapp.com/actors",
-        artist: '',
+        urlRoot: 'https://umovie.herokuapp.com/actors',
 
         parse(data) {
             if (data.results) {
                 return data.results[0];
             } else {
+
                 return data;
             }
         },
-
 
         defaults: {
             "urlRoot": 'https://umovie.herokuapp.com/actors/253584821',
@@ -33,8 +31,6 @@ define([
             "primaryGenreId": 100022,
             "radioStationUrl": "https://itunes.apple.com/station/idra.253584821",
             "imgActor" : "url(../../img/actor/noProfile.jpg",
-            "bio" : "",
-            "shortenBio" : ""
         }
 
     });
