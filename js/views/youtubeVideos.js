@@ -9,7 +9,12 @@ define([
 
         initialize: function (searchRequest, className) {
             // Encode the URI of the search request
-            this.searchRequest = encodeURI(searchRequest).replace(/%20/g, '+');
+            this.searchRequest = encodeURI(searchRequest)
+                .replace(/%20/g, '+')
+                .replace(/((\+)?(\()?(%5B)?[uU]nrated(\))?(%5D)?)/g, '')    // Removes 'Unrated' from the request
+                .replace(/%5B/g, '(')                                       // Replaces '[' by '('
+                .replace(/%5D/g, ')');                                      // Replaces ']' by ')'
+
             this.className = className;
             gapi.client.setApiKey('AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k');
 
