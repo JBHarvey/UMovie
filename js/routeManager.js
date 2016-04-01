@@ -114,6 +114,7 @@ define([
                 if (_.isObject(currentView)) {
                     currentView.undelegateEvents();
                 }
+
                 if (checkCredentials()) {
                     currentView = newModel ? new ViewClass({ model:newModel }) : new ViewClass();
                 } else {
