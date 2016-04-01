@@ -248,7 +248,7 @@ iframe {
 
     iframe {
         width: 100%;
-        height: 435px;
+        height: 300px;
     }
 
     .mobile-watchlist {
@@ -260,18 +260,26 @@ iframe {
 }
 
 @media screen and (min-width: 980px) {
+
+    .page-box {
+        /* padding: 0 .5em; */
+        background-color: black;
+    }
     .content-background-image {
         display: none;
     }
 
     .content-title {
-        margin-bottom: 70px;
+        margin: 0 0 2% 50%;
+        font-size: 1em;
+        color: darkgray;
     }
 
     .container-up-section {
         /* display: inline-flex; */
         flex-flow: row wrap;
-        background-color: #0E0F11;
+        justify-content: center;
+        background-color: black;
     }
 
     .cover-thumbnail {
@@ -279,30 +287,76 @@ iframe {
     }
 
     .cover-thumbnail img {
-        width:280px;
+        width: 270px;
         height:340px;
         /* margin-top: 0; */
     }
 
     .cover-box {
+        margin:  0 0 0;
         /* flex: inherit; */
         width: 40%;
     }
 
     .preview-box {
-        width: 600px;
-        /* height: 0; */
+        width: 500px;
+        /* height: 100px; */
     }
 
     .cover-thumbnail {
         display: block;
     }
 
-    .main-info {
-        width: 30%;
+    .main-info{
+        display: inline;
+        /* width: 00px; */
     }
 
     .cover-thumbnail img {
-        margin-top: 0;
+        /* margin-top: 0; */
+    }
+
+    .cover-thumbnail span {
+        display: none;
+    }
+
+    .main-info div {
+        margin: 0;
+    }
+
+    .main-info {
+        font-size: 13px;
+    }
+
+    .summary{
+        /* margin: 0 5% 0 50%; */
+        padding: 0.6em 10%;
+        font-size: 14px;
+        line-height: 1.7em;
+    }
+
+    .preview-box span {
+        display: block;
+        font-size: 14px;
+    }
+
+    .detailed-info {
+        font-size: 0.4em;
+        margin: 0 0 0 5%;
+        min-width: 400px;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .container-down-section {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .watchlist-button {
+        display: flex;
+        justify-content: flex-end;
     }
 }
