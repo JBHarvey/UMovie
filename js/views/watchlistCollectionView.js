@@ -49,7 +49,6 @@ define([
                 that.$el.append(watchListView.render());
             });
 
-            that.$el.append('<button id="remove-watchlist-movie" class="delete-btn btn">Remove Movies</button>');
             that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete Watchlists</button>');
 
         },
@@ -58,7 +57,7 @@ define([
             'click #delete-watchlist': 'deleteWatchlists',
             'keyup #add-watchlist-text': 'checkAddWatchlistText',
             'click #add-watchlist-button': 'addWatchlist',
-            'click #remove-watchlist-movie': 'removeWatchlistMovie',
+            'click .remove-watchlist-movie': 'removeWatchlistMovie',
             'dblclick .watchlist-title': 'editWatchlist',
             'click .watchlist-cancel': 'cancelEditing',
             'keyup .watchlist-title-input': 'checkChangeTitleText',
@@ -107,6 +106,8 @@ define([
         },
 
         removeWatchlistMovie: function (event) {
+            var currentButton = event.currentTarget;
+
             var checkedValues = $('.delete-watchlist-movie-checkbox:checkbox:checked')
                 .map(function () {
                     return {
@@ -115,11 +116,16 @@ define([
                     };
                 }).get();
 
+            checkedValues = checkedValues.filter(function (idObject) {
+                return idObject.watchlistID === currentButton.dataset.id;
+            });
+
             var that = this;
+            var movies = new MovieCollection(that.collection
+                .get(currentButton.dataset.id)
+                .get('movies'));
+
             checkedValues.forEach(function (idObject) {
-                var movies = new MovieCollection(that.collection
-                    .get(idObject.watchlistID)
-                    .get('movies'));
                 var movie = movies.get(idObject.movieID);
                 that.collection.get(idObject.watchlistID).removeMovie(movie);
 
