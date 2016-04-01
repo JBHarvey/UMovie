@@ -14,7 +14,7 @@
     position: relative;
 }
 
-.imgActor {
+#imgActor {
     max-width: 50%;
     height: auto;
     float: left;
@@ -39,7 +39,7 @@
     margin-top: 0;
 }
 
-.description {
+#description {
     width: 100%;
 }
 
@@ -105,7 +105,7 @@
 @media screen and (min-width: 640px){
 
 
-    .description {
+    #description {
         float: right;
         width: 65%;
 
@@ -114,7 +114,7 @@
         float: left;
         width: 30%;
     }
-    .imgActor{
+    #imgActor{
 
         float: none;
         max-width: 80%;
@@ -188,7 +188,7 @@
 
     }
 
-    .imgActor {
+    #imgActor {
         max-width: 50%;
         margin: 10% 25%;
     }

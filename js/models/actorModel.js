@@ -32,7 +32,7 @@ define([
             "primaryGenreName": "Tribute",
             "primaryGenreId": 100022,
             "radioStationUrl": "https://itunes.apple.com/station/idra.253584821",
-            "imgActor" : "url(../../img/actor/noProfile.png",
+            "imgActor" : "url(../../img/actor/noProfile.jpg",
             "bio" : "",
             "shortenBio" : ""
         }

@@ -35,27 +35,32 @@ define([
                 var thumbnail = new ThumbnailView({model: actor});
                 that.$el.append(thumbnail.renderActor());
 
-                var nameEncode = encodeURI(actor.attributes.artistName);
+                var artistName = actor.attributes.artistName;
+                var nameEncode = that.removeSpace(artistName);
+
                 var idImg = nameEncode + "Img";
                 var idBio = nameEncode + "Bio";
 
                 $('#idTmpImg').attr("id", idImg);
                 $('#idTmpBio').attr("id", idBio);
 
-                idImg = "#" + idImg;
-                idBio = "#" + idBio;
 
                 var searchRequest = encodeURI(actor.attributes.artistName);
                 tmdbData = new TmdbData(searchRequest, idImg, idBio);
+
 
             });
 
         },
 
+        removeSpace: function(stringToChange) {
+            return stringToChange.replace(/ /i, '_');
+        },
+
         generateDefaultQuery: function() {
             this.searchManager.setSearchType('actors');
-            this.searchManager.setSearchName('Ron Jeremy');
-            this.searchManager.setSearchLimit(15);
+            this.searchManager.setSearchName('Brad');
+            this.searchManager.setSearchLimit(40);
             return this.searchManager.url();
 
         }

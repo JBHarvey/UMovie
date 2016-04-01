@@ -1,19 +1,17 @@
-
-
 define([
     'jquery',
     'underscore',
     'backbone',
     'theMovieDb'
-], function($, _, Backbone, theMovieDb) {
-    var TmdbModel = Backbone.View.extend({
+], function ($, _, Backbone, theMovieDb) {
+
+    var TmdbView = Backbone.View.extend({
 
 
         initialize: function (searchRequest, imgIdName, bioIdName) {
             this.searchRequest = searchRequest;
             this.imgIdName = imgIdName;
             this.bioIdName = bioIdName;
-            console.log(this.imgIdName);
             var that = this;
             that.getTmdbData();
         },
@@ -38,24 +36,24 @@ define([
             var searchSuccessCallback = function (data) {
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
+                if (artistSearchInfo  != null) {
+                    theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
+                        var artistInfo = JSON.parse(data);
 
-
-                theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
-                    var artistInfo = JSON.parse(data);
-                    that.modifySingleActorBio(artistInfo.biography)
-                        .modifySingleActorImage(artistSearchInfo.profile_path);
-                }, errorCB);
+                        that.modifySingleActorBio(artistInfo.biography)
+                            .modifySingleActorImage(artistSearchInfo.profile_path);
+                    }, errorCB);
+                }
             };
 
 
             theMovieDb.search.getPerson(searchOptions, searchSuccessCallback, errorCB);
 
 
-
         },
 
         shortenText: function (textToShortent, length) {
-            var newLength = length || 200;
+            var newLength = length || 300;
             return `${textToShortent.slice(0, newLength)} ... `;
 
 
@@ -65,26 +63,35 @@ define([
         modifySingleActorBio: function (biography) {
             var that = this;
 
-            $(that.bioIdName).each(function () {
-                $(this).text(biography);
-            });
+            if (biography) {
 
+                const actorBioId =that.bioIdName;
+                $(`#${actorBioId}`).each(function () {
+                    if (actorBioId !== 'description'){
+                        $(this).text(that.shortenText(biography));
+                    }
+                    else{
+                        $(this).text(biography);
+                    }
+                });
+            }
             return this;
         },
 
         modifySingleActorImage: function (image) {
             var that = this;
+
             if (image) {
                 var path = theMovieDb.common.images_uri + 'original' + image;
-               
-                $(that.imgIdName).attr("src", path);
 
-                //that.actor.attributes.imgActor = path;
+                const actorImageId = that.imgIdName;
+
+                $(`#${actorImageId}`).attr("src", path);
             }
 
             return this;
         }
 
     });
-    return TmdbModel;
+    return TmdbView;
 });
