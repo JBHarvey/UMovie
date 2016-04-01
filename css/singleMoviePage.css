@@ -49,6 +49,7 @@
 }
 
 .main-info{
+    /* margin: 0; */
     padding: 0.6em 0;
     background-color: #05052B;
 }
@@ -238,7 +239,6 @@ iframe {
 
 @media screen and (min-width: 768px) {
     .page-box {
-        display: block;
         font-size: 2em;
     }
 
@@ -248,18 +248,32 @@ iframe {
     }
 
     .movie-info-name-icon {
-        margin-top:-.7em;
+        margin-top: -.5em;
     }
 
     iframe {
         width: 100%;
-        height: 300px;
+        height: 450px;
     }
 
     .mobile-watchlist {
         width: 250px;
         padding: 1em 0;
         margin-left: 250px;
+    }
+
+    .preview-box {
+        width: 100%;
+        background-color: black;
+    }
+
+    .main-info {
+        display: flex;
+        justify-content: center;
+    }
+
+    .detailed-info {
+        padding-top: 1.5%;
     }
 
 }
@@ -319,13 +333,14 @@ iframe {
     }
 
     .main-info {
+        display: block;
         background-color: black;
         margin-left: 7em;
         font-size: 13px;
     }
 
     .summary{
-        padding: 0.6em 10%;
+        padding: 0 10%;
         font-size: 14px;
         line-height: 1.7em;
     }
@@ -342,7 +357,7 @@ iframe {
 
     .detailed-info {
         background-color: black;
-        font-size: 15px;
+        font-size: 14px;
         margin: 1em 0 0 10%;
         min-width: 310px;
     }
@@ -384,5 +399,14 @@ iframe {
 
     .preview-content-video {
         margin-left: 2%;
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .detailed-info {
+        padding-top: 13px;
     }
 }
