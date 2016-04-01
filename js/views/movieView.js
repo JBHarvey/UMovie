@@ -35,7 +35,6 @@ define([
             this.watchlists.fetch({
                 success: syncRendering,
             });
-            console.log(this.watchlists);
         },
 
         generateSearchRequest: function () {
