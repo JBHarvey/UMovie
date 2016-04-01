@@ -1,6 +1,140 @@
-html{
-    font-family: "Helvetica Neue"; /* Temporary*/
+/* General */
+.page-box {
+    background-color: #0E0F11;
 }
+
+/* Title and background image */
+.movie-background-image img {
+    max-width:100%;
+}
+
+.movie-title {
+    display: none;
+}
+
+/* Main information */
+.container-up-section {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #132340;
+    padding-right: 1em;
+}
+
+/* Cover image and main information(duration, release year, country) */
+.cover-thumbnail {
+    display: flex;
+}
+
+.cover-thumbnail span {
+    display: block;
+}
+
+.cover-thumbnail span:first-child {
+    font-size: 1em;
+    margin: 1em 0 .6em 0;
+}
+
+.cover-thumbnail span:last-child {
+    font-size: 0.8em;
+    margin: 0 0 1.4em 0;
+}
+
+.cover-thumbnail img {
+    margin-top: -20%;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
+}
+
+.main-info div {
+    display: inline;
+    font-size: 1em;
+    margin: 0 2em;
+}
+
+.main-info{
+    padding: 0.6em 0;
+    background-color: #05052B;
+}
+
+/* Preview video box */
+.preview-box span {
+    display: none;
+}
+
+iframe {
+    width: 100%;
+    height: 267px;
+}
+
+/* Summary and detailed information */
+.summary{
+    padding: 0.6em 1em;
+    line-height: 1.7em;
+}
+
+.summary span{
+    display: none;
+}
+
+.detailed-info {
+    background-color: #05052B;
+}
+
+.detailed-info-subject{
+    display: flex;
+}
+
+.detailed-info-subject span:nth-child(2) {
+    display: none;
+}
+
+.movie-name {
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+}
+
+.movie-rating {
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+}
+
+.movie-director {
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+}
+
+.movie-studio {
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
+}
+
+.movie-writers {
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
+}
+
+.movie-language{
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
+}
+
+.movie-price {
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
+}
+
+.movie-icon {
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 4%;
+    border: none;
+    width: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    display: inline-block;
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: #132340;
+    background-repeat: no-repeat;
+}
+
+/* Watchlist box */
 
 .watchlist-button-desktop {
     background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
@@ -102,296 +236,182 @@ html{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
 
-.movie-page {
-    background-color: #0E0F11;
+.mobile-watchlist {
+    margin: 1em 100px 1em 100px;
 }
-
-.movie-general-background img{
-    max-width:100%;
-}
-
-.movie-thumbnail-image img {
-    margin-top: -40%;
-    padding: 1em 1em 0.6em 0.6em;
-    width: 6.5em;
-}
-
-.movie-bar {
-    display: flex;
-    background-color: #132340;
-    padding-right: 1em;
-}
-
-.movie-bar-title{
-    font-size: 1em;
-    margin-top: 1em;
-}
-
-.movie-bar-genre{
-    margin-top: 0.8em;
-    font-size: .8em;
-    font-style: italic;
-}
-
-.movie-short-technical-info div{
-    display: inline;
-    font-size: 1em;
-    margin: 0 2em;
-}
-
-.movie-short-technical-info{
-    padding: 0.6em 0;
-    background-color: #05052B;
-}
-
-.movie-summary{
-    padding: 0.6em 1em;
-    line-height: 1.7em;
-}
-
-.movie-info-box{
-    background-color: #05052B;
-    text-align:-webkit-center;
-}
-
-.movie-info-subject{
-    display: flex;
-    text-align: left;
-    width:100%;
-}
-
-.icon {
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    margin-right: 0.5em;
-    padding: 4%;
-    border: none;
-    width: 100%;
-    max-width: 32px;
-    max-height: 32px;
-    display: inline-block;
-    background-size: 80% 80%;
-    background-position: center;
-    background-color: #132340;
-    background-repeat: no-repeat;
-}
-
-.movie-info-name-icon{
-    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
-}
-
-.movie-info-pgrating-icon{
-    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
-}
-
-.movie-info-director-icon{
-    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
-}
-
-.movie-info-productionhouse-icon{
-    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
-}
-
-.movie-info-writers-icon{
-    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
-}
-
-.movie-info-language-icon{
-    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
-}
-
-.movie-info-price-icon{
-    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
-}
-
-.movie-preview {
-    margin-top: 5%;
-}
-
-.movie-preview span{
-    margin-left: 5%;
-}
-
-.movie-info-box-desktop, .movie-summary-desktop, .desktop-title, .movie-short-technical-info-desktop{
-    display: none;
-}
-
 
 @media screen and (min-width: 768px) {
-
-    .movie-page {
+    .page-box {
         font-size: 2em;
     }
 
-    .movie-bar-genre{
-        font-size: 1em;
+    .cover-thumbnail img {
+        width:220px;
+        height:280px;
     }
 
-    .movie-info-subject{
-        text-align: left;
+    .movie-name {
+        margin-top: -.5em;
     }
 
-    .movie-thumbnail-image img {
-        width:9.5em;
+    iframe {
+        width: 100%;
+        height: 450px;
     }
 
-    .movie-short-technical-info div{
-        padding: 0 1.3em;
+    .mobile-watchlist {
+        width: 250px;
+        padding: 1em 0;
+        margin-left: 250px;
     }
 
-    .movie-summary{
-        margin: 0.7em 0;
+    .preview-box {
+        width: 100%;
+        background-color: black;
     }
 
-    .movie-info-box{
-        padding: 0 0;
+    .main-info {
+        display: flex;
+        justify-content: center;
     }
 
-    .movie-info-name-icon{
-        margin-top:-.7em;
+    .detailed-info {
+        padding-top: 1.5%;
     }
 
-    .movie-info-price-icon{
-        margin-bottom:-.4em;
-    }
-
-    .myButton-desktop {
-        display : none;
-    }
 }
 
 @media screen and (min-width: 980px) {
 
-    .movie-thumbnail-image img {
-        margin-top: -100%;
+    .page-box {
+        background-color: black;
     }
 
-    .movie-bar-genre, .movie-bar-title, .movie-bar-title .movie-bar-genre,
-    .movie-info-box-desktop .icon, .movie-info-box, .mobile-watchlist, .movie-short-technical-info, .movie-summary {
+    .movie-background-image {
         display: none;
     }
 
-    .movie-info-subject, .movie-info-subject-content{
-        display: inline-flex;
-        font-size: 1.4em;
-        width: 45em;
-    }
-
-    .desktop-title{
-        margin-top: 100px;
-        padding-top: 4%;
-        margin-bottom: -9%;
-        font-size: 1.5em;
-        width: 80%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-    }
-
-    .movie-page {
-        margin:0;
-        padding:0;
-        background-color:#0E0F11;
-        font-size:1em;
-        width:auto;
-    }
-
-    .movie-bar{
-        background-color:#0E0F11;
-        display:inline-flex;
-        width: 100%;
-    }
-
-    .movie-short-technical-info{
-        background-color:#0E0F11;
-    }
-
-    .movie-thumbnail-image{
-        margin: 13% 2em 0 10%;
-    }
-
-    .movie-thumbnail-image img{
-        width: 60%;
-    }
-
-    .movie-info-box-desktop{
-        margin-top: 2%;
-        margin-bottom: 10%;
+    .movie-title {
         display: block;
-        width: 100%;
+        margin: 0 0 2% 43%;
+        font-size: 30px;
+        color: darkgray;
+    }
+
+    .container-up-section {
+        flex-flow: row wrap;
+        margin: 0 0 0 5%;
+        background-color: black;
+    }
+
+    .cover-thumbnail {
+        margin-left: 45px;
+    }
+
+    .cover-thumbnail img {
+        width: 280px;
+        height: 370px;
+    }
+
+    .cover-box {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 0;
+        width: 38%;
+    }
+
+    .preview-box {
+        width: 500px;
+        margin-left: 4%;
+    }
+
+    .cover-thumbnail {
+        display: block;
+    }
+
+    .cover-thumbnail span {
+        display: none;
+    }
+
+    .main-info div {
+        margin: 1em;
+    }
+
+    .main-info {
+        display: block;
+        background-color: black;
+        margin-left: 7em;
         font-size: 13px;
     }
 
+    .summary{
+        padding: 0 10%;
+        font-size: 14px;
+        line-height: 1.7em;
+    }
 
-    .movie-info-box-desktop .movie-info-subject-content span{
+    .summary span{
         display: block;
-        width: 40em;
+        color: #0085FF;
     }
 
-
-    .movie-short-technical-info{
-        background-color:blue;
-        width: 30%;
-        margin-left:4em;
-    }
-
-    .movie-summary-desktop{
-        width: 20em;
-        background-color:red;
+    .preview-box span {
         display: block;
+        font-size: 14px;
     }
 
-    .movie-preview{
-        display: inline;
-        float: right;
-        width:50%;
-        margin-right: 10%;
+    .detailed-info {
+        background-color: black;
+        font-size: 14px;
+        margin: 1em 0 0 10%;
+        min-width: 310px;
     }
 
-    .movie-bar-info{
-        width: 100%;
+    .movie-icon {
+        display: none;
     }
 
-    .movie-info-price-icon{
-        margin-bottom:4em;
+    .container-down-section {
+        display: flex;
+        flex-direction: row-reverse;
     }
 
-    .movie-info-preview video{
-        width:80%;
+    .watchlist-button {
+        display: flex;
+        justify-content: flex-end;
     }
 
-    .movie-info-title-desktop{
-        width: 5em;
+    .detailed-info-subject {
+        display:flex;
+    }
+
+    .detailed-info-subject span:nth-child(2){
+        display: block;
+        padding: 0 .5em;
+        color: #0085FF;
         text-align: right;
-        margin-right: 1em;
-        color: rgba(43, 105, 226, 0.99);
+        min-width: 5em;
     }
 
-    .desktop-preview{
-        margin-top: 3em;
+    .watchlist-button-desktop {
+        font-size: 15px;
+        margin: 0 12%;
     }
 
-    .desktop-preview video {
-        width: 80%;
+    .mobile-watchlist {
+        width: 200px;
     }
 
-    .desktop-summary{
-        margin-top: 3em;
+    .preview-content-video {
+        margin-left: 2%;
     }
 
-    .movie-short-technical-info-desktop{
-        display: block;
+    iframe {
+        width: 100%;
+        height: 300px;
     }
 
-    .movie-short-general-info-desktop-group div{
-        font-size: 0.7em;
-        margin: 0 2.1em;
+    .detailed-info {
+        padding-top: 13px;
     }
-
-    .movie-short-technical-info-desktop div{
-        display: inline-flex;
-    }
-
 }
