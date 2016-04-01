@@ -59,6 +59,7 @@ define([
             'click #add-watchlist-button': 'addWatchlist',
             'click .remove-watchlist-movie': 'removeWatchlistMovie',
             'dblclick .watchlist-title': 'editWatchlist',
+            'click .watchlist-edit-button': 'editWatchlist',
             'click .watchlist-cancel': 'cancelEditing',
             'keyup .watchlist-title-input': 'checkChangeTitleText',
             'click .watchlist-submit-button': 'submitChanges',
@@ -147,7 +148,8 @@ define([
                 previousWatchlist = previousWatchlist[0];
                 var previousWatchlistModel = this.collection.get(previousWatchlist.dataset.id);
                 previousWatchlist.innerHTML = '<h4 class="watchlist-title">' +
-                    previousWatchlistModel.get('name') + '</h4>';
+                    previousWatchlistModel.get('name') + '</h4><button class="watchlist-edit-button btn submit-btn" ' +
+                    'type="button">Edit</button>';
             }
 
             var currentTargetParent = event.currentTarget.parentElement;
@@ -163,8 +165,8 @@ define([
         cancelEditing: function (event) {
             var currentTargetParent = event.currentTarget.parentElement;
             var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
-            currentTargetParent.innerHTML = '<h4 class="watchlist-title">' +
-                currentWatchlist.get('name') + '</h4>';
+            currentTargetParent.innerHTML = '<h4 class="watchlist-title">' + currentWatchlist.get('name') + '</h4>' +
+                '<button class="watchlist-edit-button btn submit-btn" type="button">Edit</button>';
         },
 
         checkChangeTitleText: function (event) {
