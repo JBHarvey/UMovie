@@ -50,7 +50,6 @@
 
 .main-info{
     padding: 0.6em 0;
-    /* width: 30%; */
     background-color: #05052B;
 }
 
@@ -82,7 +81,7 @@ iframe {
     display: flex;
 }
 
-.detailed-info-subject {
+.detailed-info-subject span:nth-child(2) {
     display: none;
 }
 
@@ -241,13 +240,11 @@ iframe {
     .page-box {
         display: block;
         font-size: 2em;
-        /* width: 100%; */
     }
 
     .cover-thumbnail img {
         width:220px;
         height:280px;
-        /* margin-top: 0; */
     }
 
     .movie-info-name-icon {
@@ -270,7 +267,6 @@ iframe {
 @media screen and (min-width: 980px) {
 
     .page-box {
-        /* padding: 0 .5em; */
         background-color: black;
     }
     .content-background-image {
@@ -284,10 +280,8 @@ iframe {
     }
 
     .container-up-section {
-        /* display: inline-flex; */
         flex-flow: row wrap;
         margin: 0 0 0 5%;
-        /* justify-content: center; */
         background-color: black;
     }
 
@@ -298,34 +292,22 @@ iframe {
     .cover-thumbnail img {
         width: 280px;
         height: 370px;
-        /* margin-top: 0; */
     }
 
     .cover-box {
         display: flex;
         flex-direction: column;
         margin: 0 0 0 0;
-        /* flex: inherit; */
         width: 38%;
     }
 
     .preview-box {
         width: 500px;
         margin-left: 4%;
-        /* height: 100px; */
     }
 
     .cover-thumbnail {
         display: block;
-    }
-
-    .main-info{
-        /* display: inline; */
-        /* width: 00px; */
-    }
-
-    .cover-thumbnail img {
-        /* margin-top: 0; */
     }
 
     .cover-thumbnail span {
@@ -337,14 +319,12 @@ iframe {
     }
 
     .main-info {
-        /* text-align: center; */
         background-color: black;
         margin-left: 7em;
         font-size: 13px;
     }
 
     .summary{
-        /* margin: 0 5% 0 50%; */
         padding: 0.6em 10%;
         font-size: 14px;
         line-height: 1.7em;
@@ -386,10 +366,11 @@ iframe {
     }
 
     .detailed-info-subject span:nth-child(2){
+        display: block;
         padding: 0 .5em;
         color: #0085FF;
         text-align: right;
-        width:5em;
+        min-width: 5em;
     }
 
     .watchlist-button-desktop {
