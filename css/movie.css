@@ -1,4 +1,8 @@
 /* General */
+html{
+    font-family: "Helvetica Neue";
+}
+
 .page-box {
     background-color: #0E0F11;
 }
@@ -69,12 +73,9 @@ iframe {
 
 /* Summary and detailed information */
 .summary{
+    display: block;
     padding: 0.6em 1em;
     line-height: 1.7em;
-}
-
-.summary span{
-    display: none;
 }
 
 .detailed-info {
