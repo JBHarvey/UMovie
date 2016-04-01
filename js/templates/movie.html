@@ -39,35 +39,45 @@
 
     <!-- Summary and detailed information - Need refactor with Handlebars-->
     <div class="container-down-section">
-        <div class="summary">{{longDescription}}</div>
+        <div class="summary">
+            <span>Summary:</span>
+            {{longDescription}}
+        </div>
 
         <div class="detailed-info movie-info-box-desktop">
             <div class="detailed-info-subject">
                 <span class="movie-info-name-icon icon"></span>
+                <span>Title: </span>
                 {{trackName}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-pgrating-icon icon"></span>
+                <span>Rating: </span>
                 Rated {{contentAdvisoryRating}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-director-icon icon"></span>
+                <span>Director: </span>
                 {{artistName}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-productionhouse-icon icon"></span>
+                <span>Studio: </span>
                 {{productionHouse}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-writers-icon icon"></span>
+                <span>Writer: </span>
                 {{writers}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-language-icon icon"></span>
+                <span>Language: </span>
                 {{language}}
             </div>
             <div class="detailed-info-subject">
                 <span class="movie-info-price-icon icon"></span>
+                <span>Price: </span>
                 {{trackPrice}} {{currency}}
             </div>
         </div>

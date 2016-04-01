@@ -70,12 +70,20 @@ iframe {
     line-height: 1.7em;
 }
 
+.summary span{
+    display: none;
+}
+
 .detailed-info {
     background-color: #05052B;
 }
 
 .detailed-info-subject{
     display: flex;
+}
+
+.detailed-info-subject {
+    display: none;
 }
 
 .movie-info-name-icon {
@@ -270,15 +278,16 @@ iframe {
     }
 
     .content-title {
-        margin: 0 0 2% 50%;
-        font-size: 1em;
+        margin: 0 0 2% 43%;
+        font-size: 30px;
         color: darkgray;
     }
 
     .container-up-section {
         /* display: inline-flex; */
         flex-flow: row wrap;
-        justify-content: center;
+        margin: 0 0 0 5%;
+        /* justify-content: center; */
         background-color: black;
     }
 
@@ -287,19 +296,22 @@ iframe {
     }
 
     .cover-thumbnail img {
-        width: 270px;
-        height:340px;
+        width: 280px;
+        height: 370px;
         /* margin-top: 0; */
     }
 
     .cover-box {
-        margin:  0 0 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 0;
         /* flex: inherit; */
-        width: 40%;
+        width: 38%;
     }
 
     .preview-box {
         width: 500px;
+        margin-left: 4%;
         /* height: 100px; */
     }
 
@@ -308,7 +320,7 @@ iframe {
     }
 
     .main-info{
-        display: inline;
+        /* display: inline; */
         /* width: 00px; */
     }
 
@@ -321,10 +333,13 @@ iframe {
     }
 
     .main-info div {
-        margin: 0;
+        margin: 1em;
     }
 
     .main-info {
+        /* text-align: center; */
+        background-color: black;
+        margin-left: 7em;
         font-size: 13px;
     }
 
@@ -335,15 +350,21 @@ iframe {
         line-height: 1.7em;
     }
 
+    .summary span{
+        display: block;
+        color: #0085FF;
+    }
+
     .preview-box span {
         display: block;
         font-size: 14px;
     }
 
     .detailed-info {
-        font-size: 0.4em;
-        margin: 0 0 0 5%;
-        min-width: 400px;
+        background-color: black;
+        font-size: 15px;
+        margin: 1em 0 0 10%;
+        min-width: 310px;
     }
 
     .icon {
@@ -358,5 +379,29 @@ iframe {
     .watchlist-button {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .detailed-info-subject {
+        display:flex;
+    }
+
+    .detailed-info-subject span:nth-child(2){
+        padding: 0 .5em;
+        color: #0085FF;
+        text-align: right;
+        width:5em;
+    }
+
+    .watchlist-button-desktop {
+        font-size: 15px;
+        margin: 0 12%;
+    }
+
+    .mobile-watchlist {
+        width: 200px;
+    }
+
+    .preview-content-video {
+        margin-left: 2%;
     }
 }
