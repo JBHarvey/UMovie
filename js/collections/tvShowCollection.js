@@ -6,7 +6,7 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/tvShowSeasonModel'
+    '../models/tvShowSeasonModel',
 ], function ($, _, Backbone, Cookie, TvShowModel) {
 
     var TvShows = Backbone.Collection.extend({
@@ -15,7 +15,7 @@ define([
 
         parse: function (response) {
             return response.results;
-        }
+        },
     });
     return TvShows;
 

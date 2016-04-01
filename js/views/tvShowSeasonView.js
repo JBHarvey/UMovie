@@ -11,47 +11,53 @@ define([
     'views/thumbnailView',
     'models/tvShowEpisodeModel',
     'handlebars',
-    'models/searchModel'
-], function ($, _, Backbone, TvShowSeasonTemplate,TvShowEpisodeCollection,
-             ThumbnailView, TvShowEpisodeModel, Handlebars, SearchModel) {
+    'views/youtubeVideos',
+], function ($, _, Backbone, TvShowSeasonTemplate, TvShowEpisodeCollection,
+             ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
+    'use strict';
 
     var TvShowSeasonView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
 
             var that = this;
             var seasonId = this.model.id;
-            this.searchManager = new SearchModel();
             this.collection = new TvShowEpisodeCollection(seasonId);
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
 
             var syncRendering = _.after(2, function () {
-                "use strict";
                 that.render();
             });
 
             this.model.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
 
             this.collection.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
         },
 
+        generateSearchRequest: function () {
+            return this.model.get('collectionName') + ' trailer';
+        },
+
         render: function () {
+            var searchRequest = this.generateSearchRequest();
+
             var template = Handlebars.compile(TvShowSeasonTemplate);
             var source = this.model.attributes;
             var resultTvShowSeason = template(source);
 
             this.$el.html(resultTvShowSeason);
-            this.collection.each(function(tvShowEpisode) {
-                var thumbnail = new ThumbnailView({model: tvShowEpisode});
-                $(".tvShow-episodes-box").append(thumbnail.renderEpisode());
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
+            this.collection.each(function (tvShowEpisode) {
+                var thumbnail = new ThumbnailView({ model: tvShowEpisode });
+                $('.tvShow-episodes-box').append(thumbnail.renderEpisode());
             });
-        }
+        },
 
     });
     return TvShowSeasonView;

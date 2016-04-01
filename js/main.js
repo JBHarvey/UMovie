@@ -5,7 +5,6 @@
  * loads the initial dependencies to the project.
  */
 
-
 require.config({
     paths: {
         jquery: 'lib/jquery-2.2.0',
@@ -13,13 +12,14 @@ require.config({
         backbone: 'lib/backbone',
         handlebars: 'lib/handlebars-v4.0.5',
         text: 'lib/text',
-        jscookie: 'lib/js.cookie'
-    }
+        jscookie: 'lib/js.cookie',
+        crypto: 'plugins/google/md5',
+    },
 });
 
 require([
     'plugins/google/google-api.min',
-    'umovie'
+    'umovie',
 ], function (gapi, UMovie) {
         UMovie.initialize();
     }

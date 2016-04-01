@@ -1,26 +1,25 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
 ], function ($, _, Backbone) {
-    "use strict";
+    'use strict';
 
     var YoutubeVideo = Backbone.View.extend({
 
-        initialize: function(searchRequest, className) {
-            this.searchRequest = searchRequest;
+        initialize: function (searchRequest, className) {
+            // Encode the URI of the search request
+            this.searchRequest = encodeURI(searchRequest).replace(/%20/g, '+');
             this.className = className;
-            gapi.client.setApiKey("AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k");
+            gapi.client.setApiKey('AIzaSyBuDm3nSgIWP3SlJq4Z1Q0iwgubuUT_G9k');
 
             var that = this;
-            gapi.client.load("youtube", "v3", function () {
-                "use strict";
+            gapi.client.load('youtube', 'v3', function () {
                 that.getYoutubeVideo();
             });
         },
 
         getYoutubeVideo: function () {
-            "use strict";
 
             // Creates the query with the relevant parameters:
             // fields: Restrict the JSON fields
@@ -33,11 +32,11 @@ define([
             var query = gapi.client.youtube.search.list({
                 fields: 'items(id)',
                 q: this.searchRequest,
-                order: "relevance",
+                order: 'relevance',
                 maxResults: 1,
                 videoEmbeddable: true,
-                part: "snippet",
-                type: "video"
+                part: 'snippet',
+                type: 'video',
             });
 
             var that = this;
@@ -51,9 +50,10 @@ define([
                         '</iframe>'
                     );
                 });
+
                 return this;
             });
-        }
+        },
     });
 
     return YoutubeVideo;

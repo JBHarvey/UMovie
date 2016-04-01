@@ -6,26 +6,25 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/tvshowEpisode.html',
+    'text!templates/tvShowEpisode.html',
     'views/thumbnailView',
     'handlebars',
-    'models/searchModel'
-], function ($, _, Backbone, TvShowEpisodeTemplate, ThumbnailView, Handlebars, SearchModel) {
+], function ($, _, Backbone, TvShowEpisodeTemplate, ThumbnailView, Handlebars) {
+    'use strict';
 
     var TvShowEpisodeView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
 
-            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, 'change', this.render);
             var syncRendering = _.after(2, function () {
-                "use strict";
                 that.render();
             });
 
             this.model.fetch({
-                success: syncRendering
+                success: syncRendering,
             });
         },
 

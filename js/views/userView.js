@@ -6,13 +6,13 @@ define([
     'underscore',
     'backbone',
     'text!../templates/user.html',
-    "models/userModel",
-    'handlebars'
+    'models/userModel',
+    'handlebars',
 ], function ($, _, Backbone, UserTemplate, UserModel, Handlebars) {
 
     var UserView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
             this.render();
@@ -33,7 +33,7 @@ define([
 
             this.$el.append(resultNavigationBar);
 
-        }
+        },
     });
 
     return UserView;
