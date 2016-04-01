@@ -781,6 +781,11 @@ button {
         -moz-osx-font-smoothing: grayscale;
     }
 
+    div #content {
+        max-width: 100%;
+        margin-top: 10%;
+    }
+
     .search-bar {
         padding: 1em 1em 0.5em;
     }

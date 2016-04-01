@@ -83,9 +83,7 @@
 }
 
 @media screen and (min-width: 640px) {
-    .movies-box:first-of-type {
-        margin-top: 15%;
-    }
+
 }
 
 @media screen and (min-width: 970px) {
