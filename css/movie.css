@@ -239,6 +239,9 @@ iframe {
     margin: 1em 100px 1em 100px;
 }
 
+/* Episodes box */
+
+
 @media screen and (min-width: 768px) {
     .page-box {
         font-size: 2em;
@@ -416,5 +419,15 @@ iframe {
 
     .detailed-info {
         padding-top: 13px;
+    }
+
+    /* Episodes box */
+    .tvShow-episodes-box{
+        font-size: 13px;
+        margin : 5% 8% 0 40%;
+    }
+
+    .tvShow-episodes-box span {
+        color: #0085FF;
     }
 }

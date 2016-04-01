@@ -30,10 +30,10 @@
             <div class="cover-thumbnail">
                 <img src="{{artworkUrl100}}"/>
                 <div>
-                    {{#if name}}
-                    <title>{{trackName}}</title>
+                    {{#if trackName}}
+                    <span>{{trackName}}</span>
                     {{else}}
-                    <title>{{collectionName}}</title>
+                    <span>{{collectionName}}</span>
                     {{/if}}
                     <span>{{primaryGenreName}}</span>
                 </div>
@@ -67,7 +67,7 @@
         <div class="detailed-info">
             <div class="detailed-info-subject">
                 <span class="movie-name movie-icon"></span>
-                {{#if name}}
+                {{#if trackName}}
                 <span>Title: </span>
                 {{trackName}}
                 {{else}}
@@ -137,7 +137,7 @@
     <!-- Episodes box -->
     {{#if collectionName}}
     <div class="tvShow-episodes-box">
-        <span>Episodes</span>
+        <span>Episodes: </span>
     </div>
     {{/if}}
 
