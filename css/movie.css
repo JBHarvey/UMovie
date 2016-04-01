@@ -19,8 +19,6 @@ html{
 /* Main information */
 .container-up-section {
     width: 100%;
-    display: flex;
-    flex-flow: column wrap;
     background-color: #132340;
     padding-right: 1em;
 }
@@ -300,6 +298,7 @@ iframe {
     }
 
     .container-up-section {
+        display: flex;
         flex-flow: row wrap;
         margin: 0 0 0 5%;
         background-color: black;
