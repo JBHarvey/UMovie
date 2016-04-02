@@ -6,6 +6,10 @@
 
 This project is made in a class context from the GLO-3102 course as Web Application Developpment at the Laval University. The project consists in creating a front-end (client) using an API given by the teachers. The project is mainly based on the client experience optimisation and the importance of the responsiveness. We decided not to use any tool for the CSS so that we could learn more on how to create great things using pure CSS. Eventually, the project will be linked to a MongoDB database to store user data and allow hosting on a real server.
 
+## Hosting
+
+Our website is hosted at this [page](https://umovie-team01-h2016.herokuapp.com/UMovie/).
+
 ### Technologies
 
 The developpment will be done using Javascript, HTML5 and CSS3.
