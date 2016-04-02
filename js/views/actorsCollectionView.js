@@ -11,7 +11,7 @@ define([
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
-], function ($, _, Backbone, Actors, ThumbnailView, Handlebars, TmdbData, searchModel) {
+], function ($, _, Backbone, Actors, ThumbnailView, Handlebars, TmdbData, SearchModel) {
 
     var ActorsCollectionView = Backbone.View.extend({
 
@@ -44,7 +44,8 @@ define([
 
 
                 var searchRequest = encodeURI(actor.attributes.artistName);
-                tmdbData = new TmdbData(searchRequest, idImg, idBio);
+                tmdbData = new TmdbData();
+                tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
 
 
             });

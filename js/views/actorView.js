@@ -56,7 +56,8 @@ define([
 
 
             this.$el.html(template(source));
-            var tmdbData = new TmdbData(searchRequest,'imgActor', 'description');
+            var tmdbData = new TmdbData();
+            tmdbData.getTmdbActorData(searchRequest,'imgActor', 'description');
         }
 
         });

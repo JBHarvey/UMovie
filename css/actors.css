@@ -16,9 +16,8 @@
 
 
     margin: 0 0 2% 0;
-    width: 25%;
-    max-width: 100px;
-    max-height: 100px;
+    width: 30%;
+
     height: 50%;
 
 }
@@ -60,17 +59,17 @@
 
     .actorThumbnail {
 
-
     }
+
+    .imageThumbnail{
+        width: 10%;
+        max-width: 600px;
+        height: auto;
+        max-height: 200px;
+    }
+
     .thumbnailNomArtist {
         font-size: 100%;
-    }
-
-    .imageThumbnail {
-
-
-    }
-    .descriptionThumbnail {
     }
 
     .shortBio {

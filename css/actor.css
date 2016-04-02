@@ -102,7 +102,7 @@
 /*Fin Section movie*/
 
 /*Pour la tablette*/
-@media screen and (min-width: 640px){
+@media screen and (min-width: 550px){
 
 
     #description {
@@ -131,14 +131,25 @@
         font-size: 150%;
     }
     .genre{
-        font-size: 170%;
+        font-size: 100%;
         margin-left: 7%;
         font-weight: bold;
     }
     #header{
-        font-size: 300%;
+        font-size: 150%;
     }
 }
+
+
+@media screen and (min-width: 640px){
+    #header{
+        font-size: 300%;
+    }
+    .genre {
+        font-size: 170%;
+    }
+}
+
 @media screen and (min-width: 960px){
     #header{
         font-size: 200%;

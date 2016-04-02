@@ -8,18 +8,47 @@ define([
     var TmdbView = Backbone.View.extend({
 
 
-        initialize: function (searchRequest, imgIdName, bioIdName) {
-            this.searchRequest = searchRequest;
-            this.imgIdName = imgIdName;
-            this.bioIdName = bioIdName;
+        initialize: function () {
+            this.searchRequest = "";
+            this.imgIdName = "";
+            this.bioIdName = "";
+
+
+        },
+
+        getTmdbSimilarMovie: function() {
+            'use strict';
             var that = this;
-            that.getTmdbData();
+            var searchOptions = {
+                query : this.searchRequest,
+                page: 1
+            };
+            var errorCB = function (data) {
+                console.log("Erreur");
+                console.log(data);
+            };
+
+            var searchSuccessCallback = function (data) {
+                var movieSearch = JSON.parse(data);
+                var movieSearchInfo = movieSearch.results[0];
+                if(!movieSearchInfo) {
+                    theMovieDb.getById({'id': movieSearchInfo.id}, function (data) {
+                        var moviesInfo = JSON.parse(data);
+                        console.log(moviesInfo);
+                    })
+                }
+            };
+
+            theMovieDb.search.getMovie(searchOptions, searchSuccessCallback, errorCB);
         },
 
 
-        getTmdbData: function () {
+        getTmdbActorData: function (searchRequest, idImg, idBio) {
             'use strict';
             var that = this;
+            that.searchRequest = searchRequest;
+            that.imgIdName = idImg;
+            that.bioIdName = idBio;
 
             var searchOptions = {
                 query: that.searchRequest,
@@ -86,7 +115,8 @@ define([
 
                 const actorImageId = that.imgIdName;
 
-                $(`#${actorImageId}`).attr("src", path);
+               // $(`#${actorImageId}`).attr("src", path);
+                $(`#${actorImageId}`).
             }
 
             return this;
