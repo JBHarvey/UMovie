@@ -30,7 +30,8 @@ define([
             "primaryGenreName": "Tribute",
             "primaryGenreId": 100022,
             "radioStationUrl": "https://itunes.apple.com/station/idra.253584821",
-            "imgActor" : "url(../../img/actor/noProfile.jpg",
+            "imgActor": "url(../../img/actor/noProfile.jpg",
+            "isActorType": true,
         }
 
     });
