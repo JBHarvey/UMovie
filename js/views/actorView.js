@@ -33,11 +33,7 @@ define([
             render: function () {
 
                 var source = this.model.attributes;
-                console.log('ICI');
-                console.log(source);
                 var template = Handlebars.compile(actorTemplate);
-
-                console.log(`${source.artistName} Hast Been Rendered`);
                 this.$el.html(template(source));
             },
 

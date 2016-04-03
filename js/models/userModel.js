@@ -70,7 +70,6 @@ define([
             };
             that.changeUrlDestination(that.loginURL);
             that.success = function (data) {
-                console.log(data);
                 that.name = data.name;
                 that.connected = true;
                 Cookie.set('token', data.token, { expires: 365, path: '/' });
@@ -85,7 +84,6 @@ define([
                 console.log('Content type : ', jqXHR.contentType);
             };
 
-            console.log(that);
         },
 
         disconnect: function () {

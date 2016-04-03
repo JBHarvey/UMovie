@@ -20,19 +20,19 @@ define([
         'views/movieView',
         'models/movieModel',
         'views/movieCollectionView',
-        'views/tvShowSeasonView',
-        'models/tvShowSeasonModel',
-        'views/tvShowsCollectionView',
+        'views/seasonView',
+        'models/seasonModel',
+        'views/seasonCollectionView',
         'views/actorView',
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
-        'views/tvShowEpisodeView',
-        'models/tvShowEpisodeModel',
+        'views/episodeView',
+        'models/episodeModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, MovieCollectionView, TvShowSeasonView,
-                 TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, TvShowEpisodeView, TvShowEpisodeModel) {
+                 UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
+                 SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
+                 WatchlistCollectionView, EpisodeView, EpisodeModel) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -41,7 +41,7 @@ define([
                 movies: 'displayMovies',
                 'movie/:movieId': 'displaySpecificMovie',
                 tvShows: 'displayTvShows',
-                'tvShow/:tvShowId': 'displaySpecificTvShow',
+                'tvShow/:tvShowId': 'displaySpecificTvShowSeason',
                 'episode/:episodeId':'displaySpecificEpisode',
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
@@ -144,19 +144,19 @@ define([
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(TvShowCollectionView, undefined);
+                updateMainView(SeasonsCollectionView, undefined);
             });
 
-            uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
+            uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newTvShowSeason = new TvShowSeasonModel({ id: newId });
-                updateMainView(TvShowSeasonView, newTvShowSeason);
+                var newSeason = new SeasonModel({ id: newId });
+                updateMainView(SeasonView, newSeason);
             });
 
             uMovieRouter.on('route:displaySpecificEpisode', function (episodeId) {
                 var newId = parseInt(episodeId);
-                var newTvShowEpisode = new TvShowEpisodeModel({ id: newId });
-                updateMainView(TvShowEpisodeView, newTvShowEpisode);
+                var newEpisode = new EpisodeModel({ id: newId });
+                updateMainView(EpisodeView, newEpisode);
             });
 
             //Actors

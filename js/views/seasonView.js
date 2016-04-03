@@ -6,17 +6,17 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movie-tvshow.html',
-    '../collections/tvShowEpisodeCollection',
+    'text!templates/movie-season.html',
+    '../collections/episodeCollection',
     'views/thumbnailView',
-    'models/tvShowEpisodeModel',
+    '../models/episodeModel',
     'handlebars',
     'views/youtubeVideos',
-], function ($, _, Backbone, MovieTvShowSeasonTemplate, TvShowEpisodeCollection,
-             ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
+], function ($, _, Backbone, MovieSeasonTemplate, EpisodeCollection,
+             ThumbnailView, EpisodeModel, Handlebars, YoutubeVideo) {
     'use strict';
 
-    var TvShowSeasonView = Backbone.View.extend({
+    var SeasonView = Backbone.View.extend({
 
         el: '#content',
 
@@ -24,7 +24,7 @@ define([
 
             var that = this;
             var seasonId = this.model.id;
-            this.collection = new TvShowEpisodeCollection(seasonId);
+            this.collection = new EpisodeCollection(seasonId);
             this.listenTo(this.model, 'change', this.render);
 
             var syncRendering = _.after(2, function () {
@@ -47,19 +47,19 @@ define([
         render: function () {
             var searchRequest = this.generateSearchRequest();
 
-            var template = Handlebars.compile(MovieTvShowSeasonTemplate);
+            var template = Handlebars.compile(MovieSeasonTemplate);
             var source = this.model.attributes;
-            var resultTvShowSeason = template(source);
+            var resultSeason = template(source);
 
-            this.$el.html(resultTvShowSeason);
+            this.$el.html(resultSeason);
             var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
-            this.collection.each(function (tvShowEpisode) {
-                var thumbnail = new ThumbnailView({ model: tvShowEpisode });
+            this.collection.each(function (episode) {
+                var thumbnail = new ThumbnailView({ model: episode });
                 $('.tvShow-episodes-box').append(thumbnail.renderEpisode());
             });
         },
 
     });
-    return TvShowSeasonView;
+    return SeasonView;
 
 });
