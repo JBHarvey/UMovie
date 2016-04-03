@@ -31,7 +31,7 @@ define([
             that.collection.each(function(actor){
                 var thumbnail = new ThumbnailView({model: actor});
 
-                that.$el.append(thumbnail.renderActor());
+                that.$el.append(thumbnail.render());
 
                 var artistName = actor.attributes.artistName;
                 var nameEncode = that.removeSpace(artistName);
