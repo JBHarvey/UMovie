@@ -7,18 +7,17 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/actorModel'
-], function($, _, Backbone, Cookie, ActorModel) {
+    'models/actorModel',
+], function ($, _, Backbone, Cookie, ActorModel) {
 
-        var Actors = Backbone.Collection.extend({
+    var Actors = Backbone.Collection.extend({
             model: ActorModel,
             url: '/actors',
 
-            parse: function(response) {
-                console.log(response);
+            parse: function (response) {
                 return response.results;
-            }
+            },
         });
 
-        return Actors;
+    return Actors;
 });

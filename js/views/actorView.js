@@ -2,50 +2,57 @@
  * Created by rives on 2016-01-28.
  */
 
-
 define([
     'jquery',
     'underscore',
     'backbone',
     'text!templates/actor.html',
-    'handlebars'
-    ], function($, _, Backbone, actorTemplate, Handlebars) {
+    '../collections/movieCollection',
+    'views/tmdbData',
+    'handlebars',
+    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
 
-    var ActorView = Backbone.View.extend({
+        var ActorView = Backbone.View.extend({
 
-        el: $('#content'),
+            el: '#content',
 
-        waitForRender: _.after(2, function() {
-            that.render();
-        }),
+            initialize: function () {
 
-        initialize: function(){
+                var that = this;
+                this.collectionMovies = new MovieCollection();
 
+                this.listenTo(this.model, 'change', that.render);
+                this.listenTo(this.collectionMovies, 'update', that.render);
+                var waitForRender = _.after(2, function () {
+                that.render();
+            });
 
+                this.model.fetch({
+                success: waitForRender,
+            });
+                this.collectionMovies.fetch({
+                success: waitForRender,
+            });
 
-            this.model.attributes.firstAPIDone = false;
-            that = this;
+            },
 
-            this.listenTo(this.model.attributes.firstAPIDone, "change", that.render);
-            this.model.fetch({success: that.waitForRender});
-            this.model.updateInformationsFromTMDB(that.waitForRender);
-            that.render();
+            generateSearchName: function () {
+                return encodeURI(this.model.get('artistName'));
+            },
 
+            render: function () {
+            'use strict';
 
-
-        },
-
-        render: function() {
+            var searchRequest = this.generateSearchName();
 
             var source = this.model.attributes;
-            console.log("ICI");
-            console.log(source);
             var template = Handlebars.compile(actorTemplate);
 
-            console.log(`${source.artistName} Hast Been Rendered`);
             this.$el.html(template(source));
-        }
+            var tmdbData = new TmdbData();
+            tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
+        },
 
+        });
+        return ActorView;
     });
-    return ActorView;
-});

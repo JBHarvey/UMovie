@@ -606,17 +606,24 @@ button {
         flex-direction: row;
     }
 
+    div #content {
+        max-width: 100%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
     .navigation-bar {
         box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 1);
         box-sizing: border-box;
         padding: 0 3%;
         width: 100%;
         background-color: black;
-        opacity: 0.85;
+        opacity: 0.88;
         display: inline-flex;
         position: fixed;
         top: 0;
         margin: 0;
+        z-index: 1;
     }
 
 
@@ -747,6 +754,7 @@ button {
         padding: 0;
         background-color: black;
         color: white;
+        margin-top: 10%;
     }
 
     #container {
@@ -781,6 +789,11 @@ button {
         -moz-osx-font-smoothing: grayscale;
     }
 
+    div #content {
+        max-width: 100%;
+        margin-top: 10%;
+    }
+
     .search-bar {
         padding: 1em 1em 0.5em;
     }
@@ -789,7 +802,6 @@ button {
     .text h1 {
         font-size: 4.1em;
         text-align: center;
-
         margin-top: -4.7em;
     }
 
@@ -820,7 +832,6 @@ button {
         border-top-right-radius: 1.2em;
         border-bottom-right-radius: 1.2em;
         border: solid 1px black;
-
     }
 
     .connect p {
@@ -829,7 +840,6 @@ button {
         margin-left: -10px;
         top: 35%;
         left: 25%;
-
     }
 
     .authentification input {
@@ -848,6 +858,5 @@ button {
     .navigation-bar {
         opacity: 0.7;
     }
-
 
 }

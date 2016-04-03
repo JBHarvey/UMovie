@@ -9,16 +9,15 @@ define([
     '../collections/movieCollection',
     'views/thumbnailView',
     'handlebars',
-    'models/searchModel'
-], function ($, _, Backbone, Movies, ThumbnailView, Handlebars, searchModel) {
-
+    'models/searchModel',
+], function ($, _, Backbone, Movies, ThumbnailView, Handlebars, SearchModel) {
 
     var MovieCollectionView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function () {
-            this.searchManager = new searchModel();
+            this.searchManager = new SearchModel();
             this.collection = new Movies();
             this.collection.url = this.generateDefaultQuery();
             this.listenTo(this.collection, 'sync', this.render);
@@ -27,21 +26,21 @@ define([
 
         render: function () {
             var that = this;
-            this.$el.html("");
-            this.collection.each(function(movie){
-                var thumbnail = new ThumbnailView({model: movie});
-                that.$el.append(thumbnail.renderMovie());
+            this.$el.html('');
+            this.collection.each(function (movie) {
+                var thumbnail = new ThumbnailView({ model: movie });
+                that.$el.append(thumbnail.render());
             });
         },
 
-        generateDefaultQuery: function() {
+        generateDefaultQuery: function () {
             return this.searchManager
                 .setSearchType('movies')
                 .setSearchName('dead')
                 .setSearchLimit(100)
                 .setSearchGenre('')
                 .url();
-        }
+        },
     });
     return MovieCollectionView;
 

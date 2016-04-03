@@ -6,7 +6,7 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/movieModel'
+    'models/movieModel',
 ], function ($, _, Backbone, Cookie, MovieModel) {
 
     var Movies = Backbone.Collection.extend({
@@ -15,7 +15,7 @@ define([
 
         parse: function (response) {
             return response.results;
-        }
+        },
     });
     return Movies;
 
