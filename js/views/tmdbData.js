@@ -12,17 +12,21 @@ define([
             this.searchRequest = "";
             this.imgIdName = "";
             this.bioIdName = "";
-
+            this.actorToFind = null;
 
         },
 
-        getTmdbSimilarMovie: function() {
+        getTmdbSimilarMovie: function(searchRequest) {
             'use strict';
             var that = this;
+            that.searchRequest = searchRequest;
+
             var searchOptions = {
-                query : this.searchRequest,
+                query : that.searchRequest,
                 page: 1
             };
+
+
             var errorCB = function (data) {
                 console.log("Erreur");
                 console.log(data);
@@ -31,11 +35,13 @@ define([
             var searchSuccessCallback = function (data) {
                 var movieSearch = JSON.parse(data);
                 var movieSearchInfo = movieSearch.results[0];
-                if(!movieSearchInfo) {
-                    theMovieDb.getById({'id': movieSearchInfo.id}, function (data) {
-                        var moviesInfo = JSON.parse(data);
-                        console.log(moviesInfo);
-                    })
+
+                if(movieSearchInfo) {
+                    theMovieDb.movies.getById({'id': movieSearchInfo.id}, function (data) {
+                       // that.actorToFind = JSON.parse(data);
+
+                      //  console.log(that.actorToFind);
+                    }, errorCB)
                 }
             };
 
@@ -66,20 +72,29 @@ define([
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
                 if (artistSearchInfo  != null) {
-                    theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
-                        var artistInfo = JSON.parse(data);
-
-                        that.modifySingleActorBio(artistInfo.biography)
-                            .modifySingleActorImage(artistSearchInfo.profile_path);
+                     theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
+                        that.actorToFind = JSON.parse(data);
+                         console.log(that.actorToFind);
+                        // return JSON.parse(data);
+                     //   that.modifySingleActorBio(artistInfo.biography)
+                     //       .modifySingleActorImage(artistInfo.profile_path);
                     }, errorCB);
                 }
+
             };
-
-
             theMovieDb.search.getPerson(searchOptions, searchSuccessCallback, errorCB);
 
-
         },
+
+
+        getActorImgBio: function() {
+            var that = this;
+            var info = that.actorToFind;
+            console.log(info);
+            that.modifySingleActorBio(info.biography)
+                  .modifySingleActorImage(info.profile_path);
+        },
+
 
         shortenText: function (textToShortent, length) {
             var newLength = length || 300;
@@ -115,8 +130,8 @@ define([
 
                 const actorImageId = that.imgIdName;
 
-               // $(`#${actorImageId}`).attr("src", path);
-                $(`#${actorImageId}`).
+                $(`#${actorImageId}`).attr("src", path);
+
             }
 
             return this;
