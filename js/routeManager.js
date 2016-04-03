@@ -20,7 +20,6 @@ define([
         'views/movieView',
         'models/movieModel',
         'views/movieCollectionView',
-        'views/tvShowView',
         'views/tvShowSeasonView',
         'models/tvShowSeasonModel',
         'views/tvShowsCollectionView',
@@ -31,7 +30,7 @@ define([
         'views/tvShowEpisodeView',
         'models/tvShowEpisodeModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, MovieCollectionView, TvShowView, TvShowSeasonView,
+                 UserModel, MovieView, MovieModel, MovieCollectionView, TvShowSeasonView,
                  TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView,
                  WatchlistCollectionView, TvShowEpisodeView, TvShowEpisodeModel) {
 
