@@ -1,14 +1,18 @@
+<div class="actorThumbnail">
 
-    <div class="actorThumbnail">
-        <!--<img class="thumbnailImg" src="url({{imgActor}})"> -->
-       <img class="thumbnailImg" src="url(../../img/actor/noProfile.jpg">
-        <div class="descriptionThumbnail">
-            <a class="actor-box" href="#actor/{{artistId}}">
-            <h2 class="thumbnailNomArtist">{{artistName}}</h2>
-            </a>
-            <div >Artist genre : {{primaryGenreName}}</div>
-            <div class="shortBio">{{biography}}</div>
 
-        </div>
+   <img id="idTmpImg" class="imageThumbnail" src="{{imgActor}}">
+
+
+    <div class="descriptionThumbnail">
+
+        <h2 class="thumbnailNomArtist">
+            <a class="actor-box" href="#actor/{{artistId}}">{{artistName}}</a>
+        </h2>
+
+        <div class="genreActorThumbnail"> Genre : {{primaryGenreName}}</div>
+        <div id="idTmpBio" class="shortBio">{{shortenBio}}</div>
 
     </div>
+
+</div>

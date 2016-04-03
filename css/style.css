@@ -753,6 +753,7 @@ button {
         padding: 0;
         background-color: black;
         color: white;
+        margin-top: 10%;
     }
 
     #container {

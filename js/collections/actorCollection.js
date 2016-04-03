@@ -14,8 +14,8 @@ define([
             model: ActorModel,
             url: '/actors',
 
-            parse: function (response) {
-                console.log(response);
+            parse: function(response) {
+                //console.table(response.results);
                 return response.results;
             },
         });
