@@ -87,6 +87,7 @@
 }
 
 @media screen and (min-width: 970px) {
+    /* Different */
     .movies-box {
         margin-left: auto;
         margin-right: auto;

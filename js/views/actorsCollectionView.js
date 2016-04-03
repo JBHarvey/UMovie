@@ -28,7 +28,7 @@ define([
             this.$el.html('');
             this.collection.each(function (actor) {
                 var thumbnail = new ThumbnailView({ model: actor });
-                that.$el.append(thumbnail.renderActor());
+                that.$el.append(thumbnail.render());
             });
 
         },

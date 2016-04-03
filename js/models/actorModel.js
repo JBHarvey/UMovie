@@ -29,6 +29,7 @@ define([
             primaryGenreName: 'Tribute',
             primaryGenreId: 100022,
             radioStationUrl: 'https://itunes.apple.com/station/idra.253584821',
+            isActorType: true,
         },
 
         updateInformationsFromTMDB: function () {

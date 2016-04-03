@@ -55,7 +55,7 @@ define([
             var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
             this.collection.each(function (episode) {
                 var thumbnail = new ThumbnailView({ model: episode });
-                $('.episodes-box').append(thumbnail.renderEpisode());
+                $('.episodes-box').append(thumbnail.render());
             });
         },
 

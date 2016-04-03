@@ -51,6 +51,7 @@ define([
             writers: 'N/A',
             language: 'English',
             isMovieType: false,
+            isSeasonType: true,
         },
 
     });

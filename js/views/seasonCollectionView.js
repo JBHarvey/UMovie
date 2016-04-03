@@ -29,7 +29,7 @@ define([
             this.$el.html('');
             this.collection.each(function (season) {
                 var thumbnail = new ThumbnailView({ model: season });
-                that.$el.append(thumbnail.renderSeason());
+                that.$el.append(thumbnail.render());
             });
         },
 

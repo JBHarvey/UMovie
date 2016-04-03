@@ -71,6 +71,7 @@ define([
             productionHouse: 'N/A',
             writers: 'N/A',
             language: 'English',
+            isEpisodeType: true,
         },
 
     });
