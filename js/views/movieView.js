@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movie.html',
+    'text!templates/movie-tvshow.html',
     'models/movieModel',
     '../collections/watchlistCollection',
     'models/watchlistModel',

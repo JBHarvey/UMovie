@@ -6,13 +6,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/tvshow.html',
+    'text!templates/movie-tvshow.html',
     '../collections/tvShowEpisodeCollection',
     'views/thumbnailView',
     'models/tvShowEpisodeModel',
     'handlebars',
     'views/youtubeVideos',
-], function ($, _, Backbone, TvShowSeasonTemplate, TvShowEpisodeCollection,
+], function ($, _, Backbone, MovieTvShowSeasonTemplate, TvShowEpisodeCollection,
              ThumbnailView, TvShowEpisodeModel, Handlebars, YoutubeVideo) {
     'use strict';
 
@@ -47,7 +47,7 @@ define([
         render: function () {
             var searchRequest = this.generateSearchRequest();
 
-            var template = Handlebars.compile(TvShowSeasonTemplate);
+            var template = Handlebars.compile(MovieTvShowSeasonTemplate);
             var source = this.model.attributes;
             var resultTvShowSeason = template(source);
 
