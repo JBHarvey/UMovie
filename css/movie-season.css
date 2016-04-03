@@ -6,7 +6,7 @@ html{
 }
 
 .page-box {
-    background-color: #0E0F11;
+    background-color: #000000;
 }
 
 /* Title and background image */
@@ -136,6 +136,14 @@ iframe {
 }
 
 /* Watchlist box */
+.watchlist-button {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5% auto 3% auto;
+    text-align: -webkit-center;
+}
 
 .watchlist-button-desktop {
     background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
@@ -156,6 +164,7 @@ iframe {
     box-sizing: padding-box;
     font-size: 0.9em;
     font-family: Arial;
+    width: 60%;
     color: rgba(255,255,255,1);
 }
 .watchlist-button-desktop:hover {
@@ -175,20 +184,13 @@ iframe {
     top:1px;
 }
 
-.watchlist-menu-group {
-    display: none;
-}
-
 .watchlist-menu {
     padding: 0;
-
     max-height: 100px;
     overflow-y: scroll;
-
     background-color: #0E0F11;
     border: 1px solid darkgray;
     border-radius: 2px;
-
     list-style-type: none;
 }
 
@@ -197,6 +199,10 @@ iframe {
     border-top: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
     transition: opacity ease-in-out .55s;
+}
+
+.watchlist-menu-group {
+    display: none;
 }
 
 .watchlist-select-group:hover {
@@ -213,15 +219,14 @@ iframe {
 
 .new-watchlist {
     background-color: #0E0F11;
-
     padding: 1em;
     margin-bottom: 1em;
-
     border: 1px solid darkgray;
     border-radius: 2px;
 }
 
 .new-watchlist-input {
+    width: 85%;
     color: #555;
     border: 1px solid #ccc;
     padding: 0.5em;
@@ -241,8 +246,19 @@ iframe {
     margin: 1em 100px 1em 100px;
 }
 
+.new-watchlist-input, .submit-new-watchlist {
+    font-size: 0.7em;
+}
+
+.submit-new-watchlist {
+    color: black;
+}
+
 /* Episodes box */
 
+.episodes-box {
+    margin-top: 5%;
+}
 
 @media screen and (min-width: 768px) {
     .page-box {
@@ -385,12 +401,20 @@ iframe {
     }
 
     .watchlist-button {
+        font-size: 13px;
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        text-align: -webkit-right;
+        margin: 0 11% 0 0;
     }
 
     .detailed-info-subject {
         display:flex;
+    }
+
+    .watchlist-menu-group {
+        font-size: 1.3em;
+        width : 25%;
     }
 
     .detailed-info-subject span:nth-child(2){
@@ -402,16 +426,19 @@ iframe {
     }
 
     .watchlist-button-desktop {
-        font-size: 15px;
-        margin: 0 12%;
+        width: 150px;
     }
 
     .mobile-watchlist {
         width: 200px;
     }
 
+    .submit-new-watchlist {
+        color: black;
+    }
+
     .preview-content-video {
-        margin-left: 2%;
+        margin-left: 2%;1
     }
 
     iframe {
@@ -423,10 +450,14 @@ iframe {
         padding-top: 13px;
     }
 
+    .watchlist-menu-group {
+        width: 18%;
+    }
+
     /* Episodes box */
     .episodes-box{
         font-size: 13px;
-        margin : 5% 8% 0 40%;
+        margin : 3% 8% 0 40%;
     }
 
     .episodes-box span {

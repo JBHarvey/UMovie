@@ -24,35 +24,35 @@ define([
             this.collection.fetch();
         },
 
-        render: function() {
+        render: function () {
             var that = this;
             var tmdbData;
-            that.$el.html("");
-            that.collection.each(function(actor){
-                var thumbnail = new ThumbnailView({model: actor});
+            that.$el.html('');
+            that.collection.each(function (actor) {
+                var thumbnail = new ThumbnailView({ model: actor });
 
                 that.$el.append(thumbnail.render());
 
                 var artistName = actor.attributes.artistName;
                 var nameEncode = that.removeSpace(artistName);
 
-                var idImg = nameEncode + "Img";
-                var idBio = nameEncode + "Bio";
+                var idImg = nameEncode + 'Img';
+                var idBio = nameEncode + 'Bio';
 
-                $('#idTmpImg').attr("id", idImg);
-                $('#idTmpBio').attr("id", idBio);
-
+                $('#idTmpImg').attr('id', idImg);
+                $('#idTmpBio').attr('id', idBio);
 
                 var searchRequest = encodeURI(actor.attributes.artistName);
                 tmdbData = new TmdbData();
                 tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
+
                 //SE FAIT TOUT AVANT DE FAIRE LA METHODE GETTMDBACTORDATA
                 //console.log(tmdbData.actorToFind);
-               // tmdbData.getActorImgBio();
+                // tmdbData.getActorImgBio();
             });
         },
 
-        removeSpace: function(stringToChange) {
+        removeSpace: function (stringToChange) {
             return stringToChange.replace(/ /i, '_');
         },
 

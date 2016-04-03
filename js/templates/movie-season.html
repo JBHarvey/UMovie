@@ -121,13 +121,14 @@
     </div>
 
     <!-- Watchlist box -->
-    <div class="watchlist-button movie-watchlist-view">
-        <button class="watchlist-button-desktop mobile-watchlist">Add to watchlist</button>
-        <div class="watchlist-menu-group mobile-watchlist">
-            <ul class="watchlist-menu mobile-watchlist">
-                <li class="watchlist-select-group mobile-watchlist" data-id="create-watchlist"> New watchlist... </li>
+    {{#if isMovieType}}
+    <div class="watchlist-button ">
+        <button class="watchlist-button-desktop">Add to watchlist</button>
+        <div class="watchlist-menu-group ">
+            <ul class="watchlist-menu ">
+                <li class="watchlist-select-group " data-id="create-watchlist"> New watchlist... </li>
                 {{#each watchlists}}
-                <li class="watchlist-select-group mobile-watchlist" data-id="{{id}}">{{name}}</li>
+                <li class="watchlist-select-group " data-id="{{id}}">{{name}}</li>
                 {{/each}}
             </ul>
             <div class="new-watchlist" style="display: none;">
@@ -136,6 +137,7 @@
             </div>
         </div>
     </div>
+    {{/if}}
 
     <!-- Episodes box -->
     {{#unless isMovieType}}

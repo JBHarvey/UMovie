@@ -34,6 +34,7 @@ define([
             "isActorType": true,
         }
 
+
     });
 
     return ActorModel;
