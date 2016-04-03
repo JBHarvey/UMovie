@@ -75,9 +75,9 @@ define([
                      theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
                         that.actorToFind = JSON.parse(data);
                          console.log(that.actorToFind);
-                        // return JSON.parse(data);
-                     //   that.modifySingleActorBio(artistInfo.biography)
-                     //       .modifySingleActorImage(artistInfo.profile_path);
+
+                      that.modifySingleActorBio(that.actorToFind.biography)
+                        .modifySingleActorImage(that.actorToFind.profile_path);
                     }, errorCB);
                 }
 

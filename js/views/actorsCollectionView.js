@@ -47,7 +47,7 @@ define([
                 tmdbData = new TmdbData();
                 tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
                 //SE FAIT TOUT AVANT DE FAIRE LA METHODE GETTMDBACTORDATA
-                console.log(tmdbData.actorToFind);
+                //console.log(tmdbData.actorToFind);
                // tmdbData.getActorImgBio();
 
 
