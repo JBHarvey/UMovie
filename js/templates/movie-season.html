@@ -10,13 +10,13 @@
 
     <!-- Title and background image -->
     {{#if isMovieType}}
-    <div class="movie-title">{{trackName}}</div>
-    <div class="movie-background-image">
+    <div class="element-title">{{trackName}}</div>
+    <div class="element-background-image">
         <img src="url(../../img/movie-tvShow-content/background-movie.png">
     </div>
     {{else}}
-    <div class="movie-title">{{collectionName}}</div>
-    <div class="movie-background-image">
+    <div class="element-title">{{collectionName}}</div>
+    <div class="element-background-image">
         <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
     </div>
     {{/if}}
@@ -53,7 +53,7 @@
 
         <!-- Preview video box -->
         <div class="preview-box">
-            <div class="preview-content-video movie-video-preview"></div>
+            <div class="preview-content-video movie-video-preview preview-element-video"></div>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
 
         <div class="detailed-info">
             <div class="detailed-info-subject">
-                <span class="movie-name movie-icon"></span>
+                <span class="element-name element-icon"></span>
                 {{#if isMovieType}}
                 <span>Title: </span>
                 {{trackName}}
@@ -77,12 +77,12 @@
                 {{/if}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-rating movie-icon"></span>
+                <span class="element-rating element-icon"></span>
                 <span>Rating: </span>
                 Rated {{contentAdvisoryRating}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-director movie-icon"></span>
+                <span class="element-director element-icon"></span>
                 {{#if isMovieType}}
                 <span>Director: </span>
                 {{artistName}}
@@ -92,22 +92,22 @@
                 {{/if}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-studio movie-icon"></span>
+                <span class="element-studio element-icon"></span>
                 <span>Studio: </span>
                 {{productionHouse}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-writers movie-icon"></span>
+                <span class="element-writers element-icon"></span>
                 <span>Writer: </span>
                 {{writers}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-language movie-icon"></span>
+                <span class="element-language element-icon"></span>
                 <span>Language: </span>
                 {{language}}
             </div>
             <div class="detailed-info-subject">
-                <span class="movie-price movie-icon"></span>
+                <span class="element-price element-icon"></span>
                 <span>Price: </span>
                 {{#if isMovieType}}
                 {{trackPrice}} {{currency}}
@@ -137,7 +137,7 @@
 
     <!-- Episodes box -->
     {{#unless isMovieType}}
-    <div class="tvShow-episodes-box">
+    <div class="episodes-box">
         <span>Episodes: </span>
     </div>
     {{/unless}}
