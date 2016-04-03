@@ -48,7 +48,7 @@ define([
             query.execute(function (answer) {
                 $(that.className).each(function () {
                     $(this).html(
-                        '<iframe width="100%" class="w100 video" height="350" ' +
+                        '<iframe width="100%" class="w100 video" height="437" ' +
                         'src="//www.youtube.com/embed/' +
                         answer.items[0].id.videoId +
                         '" frameborder="0" allowfullscreen>' +
