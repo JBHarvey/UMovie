@@ -33,9 +33,9 @@
 </a>
 
 {{else}}
-    <a {{#if isMovieType}}class="movies-box" href="#movie/{{trackId}}"
-       {{else}}class="episode-box" href="#tvShow/{{collectionId}}">
-        {{/if}}
+    {{#if isMovieType}} <a class="movies-box" href="#movie/{{trackId}}" >
+    {{else}} <a class="movies-box" href="#tvShow/{{collectionId}}" >
+    {{/if}}
         <div class="thumbnail">
             <div class="initial-image">
                 <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
