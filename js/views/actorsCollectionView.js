@@ -31,7 +31,7 @@ define([
             that.collection.each(function(actor){
                 var thumbnail = new ThumbnailView({model: actor});
 
-                that.$el.append(thumbnail.renderActor());
+                that.$el.append(thumbnail.render());
 
                 var artistName = actor.attributes.artistName;
                 var nameEncode = that.removeSpace(artistName);
@@ -49,24 +49,18 @@ define([
                 //SE FAIT TOUT AVANT DE FAIRE LA METHODE GETTMDBACTORDATA
                 //console.log(tmdbData.actorToFind);
                // tmdbData.getActorImgBio();
-
-
             });
-
         },
-
 
         removeSpace: function(stringToChange) {
             return stringToChange.replace(/ /i, '_');
         },
-
 
         generateDefaultQuery: function () {
             this.searchManager.setSearchType('actors');
             this.searchManager.setSearchName('Brad');
             this.searchManager.setSearchLimit(40);
             return this.searchManager.url();
-
         },
     });
     return ActorsCollectionView;

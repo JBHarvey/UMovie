@@ -6,17 +6,17 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    '../models/tvShowSeasonModel',
-], function ($, _, Backbone, Cookie, TvShowModel) {
+    '../models/seasonModel',
+], function ($, _, Backbone, Cookie, SeasonModel) {
 
-    var TvShows = Backbone.Collection.extend({
-        model: TvShowModel,
+    var Seasons = Backbone.Collection.extend({
+        model: SeasonModel,
         url: '/tvShows',
 
         parse: function (response) {
             return response.results;
         },
     });
-    return TvShows;
+    return Seasons;
 
 });

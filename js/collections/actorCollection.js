@@ -15,7 +15,6 @@ define([
             url: '/actors',
 
             parse: function(response) {
-                //console.table(response.results);
                 return response.results;
             },
         });

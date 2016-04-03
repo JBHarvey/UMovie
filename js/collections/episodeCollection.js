@@ -6,11 +6,11 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    '../models/tvShowEpisodeModel',
-], function ($, _, Backbone, Cookie, TvShowEpisodeModel) {
+    '../models/episodeModel',
+], function ($, _, Backbone, Cookie, EpisodeModel) {
 
     var Episodes = Backbone.Collection.extend({
-        model: TvShowEpisodeModel,
+        model: EpisodeModel,
 
         initialize: function (seasonId) {
             this.url = 'https://umovie.herokuapp.com/tvShows/season/' + seasonId + '/episodes';

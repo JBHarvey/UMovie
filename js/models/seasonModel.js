@@ -6,7 +6,7 @@ define([
     'backbone',
 ], function (_, Backbone) {
 
-    var TvShowSeasonModel = Backbone.Model.extend({
+    var SeasonModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/tvshows/season',
 
         parse(data) {
@@ -51,9 +51,10 @@ define([
             writers: 'N/A',
             language: 'English',
             isMovieType: false,
+            isSeasonType: true,
         },
 
     });
 
-    return TvShowSeasonModel;
+    return SeasonModel;
 });

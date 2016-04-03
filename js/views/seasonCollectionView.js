@@ -6,19 +6,19 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../collections/tvShowCollection',
+    '../collections/seasonCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel',
-], function ($, _, Backbone, TvShows, ThumbnailView, Handlebars, SearchModel) {
+], function ($, _, Backbone, Seasons, ThumbnailView, Handlebars, SearchModel) {
 
-    var TvShowsCollectionView = Backbone.View.extend({
+    var SeasonCollectionView = Backbone.View.extend({
 
         el: '#content',
 
         initialize: function () {
             this.searchManager = new SearchModel();
-            this.collection = new TvShows();
+            this.collection = new Seasons();
             this.collection.url = this.generateDefaultQuery();
             this.listenTo(this.collection, 'sync', this.render);
             this.collection.fetch();
@@ -27,9 +27,9 @@ define([
         render: function () {
             var that = this;
             this.$el.html('');
-            this.collection.each(function (tvShows) {
-                var thumbnail = new ThumbnailView({ model: tvShows });
-                that.$el.append(thumbnail.renderSeason());
+            this.collection.each(function (season) {
+                var thumbnail = new ThumbnailView({ model: season });
+                that.$el.append(thumbnail.render());
             });
         },
 
@@ -42,6 +42,6 @@ define([
                 .url();
         },
     });
-    return TvShowsCollectionView;
+    return SeasonCollectionView;
 
 });

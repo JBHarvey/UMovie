@@ -54,7 +54,6 @@ define([
             var source = this.model.attributes;
             var template = Handlebars.compile(actorTemplate);
 
-
             this.$el.html(template(source));
             var tmdbData = new TmdbData();
             tmdbData.getTmdbActorData(searchRequest,'imgActor', 'description');

@@ -6,16 +6,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movieThumbnail.html',
-    'text!templates/tvShowSeasonThumbnail.html',
-    'text!templates/tvShowEpisodeThumbnail.html',
-    'text!templates/actorThumbnail.html',
+    'text!templates/thumbnail.html',
     'handlebars',
 ], function ($, _, Backbone,
-             movieThumbnailTemplate,
-             seasonThumbnailTemplate,
-             episodeThumbnailTemplate,
-             actorThumbnailTemplate,
+             ThumbnailTemplate,
              Handlebars) {
 
     var ThumbnailView = Backbone.View.extend({
@@ -25,26 +19,8 @@ define([
         initialize: function () {
         },
 
-        renderMovie: function () {
-            var template = Handlebars.compile(movieThumbnailTemplate);
-            var source = this.model.attributes;
-            return template(source);
-        },
-
-        renderSeason: function () {
-            var template = Handlebars.compile(seasonThumbnailTemplate);
-            var source = this.model.attributes;
-            return template(source);
-        },
-
-        renderEpisode: function () {
-            var template = Handlebars.compile(episodeThumbnailTemplate);
-            var source = this.model.attributes;
-            return template(source);
-        },
-
-        renderActor: function () {
-            var template = Handlebars.compile(actorThumbnailTemplate);
+        render: function () {
+            var template = Handlebars.compile(ThumbnailTemplate);
             var source = this.model.attributes;
             return template(source);
         },

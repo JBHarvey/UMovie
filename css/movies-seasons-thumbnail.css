@@ -157,4 +157,19 @@
         max-width: 200px;
 
     }
+
+    .episode-box{
+        font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+        background-color: #171717;
+        transition: opacity ease-in-out .55s;
+        border: 3px solid #1B1D22;
+        border-bottom: none;
+        text-decoration: none;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
 }

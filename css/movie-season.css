@@ -1,3 +1,4 @@
+/* Css for both a movie and a tvShow season page */
 
 /* General */
 html{
@@ -9,11 +10,11 @@ html{
 }
 
 /* Title and background image */
-.movie-background-image img {
-    max-width:100%;
+.element-background-image img {
+    width:100%;
 }
 
-.movie-title {
+.element-title {
     display: none;
 }
 
@@ -89,35 +90,35 @@ iframe {
     display: none;
 }
 
-.movie-name {
+.element-name {
     background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
 }
 
-.movie-rating {
+.element-rating {
     background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
 }
 
-.movie-director {
+.element-director {
     background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
 }
 
-.movie-studio {
+.element-studio {
     background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
 }
 
-.movie-writers {
+.element-writers {
     background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
 }
 
-.movie-language{
+.element-language{
     background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
 }
 
-.movie-price {
+.element-price {
     background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
 }
 
-.movie-icon {
+.element-icon {
     vertical-align: middle;
     line-height: normal;
     margin: 0;
@@ -253,7 +254,7 @@ iframe {
         height:280px;
     }
 
-    .movie-name {
+    .element-name {
         margin-top: -.5em;
     }
 
@@ -290,11 +291,11 @@ iframe {
         background-color: black;
     }
 
-    .movie-background-image {
+    .element-background-image {
         display: none;
     }
 
-    .movie-title {
+    .element-title {
         display: block;
         margin: 0 0 2% 43%;
         font-size: 30px;
@@ -374,7 +375,7 @@ iframe {
         min-width: 310px;
     }
 
-    .movie-icon {
+    .element-icon {
         display: none;
     }
 
@@ -423,12 +424,12 @@ iframe {
     }
 
     /* Episodes box */
-    .tvShow-episodes-box{
+    .episodes-box{
         font-size: 13px;
         margin : 5% 8% 0 40%;
     }
 
-    .tvShow-episodes-box span {
+    .episodes-box span {
         color: #0085FF;
     }
 }
