@@ -1,7 +1,12 @@
 {
+    "main": "index.js",
+    "dependencies": {
+        "express": "latest"
+    },
     "scripts": {
         "checkCodeStyle": "jscs js/**",
         "lintCode": "jshint js/**",
-        "test": "npm run-script checkCodeStyle && npm run lintCode"
+        "test": "npm run-script checkCodeStyle && npm run lintCode",
+        "start": "node index.js"
     }
 }
