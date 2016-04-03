@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- stable
+before_script:
+- npm install -g jscs
+- npm install -g jshint
+deploy:
+  provider: heroku
+  api_key:
+    secure: wtpc17PIMcVTDsDJQuS/aSFY1wG7Q0riLP+hcn3PHdfnNItzHZnpSe1P7aw0Ac95Ve/HTYA1IRmELxve40t118XQomehdJ1pv04PSAI8BOxMqK6i0nBA5Um3ueql3KG0mANVV7R8RuzmRfkTS8rq7e4eOjT8+ln/fNBp3CI3F9yYY6i04mN1K0ryIff8DtThnoQdWcwvN9YJ61oNgjFOSr1yXsguCRz3I/iYPgMcnhtrG6Myudn4XNXOA9V8SrqICCLm92dDSHLR09HN8N/Hosgq0ILg+a+Qxl2g4qTH6+pM+Zs3B54a47iZvMD9mXuH7LklDgyG9JdmljUJVo9C8HVYlDNJCp9d4keM/DOEk+Q0wXvo1Z6Hn8Kg4J73hY26ZSlXMl0DJ+2k1ARwkZVXnRHUhBSLkkK9QWxzsbPo/k4PzHTQ91gNShUFiBY/gg8kW0fhhztAKZ6y3TA/I39j1fgNY/M/rQsh6Pd/hE35muAzvEBHMK11Xxshnc/AOiF34Vw7NmH8A2MtCiWQI9jcF8WrrYkKaKh6vmlLf9DzsucMLoicU1eK9ZmkiWI0xe7l6WXxrX2a0CM8DwjmBgMog5vDCcbK/3phiADXI4lAzBYRBNBorrcGo36uhogIY+WAVpnTGwyw3o8/DCp/AqIQZpJ4kSR9oLoIUUfMhsVcWbM=

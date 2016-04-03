@@ -1,0 +1,60 @@
+{{#if isActorType}}
+<div class="actorThumbnail">
+    <img id="idTmpImg" class="imageThumbnail" src="{{imgActor}}">
+    <div class="descriptionThumbnail">
+        <h2 class="thumbnailNomArtist">
+            <a class="actor-box" href="#actor/{{artistId}}">{{artistName}}</a>
+        </h2>
+        <div class="genreActorThumbnail"> Genre : {{primaryGenreName}}</div>
+        <div id="idTmpBio" class="shortBio">{{shortenBio}}</div>
+    </div>
+</div>
+
+{{else if isEpisodeType}}
+<a class="episode-thumbnail-box" href="#episode/{{trackId}}">
+    <div class="episode-thumbnail">
+        <div class="episode-initial-image">
+            <img class="episode-thumbnail" src="{{artworkUrl60}}"/>
+        </div>
+        <div class="episode-thumbnail-top-box">
+            <div class="episode-thumbnail-header">
+                <h3 class="episode-title"> {{trackName}} </h3>
+                <div class="initial-release-date">{{releaseYear}}</div>
+            </div>
+            <div class="episode-description">
+                <p class="episode-description-text">{{longDescription}}</p>
+            </div>
+            <div class="episode-thumbnail-footer">
+                <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
+                <div class="duration">{{convertDuration}}</div>
+            </div>
+        </div>
+    </div>
+</a>
+
+{{else}}
+    {{#if isMovieType}} <a class="movies-box" href="#movie/{{trackId}}" >
+    {{else}} <a class="movies-box" href="#tvShow/{{collectionId}}" >
+    {{/if}}
+        <div class="thumbnail">
+            <div class="initial-image">
+                <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+            </div>
+            <div class="movies-top-box">
+                <div class="movies-header">
+                    <h3 class="movies-title"> {{#if isMovieType}} {{trackName}}
+                                              {{else}} {{collectionName}}
+                                              {{/if}} </h3>
+                    <div class="initial-release-date">{{releaseYear}}</div>
+                </div>
+                <div class="movies-description">
+                    <p class="movies-description-text">{{longDescription}}</p>
+                </div>
+                <div class="movies-footer">
+                    <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
+                    <div class="duration">{{convertDuration}}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+{{/if}}
