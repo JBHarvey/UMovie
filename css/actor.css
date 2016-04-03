@@ -14,7 +14,7 @@
     position: relative;
 }
 
-.imgActor {
+#imgActor {
     max-width: 50%;
     height: auto;
     float: left;
@@ -39,7 +39,7 @@
     margin-top: 0;
 }
 
-.description {
+#description {
     width: 100%;
 }
 
@@ -102,10 +102,10 @@
 /*Fin Section movie*/
 
 /*Pour la tablette*/
-@media screen and (min-width: 640px){
+@media screen and (min-width: 550px){
 
 
-    .description {
+    #description {
         float: right;
         width: 65%;
 
@@ -114,7 +114,7 @@
         float: left;
         width: 30%;
     }
-    .imgActor{
+    #imgActor{
 
         float: none;
         max-width: 80%;
@@ -131,14 +131,25 @@
         font-size: 150%;
     }
     .genre{
-        font-size: 170%;
+        font-size: 100%;
         margin-left: 7%;
         font-weight: bold;
     }
     #header{
-        font-size: 300%;
+        font-size: 150%;
     }
 }
+
+
+@media screen and (min-width: 640px){
+    #header{
+        font-size: 300%;
+    }
+    .genre {
+        font-size: 170%;
+    }
+}
+
 @media screen and (min-width: 960px){
     #header{
         font-size: 200%;
@@ -188,7 +199,7 @@
 
     }
 
-    .imgActor {
+    #imgActor {
         max-width: 50%;
         margin: 10% 25%;
     }

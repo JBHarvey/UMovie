@@ -38,10 +38,12 @@ define([
         },
 
         generateSearchRequest: function () {
+
             return this.model.get('trackName') + ' trailer';
         },
 
         render: function () {
+
             var searchRequest = this.generateSearchRequest();
 
             //The data used in the template
