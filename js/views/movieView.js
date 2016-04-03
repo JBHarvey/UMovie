@@ -61,7 +61,7 @@ define([
             this.$el.html(resultMovie);
 
             // Adds the youtube trailer to the right HTML tag with the corresponding class
-            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.preview-element-video');
         },
 
         events: {

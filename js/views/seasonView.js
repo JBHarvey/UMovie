@@ -52,7 +52,7 @@ define([
             var resultSeason = template(source);
 
             this.$el.html(resultSeason);
-            var youtubeVideo = new YoutubeVideo(searchRequest, '.tvShow-season-video-preview');
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.preview-element-video');
             this.collection.each(function (episode) {
                 var thumbnail = new ThumbnailView({ model: episode });
                 $('.episodes-box').append(thumbnail.render());
