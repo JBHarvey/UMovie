@@ -2,33 +2,31 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'theMovieDb'
+    'theMovieDb',
 ], function ($, _, Backbone, theMovieDb) {
 
     var TmdbView = Backbone.View.extend({
 
-
         initialize: function () {
-            this.searchRequest = "";
-            this.imgIdName = "";
-            this.bioIdName = "";
+            this.searchRequest = '';
+            this.imgIdName = '';
+            this.bioIdName = '';
             this.actorToFind = null;
 
         },
 
-        getTmdbSimilarMovie: function(searchRequest) {
+        getTmdbSimilarMovie: function (searchRequest) {
             'use strict';
             var that = this;
             that.searchRequest = searchRequest;
 
             var searchOptions = {
-                query : that.searchRequest,
-                page: 1
+                query: that.searchRequest,
+                page: 1,
             };
 
-
             var errorCB = function (data) {
-                console.log("Erreur");
+                console.log('Erreur');
                 console.log(data);
             };
 
@@ -36,18 +34,17 @@ define([
                 var movieSearch = JSON.parse(data);
                 var movieSearchInfo = movieSearch.results[0];
 
-                if(movieSearchInfo) {
-                    theMovieDb.movies.getById({'id': movieSearchInfo.id}, function (data) {
-                       // that.actorToFind = JSON.parse(data);
+                if (movieSearchInfo) {
+                    theMovieDb.movies.getById({ id: movieSearchInfo.id }, function (data) {
+                        // that.actorToFind = JSON.parse(data);
 
-                      //  console.log(that.actorToFind);
-                    }, errorCB)
+                        //  console.log(that.actorToFind);
+                    }, errorCB);
                 }
             };
 
             theMovieDb.search.getMovie(searchOptions, searchSuccessCallback, errorCB);
         },
-
 
         getTmdbActorData: function (searchRequest, idImg, idBio) {
             'use strict';
@@ -59,12 +56,11 @@ define([
             var searchOptions = {
                 query: that.searchRequest,
                 page: 1,
-                include_adult: true
+                include_adult: true,
             };
 
-
             var errorCB = function (data) {
-                console.log("Erreur");
+                console.log('Erreur');
                 console.log(data);
             };
 
@@ -72,22 +68,22 @@ define([
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
                 if (artistSearchInfo  != null) {
-                     theMovieDb.people.getById({'id': artistSearchInfo.id}, function (data) {
+                    theMovieDb.people.getById({ id: artistSearchInfo.id }, function (data) {
                         that.actorToFind = JSON.parse(data);
-                         console.log(that.actorToFind);
+                        console.log(that.actorToFind);
 
-                      that.modifySingleActorBio(that.actorToFind.biography)
-                        .modifySingleActorImage(that.actorToFind.profile_path);
+                        that.modifySingleActorBio(that.actorToFind.biography)
+                          .modifySingleActorImage(that.actorToFind.profile_path);
                     }, errorCB);
                 }
 
             };
+
             theMovieDb.search.getPerson(searchOptions, searchSuccessCallback, errorCB);
 
         },
 
-
-        getActorImgBio: function() {
+        getActorImgBio: function () {
             var that = this;
             var info = that.actorToFind;
             console.log(info);
@@ -95,30 +91,27 @@ define([
                   .modifySingleActorImage(info.profile_path);
         },
 
-
         shortenText: function (textToShortent, length) {
             var newLength = length || 300;
             return `${textToShortent.slice(0, newLength)} ... `;
 
-
         },
-
 
         modifySingleActorBio: function (biography) {
             var that = this;
 
             if (biography) {
 
-                const actorBioId =that.bioIdName;
+                const actorBioId = that.bioIdName;
                 $(`#${actorBioId}`).each(function () {
-                    if (actorBioId !== 'description'){
+                    if (actorBioId !== 'description') {
                         $(this).text(that.shortenText(biography));
-                    }
-                    else{
+                    } else {
                         $(this).text(biography);
                     }
                 });
             }
+
             return this;
         },
 
@@ -130,12 +123,12 @@ define([
 
                 const actorImageId = that.imgIdName;
 
-                $(`#${actorImageId}`).attr("src", path);
+                $(`#${actorImageId}`).attr('src', path);
 
             }
 
             return this;
-        }
+        },
 
     });
     return TmdbView;

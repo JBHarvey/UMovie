@@ -9,7 +9,7 @@ define([
     'text!templates/home.html',
     'models/homeModel',
     'handlebars',
-    'views/TmdbData'
+    'views/TmdbData',
 ], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, TmdbData) {
 
     var HomeView = Backbone.View.extend({
@@ -28,7 +28,7 @@ define([
             var resultHome = template(source.defaults);
             this.$el.html(resultHome);
 
-            var searchRequest = "Titanic";
+            var searchRequest = 'Titanic';
             var tmdbData = new TmdbData();
             tmdbData.getTmdbSimilarMovie(searchRequest);
 
