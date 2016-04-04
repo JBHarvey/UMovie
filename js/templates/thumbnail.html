@@ -33,28 +33,24 @@
 </a>
 
 {{else}}
-    {{#if isMovieType}} <a class="movies-box" href="#movie/{{trackId}}" >
-    {{else}} <a class="movies-box" href="#tvShow/{{collectionId}}" >
-    {{/if}}
-        <div class="thumbnail">
-            <div class="initial-image">
-                <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+<a class="movies-box" href="{{routingRef}}">
+    <div class="thumbnail">
+        <div class="initial-image">
+            <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+        </div>
+        <div class="movies-top-box">
+            <div class="movies-header">
+                <h3 class="movies-title"> {{entertainementName}}</h3>
+                <div class="initial-release-date">{{releaseYear}}</div>
             </div>
-            <div class="movies-top-box">
-                <div class="movies-header">
-                    <h3 class="movies-title"> {{#if isMovieType}} {{trackName}}
-                                              {{else}} {{collectionName}}
-                                              {{/if}} </h3>
-                    <div class="initial-release-date">{{releaseYear}}</div>
-                </div>
-                <div class="movies-description">
-                    <p class="movies-description-text">{{longDescription}}</p>
-                </div>
-                <div class="movies-footer">
-                    <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
-                    <div class="duration">{{convertDuration}}</div>
-                </div>
+            <div class="movies-description">
+                <p class="movies-description-text">{{longDescription}}</p>
+            </div>
+            <div class="movies-footer">
+                <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
+                <div class="duration">{{convertDuration}}</div>
             </div>
         </div>
-    </a>
+    </div>
+</a>
 {{/if}}

@@ -34,6 +34,8 @@ define([
         processData(data) {
             data.convertDuration = this.convertDuration(data.trackTimeMillis);
             data.releaseYear = this.releaseYear(data.releaseDate);
+            data.routingRef = `#movie/${data.trackId}`;
+            data.entertainementName = data.trackName;
             return data;
         },
 
