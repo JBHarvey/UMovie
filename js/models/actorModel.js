@@ -6,6 +6,7 @@ define([
     'underscore',
     'backbone',
 ], function (_, Backbone) {
+    'use strict';
 
     var ActorModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/actors',
@@ -14,7 +15,6 @@ define([
             if (data.results) {
                 return data.results[0];
             } else {
-
                 return data;
             }
         },
