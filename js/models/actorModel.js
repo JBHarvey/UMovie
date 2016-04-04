@@ -32,7 +32,7 @@ define([
             "radioStationUrl": "https://itunes.apple.com/station/idra.253584821",
             "imgActor": "url(../../img/actor/noProfile.jpg",
             "isActorType": true,
-        }
+        },
 
 
     });
