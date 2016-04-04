@@ -5,6 +5,7 @@
 ## Directory-based project format:
 **/.idea
 **/*.log
+**/node_modules
 
 # Vim related
 *.swap

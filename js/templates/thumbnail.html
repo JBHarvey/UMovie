@@ -1,0 +1,34 @@
+{{#if isActorType}}
+<div class="actorThumbnail">
+    <img id="idTmpImg" class="imageThumbnail" src="{{imgActor}}">
+    <div class="descriptionThumbnail">
+        <h2 class="thumbnailNomArtist">
+            <a class="actor-box" href="#actor/{{artistId}}">{{artistName}}</a>
+        </h2>
+        <div class="genreActorThumbnail"> Genre : {{primaryGenreName}}</div>
+        <div id="idTmpBio" class="shortBio">{{shortenBio}}</div>
+    </div>
+</div>
+
+{{else}}
+<a class="{{cssClassType}}-box" href="{{routingRef}}">
+    <div class="thumbnail">
+        <div class="{{cssClassType}}-initial-image">
+            <img class="{{cssClassType}}-thumbnail" src="{{artworkUrl100}}"/>
+        </div>
+        <div class="{{cssClassType}}-top-box">
+            <div class="{{cssClassType}}-header">
+                <h3 class="{{cssClassType}}-title"> {{entertainementName}}</h3>
+                <div class="initial-release-date">{{releaseYear}}</div>
+            </div>
+            <div class="{{cssClassType}}-description">
+                <p class="{{cssClassType}}-description-text">{{longDescription}}</p>
+            </div>
+            <div class="{{cssClassType}}-footer">
+                <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
+                <div class="duration">{{convertDuration}}</div>
+            </div>
+        </div>
+    </div>
+</a>
+{{/if}}

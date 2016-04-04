@@ -7,38 +7,50 @@ define([
     'underscore',
     'backbone',
     'text!templates/actor.html',
+    '../collections/movieCollection',
+    'views/tmdbData',
     'handlebars',
-    ], function ($, _, Backbone, actorTemplate, Handlebars) {
+    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
+        'use strict';
 
         var ActorView = Backbone.View.extend({
 
             el: '#content',
 
-            waitForRender: _.after(2, function () {
-            that.render();
-        }),
-
             initialize: function () {
 
-                this.model.attributes.firstAPIDone = false;
                 var that = this;
+                this.collectionMovies = new MovieCollection();
 
-                this.listenTo(this.model.attributes.firstAPIDone, 'change', that.render);
-                this.model.fetch({ success: that.waitForRender });
-                this.model.updateInformationsFromTMDB(that.waitForRender);
-                that.render();
+                this.listenTo(this.model, 'change', that.render);
+                this.listenTo(this.collectionMovies, 'update', that.render);
 
+                var waitForRender = _.after(2, function () {
+                    that.render();
+                });
+
+                this.model.fetch({
+                    success: waitForRender,
+                });
+
+                this.collectionMovies.fetch({
+                    success: waitForRender,
+                });
+            },
+
+            generateSearchName: function () {
+                return encodeURI(this.model.get('artistName'));
             },
 
             render: function () {
+                var searchRequest = this.generateSearchName();
 
                 var source = this.model.attributes;
-                console.log('ICI');
-                console.log(source);
                 var template = Handlebars.compile(actorTemplate);
 
-                console.log(`${source.artistName} Hast Been Rendered`);
                 this.$el.html(template(source));
+                var tmdbData = new TmdbData();
+                tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
             },
 
         });

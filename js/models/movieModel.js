@@ -5,6 +5,7 @@ define([
     'underscore',
     'backbone',
 ], function (_, Backbone) {
+    'use strict';
 
     var MovieModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/movies',
@@ -13,7 +14,6 @@ define([
         sync: function (method, model, options) {
 
             // To add to watchlist, you will have to pass watchlist ID in the options
-            'use strict';
             if ('update' === method || 'create' === method) {
                 method = 'create';
                 options.url = 'https://umovie.herokuapp.com/watchlists/' +
@@ -24,14 +24,20 @@ define([
         },
 
         parse(data) {
-            if (undefined !== data.results) {
-                result = data.results[0];
-                result.convertDuration = this.convertDuration(result.trackTimeMillis);
-                result.releaseYear = this.releaseYear(result.releaseDate);
-                return data.results[0];
+            if (_.isObject(data.results)) {
+                return this.processData(data.results[0]);
             } else {
-                return data;
+                return this.processData(data);
             }
+        },
+
+        processData(data) {
+            data.convertDuration = this.convertDuration(data.trackTimeMillis);
+            data.releaseYear = this.releaseYear(data.releaseDate);
+            data.routingRef = `#movie/${data.trackId}`;
+            data.entertainementName = data.trackName;
+            data.cssClassType = 'movies';
+            return data;
         },
 
         convertDuration(duration) {
@@ -76,6 +82,7 @@ define([
             productionHouse: 'N/A',
             writers: 'N/A',
             language: 'English',
+            isMovieType: true,
         },
 
     });

@@ -6,17 +6,23 @@ define([
     'backbone',
 ], function (_, Backbone) {
 
-    var TvShowSeasonModel = Backbone.Model.extend({
+    var SeasonModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/tvshows/season',
 
         parse(data) {
             if (data.results !== undefined) {
-                result = data.results[0];
-                result.releaseYear = this.releaseYear(result.releaseDate);
-                return data.results[0];
+                return this.processData(data.results[0]);
             } else {
-                return data;
+                return this.processData(data);
             }
+        },
+
+        processData(data) {
+            data.releaseYear = this.releaseYear(data.releaseDate);
+            data.routingRef = `#tvShow/${data.collectionId}`;
+            data.entertainementName = data.collectionName;
+            data.cssClassType = 'movies';
+            return data;
         },
 
         releaseYear(date) {
@@ -50,9 +56,11 @@ define([
             productionHouse: 'N/A',
             writers: 'N/A',
             language: 'English',
+            isMovieType: false,
+            isSeasonType: true,
         },
 
     });
 
-    return TvShowSeasonModel;
+    return SeasonModel;
 });

@@ -6,6 +6,7 @@
     <div class="watchlist-aside">
         <div class="watchlist-title-box" data-id="{{id}}">
             <h4 class="watchlist-title">{{name}}</h4>
+            <button class="watchlist-edit-button btn submit-btn" type="button">Edit</button>
         </div>
 
         <div class="watchlist-movies">
@@ -17,7 +18,7 @@
 
                 <a class="movies-box" href="#movie/{{trackId}}">
                     <div class="thumbnail">
-                        <div class="initial-image">
+                        <div class="movies-initial-image">
                             <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
                         </div>
                     </div>
@@ -38,8 +39,11 @@
                         </div>
                     </div>
                 </a>
+
             </div>
             {{/each}}
         </div>
+
+        <button class="remove-watchlist-movie delete-btn btn" data-id="{{id}}">Remove Movies</button>
     </div>
 </div>

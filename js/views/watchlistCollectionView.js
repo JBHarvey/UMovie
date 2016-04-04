@@ -49,7 +49,6 @@ define([
                 that.$el.append(watchListView.render());
             });
 
-            that.$el.append('<button id="remove-watchlist-movie" class="delete-btn btn">Remove Movies</button>');
             that.$el.append('<button id="delete-watchlist" class="delete-btn btn"> Delete Watchlists</button>');
 
         },
@@ -58,8 +57,9 @@ define([
             'click #delete-watchlist': 'deleteWatchlists',
             'keyup #add-watchlist-text': 'checkAddWatchlistText',
             'click #add-watchlist-button': 'addWatchlist',
-            'click #remove-watchlist-movie': 'removeWatchlistMovie',
+            'click .remove-watchlist-movie': 'removeWatchlistMovie',
             'dblclick .watchlist-title': 'editWatchlist',
+            'click .watchlist-edit-button': 'editWatchlist',
             'click .watchlist-cancel': 'cancelEditing',
             'keyup .watchlist-title-input': 'checkChangeTitleText',
             'click .watchlist-submit-button': 'submitChanges',
@@ -107,6 +107,8 @@ define([
         },
 
         removeWatchlistMovie: function (event) {
+            var currentButton = event.currentTarget;
+
             var checkedValues = $('.delete-watchlist-movie-checkbox:checkbox:checked')
                 .map(function () {
                     return {
@@ -115,11 +117,16 @@ define([
                     };
                 }).get();
 
+            checkedValues = checkedValues.filter(function (idObject) {
+                return idObject.watchlistID === currentButton.dataset.id;
+            });
+
             var that = this;
+            var movies = new MovieCollection(that.collection
+                .get(currentButton.dataset.id)
+                .get('movies'));
+
             checkedValues.forEach(function (idObject) {
-                var movies = new MovieCollection(that.collection
-                    .get(idObject.watchlistID)
-                    .get('movies'));
                 var movie = movies.get(idObject.movieID);
                 that.collection.get(idObject.watchlistID).removeMovie(movie);
 
@@ -141,7 +148,8 @@ define([
                 previousWatchlist = previousWatchlist[0];
                 var previousWatchlistModel = this.collection.get(previousWatchlist.dataset.id);
                 previousWatchlist.innerHTML = '<h4 class="watchlist-title">' +
-                    previousWatchlistModel.get('name') + '</h4>';
+                    previousWatchlistModel.get('name') + '</h4><button class="watchlist-edit-button btn submit-btn" ' +
+                    'type="button">Edit</button>';
             }
 
             var currentTargetParent = event.currentTarget.parentElement;
@@ -157,8 +165,8 @@ define([
         cancelEditing: function (event) {
             var currentTargetParent = event.currentTarget.parentElement;
             var currentWatchlist = this.collection.get(currentTargetParent.dataset.id);
-            currentTargetParent.innerHTML = '<h4 class="watchlist-title">' +
-                currentWatchlist.get('name') + '</h4>';
+            currentTargetParent.innerHTML = '<h4 class="watchlist-title">' + currentWatchlist.get('name') + '</h4>' +
+                '<button class="watchlist-edit-button btn submit-btn" type="button">Edit</button>';
         },
 
         checkChangeTitleText: function (event) {

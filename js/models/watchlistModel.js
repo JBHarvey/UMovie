@@ -21,7 +21,7 @@ define([
         removeMovie: function (movieModel) {
             'use strict';
             this.set('movies', _.reject(this.get('movies'), function (movie) {
-                return movie.trackID === movieModel.get('trackID');
+                return movie.trackId === movieModel.get('trackId');
             }));
         },
     });

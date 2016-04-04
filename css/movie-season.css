@@ -1,0 +1,466 @@
+/* Css for both a movie and a tvShow season page */
+
+/* General */
+html{
+    font-family: "Helvetica Neue";
+}
+
+.page-box {
+    background-color: #000000;
+}
+
+/* Title and background image */
+.element-background-image img {
+    width:100%;
+}
+
+.element-title {
+    display: none;
+}
+
+/* Main information */
+.container-up-section {
+    width: 100%;
+    background-color: #132340;
+    padding-right: 1em;
+}
+
+/* Cover image and main information(duration, release year, country) */
+.cover-thumbnail, .cover-thumbnail title {
+    display: flex;
+}
+
+.cover-thumbnail span {
+    display: block;
+}
+
+.cover-thumbnail span:first-child {
+    font-size: 1em;
+    margin: 1em 0 .6em 0;
+}
+
+.cover-thumbnail span:last-child {
+    font-size: 0.8em;
+    margin: 0 0 1.4em 0;
+}
+
+.cover-thumbnail img {
+    margin-top: -20%;
+    padding: 1em 1em 0.6em 0.6em;
+    width: 6.5em;
+}
+
+.main-info div {
+    display: inline;
+    font-size: 1em;
+    margin: 0 2em;
+}
+
+.main-info{
+    padding: 0.6em 0;
+    background-color: #05052B;
+}
+
+/* Preview video box */
+.preview-box span {
+    display: none;
+}
+
+iframe {
+    width: 100%;
+    height: 267px;
+}
+
+/* Summary and detailed information */
+.summary{
+    display: block;
+    padding: 0.6em 1em;
+    line-height: 1.7em;
+}
+
+.detailed-info {
+    background-color: #05052B;
+}
+
+.detailed-info-subject{
+    display: flex;
+}
+
+.detailed-info-subject span:nth-child(2) {
+    display: none;
+}
+
+.element-name {
+    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+}
+
+.element-rating {
+    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+}
+
+.element-director {
+    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+}
+
+.element-studio {
+    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
+}
+
+.element-writers {
+    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
+}
+
+.element-language{
+    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
+}
+
+.element-price {
+    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
+}
+
+.element-icon {
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 4%;
+    border: none;
+    width: 100%;
+    max-width: 32px;
+    max-height: 32px;
+    display: inline-block;
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: #132340;
+    background-repeat: no-repeat;
+}
+
+/* Watchlist box */
+.watchlist-button {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5% auto 3% auto;
+    text-align: -webkit-center;
+}
+
+.watchlist-button-desktop {
+    background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:    -moz-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:     -ms-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:      -o-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    background-image:         linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    padding: 6px;
+    display: inline-block;
+    -webkit-box-sizing: padding-box;
+    -moz-box-sizing: padding-box;
+    box-sizing: padding-box;
+    font-size: 0.9em;
+    font-family: Arial;
+    width: 60%;
+    color: rgba(255,255,255,1);
+}
+.watchlist-button-desktop:hover {
+    background-image: -webkit-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:    -moz-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:     -ms-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:      -o-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    background-image:         linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
+    color: rgba(230,230,230,1);
+}
+
+.watchlist-button-desktop:active {
+    position:relative;
+    top:1px;
+}
+
+.watchlist-menu {
+    padding: 0;
+    max-height: 100px;
+    overflow-y: scroll;
+    background-color: #0E0F11;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+    list-style-type: none;
+}
+
+.watchlist-select-group {
+    padding: 1em;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    transition: opacity ease-in-out .55s;
+}
+
+.watchlist-menu-group {
+    display: none;
+}
+
+.watchlist-select-group:hover {
+    opacity: 0.8;
+}
+
+.watchlist-select-group:first-of-type {
+    border-top: none;
+}
+
+.watchlist-select-group:last-of-type {
+    border-bottom: none;
+}
+
+.new-watchlist {
+    background-color: #0E0F11;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+}
+
+.new-watchlist-input {
+    width: 85%;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transition: border-color ease-in-out .15s,box-shadow cubic-bezier(1,0,0,1) .15s;
+}
+
+.new-watchlist-input:focus {
+    outline: 0;
+    border: 1px solid darkgray;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+.mobile-watchlist {
+    margin: 1em 100px 1em 100px;
+}
+
+.new-watchlist-input, .submit-new-watchlist {
+    font-size: 0.7em;
+}
+
+.submit-new-watchlist {
+    color: black;
+}
+
+/* Episodes box */
+
+.episodes-box {
+    margin-top: 5%;
+}
+
+@media screen and (min-width: 768px) {
+    .page-box {
+        font-size: 2em;
+    }
+
+    .cover-thumbnail img {
+        width:220px;
+        height:280px;
+    }
+
+    .element-name {
+        margin-top: -.5em;
+    }
+
+    iframe {
+        width: 100%;
+        height: 450px;
+    }
+
+    .mobile-watchlist {
+        width: 250px;
+        padding: 1em 0;
+        margin-left: 250px;
+    }
+
+    .preview-box {
+        width: 100%;
+        background-color: black;
+    }
+
+    .main-info {
+        display: flex;
+        justify-content: center;
+    }
+
+    .detailed-info {
+        padding-top: 1.5%;
+    }
+
+}
+
+@media screen and (min-width: 980px) {
+
+    .page-box {
+        background-color: black;
+    }
+
+    .element-background-image {
+        display: none;
+    }
+
+    .element-title {
+        display: block;
+        margin: 0 0 2% 43%;
+        font-size: 30px;
+        color: darkgray;
+    }
+
+    .container-up-section {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 0 0 5%;
+        background-color: black;
+    }
+
+    .cover-thumbnail {
+        margin-left: 45px;
+    }
+
+    .cover-thumbnail img {
+        width: 280px;
+        height: 370px;
+    }
+
+    .cover-thumbnail, .cover-thumbnail title {
+        display: none;
+    }
+
+    .cover-box {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 0;
+        width: 38%;
+    }
+
+    .preview-box {
+        width: 600px;
+    }
+
+    .cover-thumbnail {
+        display: block;
+    }
+
+    .cover-thumbnail span {
+        display: none;
+    }
+
+    .main-info div {
+        margin: 1em;
+    }
+
+    .main-info {
+        display: block;
+        background-color: black;
+        margin-left: 7em;
+        font-size: 13px;
+    }
+
+    .summary{
+        padding: 0 10%;
+        font-size: 14px;
+        line-height: 1.7em;
+    }
+
+    .summary span{
+        display: block;
+        color: #0085FF;
+    }
+
+    .preview-box span {
+        display: block;
+        font-size: 14px;
+    }
+
+    .detailed-info {
+        background-color: black;
+        font-size: 14px;
+        margin: 1em 0 0 10%;
+        min-width: 310px;
+    }
+
+    .element-icon {
+        display: none;
+    }
+
+    .container-down-section {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .watchlist-button {
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        text-align: -webkit-right;
+        margin: 0 11% 0 0;
+    }
+
+    .detailed-info-subject {
+        display:flex;
+    }
+
+    .watchlist-menu-group {
+        font-size: 1.3em;
+        width : 25%;
+    }
+
+    .detailed-info-subject span:nth-child(2){
+        display: block;
+        padding: 0 .5em;
+        color: #0085FF;
+        text-align: right;
+        min-width: 5em;
+    }
+
+    .watchlist-button-desktop {
+        width: 150px;
+    }
+
+    .mobile-watchlist {
+        width: 200px;
+    }
+
+    .submit-new-watchlist {
+        color: black;
+    }
+
+    .preview-content-video {
+        margin-left: 2%;1
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .detailed-info {
+        padding-top: 13px;
+    }
+
+    .watchlist-menu-group {
+        width: 18%;
+    }
+
+    /* Episodes box */
+    .episodes-box{
+        font-size: 13px;
+        margin : 3% 8% 0 40%;
+    }
+
+    .episodes-box span {
+        color: #0085FF;
+    }
+}

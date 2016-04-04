@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/movie.html',
+    'text!templates/movie-season.html',
     'models/movieModel',
     '../collections/watchlistCollection',
     'models/watchlistModel',
@@ -38,10 +38,12 @@ define([
         },
 
         generateSearchRequest: function () {
+
             return this.model.get('trackName') + ' trailer';
         },
 
         render: function () {
+
             var searchRequest = this.generateSearchRequest();
 
             //The data used in the template
@@ -61,7 +63,7 @@ define([
             this.$el.html(resultMovie);
 
             // Adds the youtube trailer to the right HTML tag with the corresponding class
-            var youtubeVideo = new YoutubeVideo(searchRequest, '.movie-video-preview');
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.preview-element-video');
         },
 
         events: {

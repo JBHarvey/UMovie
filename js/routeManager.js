@@ -20,23 +20,21 @@ define([
         'views/movieView',
         'models/movieModel',
         'views/movieCollectionView',
-        'views/tvShowView',
-        'views/tvShowSeasonView',
-        'models/tvShowSeasonModel',
-        'views/tvShowsCollectionView',
+        'views/seasonView',
+        'models/seasonModel',
+        'views/seasonCollectionView',
         'views/actorView',
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
+        'views/episodeView',
+        'models/episodeModel',
         'views/userSettingsView',
-        'views/userView',
-        'views/tvShowEpisodeView',
-        'models/tvShowEpisodeModel'
+        'views/userView'
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, MovieCollectionView, TvShowView, TvShowSeasonView,
-                 TvShowSeasonModel, TvShowCollectionView, ActorView, ActorModel, ActorCollectionView, WatchlistCollectionView,
-                 UserSettingsView, UserView, TvShowEpisodeView, TvShowEpisodeModel) {
-
+                 UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
+                 SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
+                 WatchlistCollectionView, EpisodeView, EpisodeModel,UserSettingsView, UserView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -45,7 +43,7 @@ define([
                 movies: 'displayMovies',
                 'movie/:movieId': 'displaySpecificMovie',
                 tvShows: 'displayTvShows',
-                'tvShow/:tvShowId': 'displaySpecificTvShow',
+                'tvShow/:tvShowId': 'displaySpecificTvShowSeason',
                 'episode/:episodeId':'displaySpecificEpisode',
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
@@ -117,6 +115,7 @@ define([
                 if (_.isObject(currentView)) {
                     currentView.undelegateEvents();
                 }
+
                 if (checkCredentials()) {
                     currentView = newModel ? new ViewClass({ model:newModel }) : new ViewClass();
                 } else {
@@ -147,19 +146,19 @@ define([
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(TvShowCollectionView, undefined);
+                updateMainView(SeasonsCollectionView, undefined);
             });
 
-            uMovieRouter.on('route:displaySpecificTvShow', function (tvShowId) {
+            uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newTvShowSeason = new TvShowSeasonModel({ id: newId });
-                updateMainView(TvShowSeasonView, newTvShowSeason);
+                var newSeason = new SeasonModel({ id: newId });
+                updateMainView(SeasonView, newSeason);
             });
 
             uMovieRouter.on('route:displaySpecificEpisode', function (episodeId) {
                 var newId = parseInt(episodeId);
-                var newTvShowEpisode = new TvShowEpisodeModel({ id: newId });
-                updateMainView(TvShowEpisodeView, newTvShowEpisode);
+                var newEpisode = new EpisodeModel({ id: newId });
+                updateMainView(EpisodeView, newEpisode);
             });
 
             //Actors
@@ -179,6 +178,7 @@ define([
             uMovieRouter.on('route:showUser', function () {
                 session = new UserModel({id:Cookie.get('id')});
                 updateMainView(UserSettingsView, session);
+
             });
 
             uMovieRouter.on('route:settings', function () {

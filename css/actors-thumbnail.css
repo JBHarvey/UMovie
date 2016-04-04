@@ -1,0 +1,83 @@
+.actorThumbnail {
+
+    max-height: 10%;
+    margin: 2%  5% ;
+    display: flex;
+    border-bottom: solid;
+    border-bottom-color: darkgrey;
+
+}
+.actor-box {
+    text-decoration:  none;
+    color: inherit;
+}
+
+.imageThumbnail {
+
+
+    margin: 0 0 2% 0;
+    width: 30%;
+
+    height: 50%;
+
+}
+.descriptionThumbnail {
+    margin: 1% 0 0 5%;
+}
+
+.shortBio {
+    height: 10%;
+    min-height: 10%;
+    max-height: 10%;
+
+    font-size: 100%;
+}
+
+.genreActorThumbnail {
+    font-size: 100%;
+}
+
+
+@media screen and (min-width: 640px) {
+    .shortBio{
+        font-size: 150%;
+    }
+    .genreActorThumbnail {
+        font-size: 170%;
+    }
+    .thumbnailNomArtist {
+        font-size: 170%;
+    }
+    .imageThumbnail{
+        height:50%;
+        width: auto;
+    }
+}
+
+
+@media screen and (min-width: 960px) {
+
+    .actorThumbnail {
+
+    }
+
+    .imageThumbnail{
+        width: 10%;
+        max-width: 600px;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .thumbnailNomArtist {
+        font-size: 100%;
+    }
+
+    .shortBio {
+
+        font-size: 100%;
+    }
+
+    .genreActorThumbnail {
+        font-size: 100%;
+    }
+}

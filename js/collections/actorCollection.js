@@ -9,14 +9,18 @@ define([
     'jscookie',
     'models/actorModel',
 ], function ($, _, Backbone, Cookie, ActorModel) {
+    'use strict';
 
     var Actors = Backbone.Collection.extend({
             model: ActorModel,
             url: '/actors',
 
             parse: function (response) {
-                console.log(response);
-                return response.results;
+                if (response.results) {
+                    return response.results;
+                } else {
+                    return response;
+                }
             },
         });
 
