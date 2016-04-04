@@ -443,7 +443,7 @@ button {
     border: 1px solid #b7b7b7;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    font: normal 1em/0 Arial, Helvetica, sans-serif;
+    font: normal 1em Arial;
     color: #239fed;
     -o-text-overflow: clip;
     text-overflow: clip;
@@ -507,21 +507,20 @@ button {
     height: 0.4em;
     position: relative;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: -0.3em;
+    top: -0.15em;
     display: inline-block;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     cursor: pointer;
     padding: 0.6em 1em 0.6em 1em;
-    border: 1px solid #018dc4;
+    border: 1px solid #239fed;
     border-left-width: 0;
     -webkit-border-radius: 0.12em 0.12em 0.12em 0.12em;
     border-radius: 0.12em 0.12em 0.12em 0.12em;
     color: rgba(255,255,255,0.9);
-    font: normal 1em/0 Arial, Helvetica, sans-serif;
-    -o-text-overflow: clip;
-    text-overflow: clip;
+    font: normal 1em Arial;
     background: #239fed;
     -webkit-box-shadow: 0.08em 0.08em 0.16em 0.08em #239fed ;
     box-shadow: 0.08em 0.08em 0.16em 0.08em #239fed;
@@ -533,30 +532,25 @@ button {
     transform:    skewX(-15deg);
 }
 
+#search-icon:hover {
+    border: 1px solid #30b9ff;
+    background: #30b9ff;
+    -webkit-box-shadow: 0.08em 0.08em 0.16em 0.08em #30b9ff;
+    box-shadow: 0.08em 0.08em 0.16em 0.08em #30b9ff;
+    cursor:pointer;
+}
+
 .go-research {
     background-image: url('../img/goSearchIcon.png');
     background-color: #2b303b;
-    width: 18px;
-    height: 17px;
     display: inline-flex;
     position: relative;
-    top: 3px;
-    left: -4px;
-    padding-top: 1px;
-    padding-right: 1px;
-    padding-bottom: 1px;
-    border-top-right-radius: 0.3em;
-    border-bottom-right-radius: 0.3em;
+
     -webkit-transition: background .55s ease;
     -moz-transition: background .55s ease;
     -ms-transition: background .55s ease;
     -o-transition: background .55s ease;
     transition: background .55s ease;
-}
-
-.go-research:hover {
-    cursor: pointer;
-    background-color: white;
 }
 
 .inputFields {
