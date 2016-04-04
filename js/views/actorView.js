@@ -11,6 +11,7 @@ define([
     'views/tmdbData',
     'handlebars',
     ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
+        'use strict';
 
         var ActorView = Backbone.View.extend({
 
@@ -23,17 +24,18 @@ define([
 
                 this.listenTo(this.model, 'change', that.render);
                 this.listenTo(this.collectionMovies, 'update', that.render);
+
                 var waitForRender = _.after(2, function () {
-                that.render();
-            });
+                    that.render();
+                });
 
                 this.model.fetch({
-                success: waitForRender,
-            });
-                this.collectionMovies.fetch({
-                success: waitForRender,
-            });
+                    success: waitForRender,
+                });
 
+                this.collectionMovies.fetch({
+                    success: waitForRender,
+                });
             },
 
             generateSearchName: function () {
@@ -41,17 +43,15 @@ define([
             },
 
             render: function () {
-            'use strict';
+                var searchRequest = this.generateSearchName();
 
-            var searchRequest = this.generateSearchName();
+                var source = this.model.attributes;
+                var template = Handlebars.compile(actorTemplate);
 
-            var source = this.model.attributes;
-            var template = Handlebars.compile(actorTemplate);
-
-            this.$el.html(template(source));
-            var tmdbData = new TmdbData();
-            tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
-        },
+                this.$el.html(template(source));
+                var tmdbData = new TmdbData();
+                tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
+            },
 
         });
         return ActorView;
