@@ -12,13 +12,13 @@
 
 {{else if isEpisodeType}}
 <a class="episode-thumbnail-box" href="#episode/{{trackId}}">
-    <div class="episode-thumbnail">
+    <div class="thumbnail">
         <div class="episode-initial-image">
-            <img class="episode-thumbnail" src="{{artworkUrl60}}"/>
+            <img class="episode-thumbnail" src="{{artworkUrl100}}"/>
         </div>
         <div class="episode-thumbnail-top-box">
             <div class="episode-thumbnail-header">
-                <h3 class="episode-title"> {{trackName}} </h3>
+                <h3 class="episode-title"> {{entertainementName}} </h3>
                 <div class="initial-release-date">{{releaseYear}}</div>
             </div>
             <div class="episode-description">
@@ -31,7 +31,6 @@
         </div>
     </div>
 </a>
-
 {{else}}
 <a class="movies-box" href="{{routingRef}}">
     <div class="thumbnail">
