@@ -59,6 +59,14 @@ define([
             });
         },
 
+        events: {
+            'click .thumbnail': 'accessEpisode'
+        },
+
+        accessEpisode: function (event) {
+            console.log(event);
+        }
+
     });
     return SeasonView;
 

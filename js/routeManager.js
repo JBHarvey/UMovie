@@ -27,12 +27,10 @@ define([
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
-        'views/episodeView',
-        'models/episodeModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, EpisodeView, EpisodeModel) {
+                 WatchlistCollectionView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -42,7 +40,6 @@ define([
                 'movie/:movieId': 'displaySpecificMovie',
                 tvShows: 'displayTvShows',
                 'tvShow/:tvShowId': 'displaySpecificTvShowSeason',
-                'episode/:episodeId':'displaySpecificEpisode',
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
@@ -151,12 +148,6 @@ define([
                 var newId = parseInt(tvShowId);
                 var newSeason = new SeasonModel({ id: newId });
                 updateMainView(SeasonView, newSeason);
-            });
-
-            uMovieRouter.on('route:displaySpecificEpisode', function (episodeId) {
-                var newId = parseInt(episodeId);
-                var newEpisode = new EpisodeModel({ id: newId });
-                updateMainView(EpisodeView, newEpisode);
             });
 
             //Actors
