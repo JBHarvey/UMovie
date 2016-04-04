@@ -26,7 +26,9 @@ define([
     },
 
     events:{
-        'click .inputNewNameButton': 'updateModelName'
+        'click .inputNewNameButton': 'updateModelName',
+        'click #inputNewEmailButton': 'updateModelEmail'
+
     },
 
     render: function(){
@@ -36,22 +38,6 @@ define([
         var resultUser = template(source);
 
         this.$el.html(resultUser);
-    },
-
-    updateModelName: function(){
-        var model = this.model;
-        console.log("Je passe dans la methode...");
-        var newNameButton = event.currentTarget;
-        var newName = $('.inputNewName').val();
-
-        if(newName != model.name){
-            model.name = newName;
-
-        }
-
-        else{
-            console.log("Le nom entre est le meme !");
-        }
     }
 
     });
