@@ -62,6 +62,8 @@ define(function () {
             xhr.onerror = function (e) {
                 error(xhr.responseText);
             };
+
+            xhr.send(null);
         }
     };
 
