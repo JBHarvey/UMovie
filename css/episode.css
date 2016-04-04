@@ -139,15 +139,6 @@ html{
     margin-left: 5%;
 }
 
-.episode-top-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 2.4em;
-    min-width: 0;
-    flex: 1 1 auto;
-}
-
 .tvShow-info-box-desktop, .tvShow-summary-desktop, .tvShow-short-technical-info-desktop{
     display: none;
 }

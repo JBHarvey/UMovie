@@ -10,43 +10,21 @@
     </div>
 </div>
 
-{{else if isEpisodeType}}
-<a class="episode-thumbnail-box" href="#episode/{{trackId}}">
-    <div class="episode-thumbnail">
-        <div class="episode-initial-image">
-            <img class="episode-thumbnail" src="{{artworkUrl60}}"/>
-        </div>
-        <div class="episode-thumbnail-top-box">
-            <div class="episode-thumbnail-header">
-                <h3 class="episode-title"> {{trackName}} </h3>
-                <div class="initial-release-date">{{releaseYear}}</div>
-            </div>
-            <div class="episode-description">
-                <p class="episode-description-text">{{longDescription}}</p>
-            </div>
-            <div class="episode-thumbnail-footer">
-                <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
-                <div class="duration">{{convertDuration}}</div>
-            </div>
-        </div>
-    </div>
-</a>
-
 {{else}}
-<a class="movies-box" href="{{routingRef}}">
+<a class="{{cssClassType}}-box" href="{{routingRef}}">
     <div class="thumbnail">
-        <div class="initial-image">
-            <img class="movies-thumbnail" src="{{artworkUrl100}}"/>
+        <div class="{{cssClassType}}-initial-image">
+            <img class="{{cssClassType}}-thumbnail" src="{{artworkUrl100}}"/>
         </div>
-        <div class="movies-top-box">
-            <div class="movies-header">
-                <h3 class="movies-title"> {{entertainementName}}</h3>
+        <div class="{{cssClassType}}-top-box">
+            <div class="{{cssClassType}}-header">
+                <h3 class="{{cssClassType}}-title"> {{entertainementName}}</h3>
                 <div class="initial-release-date">{{releaseYear}}</div>
             </div>
-            <div class="movies-description">
-                <p class="movies-description-text">{{longDescription}}</p>
+            <div class="{{cssClassType}}-description">
+                <p class="{{cssClassType}}-description-text">{{longDescription}}</p>
             </div>
-            <div class="movies-footer">
+            <div class="{{cssClassType}}-footer">
                 <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
                 <div class="duration">{{convertDuration}}</div>
             </div>

@@ -22,6 +22,7 @@ define([
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.routingRef = `#tvShow/${data.collectionId}`;
             data.entertainementName = data.collectionName;
+            data.cssClassType = 'movies';
             return data;
         },
 

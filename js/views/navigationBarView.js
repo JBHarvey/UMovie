@@ -39,7 +39,7 @@ define([
 
         events: {
             'click .hamburger': 'toggleMenu',
-            'click .member-hamburger': 'toggleMember',
+            'click .toggle-member-menu': 'toggleMember',
             'click .go-research': 'launchSearchFromButton',
             'press .search-input': 'launchSearchFromInput',
         },
