@@ -47,7 +47,7 @@
     height: 100%;
 }
 
-.episode-thumbnail-top-box {
+.episode-top-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,7 +76,7 @@
     white-space: nowrap;
 }
 
-.episode-thumbnail-footer {
+.episode-footer {
     color: #97999F;
     font-size: 90%;
     display: flex;
@@ -88,7 +88,8 @@
 }
 
 @media screen and (min-width: 970px) {
-    .episode-thumbnail-box {
+
+    .episode-box{
         font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
         background-color: #171717;
         transition: opacity ease-in-out .55s;
@@ -109,7 +110,7 @@
         max-width: none;
     }
 
-    .episode-thumbnail-top-box{
+    .episode-top-box{
         flex: 1 1 100%;
     }
 

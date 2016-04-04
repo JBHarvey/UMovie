@@ -32,7 +32,7 @@
     align-items: stretch;
 }
 
-.initial-image {
+.movies-initial-image {
     opacity: 0.9;
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@
 }
 
 .movies-thumbnail {
-    align-items: stretch;
+    align-items: center;
     height: 100%;
 }
 
@@ -139,7 +139,7 @@
         display: none;
     }
 
-    .initial-image {
+    .movies-initial-image {
         flex: 1 1 100%;
         min-width: 0; /* for Firefox and future Chrome etc. */
         height: 100%;
@@ -157,19 +157,4 @@
         max-width: 200px;
 
     }
-
-    .episode-box{
-        font-family: "Open Sans", "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
-        background-color: #171717;
-        transition: opacity ease-in-out .55s;
-        border: 3px solid #1B1D22;
-        border-bottom: none;
-        text-decoration: none;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        justify-content: center;
-    }
-
 }
