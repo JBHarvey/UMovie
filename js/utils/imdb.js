@@ -11,6 +11,21 @@ define(function () {
         info_base_url: 'http://app.imdb.com/name/maindetails',
         timeout: 2000,
 
+        validateCallbacks: function (callbacks) {
+            'use strict';
+            if (typeof callbacks[0] !== "function" || typeof callbacks[1] !== "function") {
+                throw "Success and error parameters must be functions!";
+            }
+        },
+
+        validateRequired: function (options, requiredOptions) {
+            for (var i = 0; i < requiredOptions; ++i) {
+                if (!options.hasOwnProperty(requiredOptions[i])) {
+                    throw requiredOptions[i] + 'is a required parameter and is not present in the options!';
+                }
+            }
+        },
+
         generateQuery: function (option) {
             var query = encodeURI(option.query).replace(/%20/g, '+');
 
@@ -52,6 +67,10 @@ define(function () {
 
     imdb.medias = {
         findMedias: function (options, success, error) {
+            imdb.common.validateRequired(options, ['query']);
+
+            imdb.common.validateCallbacks(success, error);
+
             imdb.common.client(
                 {
                     url: imdb.common.id_base_url + '&tt=on' + imdb.common.generateQuery(options.query)
@@ -62,6 +81,10 @@ define(function () {
         },
 
         getMediaById: function (options, success, error) {
+            imdb.common.validateRequired(options, ['query']);
+
+            imdb.common.validateCallbacks(success, error);
+
             imdb.common.client(
                 {
                     url: imdb.common.info_base_url + '?tconst=' + options.query
@@ -74,6 +97,10 @@ define(function () {
 
     imdb.actors = {
         findActors: function (options, success, error) {
+            imdb.common.validateRequired(options, ['query']);
+
+            imdb.common.validateCallbacks(success, error);
+
             imdb.common.client(
                 {
                     url: imdb.common.id_base_url + '&nm=on' + imdb.common.generateQuery(options.query)
@@ -84,6 +111,10 @@ define(function () {
         },
 
         getActorById: function (options, success, error) {
+            imdb.common.validateRequired(options, ['query']);
+
+            imdb.common.validateCallbacks(success, error);
+
             imdb.common.client(
                 {
                     url: imdb.common.info_base_url + '?nconst=' + options.query
