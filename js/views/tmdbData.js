@@ -4,19 +4,11 @@ define([
     'backbone',
     'theMovieDb',
 ], function ($, _, Backbone, theMovieDb) {
+    'use strict';
 
     var TmdbView = Backbone.View.extend({
 
-        initialize: function () {
-            this.searchRequest = '';
-            this.imgIdName = '';
-            this.bioIdName = '';
-            this.actorToFind = null;
-
-        },
-
         getTmdbSimilarMovie: function (searchRequest) {
-            'use strict';
             var that = this;
             that.searchRequest = searchRequest;
 
@@ -36,9 +28,7 @@ define([
 
                 if (movieSearchInfo) {
                     theMovieDb.movies.getById({ id: movieSearchInfo.id }, function (data) {
-                        // that.actorToFind = JSON.parse(data);
-
-                        //  console.log(that.actorToFind);
+                        // Do nothing
                     }, errorCB);
                 }
             };
@@ -47,7 +37,6 @@ define([
         },
 
         getTmdbActorData: function (searchRequest, idImg, idBio) {
-            'use strict';
             var that = this;
             that.searchRequest = searchRequest;
             that.imgIdName = idImg;
@@ -67,28 +56,25 @@ define([
             var searchSuccessCallback = function (data) {
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
-                if (artistSearchInfo  != null) {
+                if (_.isObject(artistSearchInfo)) {
                     theMovieDb.people.getById({ id: artistSearchInfo.id }, function (data) {
                         that.actorToFind = JSON.parse(data);
-                        console.log(that.actorToFind);
 
                         that.modifySingleActorBio(that.actorToFind.biography)
-                          .modifySingleActorImage(that.actorToFind.profile_path);
+                            .modifySingleActorImage(that.actorToFind.profile_path);
                     }, errorCB);
                 }
 
             };
 
             theMovieDb.search.getPerson(searchOptions, searchSuccessCallback, errorCB);
-
         },
 
         getActorImgBio: function () {
             var that = this;
             var info = that.actorToFind;
-            console.log(info);
             that.modifySingleActorBio(info.biography)
-                  .modifySingleActorImage(info.profile_path);
+                .modifySingleActorImage(info.profile_path);
         },
 
         shortenText: function (textToShortent, length) {
@@ -101,7 +87,6 @@ define([
             var that = this;
 
             if (biography) {
-
                 const actorBioId = that.bioIdName;
                 $(`#${actorBioId}`).each(function () {
                     if (actorBioId !== 'description') {

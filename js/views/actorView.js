@@ -11,7 +11,7 @@ define([
     'views/tmdbData',
     'handlebars',
     ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
-    'use strict';
+        'use strict';
 
         var ActorView = Backbone.View.extend({
 
