@@ -9,7 +9,7 @@ define([
     'text!templates/home.html',
     'models/homeModel',
     'handlebars',
-    'views/TmdbData',
+    'views/tmdbData',
 ], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, TmdbData) {
 
     var HomeView = Backbone.View.extend({

@@ -43,7 +43,7 @@ define([
                 $('#idTmpBio').attr('id', idBio);
 
                 var searchRequest = encodeURI(actor.attributes.artistName);
-                tmdbData = new TmdbData();
+                var tmdbData = new TmdbData();
                 tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
 
                 //SE FAIT TOUT AVANT DE FAIRE LA METHODE GETTMDBACTORDATA
