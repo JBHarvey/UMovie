@@ -7,14 +7,14 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/watchlistModel'
+    'models/watchlistModel',
 ], function ($, _, Backbone, Cookie, WatchListModel) {
 
     var Watchlists = Backbone.Collection.extend({
         model: WatchListModel,
         url: 'https://umovie.herokuapp.com/watchlists',
         initialize: function (userEmail) {
-            "use strict";
+            'use strict';
             if (_.isObject(userEmail)) {
                 this.email = userEmail;
             } else {
@@ -24,14 +24,14 @@ define([
 
         parse: function (response) {
             var that = this;
-
             var filter = function (data) {
-                "use strict";
+                'use strict';
                 return _.filter(data, function (model) {
                     var ownerPresent = _.isObject(model.owner);
                     return ownerPresent ? model.owner.email === that.email : false;
                 });
             };
+
             if (_.isObject(response.results)) {
                 return filter(response.results);
             } else {
@@ -43,10 +43,10 @@ define([
             option: [
                 {
                     optionClass: 'add-watchlist',
-                    action: 'Ajouter'
-                }
-            ]
-        }
+                    action: 'Ajouter',
+                },
+            ],
+        },
     });
     return Watchlists;
 

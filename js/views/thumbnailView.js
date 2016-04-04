@@ -10,7 +10,7 @@ define([
     'text!templates/tvShowSeasonThumbnail.html',
     'text!templates/tvShowEpisodeThumbnail.html',
     'text!templates/actorThumbnail.html',
-    'handlebars'
+    'handlebars',
 ], function ($, _, Backbone,
              movieThumbnailTemplate,
              seasonThumbnailTemplate,
@@ -24,7 +24,6 @@ define([
 
         initialize: function () {
         },
-
 
         renderMovie: function () {
             var template = Handlebars.compile(movieThumbnailTemplate);
@@ -43,11 +42,12 @@ define([
             var source = this.model.attributes;
             return template(source);
         },
+
         renderActor: function () {
             var template = Handlebars.compile(actorThumbnailTemplate);
             var source = this.model.attributes;
             return template(source);
-        }
+        },
     });
     return ThumbnailView;
 

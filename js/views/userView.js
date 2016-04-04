@@ -6,8 +6,8 @@ define([
     'underscore',
     'backbone',
     'text!../templates/user.html',
-    "models/userModel",
-    'handlebars'
+    'models/userModel',
+    'handlebars',
 ], function ($, _, Backbone, UserTemplate, UserModel, Handlebars) {
     "use strict";
 
@@ -43,7 +43,6 @@ define([
             this.$el.html(resultUser);
 
         },
-
 
     });
 

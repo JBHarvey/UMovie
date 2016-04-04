@@ -8,13 +8,12 @@ define([
     'backbone',
     'text!templates/tvShowEpisode.html',
     '../models/tvShowEpisodeModel',
-    'handlebars'
+    'handlebars',
 ], function ($, _, Backbone, tvShowEpisodeTemplate, TvShowEpisodeModel, Handlebars) {
-
 
     var TvShowEpisodeView = Backbone.View.extend({
 
-        el: $('#content'),
+        el: '#content',
 
         initialize: function (tvShowId) {
             this.id = tvShowId;
@@ -29,7 +28,7 @@ define([
             var source = new TvShowEpisodeModel();
             var resultTvShowEpisode = template(source.defaults);
             this.$el.html(resultTvShowEpisode);
-        }
+        },
     });
     return TvShowEpisodeView;
 
