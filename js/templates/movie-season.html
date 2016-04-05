@@ -127,8 +127,8 @@
         <div class="watchlist-menu-group ">
             <ul class="watchlist-menu ">
                 <li class="watchlist-select-group " data-id="create-watchlist"> New watchlist... </li>
-                {{#each watchlists}}
-                <li class="watchlist-select-group " data-id="{{id}}">{{name}}</li>
+                {{#each watchlists as |watchlist|}}
+                <li class="watchlist-select-group " data-id="{{id}}">{{watchlist.attributes.name}}</li>
                 {{/each}}
             </ul>
             <div class="new-watchlist" style="display: none;">
