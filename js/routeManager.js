@@ -28,7 +28,7 @@ define([
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
         'views/userSettingsView',
-        'views/userView'
+        'views/userView',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
@@ -167,7 +167,7 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new UserModel({id:Cookie.get('id')});
+                session = new UserModel({ id:Cookie.get('id') });
                 updateMainView(UserSettingsView, session);
 
             });
