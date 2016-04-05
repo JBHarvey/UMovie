@@ -1,13 +1,18 @@
 /**
- * Created by Antoine Gagné on 4/4/16.
+ * @author Antoine Gagné <antoine.gagne.2@ulaval.ca>
+ * This module contains an object with methods to call the custom IMDB API.
+ * It was largely inspired by the TheMovieDB javascript file.
  */
 
 define(function () {
-    "use strict";
+    'use strict';
+
     var imdb = {};
 
     imdb.common = {
         base_url: 'http://localhost:5000',
+
+        // At the moment, the HTTPS of heroku is not working with the application HTTP
         //base_url: 'https://www.imdb-api-request.herokuapp.com',
         timeout: 12000,
 
@@ -68,6 +73,21 @@ define(function () {
     };
 
     imdb.medias = {
+        /**
+         * Retrieves the ID of medias that respects a certain name.
+         * @param {Object} options - An object that contains the query.
+         * @param {string} options.query - The URI encoded name of the media.
+         * @param {callback} success - The success callback function that handles the response.
+         * @param {callback} error - The error callback function.
+         *
+         * @example
+         * imdb.medias.findMedias({query: 'avengers'}, function (successData) {
+         *    var parsedData = JSON.parse(successData);
+         *    // Do something with the data
+         * }, function (error) {
+         *    // Handles the error
+         * });
+         */
         findMedias: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
@@ -83,6 +103,21 @@ define(function () {
             );
         },
 
+        /**
+         * Retrieves a media by ID.
+         * @param {Object} options - An object that contains the query.
+         * @param {string} options.query - The id of the media.
+         * @param {callback} success - The success callback function that handles the response.
+         * @param {callback} error - The error callback function.
+         *
+         * @example
+         * imdb.medias.getMediaById({query: 'tt2395427'}, function (successData) {
+         *    var parsedData = JSON.parse(successData);
+         *    // Do something with the data
+         * }, function (error) {
+         *    // Handles the error
+         * });
+         */
         getMediaById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
@@ -100,6 +135,21 @@ define(function () {
     };
 
     imdb.actors = {
+        /**
+         * Retrieves the ID of actors that respects a certain name.
+         * @param {Object} options - An object that contains the query.
+         * @param {string} options.query - The URI encoded name of the actors.
+         * @param {callback} success - The success callback function that handles the response.
+         * @param {callback} error - The error callback function.
+         *
+         * @example
+         * imdb.actors.findActors({query: 'eleanor+tomlinson'}, function (successData) {
+         *    var parsedData = JSON.parse(successData);
+         *    // Do something with the data
+         * }, function (error) {
+         *    // Handles the error
+         * });
+         */
         findActors: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
@@ -115,6 +165,21 @@ define(function () {
             );
         },
 
+        /**
+         * Retrieves a media by ID.
+         * @param {Object} options - An object that contains the query.
+         * @param {string} options.query - The id of the actor.
+         * @param {callback} success - The success callback function that handles the response.
+         * @param {callback} error - The error callback function.
+         *
+         * @example
+         * imdb.actors.getActorById({query: 'nm1870434'}, function (successData) {
+         *    var parsedData = JSON.parse(successData);
+         *    // Do something with the data
+         * }, function (error) {
+         *    // Handles the error
+         * });
+         */
         getActorById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
