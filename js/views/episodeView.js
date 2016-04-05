@@ -19,7 +19,7 @@ define([
 
         initialize: function () {
 
-            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'update', this.render);
             var syncRendering = _.after(2, function () {
                 that.render();
             });
@@ -43,6 +43,15 @@ define([
             this.$el.html(resultEpisode);
             console.log(this.$el);
         },
+
+        events: {
+            'click .close-button': 'closeEpisodeWindow',
+        },
+
+        closeEpisodeWindow: function (event) {
+            $('.Episode-modal').hide();
+        }
+
 
     });
     return EpisodeView;
