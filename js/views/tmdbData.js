@@ -3,8 +3,8 @@ define([
     'underscore',
     'backbone',
     'theMovieDb',
-    'IMDB',
-], function ($, _, Backbone, theMovieDb, IMDB) {
+], function ($, _, Backbone, theMovieDb) {
+    'use strict';
 
     var TmdbView = Backbone.View.extend({
 
@@ -17,7 +17,6 @@ define([
         },
 
         getTmdbSimilarMovie: function (searchRequest) {
-            'use strict';
             var that = this;
             that.searchRequest = searchRequest;
 
