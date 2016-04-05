@@ -20,9 +20,7 @@ html{
 
 /* Main information */
 .container-up-section {
-    width: 100%;
     background-color: #132340;
-    padding-right: 1em;
 }
 
 /* Cover image and main information(duration, release year, country) */
