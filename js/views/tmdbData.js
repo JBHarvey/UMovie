@@ -65,11 +65,6 @@ define([
                 console.log(data);
             };
 
-            var query = { query: that.searchRequest };
-            IMDB.actors.findActors(query, function (data) {
-                console.log(data);
-            }, errorCB);
-
             var searchSuccessCallback = function (data) {
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
