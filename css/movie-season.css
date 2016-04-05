@@ -342,16 +342,19 @@ iframe {
     .cover-box {
         display: flex;
         flex-direction: column;
+        padding-left: 1em;
         margin: 0 0 0 0;
         width: 38%;
     }
 
     .preview-box {
+        margin-left: 5%;
         width: 600px;
     }
 
     .cover-thumbnail {
         display: block;
+        /* margin-left: 15%; */
     }
 
     .cover-thumbnail span {
