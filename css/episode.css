@@ -10,6 +10,10 @@ html{
 
 @media screen and (min-width: 980px) {
 
+    .modal-popup {
+
+    }
+
     .thumbnail {
         cursor: pointer;
     }
@@ -18,12 +22,12 @@ html{
         margin-bottom: -1em;
         width: 30px;
         height: 30px;
-        background-color: red;
         position:relative;
         float:right;
     }
 
     .episode-modal-title {
+        color: white;
         font-size: 1.8em;
         margin-top: 1em;
         margin: 0.5em .5em 0 .5em;
@@ -41,13 +45,14 @@ html{
         /* display: none; */ /* Hidden by default */
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
-        margin: 5% 10%;
+        margin: 4% 4%;
         left: 0;
+        /* right: 0; */
         top: 0;
-        width: 85%; /* Full width */
+        width: 92%; /* Full width */
         height: 85%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
-        background-color: #3A3737; /* Fallback color */
+        background-color: #2a2828; /* Fallback color */
         /* background-color: rgba(0,0,0,0.9); */ /* Black w/ opacity */
     }
 
@@ -57,7 +62,8 @@ html{
 
     .episode-modal-content {
         margin-top: 3em;
-        font-size: .7em;
+        margin-bottom: 2em;
+        font-size: .8em;
     }
 
     .episode-modal-info span {
@@ -75,7 +81,8 @@ html{
     }
 
     .episode-modal-info span {
-        font-size: .5em;
+        color: white;
+        font-size: .9em;
     }
 
     .episode-modal-content-right {

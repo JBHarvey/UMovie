@@ -86,7 +86,7 @@
 
 /* Taken from: http://codepen.io/MarvinVk/pen/GEjio */
 
-.watchlist-cancel {
+.button-cancel {
   margin-left: 0.5em;
   background-color: transparent;
   border: none;
@@ -98,8 +98,8 @@
   display: inline-block;
 }
 
-.watchlist-cancel:before,
-.watchlist-cancel:after {
+.button-cancel:before,
+.button-cancel:after {
   transform: rotate(-45deg);
   content: '';
   position: absolute;
@@ -114,12 +114,12 @@
   transition: all 0.2s ease-out;
 }
 
-.watchlist-cancel:after {
+.button-cancel:after {
   transform: rotate(45deg);
 }
 
-.watchlist-cancel:hover:before,
-.watchlist-cancel:hover:after {
+.button-cancel:hover:before,
+.button-cancel:hover:after {
   transform: rotate(0deg);
 }
 

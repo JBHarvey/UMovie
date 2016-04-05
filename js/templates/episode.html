@@ -1,5 +1,8 @@
 <div class="Episode-modal">
-    <div class="close-button"></div>
+    <div class="close-button">
+        <button type="button" class="button-cancel">
+        </button>
+    </div>
     <div class="episode-modal-title">
         Episode {{trackNumber}} : {{trackName}}
     </div>
@@ -12,9 +15,9 @@
                 <img src="{{artworkUrl100}}"/>
             </div>
             <div class="episode-modal-info">
-                <div>Duration: {{convertDuration}}</div>
-                <div>Summary: {{longDescription}}</div>
-                <div>Price: {{trackPrice}}</div>
+                <div><span>Duration: </span>{{convertDuration}}</div>
+                <div><span>Summary: </span>{{longDescription}}</div>
+                <div><span>Price: </span>{{trackPrice}}</div>
             </div>
         </div>
         <div class="episode-modal-content-right">
