@@ -35,9 +35,11 @@ define(function () {
         },
 
         client: function (options, success, error) {
-            var method, status, xhr;
+            var method;
+            var status;
+            var xhr;
 
-            method = "POST";
+            method = 'POST';
             status = 200;
             xhr = new XMLHttpRequest();
 
@@ -69,7 +71,7 @@ define(function () {
 
             var query = JSON.stringify({ query: options.query });
             xhr.send(query);
-        }
+        },
     };
 
     imdb.medias = {
@@ -96,7 +98,7 @@ define(function () {
             imdb.common.client(
                 {
                     query: options.query,
-                    url: imdb.common.base_url + '/search/medias'
+                    url: imdb.common.base_url + '/search/medias',
                 },
                 success,
                 error
@@ -126,12 +128,12 @@ define(function () {
             imdb.common.client(
                 {
                     query: options.query,
-                    url: imdb.common.base_url + '/medias'
+                    url: imdb.common.base_url + '/medias',
                 },
                 success,
                 error
             );
-        }
+        },
     };
 
     imdb.actors = {
@@ -158,7 +160,7 @@ define(function () {
             imdb.common.client(
                 {
                     query: options.query,
-                    url: imdb.common.base_url + '/search/actors'
+                    url: imdb.common.base_url + '/search/actors',
                 },
                 success,
                 error
@@ -188,12 +190,12 @@ define(function () {
             imdb.common.client(
                 {
                     query: options.query,
-                    url: imdb.common.base_url + '/actors'
+                    url: imdb.common.base_url + '/actors',
                 },
                 success,
                 error
             );
-        }
+        },
     };
 
     return imdb;
