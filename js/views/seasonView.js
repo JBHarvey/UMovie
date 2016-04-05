@@ -10,10 +10,11 @@ define([
     '../collections/episodeCollection',
     'views/thumbnailView',
     '../models/episodeModel',
+    'views/episodeView',
     'handlebars',
     'views/youtubeVideos',
 ], function ($, _, Backbone, MovieSeasonTemplate, EpisodeCollection,
-             ThumbnailView, EpisodeModel, Handlebars, YoutubeVideo) {
+             ThumbnailView, EpisodeModel, EpisodeView, Handlebars, YoutubeVideo) {
     'use strict';
 
     var SeasonView = Backbone.View.extend({
@@ -56,15 +57,27 @@ define([
             this.collection.each(function (episode) {
                 var thumbnail = new ThumbnailView({ model: episode });
                 $('.episodes-box').append(thumbnail.render());
+
+                var episodeId = episode.get('trackId');
+                $('#idThumbnail').attr('id', episodeId);
             });
         },
 
         events: {
-            'click .thumbnail': 'accessEpisode'
+            'click .episode-box': 'accessEpisode'
         },
 
         accessEpisode: function (event) {
             console.log(event);
+            var id = event.currentTarget.id;
+            var selectedEpisodeId = parseInt(id);
+            console.log(selectedEpisodeId );
+            var selectedEpisodeModel = new EpisodeModel({ id: selectedEpisodeId });
+            console.log(selectedEpisodeModel);
+            console.log(selectedEpisodeModel.url());
+
+            var episode = new EpisodeView({ model: selectedEpisodeModel});
+            $('#modal-popup').append(episode.render());
         }
 
     });

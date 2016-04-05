@@ -24,7 +24,6 @@ define([
             data.convertDuration = this.convertDuration(data.trackTimeMillis);
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.entertainementName = data.trackName;
-            data.routingRef = `#episode/${data.trackId}`;
             data.cssClassType = 'episode';
             return data;
         },
