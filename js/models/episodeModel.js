@@ -12,7 +12,7 @@ define([
             return `https://umovie.herokuapp.com/tvshows/season/${this.attributes.collectionId}/episodes`;
         },
 
-        parse(data){
+        parse(data) {
             if (data.results !== undefined) {
                 return this.processData(data.results[0]);
             } else {
