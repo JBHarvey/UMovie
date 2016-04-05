@@ -321,8 +321,9 @@ iframe {
     .container-up-section {
         display: flex;
         flex-flow: row wrap;
-        margin: 0 0 0 5%;
+        margin: 0 0 0 0;
         background-color: black;
+        padding-right:0;
     }
 
     .cover-thumbnail {
