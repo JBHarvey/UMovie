@@ -27,10 +27,12 @@ define([
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
+        'views/userSettingsView',
+        'views/userView'
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView) {
+                 WatchlistCollectionView, UserSettingsView, UserView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -165,6 +167,8 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
+                session = new UserModel({id:Cookie.get('id')});
+                updateMainView(UserSettingsView, session);
 
             });
 
