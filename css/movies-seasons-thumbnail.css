@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    background-size: 0;
 }
 
 .movies-initial-image {
@@ -49,6 +50,7 @@
     padding-left: 0.5em;
     min-width: 0;
     flex: 1 1 auto;
+    background-size: 0;
 }
 
 .movies-title {
@@ -88,36 +90,58 @@
         border-bottom: none;
     }
 
-    .thumbnail, .initial-image, .movies-thumbnail, .movies-box {
+    .movies-initial-image {
+        display: none;
+    }
+
+    .thumbnail, .movies-thumbnail, .movies-box, .movies-top-box {
+        color: black;
         min-width: 0; /*!* for Firefox and future Chrome etc. *!*/
         width: 100%;
         max-width: 10em;
         height: 100%;
-        max-height: 20em;
+        min-height: 10em;
+        max-height: 14.9em;
+    }
+
+    .special-movie.movies-top-box {
+        min-height: 14.92em;
     }
 
     .movies-box {
         background-color: transparent;
         border: none;
-        display: inline-flex;
         flex-wrap: nowrap;
+        display: inline-flex;
         flex-direction: column;
         flex-flow: column;
         justify-content: space-around;
     }
 
-    .movies-top-box {
-        align-content: space-between;
-        align-items: stretch;
-        padding-left: 0;
-        height: 100%;
-        max-height: 20em;
-        flex-basis: auto
-    }
-
     .movies-header, .movies-description, .movies-footer {
         flex: 1;
         height: 100%;
+    }
+
+    .movies-top-box:hover > div {
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.90);
+    }
+
+    .movies-top-box > div {
+        opacity: 0;
+
+        -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    .movies-top-box {
+        align-content: space-between;
+        align-items: stretch;
+        background-size: cover;
+        padding-left: 0;
     }
 
     .movies-header {
@@ -131,8 +155,9 @@
 
     .movies-title {
         flex-grow: 3;
-        font-size: inherit;
+        font-size: 1.15em;
         white-space: normal;
+        color: #2469bb;
     }
 
     .movies-initial-release-date {
@@ -143,8 +168,8 @@
 
     .movies-description {
         display: flex;
-        flex-grow: 2;
         width: 100%;
+        flex-grow: 5;
         flex-direction: column;
         align-self: center;
         justify-content: flex-start;
@@ -155,6 +180,7 @@
         font-size: 0.6em;
         min-height: 0.1em;
         max-height: 7em;
+        color:black;
     }
 
     .movies-footer {
@@ -163,7 +189,6 @@
         flex-direction: row;
     }
 
-
     .content-advisory-rating {
 
     }
@@ -171,14 +196,16 @@
     .duration {
 
     }
-    .content-advisory-rating, .duration {
-        font-size: 0.6em;
 
+    .content-advisory-rating, .duration {
+        font-size: 0.7em;
+        color: black;
     }
 
     .ellipsis {
         font-size: 0.6em;
         margin-top: -1em;
-        color: #B2B5BB;
+        margin-bottom: 1em;
+        color: black;
     }
 }
