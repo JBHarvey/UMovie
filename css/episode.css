@@ -22,7 +22,7 @@ html{
     }
 
     .episode-modal-title {
-        font-size: 2em;
+        font-size: 1.8em;
         margin-top: 1em;
         margin: 0.5em .5em 0 .5em;
         border-bottom: solid 1px #0085FF;
@@ -30,7 +30,7 @@ html{
 
     .episode-modal-season {
         margin: .3em 1em 0 1em;
-        font-size: 1.1em;
+        font-size: 0.9em;
     }
 
     .Episode-modal {
