@@ -7,8 +7,9 @@ define(function () {
     var imdb = {};
 
     imdb.common = {
-        base_url: 'imdb-api-request.herokuapp.com',
-        timeout: 2000,
+        base_url: 'http://localhost:5000',
+        //base_url: 'https://www.imdb-api-request.herokuapp.com',
+        timeout: 12000,
 
         validateCallbacks: function (callbacks) {
             if (typeof callbacks[0] !== 'function' || typeof callbacks[1] !== 'function') {
@@ -31,7 +32,7 @@ define(function () {
         client: function (options, success, error) {
             var method, status, xhr;
 
-            method = "GET";
+            method = "POST";
             status = 200;
             xhr = new XMLHttpRequest();
 
@@ -40,6 +41,8 @@ define(function () {
             };
 
             xhr.open(method, options.url, true);
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
 
             xhr.timeout = imdb.common.timeout;
 
@@ -59,7 +62,9 @@ define(function () {
                 error(xhr.responseText);
             };
 
-            xhr.send(null);
+            var query = JSON.stringify({ query: options.query });
+            console.log(query);
+            xhr.send(query);
         }
     };
 
@@ -71,6 +76,7 @@ define(function () {
 
             imdb.common.client(
                 {
+                    query: options.query,
                     url: imdb.common.base_url + '/search/medias'
                 },
                 success,
@@ -85,6 +91,7 @@ define(function () {
 
             imdb.common.client(
                 {
+                    query: options.query,
                     url: imdb.common.base_url + '/medias'
                 },
                 success,
@@ -101,6 +108,7 @@ define(function () {
 
             imdb.common.client(
                 {
+                    query: options.query,
                     url: imdb.common.base_url + '/search/actors'
                 },
                 success,
@@ -115,6 +123,7 @@ define(function () {
 
             imdb.common.client(
                 {
+                    query: options.query,
                     url: imdb.common.base_url + '/actors'
                 },
                 success,

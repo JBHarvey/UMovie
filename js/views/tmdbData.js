@@ -3,7 +3,8 @@ define([
     'underscore',
     'backbone',
     'theMovieDb',
-], function ($, _, Backbone, theMovieDb) {
+    'IMDB',
+], function ($, _, Backbone, theMovieDb, IMDB) {
 
     var TmdbView = Backbone.View.extend({
 
@@ -63,6 +64,11 @@ define([
                 console.log('Erreur');
                 console.log(data);
             };
+
+            var query = { query: that.searchRequest };
+            IMDB.actors.findActors(query, function (data) {
+                console.log(data);
+            }, errorCB);
 
             var searchSuccessCallback = function (data) {
                 var artistSearch = JSON.parse(data);
