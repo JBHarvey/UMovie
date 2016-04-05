@@ -100,7 +100,7 @@
         max-width: 10em;
         height: 100%;
         min-height: 10em;
-        max-height: 14.9em;
+        max-height: 14.92em;
     }
 
     .special-movie.movies-top-box {
@@ -124,7 +124,7 @@
 
     .movies-top-box:hover > div {
         opacity: 1;
-        background-color: rgba(255, 255, 255, 0.90);
+        background-color: rgba(255, 255, 255, 0.80);
     }
 
     .movies-top-box > div {
@@ -150,6 +150,7 @@
         justify-content: flex-start;
         width: 100%;
         font-size: 0.6em;
+        padding: 0.3em 0.3em 0 0.3em;
     }
 
     .movies-title {
@@ -162,7 +163,7 @@
     .movies-initial-release-date {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 0.2em;
+        margin-top: 0.3em;
     }
 
     .movies-description {
@@ -179,13 +180,15 @@
         font-size: 0.6em;
         min-height: 0.1em;
         max-height: 7em;
-        color:black;
+        color: black;
+        padding: 0 0.3em 0 0.3em;
     }
 
     .movies-footer {
         flex-basis: 100%;
         display: flex;
         flex-direction: row;
+        padding: 0 0.3em 0 0.3em;
     }
 
     .content-advisory-rating {
@@ -202,6 +205,7 @@
     }
 
     .ellipsis {
+        padding: 0 0.3em 0 0.3em;
         font-size: 0.6em;
         margin-top: -1em;
         margin-bottom: 1em;
