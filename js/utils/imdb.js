@@ -7,19 +7,17 @@ define(function () {
     var imdb = {};
 
     imdb.common = {
-        id_base_url: 'http://www.imdb.com/xml/find?json=1&nr=1',
-        info_base_url: 'http://app.imdb.com/name/maindetails',
+        base_url: 'imdb-api-request.herokuapp.com',
         timeout: 2000,
 
         validateCallbacks: function (callbacks) {
-            'use strict';
-            if (typeof callbacks[0] !== "function" || typeof callbacks[1] !== "function") {
-                throw "Success and error parameters must be functions!";
+            if (typeof callbacks[0] !== 'function' || typeof callbacks[1] !== 'function') {
+                throw 'Success and error parameters must be functions!';
             }
         },
 
         validateRequired: function (options, requiredOptions) {
-            for (var i = 0; i < requiredOptions; ++i) {
+            for (var i = 0; i < requiredOptions.length; ++i) {
                 if (!options.hasOwnProperty(requiredOptions[i])) {
                     throw requiredOptions[i] + 'is a required parameter and is not present in the options!';
                 }
@@ -27,9 +25,7 @@ define(function () {
         },
 
         generateQuery: function (option) {
-            var query = encodeURI(option.query).replace(/%20/g, '+');
-
-            return '&q=' + query;
+            return encodeURI(option.query).replace(/%20/g, '+');
         },
 
         client: function (options, success, error) {
@@ -75,7 +71,7 @@ define(function () {
 
             imdb.common.client(
                 {
-                    url: imdb.common.id_base_url + '&tt=on' + imdb.common.generateQuery(options.query)
+                    url: imdb.common.base_url + '/search/medias'
                 },
                 success,
                 error
@@ -89,7 +85,7 @@ define(function () {
 
             imdb.common.client(
                 {
-                    url: imdb.common.info_base_url + '?tconst=' + options.query
+                    url: imdb.common.base_url + '/medias'
                 },
                 success,
                 error
@@ -105,7 +101,7 @@ define(function () {
 
             imdb.common.client(
                 {
-                    url: imdb.common.id_base_url + '&nm=on' + imdb.common.generateQuery(options.query)
+                    url: imdb.common.base_url + '/search/actors'
                 },
                 success,
                 error
@@ -119,7 +115,7 @@ define(function () {
 
             imdb.common.client(
                 {
-                    url: imdb.common.info_base_url + '?nconst=' + options.query
+                    url: imdb.common.base_url + '/actors'
                 },
                 success,
                 error
