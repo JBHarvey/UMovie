@@ -63,7 +63,6 @@ define(function () {
             };
 
             var query = JSON.stringify({ query: options.query });
-            console.log(query);
             xhr.send(query);
         }
     };
@@ -72,7 +71,7 @@ define(function () {
         findMedias: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks(success, error);
+            imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
                 {
@@ -87,7 +86,7 @@ define(function () {
         getMediaById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks(success, error);
+            imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
                 {
@@ -104,7 +103,7 @@ define(function () {
         findActors: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks(success, error);
+            imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
                 {
@@ -119,7 +118,7 @@ define(function () {
         getActorById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks(success, error);
+            imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
                 {

@@ -92,7 +92,6 @@ define([
         getActorImgBio: function () {
             var that = this;
             var info = that.actorToFind;
-            console.log(info);
             that.modifySingleActorBio(info.biography)
                   .modifySingleActorImage(info.profile_path);
         },
