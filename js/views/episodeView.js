@@ -9,12 +9,13 @@ define([
     'text!templates/episode.html',
     'views/thumbnailView',
     'handlebars',
-], function ($, _, Backbone, EpisodeTemplate, ThumbnailView, Handlebars) {
+    'views/youtubeVideos',
+], function ($, _, Backbone, EpisodeTemplate, ThumbnailView, Handlebars, YoutubeVideo) {
     'use strict';
 
     var EpisodeView = Backbone.View.extend({
 
-        el: '#content',
+        el: '#modal-popup',
 
         initialize: function () {
 
@@ -28,11 +29,19 @@ define([
             });
         },
 
+        generateSearchRequest: function () {
+            return this.model.get('collectionName') + ' trailer';
+        },
+
         render: function () {
+            var searchRequest = this.generateSearchRequest();
+            var youtubeVideo = new YoutubeVideo(searchRequest, '.episode-modal-preview');
+
             var source = this.model.attributes;
             var template = Handlebars.compile(EpisodeTemplate);
             var resultEpisode = template(source);
             this.$el.html(resultEpisode);
+            console.log(this.$el);
         },
 
     });

@@ -73,7 +73,8 @@ define([
             var selectedEpisodeId = parseInt(id);
             var model = this.collection.get(selectedEpisodeId);
             var episode = new EpisodeView({ model: model});
-            $('#modal-popup').append(episode.render());
+            console.log("show episode");
+            episode.render();
         }
 
     });
