@@ -50,6 +50,7 @@ define(function () {
             xhr.open(method, options.url, true);
 
             xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader("Accept", "application/json");
 
             xhr.timeout = imdb.common.timeout;
 
