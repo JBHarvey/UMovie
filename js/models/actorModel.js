@@ -11,7 +11,7 @@ define([
     var ActorModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/actors',
 
-        parse(data) {
+        parse: function (data) {
             if (data.results) {
                 return data.results[0];
             } else {

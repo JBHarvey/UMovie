@@ -74,11 +74,11 @@ define([
             /* jshint ignore:end */
         },
 
-        isMemberOpen() {
+        isMemberOpen: function () {
             return this.getMemberMenuId() === 'member-menu-open';
         },
 
-        isMenuOpen() {
+        isMenuOpen: function() {
             return this.getMenuId() === 'menu-open';
         },
 

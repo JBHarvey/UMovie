@@ -44,7 +44,7 @@ define([
             return Backbone.sync(method, model, options);
         },
 
-        parse(data) {
+        parse: function (data) {
             if (_.isObject(data.results)) {
                 return data.results[0];
             } else {

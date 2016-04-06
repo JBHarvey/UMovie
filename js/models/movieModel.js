@@ -23,7 +23,7 @@ define([
             return Backbone.sync(method, model, options);
         },
 
-        parse(data) {
+        parse: function (data) {
             if (_.isObject(data.results)) {
                 return this.processData(data.results[0]);
             } else {
@@ -31,7 +31,7 @@ define([
             }
         },
 
-        processData(data) {
+        processData: function (data) {
             data.convertDuration = this.convertDuration(data.trackTimeMillis);
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.routingRef = `#movie/${data.trackId}`;
@@ -40,11 +40,11 @@ define([
             return data;
         },
 
-        convertDuration(duration) {
+        convertDuration: function (duration) {
             return `${Math.ceil(duration / 60000)} minutes`;
         },
 
-        releaseYear(date) {
+        releaseYear: function (date) {
             return new Date(date).getFullYear();
         },
 

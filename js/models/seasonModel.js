@@ -9,7 +9,7 @@ define([
     var SeasonModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/tvshows/season',
 
-        parse(data) {
+        parse: function (data) {
             if (data.results !== undefined) {
                 return this.processData(data.results[0]);
             } else {
@@ -17,7 +17,7 @@ define([
             }
         },
 
-        processData(data) {
+        processData: function (data) {
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.routingRef = `#tvShow/${data.collectionId}`;
             data.entertainementName = data.collectionName;
@@ -25,7 +25,7 @@ define([
             return data;
         },
 
-        releaseYear(date) {
+        releaseYear: function (date) {
             return new Date(date).getFullYear();
         },
 

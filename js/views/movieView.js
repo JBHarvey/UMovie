@@ -13,6 +13,7 @@ define([
     'views/youtubeVideos',
     'handlebars',
 ], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Handlebars) {
+    'use strict';
 
     var MovieView = Backbone.View.extend({
 
@@ -25,7 +26,6 @@ define([
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.watchlists, 'update', this.render);
             var syncRendering = _.after(2, function () {
-                'use strict';
                 that.render();
             });
 
@@ -75,13 +75,11 @@ define([
         },
 
         toggleWatchlistMenu: function (event) {
-            'use strict';
             $('.watchlist-menu-group').toggle();
             $('.new-watchlist').hide();
         },
 
         addToWatchList: function (event) {
-            'use strict';
             var selectedItem = event.currentTarget;
             var $createWatchlistMenu = $('.new-watchlist');
             if (selectedItem.dataset.id === 'create-watchlist') {
@@ -102,7 +100,6 @@ define([
         },
 
         checkCreateWatchlistInput: function (event) {
-            'use strict';
             var currentInputValue = event.currentTarget.value;
             var $submitNewWatchlistButton = $('.submit-new-watchlist');
             if (/^((\w*\d*[^\s])+\s?)+$/.test(currentInputValue)) {
@@ -113,7 +110,6 @@ define([
         },
 
         createNewWatchlist: function (event) {
-            'use strict';
 
             var goodInputValue = document.getElementsByClassName('new-watchlist-input');
             goodInputValue = _.find(goodInputValue, function (inputValue) {
