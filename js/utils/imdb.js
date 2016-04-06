@@ -280,8 +280,6 @@ define(function () {
          * });
          */
         getTopRatedTVShows: function (success, error) {
-            imdb.common.validateRequired(options, ['query']);
-
             imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
@@ -307,9 +305,7 @@ define(function () {
          *    // Handles the error
          * });
          */
-        getTopRatedMovies: function (options, success, error) {
-            imdb.common.validateRequired(options, ['query']);
-
+        getTopRatedMovies: function (success, error) {
             imdb.common.validateCallbacks([success, error]);
 
             imdb.common.client(
