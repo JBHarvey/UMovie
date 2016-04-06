@@ -10,10 +10,11 @@ define([
     '../collections/episodeCollection',
     'views/thumbnailView',
     '../models/episodeModel',
+    'views/episodeView',
     'handlebars',
     'views/youtubeVideos',
 ], function ($, _, Backbone, MovieSeasonTemplate, EpisodeCollection,
-             ThumbnailView, EpisodeModel, Handlebars, YoutubeVideo) {
+             ThumbnailView, EpisodeModel, EpisodeView, Handlebars, YoutubeVideo) {
     'use strict';
 
     var SeasonView = Backbone.View.extend({
@@ -26,7 +27,6 @@ define([
             var seasonId = this.model.id;
             this.collection = new EpisodeCollection(seasonId);
             this.listenTo(this.model, 'change', this.render);
-
             var syncRendering = _.after(2, function () {
                 that.render();
             });
@@ -45,19 +45,37 @@ define([
         },
 
         render: function () {
+            var that = this;
             var searchRequest = this.generateSearchRequest();
-
             var template = Handlebars.compile(MovieSeasonTemplate);
-            var source = this.model.attributes;
+            var source = that.model.attributes;
             var resultSeason = template(source);
 
             this.$el.html(resultSeason);
             var youtubeVideo = new YoutubeVideo(searchRequest, '.preview-element-video');
-            this.collection.each(function (episode) {
+
+            that.collection.each(function (episode) {
                 var thumbnail = new ThumbnailView({ model: episode });
                 $('.episodes-box').append(thumbnail.render());
+
+                var episodeId = episode.get('trackId');
+                episode.set({id : parseInt(episodeId)});
+                $('#idThumbnail').attr('id', episodeId);
             });
         },
+
+        events: {
+            'click .episode-box': 'accessEpisode',
+        },
+
+        accessEpisode: function (event) {
+            var id = event.currentTarget.id;
+            var selectedEpisodeId = parseInt(id);
+            var model = this.collection.get(selectedEpisodeId);
+            var episode = new EpisodeView({ model: model});
+            console.log("show episode");
+            episode.render();
+        }
 
     });
     return SeasonView;
