@@ -31,8 +31,9 @@ define([
             var searchRequest = 'Titanic';
             var tmdbData = new TmdbData();
             tmdbData.getTmdbSimilarMovie(searchRequest);
-
         },
+
+
     });
     return HomeView;
 

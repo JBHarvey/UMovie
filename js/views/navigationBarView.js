@@ -42,6 +42,7 @@ define([
             'click .toggle-member-menu': 'toggleMember',
             'click .go-research': 'launchSearchFromButton',
             'press .search-input': 'launchSearchFromInput',
+            'keyup .search-input': 'launchEnterSearchFromInput',
         },
 
         launchSearchFromButton: function (searchGoButton) {
@@ -52,6 +53,11 @@ define([
 
         launchSearch: function (inputText) {
             console.log(inputText);
+        },
+        launchEnterSearchFromInput: function (inputText) {
+            if(inputText.keyCode == 13)  {
+                var text = $('.search-input').get(0).value;
+            }
         },
 
         /*   Menus animations   */
