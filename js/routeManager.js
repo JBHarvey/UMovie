@@ -154,6 +154,7 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
+                /*var Actors = new ActorCollectionView("Xavier");*/
                 updateMainView(ActorCollectionView, undefined);
             });
 

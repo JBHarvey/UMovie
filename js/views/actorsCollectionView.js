@@ -18,12 +18,21 @@ define([
 
         el: '#content',
 
-        initialize: function () {
-            this.searchManager = new SearchModel();
-            this.collection = new Actors();
-            this.collection.url = this.generateDefaultQuery();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
+        initialize: function (actorName) {
+            var that = this;
+            that.actorName = actorName;
+            that.searchManager = new SearchModel();
+            that.collection = new Actors();
+
+            if (!actorName) {
+                that.collection.url = that.generateDefaultQuery();
+            }
+            else{
+                that.collection.url = that.generateSearchQuery(that.actorName);
+            }
+
+            that.listenTo(that.collection, 'sync', this.render);
+            that.collection.fetch();
         },
 
         render: function () {
@@ -49,17 +58,37 @@ define([
             });
         },
 
+        setActorName: function(actorName){
+            this.actorName = actorName;
+        },
+
         removeSpace: function (stringToChange) {
             return stringToChange.replace(/ /i, '_');
         },
 
         generateDefaultQuery: function () {
-            return this.searchManager
+            var that = this;
+            return that.searchManager
                 .setSearchType('actors')
-                .setSearchName('Brad')
+                .setSearchName('brad')
                 .setSearchLimit(40)
                 .url();
         },
+        generateSearchQuery(actorName) {
+            var that = this;
+            var name = actorName;
+            if (!name) {
+            that.searchManager
+                .setSearchName(actorName)
+              }
+            else {
+                that.searchManager.setSearchName(name);
+            }
+            return this.searchManager
+                .setSearchType('actors')
+                .setSearchLimit(40)
+                .url();
+        }
     });
     return ActorsCollectionView;
 });
