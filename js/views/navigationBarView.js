@@ -10,7 +10,8 @@ define([
     'models/navigationBarModel',
     'handlebars',
     'views/gravatarIcon',
-], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon) {
+    'views/searchView'
+], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon, SearchView) {
 
     return Backbone.View.extend({
 
@@ -27,6 +28,7 @@ define([
 
         initialize: function () {
             this.model = new NavigationBarModel();
+            this.searchView = new SearchView();
             this.render();
         },
 
@@ -57,14 +59,14 @@ define([
             'click #user-search-toggle' : 'toggleUserSearch',
         },
 
-        launchSearchFromButton: function (searchGoButton) {
-            console.log(searchGoButton);
-            var input = searchGoButton.target.previousSibling.valueOf();
-            this.launchSearch(input);
+        launchSearchFromButton: function () {
+            var text = $('.search-input').get(0).value;
+            this.launchSearch(text);
         },
 
         launchSearch: function (inputText) {
             this.searchTextToUse = inputText;
+            console.log(this.searchTextToUse);
         },
 
         launchEnterSearchFromInput: function (inputText) {

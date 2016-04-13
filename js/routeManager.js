@@ -94,11 +94,8 @@ define([
             };
 
             var renderSearch = function(){
-                navigationBarView.searchPrefilter.forEach(function (searchType) {
-                    if(searchType){
-                        console.log(searchType);
-                    }
-                });
+
+                updateMainView(searchView, undefined);
             };
 
             var checkCredentials = function () {

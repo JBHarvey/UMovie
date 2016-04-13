@@ -19,7 +19,7 @@ define([
         prepareDefaultRendering: function (movieName) {
             var that = this;
             that.movieName = movieName;
-            that.collection.url = this.generateSearchQuery(that.movieName);
+            that.collection.url = that.generateSearchQuery(that.movieName);
             that.listenTo(this.collection, 'sync', that.render);
             that.collection.fetch();
         },
@@ -28,7 +28,7 @@ define([
             this.movieName = "";
             this.searchManager = new SearchModel();
             this.collection = new Movies();
-            this.prepareDefaultRendering();
+            /*this.prepareDefaultRendering();*/
         },
 
         render: function () {
@@ -40,7 +40,7 @@ define([
             });
         },
 
-        generateDefaultQuery: function (movieName) {
+        generateSearchQuery: function (movieName) {
             var that = this;
             var name = "";
 
