@@ -36,7 +36,7 @@ define([
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.routingRef = `#movie/${data.trackId}`;
             data.entertainementName = data.trackName;
-            data.cssClassType = 'movies';
+            data.cssClassType = 'special-movie movies';
             return data;
         },
 

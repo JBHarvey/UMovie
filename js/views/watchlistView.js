@@ -12,20 +12,49 @@ define([
     'backbone',
     'handlebars',
     'text!templates/watchlist.html',
-], function ($, _, Backbone, Handlebars, WatchlistTemplate) {
+    '../collections/movieCollection',
+    'views/thumbnailView',
+], function ($, _, Backbone, Handlebars, WatchlistTemplate, Movies, ThumbnailView) {
 
     var WatchlistView = Backbone.View.extend({
 
-        el: '#content',
-
         initialize: function (watchlist) {
             this.model = watchlist;
+            this.collection = new Movies();
+            this.collection.set(this.model.attributes.movies)
         },
 
         render: function () {
+            var that = this;
             var template = Handlebars.compile(WatchlistTemplate);
-            return template(this.model.attributes);
+            var partialHtml = template(this.model.attributes);
+
+            /*Cuts open the template*/
+            var name = that.model.attributes.name;
+            var idName = `${name}-watchlist-movies">`;
+            var placeToCut = partialHtml.indexOf(idName) + idName.length;
+            var renderedHtml = partialHtml.slice(0, placeToCut);
+
+            /*Adds the movies thumbnail*/
+            this.collection.each(function (movie) {
+                var attr = movie.attributes;
+                movie.attributes.convertDuration = movie.convertDuration(attr.trackTimeMillis);
+                movie.attributes.releaseYear = movie.releaseYear(attr.releaseDate);
+                movie.attributes.routingRef = `#movie/${attr.trackId}`;
+                movie.attributes.entertainementName = attr.trackName;
+                movie.attributes.cssClassType = 'special-movie movies';
+                console.log(movie);
+
+                var thumbnail = new ThumbnailView({model: movie});
+                renderedHtml = `${renderedHtml} ${thumbnail.render()}`;
+            });
+
+            /*Closes up the template*/
+            renderedHtml = `${renderedHtml} ${partialHtml.slice(placeToCut, -1)}`;
+
+            return renderedHtml;
         },
+
     });
 
     return WatchlistView;

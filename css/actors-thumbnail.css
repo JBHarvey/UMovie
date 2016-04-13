@@ -1,7 +1,8 @@
 .actorThumbnail {
 
     max-height: 10%;
-    margin: 2%  5% ;
+    max-width:90%;
+    margin: auto auto;
     display: flex;
     border-bottom: solid;
     border-bottom-color: darkgrey;
@@ -16,20 +17,21 @@
 
 
     margin: 0 0 2% 0;
-    width: 30%;
-
-    height: 50%;
+    width: 100%;
+    max-width: 8em;
+    height: 100%;
+    max-height: 14em;
 
 }
 .descriptionThumbnail {
-    margin: 1% 0 0 5%;
+    margin: 1% 0 0 4%;
+    max-width: 70%;
 }
 
 .shortBio {
     height: 10%;
     min-height: 10%;
     max-height: 10%;
-
     font-size: 100%;
 }
 
