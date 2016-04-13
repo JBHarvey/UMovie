@@ -9,7 +9,7 @@ define([
     'models/userModel',
     'handlebars',
 ], function ($, _, Backbone, UserTemplate, UserModel, Handlebars) {
-    "use strict";
+    'use strict';
 
     var UserView = Backbone.View.extend({
 
@@ -17,18 +17,17 @@ define([
 
         initialize: function () {
             var that = this;
-            var sync = _.after(1, function(){
+            var sync = _.after(1, function () {
                 that.render();
             });
 
             this.model.url = this.model.changeUrlForUserInfo();
             this.model.fetch({
-               success: sync
+                success: sync,
             });
         },
 
         render: function (user) {
-            console.log("je passe dans le render");
             var source;
             var template = Handlebars.compile(UserTemplate);
 

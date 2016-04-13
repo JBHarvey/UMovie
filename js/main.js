@@ -15,6 +15,7 @@ require.config({
         jscookie: 'lib/js.cookie',
         theMovieDb: 'lib/themoviedb',
         crypto: 'plugins/google/md5',
+        IMDB: 'utils/imdb',
     },
 });
 

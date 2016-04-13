@@ -27,14 +27,12 @@ define([
         'models/actorModel',
         'views/actorsCollectionView',
         'views/watchlistCollectionView',
-        'views/episodeView',
-        'models/episodeModel',
         'views/userSettingsView',
-        'views/userView'
+        'views/userView',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, EpisodeView, EpisodeModel,UserSettingsView, UserView) {
+                 WatchlistCollectionView, UserSettingsView, UserView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -44,7 +42,6 @@ define([
                 'movie/:movieId': 'displaySpecificMovie',
                 tvShows: 'displayTvShows',
                 'tvShow/:tvShowId': 'displaySpecificTvShowSeason',
-                'episode/:episodeId':'displaySpecificEpisode',
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
@@ -155,12 +152,6 @@ define([
                 updateMainView(SeasonView, newSeason);
             });
 
-            uMovieRouter.on('route:displaySpecificEpisode', function (episodeId) {
-                var newId = parseInt(episodeId);
-                var newEpisode = new EpisodeModel({ id: newId });
-                updateMainView(EpisodeView, newEpisode);
-            });
-
             //Actors
             uMovieRouter.on('route:displayActors', function () {
                 updateMainView(ActorCollectionView, undefined);
@@ -176,7 +167,7 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new UserModel({id:Cookie.get('id')});
+                session = new UserModel({ id:Cookie.get('id') });
                 updateMainView(UserSettingsView, session);
 
             });

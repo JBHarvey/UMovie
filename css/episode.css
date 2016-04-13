@@ -2,345 +2,192 @@ html{
     font-family: "Helvetica Neue";
 }
 
-.tvShow-myButton {
-    background-color: #C17E00;
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
-    border-radius:28px;
-    /* border:1px solid #124d77; */
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    margin-left: 0;
-    margin-top: 0.9em;
-    font-family:Arial;
-    font-size: 0.8em;
-    padding: 0.5em 1.1em;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #154682;
-}
-
-.tvShow-myButton:hover {
-    background-color:#0061a7;
-}
-
-.tvShow-myButton:active {
+.close-button {
+    margin-bottom: -1em;
+    width: 30px;
+    height: 30px;
     position:relative;
-    top:1px;
-}
-.tvShow-page {
-    background-color: #0E0F11;
+    float:right;
 }
 
-.desktop-title{
-    display: none;
-}
-
-.tvShow-general-background img{
-    max-width:100%;
-}
-
-.tvShow-thumbnail-image img {
-    margin-top: -40%;
-    padding: 1em 1em 0.6em 0.6em;
-    width: 6.5em;
-}
-
-.tvShow-bar {
-    display: flex;
-    background-color: #132340;
-    padding-right: 1em;
-    padding-bottom: 0.7em;
-}
-
-.tvShow-bar-title{
-    font-size: 1em;
+.episode-modal-title {
+    color: white;
+    font-size: 1.8em;
     margin-top: 1em;
+    margin: 0.5em .5em 0 .5em;
+    border-bottom: solid 1px white;
 }
 
-.tvShow-bar-genre{
-    margin-top: 0.8em;
-    font-size: .8em;
-    font-style: italic;
+.episode-modal-season {
+    margin: .3em 1em 0 1em;
+    font-size: 0.9em;
 }
 
-.tvShow-short-technical-info div{
-    display: inline;
+.Episode-modal {
+    border: solid 1px black;
     font-size: 1em;
-    margin: 0 2.1em;
+    color: darkgrey;
+    /* display: none; */ /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    margin: 26% 4%;
+    left: 0;
+    /* right: 0; */
+    top: 0;
+    width: 92%; /* Full width */
+    height: 82%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #2a2828; /* Fallback color */
+    /* background-color: rgba(0,0,0,0.9); */ /* Black w/ opacity */
 }
 
-.tvShow-short-technical-info{
-    padding: 0.6em 0;
-    background-color: #05052B;
-}
-
-.tvShow-summary{
-    padding: 0.6em 1em;
-    line-height: 1.7em;
-}
-
-.tvShow-info-box{
-    background-color: #05052B;
-    text-align:-webkit-center;
-}
-
-.tvShow-info-subject{
+.episode-modal-content {
     display: flex;
-    width:100%;
+    flex-direction: column-reverse;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    font-size: .8em;
 }
 
-.icon {
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    margin-right: 0.5em;
-    padding: 4%;
-    border: none;
-    width: 100%;
-    max-width: 32px;
-    max-height: 32px;
-    display: inline-block;
-    background-size: 80% 80%;
-    background-position: center;
-    background-color: #132340;
-    background-repeat: no-repeat;
+.episode-modal-content-left {
+    display: flex;
 }
 
-.tvShow-info-name-icon{
-    background-image: url('../img/movie-tvShow-content/svg/name-icon.svg');
+.episode-modal-info span {
+    color: white;
+    font-size: 1em;
 }
 
-.tvShow-info-pgrating-icon{
-    background-image: url('../img/movie-tvShow-content/svg/pgrating-icon.svg');
+.episode-modal-info {
+    margin-left: 1em;
 }
 
-.tvShow-info-director-icon{
-    background-image: url('../img/movie-tvShow-content/svg/director-icon.svg');
+.episode-modal-cover {
+    margin-left: 1em;
 }
 
-.tvShow-info-productionhouse-icon{
-    background-image: url('../img/movie-tvShow-content/svg/productionhouse-icon.svg');
-}
-
-.tvShow-info-writers-icon{
-    background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
-}
-
-.tvShow-info-language-icon{
-    background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
-}
-
-.tvShow-info-price-icon{
-    background-image: url('../img/movie-tvShow-content/svg/price-icon.svg');
-}
-
-.tvShow-preview span{
-    margin-left: 5%;
-}
-
-.tvShow-info-box-desktop, .tvShow-summary-desktop, .tvShow-short-technical-info-desktop{
-    display: none;
-}
 
 @media screen and (min-width: 768px) {
 
-    .tvShow-page {
+    .Episode-modal {
+        border: solid 1px black;
         font-size: 2em;
+        margin: 20% 4%;
+        width: 92%; /* Full width */
+        height: 82%; /* Full height */
     }
 
-    .tvShow-bar-genre{
-        font-size: 1em;
+    .episode-modal-cover {
+        width: 100%;
     }
 
-    .tvShow-info-subject{
-        text-align: left;
-    }
-
-    .tvShow-thumbnail-image img {
-        width:9.5em;
-    }
-
-    .tvShow-short-technical-info div{
-        padding: 0 1.5em;
-    }
-
-    .tvShow-summary{
-        margin: 0.7em 0;
-    }
-
-    .tvShow-info-box{
-        padding: 0.4em 0;
-    }
-
-    .tvShow-info-name-icon{
-        margin-top:-.4em;
-    }
-
-    .tvShow-info-price-icon{
-        margin-bottom:-.4em;
-    }
-
-    .tvShow-general-background img{
-        width:100%;
+    .episode-modal-cover img {
+        width: 100%;
     }
 
 }
 
 @media screen and (min-width: 980px) {
 
-    .tvShow-bar-genre, .tvShow-bar-title, .tvShow-general-background, .tvShow-bar-title .tvShow-bar-genre,
-    .tvShow-info-box-desktop .icon, .tvShow-info-box, .tvShow-preview, .tvShow-myButton, .tvShow-short-technical-info {
-        display: none;
+    .modal-popup {
+
     }
 
-    .tvShow-info-subject, .tvShow-info-subject-content{
-        display: inline-flex;
-        /* text-align: left; */
-        font-size: 1.4em;
-        width: 45em;
+    .thumbnail {
+        cursor: pointer;
     }
 
-    .desktop-title{
-        margin-top: 100px; /*To be changed */
-        font-size: 1.5em;
-        width: 60%;
-        text-align: center;
-        margin-left:auto;
-        margin-right: auto;
+    .close-button {
+        margin-bottom: -1em;
+        width: 30px;
+        height: 30px;
+        position:relative;
+        float:right;
+    }
+
+    .episode-modal-title {
+        color: white;
+        font-size: 1.8em;
+        margin-top: 1em;
+        margin: 0.5em .5em 0 .5em;
+        border-bottom: solid 1px white;
+    }
+
+    .episode-modal-season {
+        margin: .3em 1em 0 1em;
+        font-size: 0.9em;
+    }
+
+    .Episode-modal {
+        font-size: 1em;
+        color: darkgrey;
+        /* display: none; */ /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        margin: 4% 4%;
+        left: 0;
+        /* right: 0; */
+        top: 0;
+        width: 92%; /* Full width */
+        height: 85%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #2a2828; /* Fallback color */
+        /* background-color: rgba(0,0,0,0.9); */ /* Black w/ opacity */
+    }
+
+    .episode-modal-cover {
+        margin: 0;
+    }
+
+    .episode-modal-cover img {
+        width: 80%;
+    }
+
+    .episode-modal-content {
+        display: flex;
+        flex-direction: row;
+        margin-top: 3em;
+        margin-bottom: 2em;
+        font-size: .8em;
+    }
+
+    .episode-modal-info span {
+        display: block;
+
+    }
+
+    .episode-modal-content-left {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.5em;
+        width: 30%;
+    }
+
+    .episode-modal-info {
+        margin-left:0;
+        width: 80%;
+    }
+
+    .episode-modal-info span {
+        color: #0085FF;
+        font-size: .9em;
+    }
+
+    .episode-modal-content-right {
+        width: 70%;
+    }
+
+    .episode-modal-content {
         display: flex;
     }
 
-    .tvShow-page {
-        margin:0;
-        padding:0;
-        background-color:#0E0F11;
-        font-size:1em;
-        width:auto;
-    }
-
-    .tvShow-bar{
-        background-color:#0E0F11;
-        display:inline-flex;
+    .episode-modal-preview {
         width: 100%;
     }
 
-    .tvShow-short-technical-info{
-        background-color:#0E0F11;
-    }
-
-    .tvShow-thumbnail-image{
-        margin: 13% 2em 0 10%;
-    }
-
-    .tvShow-thumbnail-image img{
-        width: 300px;
-    }
-
-    .tvShow-info-box-desktop{
-        /* padding: 2em 2em 0 0; */
-    }
-
-    .tvShow-info-box-desktop{
-        margin-top: 10%;
-        margin-bottom: 10%;
-        display: block;
-        width: 100%;
-        margin-left: 10%;
-        font-size: 13px;
-    }
-
-    .tvShow-info-box-desktop{
-        display: block;
-        text-align: right;
-        width: 40%;
-        /* color: rgba(43, 105, 226, 0.99); */
-    }
-
-    .tvShow-info-box-desktop .tvShow-info-subject-content span{
-        display: block;
-        width: 40em;
-    }
-
-
-    .tvShow-short-technical-info{
-        background-color:blue;
-        width: 30%;
-        margin-left:4em;
-    }
-
-    .tvShow-summary-desktop{
-        width: 20em;
-        background-color:red;
-        display: block;
-    }
-
-    .tvShow-summary{
-        display: none;
-    }
-    .tvShow-preview{
-        width:40%;
-        background-color:red;
-    }
-
-    .tvShow-bar-info{
-        width: 100%;
-    }
-
-    .tvShow-info-price-icon{
-        margin-bottom:4em;
-    }
-
-    .tvShow-info-preview video{
-        width:80%;
-        /* background-color:red; */
-    }
-
-    .tvShow-info-title-desktop{
-        width: 5em;
-        text-align: right;
-        margin-right: 1em;
-        color: rgba(43, 105, 226, 0.99);
-    }
-
-    .desktop-preview{
-        margin-top: 3em;
-    }
-
-    .desktop-preview video {
-        width: 400px;
-    }
-
-    .desktop-summary{
-        margin-top: 3em;
-    }
-
-    .tvShow-short-technical-info-desktop{
-        display: block;
-    }
-    .tvShow-short-technical-info-desktop div{
-        font-size: 0.7em;
-        margin: 0 2.1em;
-    }
-
-    .watchlist-tvShow-button-desktop {
-        background-color: #C17E00;
-        -moz-border-radius:28px;
-        -webkit-border-radius:28px;
-        border-radius:28px;
-        /* border:1px solid #124d77; */
-        display:block;
-        cursor:pointer;
-        color:#ffffff;
-        /* margin-top: 2em; */
-        margin-left: 6em;
-        margin-right: 7em;
-        margin-top: 1.1em;
-        font-family:Arial;
-        font-size: 0.8em;
-        padding: 0.6em 1.1em;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #154682;
+    iframe {
+        width: 95%;
+        height: 400px;
     }
 
 }
