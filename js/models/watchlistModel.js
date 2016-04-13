@@ -24,6 +24,14 @@ define([
                 return movie.trackId === movieModel.get('trackId');
             }));
         },
+        convertDuration(duration) {
+            return `${Math.ceil(duration / 60000)} minutes`;
+        },
+
+        releaseYear(date) {
+            return new Date(date).getFullYear();
+        },
+
     });
 
     return WatchlistModel;

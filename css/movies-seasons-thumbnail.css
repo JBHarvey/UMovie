@@ -17,10 +17,6 @@
     font-size: 90%;
 }
 
-.movies-box:hover {
-    opacity: 0.8;
-}
-
 .movies-box:last-of-type {
     border-bottom: 3px solid #1B1D22;
 }
@@ -30,14 +26,14 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    background-size: 0;
 }
 
 .movies-initial-image {
-    opacity: 0.9;
+    opacity: 1;
     margin: 0;
     padding: 0;
     align-items: stretch;
-    flex: 1 1 auto;
     height: 100%;
 }
 
@@ -53,6 +49,7 @@
     padding-left: 0.5em;
     min-width: 0;
     flex: 1 1 auto;
+    background-size: 0;
 }
 
 .movies-title {
@@ -84,77 +81,134 @@
 
 @media screen and (min-width: 640px) {
 
-}
+/*}
 
-@media screen and (min-width: 970px) {
-    .movies-box {
-        margin-left: auto;
-        margin-right: auto;
-        background-color: transparent;
-        border: none;
-
-        display: inline-flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        flex-flow: column;
-        justify-content: center;
-        align-content: center;
-        align-items: stretch;
-        width: 100%;
-        max-width: 200px;
-        height: 100%;
-        max-height: 400px;
-    }
+@media screen and (min-width: 970px) {*/
 
     .movies-box:last-of-type {
         border-bottom: none;
     }
 
-    .thumbnail {
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
+    .movies-initial-image {
+        display: none;
+    }
+
+    .thumbnail, .movies-thumbnail, .movies-box, .movies-top-box {
+        color: black;
+        min-width: 0; /*!* for Firefox and future Chrome etc. *!*/
         width: 100%;
-        max-width: 200px;
+        max-width: 10em;
         height: 100%;
+        min-height: 10em;
+        max-height: 14.92em;
+    }
+
+    .special-movie.movies-top-box {
+        min-height: 14.92em;
+    }
+
+    .movies-box {
+        background-color: transparent;
+        border: none;
+        flex-wrap: nowrap;
+        display: inline-flex;
+        flex-direction: column;
+        flex-flow: column;
+        justify-content: space-around;
+    }
+
+    .movies-header, .movies-description, .movies-footer {
+        flex: 1;
+        height: 100%;
+    }
+
+    .movies-top-box:hover > div {
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.80);
+    }
+
+    .movies-top-box > div {
+        opacity: 0;
+
+        -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     .movies-top-box {
-        display: none;
-        width: 0;
-        height: 0;
+        align-content: space-between;
+        align-items: stretch;
+        background-size: cover;
+        padding-left: 0;
     }
 
     .movies-header {
-        display: none;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: 0.6em;
+        padding: 0.3em 0.3em 0 0.3em;
+    }
+
+    .movies-title {
+        flex-grow: 3;
+        font-size: 1.15em;
+        white-space: normal;
+        color: #2469bb;
+    }
+
+    .movies-initial-release-date {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.3em;
     }
 
     .movies-description {
-        display: none;
+        display: flex;
+        width: 100%;
+        flex-grow: 5;
+        flex-direction: column;
+        align-self: center;
+        justify-content: flex-start;
+    }
+
+    .movies-description-text {
+        white-space: normal;
+        font-size: 0.6em;
+        min-height: 0.1em;
+        max-height: 7em;
+        color: black;
+        padding: 0 0.3em 0 0.3em;
     }
 
     .movies-footer {
-        display: none;
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: row;
+        padding: 0 0.3em 0 0.3em;
     }
 
-    .movies-initial-image {
-        flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
-        height: 100%;
-        max-height: 400px;
-        width: 100%;
-        max-width: 200px;
+    .content-advisory-rating {
+
     }
 
-    .movies-thumbnail {
-        flex: 1 1 100%;
-        min-width: 0; /* for Firefox and future Chrome etc. */
-        height: 100%;
-        max-height: 400px;
-        width: 100%;
-        max-width: 200px;
+    .duration {
 
+    }
+
+    .content-advisory-rating, .duration {
+        font-size: 0.7em;
+        color: black;
+    }
+
+    .ellipsis {
+        padding: 0 0.3em 0 0.3em;
+        font-size: 0.6em;
+        margin-top: -1em;
+        margin-bottom: 1em;
+        color: black;
     }
 }

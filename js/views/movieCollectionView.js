@@ -36,7 +36,7 @@ define([
         generateDefaultQuery: function () {
             return this.searchManager
                 .setSearchType('movies')
-                .setSearchName('dead')
+                .setSearchName('night')
                 .setSearchLimit(100)
                 .setSearchGenre('')
                 .url();
