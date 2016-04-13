@@ -29,10 +29,11 @@ define([
         'views/watchlistCollectionView',
         'views/userSettingsView',
         'views/userView',
+        'views/searchView',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, UserSettingsView, UserView) {
+                 WatchlistCollectionView, UserSettingsView, UserView, SearchView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -51,6 +52,7 @@ define([
                 login: 'login',
                 signup: 'signup',
                 disconnect: 'disconnect',
+
 
                 //Default
                 '*actions': 'defaultAction',
@@ -72,6 +74,7 @@ define([
             var navigationBarView = new NavigationBarView();
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
+            uMovieRouter.listenTo(NavigationBarView, 'view.launchSearch', uMovieRouter.renderSearch());
 
             var lastAuthState = 'disconnected';
 
@@ -88,6 +91,14 @@ define([
                 }
 
                 navigationBarView.closeMenusIfNeeded();
+            };
+
+            var renderSearch = function(){
+                navigationBarView.searchPrefilter.forEach(function (searchType) {
+                    if(searchType){
+                        console.log(searchType);
+                    }
+                });
             };
 
             var checkCredentials = function () {
@@ -118,6 +129,7 @@ define([
                 } else {
                     noAuthPage(false);
                 }
+
 
                 updateNavigationBar();
             };
@@ -154,14 +166,15 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                /*var Actors = new ActorCollectionView("Xavier");*/
                 updateMainView(ActorCollectionView, undefined);
+
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
                 var newActor = new ActorModel({ id: actorId });
                 updateMainView(ActorView, newActor);
             });
+
 
             uMovieRouter.on('route:displayWatchlists', function () {
                 updateMainView(WatchlistCollectionView, undefined);
@@ -194,6 +207,7 @@ define([
             uMovieRouter.on('route:defaultAction', function (actions) {
                 console.log('Error : no route to', actions);
             });
+
 
             var setHeaderAuthorization = function () {
                 $(document).ajaxSend(function (e, xhr, options) {

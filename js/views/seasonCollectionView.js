@@ -16,12 +16,19 @@ define([
 
         el: '#content',
 
+        prepareDefaultRendering: function (seasonName) {
+            var that = this;
+            that.seasonName = seasonName;
+            that.collection.url = this.generateDefaultQuery(that.seasonName);
+            that.listenTo(that.collection, 'sync', this.render);
+            that.collection.fetch();
+        },
+
         initialize: function () {
+            this.seasonName = "";
             this.searchManager = new SearchModel();
             this.collection = new Seasons();
-            this.collection.url = this.generateDefaultQuery();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
+
         },
 
         render: function () {
@@ -33,10 +40,18 @@ define([
             });
         },
 
-        generateDefaultQuery: function () {
+        generateSearchQuery: function (seasonName) {
+            var that = this;
+            var name ='';
+            if(seasonName){
+                name = seasonName;
+            }
+            else{
+                name = "dead";
+            }
             return this.searchManager
                 .setSearchType('tvshows/seasons')
-                .setSearchName('dead')
+                .setSearchName(name)
                 .setSearchLimit(100)
                 .setSearchGenre('')
                 .url();

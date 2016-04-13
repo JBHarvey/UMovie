@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     '../collections/movieCollection',
-    'thumbnailView',
+    'views/thumbnailView',
     'handlebars',
 ], function ($, _, Backbone, Movies, ThumbnailView, Handlebars) {
 
@@ -16,6 +16,7 @@ define([
         el: '#content',
 
         initialize: function () {
+
 
             // To fix
             this.collection = new Movies();
@@ -34,6 +35,19 @@ define([
                 var movieThumbnail = new ThumbnailView({ model: movie });
                 that.$el.append(movieThumbnail.render());
             });
+        },
+
+        searchMovie: function(searchName) {
+
+        },
+
+        searchActor: function(searchName) {
+        },
+
+        searchSeason: function(searchName) {
+        },
+
+        searchUser: function(searchName) {
         },
     });
     return SearchView;

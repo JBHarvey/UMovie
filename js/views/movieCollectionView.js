@@ -16,12 +16,19 @@ define([
 
         el: '#content',
 
+        prepareDefaultRendering: function (movieName) {
+            var that = this;
+            that.movieName = movieName;
+            that.collection.url = this.generateSearchQuery(that.movieName);
+            that.listenTo(this.collection, 'sync', that.render);
+            that.collection.fetch();
+        },
+
         initialize: function () {
+            this.movieName = "";
             this.searchManager = new SearchModel();
             this.collection = new Movies();
-            this.collection.url = this.generateDefaultQuery();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
+            this.prepareDefaultRendering();
         },
 
         render: function () {
@@ -33,11 +40,20 @@ define([
             });
         },
 
-        generateDefaultQuery: function () {
-            return this.searchManager
+        generateDefaultQuery: function (movieName) {
+            var that = this;
+            var name = "";
+
+            if(movieName){
+                name = movieName;
+            }
+            else {
+                name = "dead";
+            }
+            return that.searchManager
                 .setSearchType('movies')
-                .setSearchName('dead')
-                .setSearchLimit(100)
+                .setSearchName(name)
+                .setSearchLimit(10)
                 .setSearchGenre('')
                 .url();
         },

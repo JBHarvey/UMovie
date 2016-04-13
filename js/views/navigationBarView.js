@@ -16,6 +16,15 @@ define([
 
         el: '#menu-content',
 
+        searchPrefilter : {
+          'movie': false,
+          'season': false,
+          'actor': false,
+          'user': false,
+        },
+
+        searchTextToUse : '',
+
         initialize: function () {
             this.model = new NavigationBarModel();
             this.render();
@@ -41,8 +50,11 @@ define([
             'click .hamburger': 'toggleMenu',
             'click .toggle-member-menu': 'toggleMember',
             'click .go-research': 'launchSearchFromButton',
-            'press .search-input': 'launchSearchFromInput',
             'keyup .search-input': 'launchEnterSearchFromInput',
+            'click #movie-search-toggle' : 'toggleMovieSearch',
+            'click #season-search-toggle' : 'toggleSeasonSearch',
+            'click #actor-search-toggle' : 'toggleActorSearch',
+            'click #user-search-toggle' : 'toggleUserSearch',
         },
 
         launchSearchFromButton: function (searchGoButton) {
@@ -52,13 +64,28 @@ define([
         },
 
         launchSearch: function (inputText) {
-            console.log(inputText);
+            this.searchTextToUse = inputText;
         },
+
         launchEnterSearchFromInput: function (inputText) {
             if(inputText.keyCode == 13)  {
                 var text = $('.search-input').get(0).value;
+                this.launchSearch(text);
             }
         },
+        toggleMovieSearch: function(){
+            this.searchPrefilter.movie = !this.searchPrefilter.movie;
+        },
+        toggleSeasonSearch: function(){
+            this.searchPrefilter.season = !this.searchPrefilter.season;
+        },
+        toggleActorSearch: function(){
+            this.searchPrefilter.actor = !this.searchPrefilter.actor;
+        },
+        toggleUserSearch: function(){
+            this.searchPrefilter.user = !this.searchPrefilter.user ;
+        },
+
 
         /*   Menus animations   */
         closeMenusIfNeeded: function () {
