@@ -205,6 +205,7 @@ iframe {
 
 .watchlist-select-group:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .watchlist-select-group:first-of-type {
