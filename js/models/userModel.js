@@ -12,8 +12,7 @@ define([
         loginURL: 'https://umovie.herokuapp.com/login',
         signupURL: 'https://umovie.herokuapp.com/signup',
 
-
-        changeUrlForUserInfo: function (){
+        changeUrlForUserInfo: function () {
             return 'https://umovie.herokuapp.com/users/' + this.id;
         },
 
@@ -45,9 +44,8 @@ define([
             return Backbone.sync(method, model, options);
         },
 
-        parse(data){
-            if (data.results != undefined) {
-                result = data.results[0];
+        parse(data) {
+            if (_.isObject(data.results)) {
                 return data.results[0];
             } else {
                 return data;
@@ -88,11 +86,11 @@ define([
                 that.id = data.id;
                 that.connected = true;
 
-                Cookie.set('token', data.token, {expires: 365, path: '/'});
-                Cookie.set('name', data.name, {expires: 365, path: '/'});
-                Cookie.set('email', data.email, {expires: 365, path: '/'});
-                Cookie.set('id', data.id, {expires:365, path:'/'});
-                window.history.pushState("", "", "/UMovie/#");
+                Cookie.set('token', data.token, { expires: 365, path: '/' });
+                Cookie.set('name', data.name, { expires: 365, path: '/' });
+                Cookie.set('email', data.email, { expires: 365, path: '/' });
+                Cookie.set('id', data.id, { expires:365, path:'/' });
+                window.history.pushState('', '', '/UMovie/#');
 
                 document.location.reload(true);
             };
@@ -106,10 +104,10 @@ define([
 
         disconnect: function () {
 
-            Cookie.remove('token', {path: '/'});
-            Cookie.remove('name', {path: '/'});
-            Cookie.remove('email', {path: '/'});
-            Cookie.remove('id', {path: '/'});
+            Cookie.remove('token', { path: '/' });
+            Cookie.remove('name', { path: '/' });
+            Cookie.remove('email', { path: '/' });
+            Cookie.remove('id', { path: '/' });
 
             this.set({
                 id: undefined,
