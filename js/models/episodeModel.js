@@ -21,6 +21,10 @@ define([
         },
 
         processData(data) {
+            if ( data.trackPrice === -1 ) {
+                data.trackPrice = 'N/A';
+            }
+
             data.convertDuration = this.convertDuration(data.trackTimeMillis);
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.entertainementName = data.trackName;
