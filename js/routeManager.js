@@ -74,7 +74,7 @@ define([
             var navigationBarView = new NavigationBarView();
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
-            uMovieRouter.listenTo(NavigationBarView, 'view.launchSearch', uMovieRouter.renderSearch());
+            uMovieRouter.listenTo(NavigationBarView, 'view.launchSearch', uMovieRouter.renderSearch);
 
             var lastAuthState = 'disconnected';
 
