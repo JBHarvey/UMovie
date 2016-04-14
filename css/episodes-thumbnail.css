@@ -45,6 +45,7 @@
 .episode-thumbnail {
     align-items: stretch;
     height: 100%;
+    width: 6em;
 }
 
 .episode-top-box {
@@ -101,7 +102,7 @@
         align-items: center;
     }
 
-   .thumbnail {
+    .thumbnail {
         min-height: 0em;
         width: 100%;
         margin-left: 0;
@@ -138,6 +139,10 @@
 
     .episode-box:nth-child(even) {
         background-color: #505154;
+    }
+
+    .episode-thumbnail {
+        width: auto;
     }
 
 }

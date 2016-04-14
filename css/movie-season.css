@@ -331,6 +331,11 @@ iframe {
         font-size: 2.2em;
     }
 
+    .episodes-box {
+        margin-top: 5%;
+        font-size: 2em;
+    }
+
 }
 
 @media screen and (min-width: 980px) {
