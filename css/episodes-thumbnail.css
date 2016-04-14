@@ -37,7 +37,6 @@
     margin: 0;
     padding: 0;
     align-items: stretch;
-    flex: 1 1 auto;
     height: 100%;
     background-size: 0;
 }
@@ -45,6 +44,7 @@
 .episode-thumbnail {
     align-items: stretch;
     height: 100%;
+    weight: 6em;
 }
 
 .episode-top-box {
@@ -93,7 +93,6 @@
     display: none;
 }
 
-
 @media screen and (min-width: 640px) {
 
     .episode-box{
@@ -101,7 +100,7 @@
         align-items: center;
     }
 
-   .thumbnail {
+    .thumbnail {
         min-height: 0em;
         width: 100%;
         margin-left: 0;
@@ -115,6 +114,10 @@
     .episode-footer {
         color: #BFC2CC;
         font-size: 1.2em;
+    }
+
+    .episode-initial-image {
+        flex: 1 1 auto;
     }
 }
 
@@ -134,10 +137,15 @@
 
     .episode-top-box{
         flex: 1 1 100%;
+        margin-right: 1em;
     }
 
     .episode-box:nth-child(even) {
         background-color: #505154;
+    }
+
+    .episode-thumbnail {
+        width: auto;
     }
 
 }
