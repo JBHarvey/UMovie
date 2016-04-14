@@ -8,7 +8,7 @@ html{
     color: darkgrey;
     position: fixed;
     z-index: 1;
-    margin: 26% 4%;
+    margin: 26% 3.7%;
     left: 0;
     top: 0;
     width: 92%;
@@ -26,7 +26,7 @@ html{
 
 .episode-modal-title {
     color: white;
-    font-size: 1.8em;
+    font-size: 1.1em;
     margin-top: 1em;
     margin: 0.5em .5em 0 .5em;
     border-bottom: solid 1px white;
@@ -34,7 +34,7 @@ html{
 
 .episode-modal-season {
     margin: .3em 1em 0 1em;
-    font-size: 0.9em;
+    font-size: 0.7em;
 }
 
 .episode-modal-content {
@@ -42,7 +42,8 @@ html{
     flex-direction: column-reverse;
     margin-top: 1em;
     margin-bottom: 2em;
-    font-size: .8em;
+    font-size: .6em;
+    /* margin-left: 1em; */
 }
 
 .episode-modal-content-left {
@@ -65,22 +66,28 @@ html{
 }
 
 .itunes-logo {
+    width: 7em;
     margin-top: 1em;
 }
 
 @media screen and (min-width: 768px) {
 
     .Episode-modal {
-        font-size: 2em;
-        margin: 20% 4%;
+        font-size: 1.7em;
+        margin: 16% 4%;
     }
 
     .episode-modal-cover {
-        width: 100%;
+        width: 80%;
     }
 
     .episode-modal-cover img {
         width: 100%;
+    }
+
+    .episode-modal-info {
+        margin-left: 1em;
+        font-size: 1.4em;
     }
 
 }
@@ -100,7 +107,7 @@ html{
     .episode-modal-content {
         width: 100%;
         flex-direction: row;
-        margin-top: 3em;
+        margin-top: 2em;
     }
 
     .episode-modal-cover {
@@ -108,7 +115,7 @@ html{
     }
 
     .episode-modal-cover img {
-        width: 80%;
+        width: 60%;
     }
 
     .episode-modal-content-left {
@@ -139,7 +146,5 @@ html{
         width: 95%;
         height: 400px;
     }
-
-
 
 }
