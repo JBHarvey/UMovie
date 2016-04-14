@@ -55,6 +55,8 @@ html{
 }
 
 .episode-modal-info {
+    display: flex;
+    flex-direction: column;
     margin-left: 1em;
 }
 
@@ -63,10 +65,7 @@ html{
 }
 
 .itunes-link {
-    background-image: url('../img/movie-tvShow-content/download-on-itunes.png');
-    background-repeat: no-repeat;
     margin-top: 1em;
-    height: 3.5em;
 }
 
 @media screen and (min-width: 768px) {
