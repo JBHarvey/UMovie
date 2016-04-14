@@ -37,7 +37,6 @@
     margin: 0;
     padding: 0;
     align-items: stretch;
-    /* flex: 1 1 auto; */
     height: 100%;
     background-size: 0;
 }
@@ -45,7 +44,7 @@
 .episode-thumbnail {
     align-items: stretch;
     height: 100%;
-    width: 6em;
+    weight: 6em;
 }
 
 .episode-top-box {
@@ -115,6 +114,10 @@
     .episode-footer {
         color: #BFC2CC;
         font-size: 1.2em;
+    }
+
+    .episode-initial-image {
+        flex: 1 1 auto;
     }
 }
 
