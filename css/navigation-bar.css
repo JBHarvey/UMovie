@@ -13,6 +13,12 @@
     }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .search-input {
+        top: -3px;
+    }
+}
+
 .member-hamburger {
     display: block;
     border: none;
@@ -24,23 +30,9 @@
     cursor: default;
 }
 
-.text h1, h2 {
-    color: #FFCC00;
-}
-
-.movie-banner {
-    width: 100%;
-    height: auto;
-}
-
 #site-logo {
     width: 128px;
     padding-top: 0.5em;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
 }
 
 .umovie-logo {
@@ -50,30 +42,6 @@
     width: 100%;
     position: fixed;
     overflow: auto;
-}
-
-html {
-    background-color: black;
-    color: white;
-}
-
-div #content {
-    width: 100%;
-    max-width: 900px;
-}
-
-h2 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
 }
 
 .header {
@@ -90,10 +58,6 @@ body {
     margin: 0 10px 25px 0;
     background: none;
     border-style: none;
-}
-
-button {
-    cursor: pointer;
 }
 
 .hamburger {
@@ -118,7 +82,6 @@ button {
     font-family: "Helvetica Neue";
     cursor: pointer;
     font-size: 1.4em;
-
 }
 
 .member-hamburger img {
@@ -414,7 +377,6 @@ button {
     margin-top: 0.03em;
     padding-left: 4em;
     width: 10em;
-
 }
 
 .search-bar {
@@ -461,12 +423,6 @@ button {
 .input-bar input.search-input:hover, .input-bar input.search-input:focus, .input-bar input.search-input:active {
     color: #239fed;
     background: #4f4d55;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .search-input {
-        top: -3px;
-    }
 }
 
 .input-bar input.search-input::-webkit-input-placeholder {
@@ -552,98 +508,12 @@ button {
     transition: background .55s ease;
 }
 
-.inputFields {
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    max-width: 10.3em;
-    padding-bottom: 0.5em;
-}
-
-.-box {
-    width: 160px;
-}
-
-.newEntry {
-    width: 100%;
-    max-width: 19em;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.switch-authentication {
-    width: 100%;
-    max-width: 11em;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.authentification img {
-    width: 100%;
-}
-
-.submitAuthentication {
-    padding: 1.2% 7%;
-    border: 1px solid #000000;
-    background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
-    background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
-    background: -moz-linear-gradient(top, #E8A023, #FFBB00);
-    background: -ms-linear-gradient(top, #E8A023, #FFBB00);
-    background: -o-linear-gradient(top, #E8A023, #FFBB00);
-    background-color: #FFBB00;
-    box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    text-shadow: #FFFF77 1px 1px 0px;
-    color: #000000;
-    font-family: Helvetica;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    cursor: pointer;
-}
-
-.submitAuthentication:hover {
-    background: none;
-    background-color: #FFBB00;
-    box-shadow: 0px 0px 5px 0px #AAAAAA;
-    -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
-    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
-    border: 1px solid #ffffff;
-    color: #770400;
-}
-
-.submitAuthentication:active {
-    top: 1px;
-    position: relative;
-}
 
 /* -------  Pour tablettes et +  -------- */
 
 @media (min-width: 640px) {
-    html {
-        font-size: 1.6vw;
-        -moz-osx-font-smoothing: grayscale;
-    }
 
     /* ------ NAV-BAR  ----- */
-    #menu-content {
-        height: 70px;
-        position: relative;
-        flex-direction: row;
-    }
-
-    div #content {
-        max-width: 100%;
-        margin-top: 10%;
-        margin-bottom: 10%;
-    }
-
     .navigation-bar {
         box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 1);
         box-sizing: border-box;
@@ -759,108 +629,19 @@ button {
     .go-research {
         background: transparent;
     }
-
-    /* ------ PAGE CONTENT ------ */
-    div #content {
-        max-width: 100%;
-        margin-top: 10%;
-        padding: 0;
-        background-color: black;
-        color: white;
-        margin-top: 10%;
-    }
-
-    #container {
-        background: black;
-        position: relative;
-        margin-top: -70px;
-    }
-
-    .text h1, h2 {
-        color: #FFCC00;
-    }
-
-    .text h1 {
-        font-size: 4.1em;
-        text-align: center;
-    }
-
-    .text h2 {
-        text-align: center;
-        font-size: 1.6em;
-    }
-
 }
 
 /* ------  Pour desktop exclusivement ------  */
 
 @media (min-width: 960px) {
 
-    html {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 1.6vw;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    div #content {
-        max-width: 100%;
-        margin-top: 10%;
-    }
-
     .search-bar {
         padding: 1em 1em 0.5em;
-    }
-
-    .text h1 {
-        font-size: 4.1em;
-        text-align: center;
-        margin-top: -4.7em;
-    }
-
-    .text h2 {
-        text-align: center;
-        font-size: 1.6em;
     }
 
     .member-menu {
         z-index: 1000;
         height: 900px;
-    }
-
-    .authentification {
-        background-color: black;
-        opacity: 0.6;
-        color: white;
-        text-align: center;
-        width: 20em;
-        height: 12em;
-        position: absolute;
-
-        top: 35%;
-        left: 63%;
-
-        border-top-left-radius: 1.2em;
-        border-bottom-left-radius: 1.2em;
-        border-top-right-radius: 1.2em;
-        border-bottom-right-radius: 1.2em;
-        border: solid 1px black;
-    }
-
-    .connect p {
-        position: absolute;
-        margin-top: -50px;
-        margin-left: -10px;
-        top: 35%;
-        left: 25%;
-    }
-
-    .authentification input {
-        background-color: white;
-        margin: 0.7em;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 3em;
     }
 
     .search-container {
