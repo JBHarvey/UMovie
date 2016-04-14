@@ -67,18 +67,19 @@ define([
         },
 
         launchSearchFromButton: function () {
-            var text = $('.search-input').get(0).value;
+            var text = $('.search-input').val();
+            console.log(text);
             this.launchSearch(text);
         },
 
         launchSearch: function (inputText) {
             var that = this;
+            console.log(inputText);
             that.searchInfoReady = undefined;
-            searchInfoReady = {
+            that.searchInfoReady = {
                 'searchWord': inputText,
                 'scope': that.searchPrefilter,
             };
-            that.trigger(`route:search`);
         },
         toggleMovieSearch: function () {
             this.searchPrefilter.movie = !this.searchPrefilter.movie;

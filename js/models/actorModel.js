@@ -11,6 +11,7 @@ define([
     var ActorModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/actors',
 
+
         parse(data) {
             if (_.isObject(data.results)) {
                 return this.processData(data.results[0]);
@@ -27,6 +28,7 @@ define([
             data.tmdbRequest = encodeURI(data.artistName);
             return data;
         },
+
         removeSpace: function (stringToChange) {
             return stringToChange.replace(/ /i, '_');
         },

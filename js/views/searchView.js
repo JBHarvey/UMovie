@@ -21,30 +21,35 @@ define([
 
         el: '#content',
 
-        searchToShow: {
-            group: undefined,
-        },
+        searchToShow: {group: [],},
 
 
         selectSearchScope: function () {
-            if (this.scope.movie) {
-                this.searchToShow.group.concat({name: 'Movie'});
+            var that = this;
+            console.log("Deuxieme : " + that.scope);
+            that.searchToShow = {group: []};
+            if (that.scope.movie) {
+                that.searchToShow.group.push({name: 'Movie'});
             }
-            if (this.scope.season) {
-                this.searchToShow.group.concat({name: 'Season'});
+            if (that.scope.season) {
+                that.searchToShow.group.push({name: 'Season'});
             }
-            if (this.scope.actor) {
-                this.searchToShow.group.concat({name: 'Actor'});
+            if (that.scope.actor) {
+                that.searchToShow.group.push({name: 'Actor'});
             }
-            if (this.scope.member) {
-                this.searchToShow.group.concat({name: 'Member'});
+            if (that.scope.member) {
+                that.searchToShow.group.push({name: 'Member'});
             }
-        }, initialize: function () {
+        },
+
+        initialize: function () {
 
             var that = this;
+
             that.searchManager = new SearchModel();
             that.searchWord = that.model.searchWord;
             that.scope = that.model.scope;
+            console.log(that.model);
             that.model = undefined;
             this.searches = {};
 
@@ -57,42 +62,66 @@ define([
             var that = this;
             this.$el.html('');
             var template = Handlebars.compile(searchGroupTemplate);
-            console.log(that.searchToShow);
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
-/*
-            this.searches.forEach(function (search) {
-                console.log(that.textToSearch);
-                console.log(viewToShow);
-                search.render();
-            });
-*/
-            this.activateSearches(that);
+
+
+            /*
+             this.searches.forEach(function (search) {
+             console.log(that.textToSearch);
+             console.log(viewToShow);
+             search.render();
+             });
+             */
+            this.activateSearches();
 
         },
 
-        activateSearches: function (that) {
+        searchCollection: function (newCollection, idName) {
+            var searchCollection = new SearchCollectionView({
+                collection: newCollection,
+                el: idName,
+            });
+
+        }, activateSearches: function () {
+            var that = this;
+            var idName = '';
+            var newCollection = undefined;
+            var tmdbData = new TmdbData();
             if (this.scope.movie) {
-                var movies = new Movies();
-                movies.url = function () {
+                idName = '#Movie-search-result';
+                newCollection = new Movies();
+                newCollection.url = function () {
                     return that.searchMovie();
                 };
-                var searchCollection = new SearchCollectionView({
-                    collection: movies,
-                    el: '#movie-search-result',
-                });
+
+                this.searchCollection(newCollection, idName);
             }
             if (this.scope.season) {
-                this.movieCollectionView = new Seasons();
-                this.movieCollectionView.el = '#season-search-result';
+                idName = '#Season-search-result';
+                newCollection = new Seasons();
+                newCollection.url = function () {
+                    return that.searchSeason();
+                };
+
+                this.searchCollection(newCollection, idName);
             }
             if (this.scope.actor) {
-                this.movieCollectionView = new Actors();
-                this.movieCollectionView.el = '#actor-search-result';
+                idName = '#Actor-search-result';
+                newCollection = new Actors();
+                newCollection.url = function () {
+                    return that.searchActor();
+                };
+                this.searchCollection(newCollection, idName);
             }
             if (this.scope.member) {
-                this.movieCollectionView = new Members();
-                this.movieCollectionView.el = '#movie-search-result';
+                idName = '#Member-search-result';
+                newCollection = new Members();
+                newCollection.url = function () {
+                    return that.searchMember();
+                };
+
+                this.searchCollection(newCollection, idName);
             }
         },
 
@@ -101,15 +130,15 @@ define([
 
         },
         searchActor: function () {
-            return this.generateSearchQuery('actor');
+            return this.generateSearchQuery('actors');
 
         },
         searchSeason: function () {
-            return this.generateSearchQuery().setSearchType('tvshows/seasons').url();
+            return this.generateSearchQuery('tvshows/seasons');
 
         },
         searchMember: function () {
-            return this.generateSearchQuery().setSearchType('member').url();
+            return this.generateSearchQuery('member');
 
         },
 

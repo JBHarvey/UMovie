@@ -55,14 +55,14 @@ define([
 
 
 
-                var myQuery = {
+               /* var myQuery = {
                     query: 'Xavier',
                 };
                 Imdb.actors.findActors(myQuery, function(successData) {
                     var parsedData = JSON.parse(successData);
                     console.log(parsedData);
                 }, function(error){
-                });
+                });*/
 
 
 

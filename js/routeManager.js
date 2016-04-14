@@ -149,7 +149,9 @@ define([
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(SeasonsCollectionView, undefined);
+                updateMainView(SearchView, {scope: {season: true}, searchWord: 'dead'});
+
+
             });
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
@@ -160,7 +162,7 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(ActorCollectionView, undefined);
+                updateMainView(SearchView, {scope: {actor: true}, searchWord: 'Monica'});
 
             });
 
@@ -182,6 +184,7 @@ define([
 
             uMovieRouter.on('route:search', function () {
                 var searchInfo = getSearchInfo();
+                console.log(searchInfo);
                 updateMainView(SearchView, searchInfo);
             });
 
@@ -213,6 +216,7 @@ define([
                 do {
                     searchInfo = navigationBarView.searchInfoReady;
                 } while (!navigationBarView.searchInfoReady);
+                console.log(navigationBarView);
                 return searchInfo;
             };
 

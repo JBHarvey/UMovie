@@ -7,7 +7,8 @@ define([
     'underscore',
     'backbone',
     'views/thumbnailView',
-], function ($, _, Backbone, ThumbnailView) {
+    'views/tmdbData',
+], function ($, _, Backbone, ThumbnailView, Tmdb) {
 
     var SearchCollectionView = Backbone.View.extend({
 
@@ -22,12 +23,24 @@ define([
             this.collection.each(function (model) {
                 var thumbnail = new ThumbnailView({ model: model });
                 that.$el.append(thumbnail.render());
-                console.log('we screwed m8');
+                if (model.attributes.tmdbRequest) {
+                    var tmdb = new Tmdb();
+                    tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
+                }
+
             });
         },
+
+
 
 
     });
     return SearchCollectionView;
 
 });
+
+/*
+ newCollection.afterRenderCallback = function () {
+ tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
+ };
+ */

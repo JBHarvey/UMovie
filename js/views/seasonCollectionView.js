@@ -22,7 +22,7 @@ define([
             that.seasonName = "";
             that.searchManager = new SearchModel();
             that.collection = new Seasons();
-            that.collection.url = this.generateDefaultQuery(that.seasonName);
+            that.collection.url = this.generateSearchQuery(that.seasonName);
             that.listenTo(that.collection, 'sync', this.render);
             that.collection.fetch();
         },
