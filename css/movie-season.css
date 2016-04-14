@@ -277,6 +277,13 @@ iframe {
         width:220px;
     }
 
+    .cover-thumbnail span:first-child {
+        font-size: 3em;
+    }
+
+    .cover-thumbnail span {
+        font-size: 2.1em;
+    }
 
     .mobile img {
         width: 11em;
@@ -304,6 +311,7 @@ iframe {
 
     .main-info {
         display: flex;
+        font-size: 2em;
         justify-content: center;
     }
 
@@ -313,7 +321,14 @@ iframe {
 
     .mobile .itunes-logo {
         margin-top: 0.1em;
-        margin-left: 0em;
+    }
+
+    .container-down-section {
+        font-size: 2em;
+    }
+
+    .watchlist-button {
+        font-size: 2.2em;
     }
 
 }
