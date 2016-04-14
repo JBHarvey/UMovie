@@ -8,16 +8,28 @@
     {{/if}}
 </head>
 
-<div class="page-box">
+<class ="page-box">
 
     <!-- Title and background image -->
     {{#if isMovieType}}
-    <div class="element-title">{{trackName}}</div>
+    <div class="title-box">
+        <div class="element-title">{{trackName}}</div>
+        <a class="itunes-link desktop" href="{{trackViewUrl}}">
+            <img class="itunes-logo" src="url(../../img/itunesLogo2.png">
+        </a>
+    </div>
+
     <div class="element-background-image">
         <img src="url(../../img/movie-tvShow-content/background-movie.png">
     </div>
     {{else}}
-    <div class="element-title">{{collectionName}}</div>
+    <div class="title-box">
+        <div class="element-title">{{collectionName}}</div>
+        <a class="itunes-link desktop" href="{{trackViewUrl}}">
+            <img class="itunes-logo" src="url(../../img/itunesLogo2.png">
+        </a>
+    </div>
+
     <div class="element-background-image">
         <img src="url(../../img/movie-tvShow-content/background-tvShow.png">
     </div>
@@ -38,6 +50,9 @@
                     {{/if}}
 
                     <span>{{primaryGenreName}}</span>
+                    <a class="itunes-link mobile" href="{{trackViewUrl}}">
+                        <img class="itunes-logo" src="url(../../img/itunesLogo2.png">
+                    </a>
                 </div>
             </div>
 
