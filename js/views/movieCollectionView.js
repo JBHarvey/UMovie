@@ -16,19 +16,15 @@ define([
 
         el: '#content',
 
-        prepareDefaultRendering: function (movieName) {
+        initialize: function () {
             var that = this;
-            that.movieName = movieName;
+            that.movieName = '';
+            that.searchManager = new SearchModel();
+            that.collection = new Movies();
             that.collection.url = that.generateSearchQuery(that.movieName);
             that.listenTo(this.collection, 'sync', that.render);
             that.collection.fetch();
-        },
 
-        initialize: function () {
-            this.movieName = "";
-            this.searchManager = new SearchModel();
-            this.collection = new Movies();
-            /*this.prepareDefaultRendering();*/
         },
 
         render: function () {

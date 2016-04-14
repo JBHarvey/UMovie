@@ -6,57 +6,164 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../views/movieCollectionView',
-    '../views/actorsCollectionView',
-    '../views/seasonCollectionView',
-    /*'../views/memberCollectionView',*/
     'views/thumbnailView',
+    '../collections/movieCollection',
+    '../collections/seasonCollection',
+    '../collections/actorCollection',
+    'views/searchCollectionView',
+    'text!../templates/seachGroup.html',
     'handlebars',
-], function ($, _, Backbone, Movies, Actors, Seasons, /*Members,*/ ThumbnailView, Handlebars) {
+    'views/tmdbData',
+    'models/searchModel',
+], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors, SearchCollectionView, searchGroupTemplate, Handlebars, TmdbData, SearchModel) {
 
     var SearchView = Backbone.View.extend({
 
         el: '#content',
 
         searchToShow: {
-            group:[],
+            group: undefined,
         },
 
-        initialize: function () {
 
-            this.movieCollectionView = new Movies();
-            this.actorCollectionView = new Actors();
-            this.seasonCollectionView = new Seasons();
+        selectSearchScope: function () {
+            if (this.scope.movie) {
+                this.searchToShow.group.concat({name: 'Movie'});
+            }
+            if (this.scope.season) {
+                this.searchToShow.group.concat({name: 'Season'});
+            }
+            if (this.scope.actor) {
+                this.searchToShow.group.concat({name: 'Actor'});
+            }
+            if (this.scope.member) {
+                this.searchToShow.group.concat({name: 'Member'});
+            }
+        }, initialize: function () {
 
+            var that = this;
+            that.searchManager = new SearchModel();
+            that.searchWord = that.model.searchWord;
+            that.scope = that.model.scope;
+            that.model = undefined;
+            this.searches = {};
 
-
-            // To fix
-           /* this.collection = new Movies();
-            this.collection.url = this.collection.moviesDefaultQuery;
-
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();*/
+            this.selectSearchScope();
+            this.render();
         },
+
 
         render: function () {
-            that = this;
+            var that = this;
             this.$el.html('');
+            var template = Handlebars.compile(searchGroupTemplate);
+            console.log(that.searchToShow);
+            var resultSearchView = template(that.searchToShow);
+            this.$el.html(resultSearchView);
+/*
+            this.searches.forEach(function (search) {
+                console.log(that.textToSearch);
+                console.log(viewToShow);
+                search.render();
+            });
+*/
+            this.activateSearches(that);
 
-           //collectionview.render
         },
 
-        searchMovie: function(searchName) {
-            this.searchToShow.group.append({name:'movie'});
+        activateSearches: function (that) {
+            if (this.scope.movie) {
+                var movies = new Movies();
+                movies.url = function () {
+                    return that.searchMovie();
+                };
+                var searchCollection = new SearchCollectionView({
+                    collection: movies,
+                    el: '#movie-search-result',
+                });
+            }
+            if (this.scope.season) {
+                this.movieCollectionView = new Seasons();
+                this.movieCollectionView.el = '#season-search-result';
+            }
+            if (this.scope.actor) {
+                this.movieCollectionView = new Actors();
+                this.movieCollectionView.el = '#actor-search-result';
+            }
+            if (this.scope.member) {
+                this.movieCollectionView = new Members();
+                this.movieCollectionView.el = '#movie-search-result';
+            }
         },
 
-        searchActor: function(searchName) {
+        searchMovie: function () {
+            return this.generateSearchQuery('movies');
+
+        },
+        searchActor: function () {
+            return this.generateSearchQuery('actor');
+
+        },
+        searchSeason: function () {
+            return this.generateSearchQuery().setSearchType('tvshows/seasons').url();
+
+        },
+        searchMember: function () {
+            return this.generateSearchQuery().setSearchType('member').url();
+
         },
 
-        searchSeason: function(searchName) {
+
+        generateSearchQuery: function (searchType) {
+            var that = this;
+            var name = this.searchWord ? this.searchWord : "";
+
+            return that.searchManager
+                .setSearchType(searchType)
+                .setSearchName(name)
+                .setSearchLimit(36)
+                .setSearchGenre('')
+                .url();
+
         },
 
-        searchUser: function(searchName) {
-        },
+
+        /******************  REFACTOR MAJEUR ***************/
+
+        /*
+         initialize: function (collection) {
+         var that = this;
+         that.name = '';
+         that.searchManager = new SearchModel();
+         that.collection = new collection(); //correct??
+         that.collection.url = that.generateSearchQuery(that.name);
+         that.listenTo(that.collection, 'sync', that.render);
+         that.collection.fetch();
+
+         },
+
+
+         render: function () { // Season
+         var that = this;
+         this.$el.html('');
+         this.collection.each(function (model) {
+         var thumbnail = new ThumbnailView({model: model});
+         that.$el.append(thumbnail.render());
+         if (model.tmdbRequest != undefined) {
+         var tmdbData = new TmdbData();
+         tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
+         }
+         });
+         },
+
+
+         */
+        /******************  REFACTOR MAJEUR ******************/
+
+        /* searchUser: function() {
+         this.searchToShow.group.concat({name:'User', view: this.userCollectionView});
+         this.searchToShow.group.append({name: 'User'});
+         },*/
     });
     return SearchView;
 

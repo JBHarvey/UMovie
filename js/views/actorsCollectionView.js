@@ -18,19 +18,16 @@ define([
 
         el: '#content',
 
-        prepareDefaultRendering: function (actorName) {
-            var that = this;
-            that.actorName = actorName;
-            that.collection.url = that.generateSearchQuery(that.actorName);
-            that.listenTo(that.collection, 'sync', that.render);
-            that.collection.fetch();
-        },
+
 
         initialize: function () {
             var that = this;
             that.actorName = '';
             that.searchManager = new SearchModel();
             that.collection = new Actors();
+            that.collection.url = that.generateSearchQuery(that.actorName);
+            that.listenTo(that.collection, 'sync', that.render);
+            that.collection.fetch();
 
         },
 
@@ -42,23 +39,9 @@ define([
 
                 that.$el.append(thumbnail.render());
 
-                var artistName = actor.get('artistName');
-                var nameEncode = that.removeSpace(artistName);
-
-                var idImg = nameEncode + 'Img';
-                var idBio = nameEncode + 'Bio';
-
-                $('#idTmpImg').attr('id', idImg);
-                $('#idTmpBio').attr('id', idBio);
-
-                var searchRequest = encodeURI(actor.get('artistName'));
                 var tmdbData = new TmdbData();
-                tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
+                tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
             });
-        },
-
-        removeSpace: function (stringToChange) {
-            return stringToChange.replace(/ /i, '_');
         },
 
         /*generateDefaultQuery: function () {
@@ -84,7 +67,7 @@ define([
                 .setSearchType('actors')
                 .setSearchLimit(10)
                 .url();
-        }
+        },
     });
     return ActorsCollectionView;
 });

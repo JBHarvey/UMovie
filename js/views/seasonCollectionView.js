@@ -16,19 +16,15 @@ define([
 
         el: '#content',
 
-        prepareDefaultRendering: function (seasonName) {
-            var that = this;
-            that.seasonName = seasonName;
+
+        initialize: function () {
+            var that = this
+            that.seasonName = "";
+            that.searchManager = new SearchModel();
+            that.collection = new Seasons();
             that.collection.url = this.generateDefaultQuery(that.seasonName);
             that.listenTo(that.collection, 'sync', this.render);
             that.collection.fetch();
-        },
-
-        initialize: function () {
-            this.seasonName = "";
-            this.searchManager = new SearchModel();
-            this.collection = new Seasons();
-
         },
 
         render: function () {

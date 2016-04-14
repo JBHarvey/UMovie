@@ -17,18 +17,19 @@ define([
 
         el: '#menu-content',
 
-        searchPrefilter : {
-          'movie': false,
-          'season': false,
-          'actor': false,
-          'user': false,
+        searchInfoReady: {},
+
+        searchPrefilter: {
+            'movie': true,
+            'season': true,
+            'actor': true,
+            'member': true,
         },
 
-        searchTextToUse : '',
+        searchTextToUse: '',
 
         initialize: function () {
             this.model = new NavigationBarModel();
-            this.searchView = new SearchView();
             this.render();
         },
 
@@ -51,12 +52,18 @@ define([
         events: {
             'click .hamburger': 'toggleMenu',
             'click .toggle-member-menu': 'toggleMember',
-            'click .go-research': 'launchSearchFromButton',
+            'click #initialise-search': 'launchSearchFromButton',
             'keyup .search-input': 'launchEnterSearchFromInput',
-            'click #movie-search-toggle' : 'toggleMovieSearch',
-            'click #season-search-toggle' : 'toggleSeasonSearch',
-            'click #actor-search-toggle' : 'toggleActorSearch',
-            'click #user-search-toggle' : 'toggleUserSearch',
+            'click #movie-search-toggle': 'toggleMovieSearch',
+            'click #season-search-toggle': 'toggleSeasonSearch',
+            'click #actor-search-toggle': 'toggleActorSearch',
+            'click #member-search-toggle': 'toggleMemberSearch',
+        },
+
+        launchEnterSearchFromInput: function (inputText) {
+            if (inputText.keyCode == 13) {
+                this.launchSearchFromButton();
+            }
         },
 
         launchSearchFromButton: function () {
@@ -65,29 +72,30 @@ define([
         },
 
         launchSearch: function (inputText) {
-            this.searchTextToUse = inputText;
-            console.log(this.searchTextToUse);
+            var that = this;
+            that.searchInfoReady = undefined;
+            searchInfoReady = {
+                'searchWord': inputText,
+                'scope': that.searchPrefilter,
+            };
+            that.trigger(`route:search`);
         },
-
-        launchEnterSearchFromInput: function (inputText) {
-            if(inputText.keyCode == 13)  {
-                var text = $('.search-input').get(0).value;
-                this.launchSearch(text);
-            }
-        },
-        toggleMovieSearch: function(){
+        toggleMovieSearch: function () {
             this.searchPrefilter.movie = !this.searchPrefilter.movie;
         },
-        toggleSeasonSearch: function(){
+        toggleSeasonSearch: function () {
             this.searchPrefilter.season = !this.searchPrefilter.season;
         },
-        toggleActorSearch: function(){
+        toggleActorSearch: function () {
             this.searchPrefilter.actor = !this.searchPrefilter.actor;
         },
-        toggleUserSearch: function(){
-            this.searchPrefilter.user = !this.searchPrefilter.user ;
+        toggleMemberSearch: function () {
+            this.searchPrefilter.member = !this.searchPrefilter.member;
         },
 
+        querySeparator: function (scope) {
+            return scope != '' ? '-' : '';
+        },
 
         /*   Menus animations   */
         closeMenusIfNeeded: function () {
@@ -164,6 +172,7 @@ define([
                 .firstElementChild
                 .setAttribute('src', `img/${menuIcon}_menu.svg`);
         },
+
     });
 })
 

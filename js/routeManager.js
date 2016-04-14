@@ -47,6 +47,7 @@ define([
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
                 user: 'showUser',
+                'search': 'search',
                 otherUsers: 'browseUsers',
                 settings: 'settings',
                 login: 'login',
@@ -60,7 +61,7 @@ define([
 
             go: function (route) {
                 console.log(route);
-                this.navigate(route, { trigger: yes });
+                this.navigate(route, {trigger: yes});
             },
         });
 
@@ -74,7 +75,7 @@ define([
             var navigationBarView = new NavigationBarView();
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
-            uMovieRouter.listenTo(NavigationBarView, 'view.launchSearch', uMovieRouter.renderSearch);
+
 
             var lastAuthState = 'disconnected';
 
@@ -93,10 +94,6 @@ define([
                 navigationBarView.closeMenusIfNeeded();
             };
 
-            var renderSearch = function(){
-
-                updateMainView(searchView, undefined);
-            };
 
             var checkCredentials = function () {
                 if (Cookie.get('token') === undefined) {
@@ -122,14 +119,14 @@ define([
                 }
 
                 if (checkCredentials()) {
-                    currentView = newModel ? new ViewClass({ model:newModel }) : new ViewClass();
+                    currentView = newModel ? new ViewClass({model: newModel}) : new ViewClass();
                 } else {
                     noAuthPage(false);
                 }
 
-
                 updateNavigationBar();
             };
+
 
             //Shows the login at start up. If the user has already logged in, the home page will be shown.
             authenticationView = new AuthenticationView(session, false);
@@ -141,12 +138,12 @@ define([
 
             // Movies
             uMovieRouter.on('route:displayMovies', function () {
-                updateMainView(MovieCollectionView, undefined);
+                updateMainView(SearchView, {scope: {movie: true}, searchWord: 'dead'});
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
                 var id = parseInt(movieId);
-                var newMovie = new MovieModel({ trackId: id });
+                var newMovie = new MovieModel({trackId: id});
                 updateMainView(MovieView, newMovie);
             });
 
@@ -157,7 +154,7 @@ define([
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newSeason = new SeasonModel({ id: newId });
+                var newSeason = new SeasonModel({id: newId});
                 updateMainView(SeasonView, newSeason);
             });
 
@@ -168,7 +165,7 @@ define([
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                var newActor = new ActorModel({ id: actorId });
+                var newActor = new ActorModel({id: actorId});
                 updateMainView(ActorView, newActor);
             });
 
@@ -178,9 +175,14 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new UserModel({ id:Cookie.get('id') });
+                session = new UserModel({id: Cookie.get('id')});
                 updateMainView(UserSettingsView, session);
 
+            });
+
+            uMovieRouter.on('route:search', function () {
+                var searchInfo = getSearchInfo();
+                updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:settings', function () {
@@ -206,6 +208,14 @@ define([
             });
 
 
+            var getSearchInfo = function () {
+                var searchInfo = undefined;
+                do {
+                    searchInfo = navigationBarView.searchInfoReady;
+                } while (!navigationBarView.searchInfoReady);
+                return searchInfo;
+            };
+
             var setHeaderAuthorization = function () {
                 $(document).ajaxSend(function (e, xhr, options) {
                     xhr.setRequestHeader('Authorization', Cookie.get('token'));
@@ -214,7 +224,7 @@ define([
 
             setHeaderAuthorization();
 
-            Backbone.history.start({ root: '/UMovie' });
+            Backbone.history.start({root: '/UMovie'});
 
         };
 
