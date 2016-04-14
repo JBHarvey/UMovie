@@ -1,0 +1,113 @@
+.movie-banner {
+    width: 100%;
+    height: auto;
+}
+
+.inputFields {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 10.3em;
+    padding-bottom: 0.5em;
+}
+
+.-box {
+    width: 160px;
+}
+
+.newEntry {
+    width: 100%;
+    max-width: 19em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.switch-authentication {
+    width: 100%;
+    max-width: 11em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.authentification img {
+    width: 100%;
+}
+
+.submitAuthentication {
+    padding: 1.2% 7%;
+    border: 1px solid #000000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
+    background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
+    background: -moz-linear-gradient(top, #E8A023, #FFBB00);
+    background: -ms-linear-gradient(top, #E8A023, #FFBB00);
+    background: -o-linear-gradient(top, #E8A023, #FFBB00);
+    background-color: #FFBB00;
+    box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: #FFFF77 1px 1px 0px;
+    color: #000000;
+    font-family: Helvetica;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    cursor: pointer;
+}
+
+.submitAuthentication:hover {
+    background: none;
+    background-color: #FFBB00;
+    box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    border: 1px solid #ffffff;
+    color: #770400;
+}
+
+.submitAuthentication:active {
+    top: 1px;
+    position: relative;
+}
+
+@media (min-width: 960px) {
+    .authentification {
+        background-color: black;
+        opacity: 0.6;
+        color: white;
+        text-align: center;
+        width: 20em;
+        height: 12em;
+        position: absolute;
+
+        top: 35%;
+        left: 63%;
+
+        border-top-left-radius: 1.2em;
+        border-bottom-left-radius: 1.2em;
+        border-top-right-radius: 1.2em;
+        border-bottom-right-radius: 1.2em;
+        border: solid 1px black;
+    }
+
+    .connect p {
+        position: absolute;
+        margin-top: -50px;
+        margin-left: -10px;
+        top: 35%;
+        left: 25%;
+    }
+
+    .authentification input {
+        background-color: white;
+        margin: 0.7em;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 3em;
+    }
+}
