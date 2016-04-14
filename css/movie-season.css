@@ -346,7 +346,7 @@ iframe {
     .element-title {
         display: block;
         margin: 0 0 2% 43%;
-        font-size: 30px;
+        font-size: 1.5em;
         color: darkgray;
     }
 
@@ -395,6 +395,7 @@ iframe {
 
     .main-info div {
         margin: 1em;
+        font-size: 1em;
     }
 
     .main-info {
@@ -406,7 +407,7 @@ iframe {
 
     .summary{
         padding: 0 10%;
-        font-size: 14px;
+        font-size: .35em;
         line-height: 1.7em;
     }
 
@@ -484,6 +485,7 @@ iframe {
 
     .detailed-info {
         padding-top: 13px;
+        font-size: 0.3em;
     }
 
     .watchlist-menu-group {
