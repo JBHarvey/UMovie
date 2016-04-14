@@ -391,7 +391,7 @@ iframe {
 
     .cover-thumbnail {
         display: block;
-        /* margin-left: 15%; */
+        margin-left: 15%; */
     }
 
     .cover-thumbnail span {
@@ -519,11 +519,12 @@ iframe {
 
     /* Episodes box */
     .episodes-box{
-        font-size: 13px;
+        font-size: 0.7em;
         margin : 3% 8% 0 40%;
     }
 
     .episodes-box span {
         color: #0085FF;
+        margin: em;
     }
 }
