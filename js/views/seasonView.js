@@ -73,7 +73,6 @@ define([
             var selectedEpisodeId = parseInt(id);
             var model = this.collection.get(selectedEpisodeId);
             var episode = new EpisodeView({ model: model});
-            console.log("show episode");
             episode.render();
         }
 

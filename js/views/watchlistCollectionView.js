@@ -159,7 +159,7 @@ define([
                 currentWatchlist.get('name') + '" type="text" placeholder="Enter watchlist name">';
             currentTargetParent.insertAdjacentHTML('beforeend', '<button class="watchlist-submit-button submit-btn" ' +
                 'type="button" disabled="disabled">Submit</button>');
-            currentTargetParent.insertAdjacentHTML('beforeend', '<button type="button" class="button-cancel"></button>');
+            currentTargetParent.insertAdjacentHTML('beforeend', '<button type="button" class="watchlist-cancel button-cancel"></button>');
         },
 
         cancelEditing: function (event) {
