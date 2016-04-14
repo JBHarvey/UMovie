@@ -45,7 +45,6 @@
 .episode-thumbnail {
     align-items: stretch;
     height: 100%;
-    width: 6em;
 }
 
 .episode-top-box {
@@ -79,9 +78,12 @@
 }
 
 .episode-footer {
+    color: #97999F;
+    font-size: 90%;
     display: flex;
     justify-content: space-between;
 }
+
 
 .episode-footer .content-advisory-rating, .episode-footer .duration {
     color: #97999F;
@@ -91,6 +93,7 @@
     display: none;
 }
 
+
 @media screen and (min-width: 640px) {
 
     .episode-box{
@@ -98,7 +101,7 @@
         align-items: center;
     }
 
-    .thumbnail {
+   .thumbnail {
         min-height: 0em;
         width: 100%;
         margin-left: 0;
@@ -121,6 +124,16 @@
         background-color: #222121;
         overflow: hidden;
         display: flex;
+    }
+
+    .thumbnail {
+        width: 100%;
+        margin-left: 0;
+        max-width: none;
+    }
+
+    .episode-top-box{
+        flex: 1 1 100%;
     }
 
     .episode-box:nth-child(even) {

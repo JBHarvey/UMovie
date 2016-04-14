@@ -8,10 +8,6 @@ div #content {
     max-width: 900px;
 }
 
-a:visited {
-    text-decoration: none;
-}
-
 h2 {
     margin: 0;
     padding: 0;
