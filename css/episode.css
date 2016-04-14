@@ -2,6 +2,20 @@ html{
     font-family: "Helvetica Neue";
 }
 
+.Episode-modal {
+    border: solid 1px black;
+    font-size: 1em;
+    color: darkgrey;
+    position: fixed;
+    z-index: 1;
+    margin: 26% 4%;
+    left: 0;
+    top: 0;
+    width: 92%;
+    height: 82%;
+    overflow: auto;
+    background-color: #2a2828;
+}
 .close-button {
     margin-bottom: -1em;
     width: 30px;
@@ -21,24 +35,6 @@ html{
 .episode-modal-season {
     margin: .3em 1em 0 1em;
     font-size: 0.9em;
-}
-
-.Episode-modal {
-    border: solid 1px black;
-    font-size: 1em;
-    color: darkgrey;
-    /* display: none; */ /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    margin: 26% 4%;
-    left: 0;
-    /* right: 0; */
-    top: 0;
-    width: 92%; /* Full width */
-    height: 82%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: #2a2828; /* Fallback color */
-    /* background-color: rgba(0,0,0,0.9); */ /* Black w/ opacity */
 }
 
 .episode-modal-content {
@@ -66,15 +62,18 @@ html{
     margin-left: 1em;
 }
 
+.itunes-link {
+    background-image: url('../img/movie-tvShow-content/download-on-itunes.png');
+    background-repeat: no-repeat;
+    margin-top: 1em;
+    height: 3.5em;
+}
 
 @media screen and (min-width: 768px) {
 
     .Episode-modal {
-        border: solid 1px black;
         font-size: 2em;
         margin: 20% 4%;
-        width: 92%; /* Full width */
-        height: 82%; /* Full height */
     }
 
     .episode-modal-cover {
@@ -89,50 +88,20 @@ html{
 
 @media screen and (min-width: 980px) {
 
-    .modal-popup {
-
-    }
-
     .thumbnail {
         cursor: pointer;
     }
 
-    .close-button {
-        margin-bottom: -1em;
-        width: 30px;
-        height: 30px;
-        position:relative;
-        float:right;
-    }
-
-    .episode-modal-title {
-        color: white;
-        font-size: 1.8em;
-        margin-top: 1em;
-        margin: 0.5em .5em 0 .5em;
-        border-bottom: solid 1px white;
-    }
-
-    .episode-modal-season {
-        margin: .3em 1em 0 1em;
-        font-size: 0.9em;
-    }
-
     .Episode-modal {
         font-size: 1em;
-        color: darkgrey;
-        /* display: none; */ /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
         margin: 4% 4%;
-        left: 0;
-        /* right: 0; */
-        top: 0;
-        width: 92%; /* Full width */
-        height: 85%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: #2a2828; /* Fallback color */
-        /* background-color: rgba(0,0,0,0.9); */ /* Black w/ opacity */
+        height: 85%;
+    }
+
+    .episode-modal-content {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 3em;
     }
 
     .episode-modal-cover {
@@ -143,21 +112,7 @@ html{
         width: 80%;
     }
 
-    .episode-modal-content {
-        display: flex;
-        flex-direction: row;
-        margin-top: 3em;
-        margin-bottom: 2em;
-        font-size: .8em;
-    }
-
-    .episode-modal-info span {
-        display: block;
-
-    }
-
     .episode-modal-content-left {
-        display: flex;
         flex-direction: column;
         margin-left: 1.5em;
         width: 30%;
@@ -169,16 +124,12 @@ html{
     }
 
     .episode-modal-info span {
-        color: #0085FF;
+        display: block;
         font-size: .9em;
     }
 
     .episode-modal-content-right {
         width: 70%;
-    }
-
-    .episode-modal-content {
-        display: flex;
     }
 
     .episode-modal-preview {
@@ -189,5 +140,7 @@ html{
         width: 95%;
         height: 400px;
     }
+
+
 
 }
