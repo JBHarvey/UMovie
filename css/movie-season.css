@@ -335,14 +335,23 @@ iframe {
         margin-top: 5%;
         font-size: 2em;
     }
-
 }
 
-@media screen and (min-width: 1100px) {
-    .preview-box {
-        margin-left: 15%;
+
+@media screen and (min-width: 540px) and (max-width: 768px) {
+    #site-logo {
+        width: 9em;
     }
 
+    .search-bar {
+        padding-top: 1.3em;
+    }
+}
+
+@media screen and (min-width: 980px) and (max-width: 1024px) {
+    .preview-box {
+        margin-left: 5%;
+    }
 }
 
 @media screen and (min-width: 980px) {
@@ -393,7 +402,7 @@ iframe {
     }
 
     .preview-box {
-        margin-left: 5%;
+        margin-left: 15%;
         width: 600px;
     }
 

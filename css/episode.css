@@ -70,6 +70,27 @@ html{
     margin-top: 1em;
 }
 
+@media screen and (min-width: 540px) and (max-width: 768px) {
+    .Episode-modal {
+        margin: 14% 3.7% 5% 3.7%;
+        height: 70%
+    }
+
+    .episode-modal-content {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .episode-modal-preview {
+        width: 100%;
+    }
+
+    .episode-modal-preview iframe {
+        height: 90%;
+    }
+
+}
+
 @media screen and (min-width: 768px) {
 
     .Episode-modal {
