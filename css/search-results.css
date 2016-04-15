@@ -8,5 +8,11 @@
     .search-results-display {
         align-items: center;
     }
+
+    .text-researched {
+        align-self: flex-start;
+        margin-left: 4em;
+        color: white;
+    }
 }
 

@@ -26,7 +26,10 @@ define([
 
         selectSearchScope: function () {
             var that = this;
-            that.searchToShow = {group: []};
+            that.searchToShow = {
+                searchWord: that.searchWord,
+                group: []
+            };
             var scope = that.scope;
             if (scope.match('movie')) {
                 that.searchToShow.group.push({name: 'Movie'});
