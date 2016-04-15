@@ -1,27 +1,31 @@
-<img class="movie-banner" src="http://www.seriesandreviews.com/wp-content/uploads/2016/01/Young-adults-watching-TV.jpg"/>
-<div class="text">
-    <h1>Hello, welcome to UMovie.</h1>
-    <h2>Get all the movies, TV shows and celebrities content in one place!</h2>
-</div>
+<img class="login-mobile background" src="url(../../img/loginMobile.jpg">
+<img class="login-desktop background" src="url(../../img/loginDesktop.jpg">
 
-<div class="authentification">
-    <div class="inputFields">
-        {{#each inputField}}
-        <div class="{{inputName}}-box">
-            <input class="authentication-input" placeholder="{{placeholder}}" id="{{idName}}" type="{{inputType}}">
+<div class="login-content">
+    <div class="authentication">
+        <div class="inputFields">
+            {{#each inputField}}
+            <div class="{{inputName}}-box">
+                <input class="authentication-input" placeholder="{{placeholder}}" id="{{idName}}" type="{{inputType}}">
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
+        <div class="newEntry">
+            <div class="authentication-btn">
+                <span class="submitAuthentication">{{messageButton}}</span>
+            </div>
+            <div class="switch-authentication">
+                {{#if newEntry}}
+                <span>Already have an account?  </span><a href="#login"  class="auth-swap">Log-in here!</a>
+                {{else}}
+                <span>You're new?  </span><a href="#signup" class="auth-swap">Register here!</a>
+                {{/if}}
+            </div>
+        </div>
     </div>
-    <div class="newEntry">
-        <div class="authentication-btn">
-            <span class="submitAuthentication">{{messageButton}}</span>
-        </div>
-        <div class="switch-authentication">
-            {{#if newEntry}}
-            <span>Already have an account?  </span><a href="#login"  class="auth-swap">Log-in here!</a>
-            {{else}}
-            <span>You're new?  </span><a href="#signup" class="auth-swap">Register here!</a>
-            {{/if}}
-        </div>
+    <div class="login-titles text">
+        <h1>Hello, welcome to UMovie.</h1>
+        <h2>Get all the movies, TV shows and celebrities content in one place!</h2>
     </div>
+
 </div>
