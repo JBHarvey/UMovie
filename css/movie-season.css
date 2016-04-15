@@ -348,12 +348,6 @@ iframe {
     }
 }
 
-@media screen and (min-width: 980px) and (max-width: 1024px) {
-    .preview-box {
-        margin-left: 5%;
-    }
-}
-
 @media screen and (min-width: 980px) {
 
     .page-box {
@@ -402,7 +396,7 @@ iframe {
     }
 
     .preview-box {
-        margin-left: 15%;
+        margin-left: 5%;
         width: 600px;
     }
 
@@ -542,5 +536,11 @@ iframe {
 
     .episodes-box span {
         color: #0085FF;
+    }
+}
+
+@media screen and (min-width: 1034px){
+    .preview-box {
+        margin-left: 15%;
     }
 }
