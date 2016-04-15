@@ -76,6 +76,10 @@ define([
             var lastAuthState = 'disconnected';
 
             var noAuthPage = function (signUp) {
+                if (!_.isObject(authenticationView)) {
+                    authenticationView = new AuthenticationView(session, false);
+                }
+
                 session.disconnect();
                 navigationBarView.render();
                 authenticationView.render(signUp);
@@ -123,8 +127,8 @@ define([
             };
 
             //Shows the login at start up. If the user has already logged in, the home page will be shown.
-            authenticationView = new AuthenticationView(session, false);
-            updateMainView(HomeView, undefined);
+
+            //updateMainView(HomeView, undefined);
 
             uMovieRouter.on('route:goHome', function () {
                 updateMainView(HomeView, undefined);
