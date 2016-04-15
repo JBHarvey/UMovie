@@ -182,8 +182,8 @@ define([
 
             });
 
-            uMovieRouter.on('route:search', function () {
-                var searchInfo = getSearchInfo();
+            uMovieRouter.on('route:search', function (scope, query) {
+                var searchInfo = {'scope': scope, 'searchWord':query};
                 console.log(searchInfo);
                 updateMainView(SearchView, searchInfo);
             });
@@ -209,16 +209,6 @@ define([
             uMovieRouter.on('route:defaultAction', function (actions) {
                 console.log('Error : no route to', actions);
             });
-
-
-            var getSearchInfo = function () {
-                var searchInfo = undefined;
-                do {
-                    searchInfo = navigationBarView.searchInfoReady;
-                } while (!navigationBarView.searchInfoReady);
-                console.log(navigationBarView);
-                return searchInfo;
-            };
 
             var setHeaderAuthorization = function () {
                 $(document).ajaxSend(function (e, xhr, options) {

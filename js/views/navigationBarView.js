@@ -17,13 +17,11 @@ define([
 
         el: '#menu-content',
 
-        searchInfoReady: {},
-
         searchPrefilter: {
             'movie': true,
             'season': true,
-            'actor': true,
-            'member': true,
+            'actor': false,
+            'member': false,
         },
 
         searchTextToUse: '',
@@ -68,19 +66,40 @@ define([
 
         launchSearchFromButton: function () {
             var text = $('.search-input').val();
-            console.log(text);
             this.launchSearch(text);
         },
 
         launchSearch: function (inputText) {
             var that = this;
-            console.log(inputText);
-            that.searchInfoReady = undefined;
-            that.searchInfoReady = {
-                'searchWord': inputText,
-                'scope': that.searchPrefilter,
-            };
+
+            var scopeText = that.formatScopeForRedirection();
+            const url = `/UMovie/#search?scope=${scopeText}&query=${inputText}`;
+            window.history.pushState('', '', url);
+            document.location.reload(true);
         },
+
+        formatScopeForRedirection: function() {
+            var that = this;
+            var formatedScope = '';
+
+            if(that.searchPrefilter.movie){
+                formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}movie`;
+            }
+            if(that.searchPrefilter.season){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}season`;
+            }
+            if(that.searchPrefilter.actor){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}actor`;
+            }
+            if(that.searchPrefilter.member){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}member`;
+            }
+
+
+            console.log(formatedScope);
+            return formatedScope;
+        },
+
         toggleMovieSearch: function () {
             this.searchPrefilter.movie = !this.searchPrefilter.movie;
         },
