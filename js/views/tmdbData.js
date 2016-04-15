@@ -27,7 +27,7 @@ define([
                 var movieSearchInfo = movieSearch.results[0];
 
                 if (movieSearchInfo) {
-                    theMovieDb.movies.getById({ id: movieSearchInfo.id }, function (data) {
+                    theMovieDb.movies.getById({id: movieSearchInfo.id}, function (data) {
                         // Do nothing
                     }, errorCB);
                 }
@@ -38,6 +38,7 @@ define([
 
         getTmdbActorData: function (searchRequest, idImg, idBio) {
             var that = this;
+
             that.searchRequest = searchRequest;
             that.imgIdName = idImg;
             that.bioIdName = idBio;
@@ -57,7 +58,7 @@ define([
                 var artistSearch = JSON.parse(data);
                 var artistSearchInfo = artistSearch.results[0];
                 if (_.isObject(artistSearchInfo)) {
-                    theMovieDb.people.getById({ id: artistSearchInfo.id }, function (data) {
+                    theMovieDb.people.getById({id: artistSearchInfo.id}, function (data) {
                         that.actorToFind = JSON.parse(data);
 
                         that.modifySingleActorBio(that.actorToFind.biography)
@@ -106,7 +107,7 @@ define([
             if (image) {
                 var path = theMovieDb.common.images_uri + 'original' + image;
 
-                const actorImageId = that.imgIdName;
+                var actorImageId = that.imgIdName;
 
                 $(`#${actorImageId}`).attr('src', path);
 

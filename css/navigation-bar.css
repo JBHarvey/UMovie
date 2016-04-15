@@ -487,6 +487,10 @@
     transform: skewX(-15deg);
 }
 
+#initialise-search {
+    display: inline;
+}
+
 #search-icon:hover {
     border: 1px solid #30b9ff;
     background: #30b9ff;
