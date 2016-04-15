@@ -338,6 +338,13 @@ iframe {
 
 }
 
+@media screen and (min-width: 1100px) {
+    .preview-box {
+        margin-left: 15%;
+    }
+
+}
+
 @media screen and (min-width: 980px) {
 
     .page-box {
@@ -359,6 +366,7 @@ iframe {
         display: flex;
         flex-flow: row wrap;
         margin: 0 0 0 0;
+        justify-content: flex-start;
         background-color: black;
         padding-right:0;
     }
@@ -368,7 +376,7 @@ iframe {
     }
 
     .cover-thumbnail img {
-        width: 280px;
+        width: 265px;
         height: 370px;
     }
 
@@ -381,7 +389,7 @@ iframe {
         flex-direction: column;
         padding-left: 1em;
         margin: 0 0 0 0;
-        width: 38%;
+        width: 31%;
     }
 
     .preview-box {
