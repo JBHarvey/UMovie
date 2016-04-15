@@ -43,9 +43,9 @@ html{
 }
 
 .cover-thumbnail img {
-    margin-top: -20%;
-    padding: 1em 1em 0.6em 0.6em;
-    width: 6.5em;
+    margin-top: -15%;
+    padding: 1em 1em 0.6em 1.2em;
+    width: 7.3em;
 }
 
 .main-info div {
@@ -259,6 +259,15 @@ iframe {
     margin-top: 5%;
 }
 
+.desktop {
+    display: none;
+}
+
+.mobile .itunes-logo {
+    margin-top: 0.1em;
+    margin-left: -0.9em;
+}
+
 @media screen and (min-width: 768px) {
     .page-box {
         font-size: 2em;
@@ -266,7 +275,18 @@ iframe {
 
     .cover-thumbnail img {
         width:220px;
-        height:280px;
+    }
+
+    .cover-thumbnail span:first-child {
+        font-size: 3em;
+    }
+
+    .cover-thumbnail span {
+        font-size: 2.1em;
+    }
+
+    .mobile img {
+        width: 11em;
     }
 
     .element-name {
@@ -291,11 +311,29 @@ iframe {
 
     .main-info {
         display: flex;
+        font-size: 2em;
         justify-content: center;
     }
 
     .detailed-info {
         padding-top: 1.5%;
+    }
+
+    .mobile .itunes-logo {
+        margin-top: 0.1em;
+    }
+
+    .container-down-section {
+        font-size: 2em;
+    }
+
+    .watchlist-button {
+        font-size: 2.2em;
+    }
+
+    .episodes-box {
+        margin-top: 5%;
+        font-size: 2em;
     }
 
 }
@@ -313,7 +351,7 @@ iframe {
     .element-title {
         display: block;
         margin: 0 0 2% 43%;
-        font-size: 30px;
+        font-size: 1.5em;
         color: darkgray;
     }
 
@@ -353,7 +391,7 @@ iframe {
 
     .cover-thumbnail {
         display: block;
-        /* margin-left: 15%; */
+        margin-left: 15%;
     }
 
     .cover-thumbnail span {
@@ -362,18 +400,19 @@ iframe {
 
     .main-info div {
         margin: 1em;
+        font-size: 1em;
     }
 
     .main-info {
         display: block;
         background-color: black;
         margin-left: 7em;
-        font-size: 13px;
+        font-size: 0.75em;
     }
 
     .summary{
         padding: 0 10%;
-        font-size: 14px;
+        font-size: .35em;
         line-height: 1.7em;
     }
 
@@ -451,15 +490,36 @@ iframe {
 
     .detailed-info {
         padding-top: 13px;
+        font-size: 0.3em;
     }
 
     .watchlist-menu-group {
         width: 18%;
     }
 
+    .title-box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: inline;
+    }
+
+    .desktop .itunes-logo {
+        margin-top: 0;
+        margin-left: 1em;
+        width: 5.5em;
+        height: 2em;
+    }
+
     /* Episodes box */
     .episodes-box{
-        font-size: 13px;
+        font-size: 0.7em;
         margin : 3% 8% 0 40%;
     }
 

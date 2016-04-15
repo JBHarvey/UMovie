@@ -1,6 +1,8 @@
-<div class="movieContainer">
-    <div class="movie-browser">
+<div class="home-page">
+    {{#each item}}
+    <div class="home-page-category">
         <h1>{{title}}</h1>
-        <div class="favorite">{{movie}}</div>
+        <div class="home-page-item">{{movie}}</div>
     </div>
+    {{/each}}
 </div>

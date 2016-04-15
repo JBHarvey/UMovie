@@ -10,29 +10,62 @@ define([
     'models/homeModel',
     'handlebars',
     'views/tmdbData',
-], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, TmdbData) {
+    'models/searchModel',
+    '../collections/movieCollection',
+    'views/thumbnailView',
+], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, TmdbData, SearchModel, Movies, ThumbnailView) {
 
     var HomeView = Backbone.View.extend({
 
         el: '#content',
+        content : {category : [],},
 
         initialize: function () {
-            this.render();
+            this.searchManager = new SearchModel();
+            this.collection = new Movies();
+            this.collection.url = this.generateDefaultQuery();
+            this.listenTo(this.collection, 'sync', this.render);
+            this.collection.fetch();
+
         },
 
         render: function () {
 
-            var template = Handlebars.compile(homeTemplate);
+            var that = this;
+            this.$el.html('Trending now : <br/>');
+            this.collection.each(function (movie) {
+                var trendingThumbnails = new ThumbnailView({ model: movie });
+                that.$el.append(trendingThumbnails.render());
+            });
 
-            var source = new HomeModel();
-            var resultHome = template(source.defaults);
-            this.$el.html(resultHome);
+            that.$el.append('<div>Other users are also watching : </div><br/>');
+            that.collection.each(function(movie){
+                var otherWatchersThumbnails = new ThumbnailView({model : movie});
+                that.$el.append(otherWatchersThumbnails.render());
+            });
 
-            var searchRequest = 'Titanic';
-            var tmdbData = new TmdbData();
-            tmdbData.getTmdbSimilarMovie(searchRequest);
+
+            console.log("render.");
+
         },
 
+        generateDefaultQuery: function () {
+            return this.searchManager
+                .setSearchType('movies')
+                .setSearchName('rings')
+                .setSearchLimit(6)
+                .setSearchGenre('')
+                .url();
+        },
+
+        generateWatchingQuery: function (){
+            return this.searchManager
+            .setSearchType('movies')
+            .setSearchName('rings')
+            .setSearchLimit(6)
+            .setSearchGenre('')
+            .url();
+        }
 
     });
     return HomeView;
