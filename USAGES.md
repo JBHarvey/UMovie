@@ -29,3 +29,8 @@ You must be logged in to access any content of the collections or the private us
 ## Search bar
 
 The search bar allows a search in the page where the user is. For instance, it is possible to make a search for different actors while the user is in the actor page. 
+
+##Searching for actor
+
+If you make a research to find an Actor, there will be actor without picture and/or description. The reason to that is that we are getting those informations from TheMovieDataBase and it doesn't contain every actors from the uMovie API.
+''Bonjour, veuillez l'expliquer dans votre document de remise,  mais pour moi c'est acceptable. '' -Vincent Séguin

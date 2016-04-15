@@ -18,12 +18,17 @@ define([
 
         el: '#content',
 
+
+
         initialize: function () {
-            this.searchManager = new SearchModel();
-            this.collection = new Actors();
-            this.collection.url = this.generateDefaultQuery();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
+            var that = this;
+            that.actorName = '';
+            that.searchManager = new SearchModel();
+            that.collection = new Actors();
+            that.collection.url = that.generateSearchQuery(that.actorName);
+            that.listenTo(that.collection, 'sync', that.render);
+            that.collection.fetch();
+
         },
 
         render: function () {
@@ -34,30 +39,33 @@ define([
 
                 that.$el.append(thumbnail.render());
 
-                var artistName = actor.get('artistName');
-                var nameEncode = that.removeSpace(artistName);
-
-                var idImg = nameEncode + 'Img';
-                var idBio = nameEncode + 'Bio';
-
-                $('#idTmpImg').attr('id', idImg);
-                $('#idTmpBio').attr('id', idBio);
-
-                var searchRequest = encodeURI(actor.get('artistName'));
                 var tmdbData = new TmdbData();
-                tmdbData.getTmdbActorData(searchRequest, idImg, idBio);
+                tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
             });
         },
 
-        removeSpace: function (stringToChange) {
-            return stringToChange.replace(/ /i, '_');
-        },
-
-        generateDefaultQuery: function () {
-            return this.searchManager
+        /*generateDefaultQuery: function () {
+            var that = this;
+            return that.searchManager
                 .setSearchType('actors')
-                .setSearchName('Brad')
+                .setSearchName('brad')
                 .setSearchLimit(40)
+                .url();
+        },*/
+
+        generateSearchQuery(actorName) {
+            var that = this;
+            var name = "";
+            if (actorName) {
+                name = actorName;
+              }
+            else {
+               name = "Xavier";
+            }
+            return this.searchManager
+                .setSearchName(name)
+                .setSearchType('actors')
+                .setSearchLimit(10)
                 .url();
         },
     });

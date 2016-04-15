@@ -10,11 +10,21 @@ define([
     'models/navigationBarModel',
     'handlebars',
     'views/gravatarIcon',
-], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon) {
+    'views/searchView'
+], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon, SearchView) {
 
     return Backbone.View.extend({
 
         el: '#menu-content',
+
+        searchPrefilter: {
+            'movie': true,
+            'season': true,
+            'actor': false,
+            'member': false,
+        },
+
+        searchTextToUse: '',
 
         initialize: function () {
             this.model = new NavigationBarModel();
@@ -40,18 +50,72 @@ define([
         events: {
             'click .hamburger': 'toggleMenu',
             'click .toggle-member-menu': 'toggleMember',
-            'click .go-research': 'launchSearchFromButton',
-            'press .search-input': 'launchSearchFromInput',
+            'click #initialise-search': 'launchSearchFromButton',
+            'keyup .search-input': 'launchEnterSearchFromInput',
+            'click #movie-search-toggle': 'toggleMovieSearch',
+            'click #season-search-toggle': 'toggleSeasonSearch',
+            'click #actor-search-toggle': 'toggleActorSearch',
+            'click #member-search-toggle': 'toggleMemberSearch',
         },
 
-        launchSearchFromButton: function (searchGoButton) {
-            console.log(searchGoButton);
-            var input = searchGoButton.target.previousSibling.valueOf();
-            this.launchSearch(input);
+        launchEnterSearchFromInput: function (inputText) {
+            if (inputText.keyCode == 13) {
+                this.launchSearchFromButton();
+            }
+        },
+
+        launchSearchFromButton: function () {
+            var text = $('.search-input').val();
+
+            this.launchSearch(text);
         },
 
         launchSearch: function (inputText) {
-            console.log(inputText);
+            var that = this;
+            var query = encodeURI(inputText);
+            var scopeText = that.formatScopeForRedirection();
+            const url = `/UMovie/#search?scope=${scopeText}&query=${query}`;
+            window.history.pushState('', '', url);
+            document.location.reload(true);
+        },
+
+        formatScopeForRedirection: function() {
+            var that = this;
+            var formatedScope = '';
+
+            if(that.searchPrefilter.movie){
+                formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}movie`;
+            }
+            if(that.searchPrefilter.season){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}season`;
+            }
+            if(that.searchPrefilter.actor){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}actor`;
+            }
+            if(that.searchPrefilter.member){
+                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}member`;
+            }
+
+
+            console.log(formatedScope);
+            return formatedScope;
+        },
+
+        toggleMovieSearch: function () {
+            this.searchPrefilter.movie = !this.searchPrefilter.movie;
+        },
+        toggleSeasonSearch: function () {
+            this.searchPrefilter.season = !this.searchPrefilter.season;
+        },
+        toggleActorSearch: function () {
+            this.searchPrefilter.actor = !this.searchPrefilter.actor;
+        },
+        toggleMemberSearch: function () {
+            this.searchPrefilter.member = !this.searchPrefilter.member;
+        },
+
+        querySeparator: function (scope) {
+            return scope != '' ? '-' : '';
         },
 
         /*   Menus animations   */
@@ -129,6 +193,7 @@ define([
                 .firstElementChild
                 .setAttribute('src', `img/${menuIcon}_menu.svg`);
         },
+
     });
 })
 
