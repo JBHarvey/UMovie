@@ -10,7 +10,9 @@ define([
     '../collections/movieCollection',
     'views/tmdbData',
     'handlebars',
-    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
+    'models/imdbActorModel',
+    'utils/imdb',
+    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars, ImdbActorModel, Imdb) {
         'use strict';
 
         var ActorView = Backbone.View.extend({
@@ -25,7 +27,7 @@ define([
                 this.listenTo(this.model, 'change', that.render);
                 this.listenTo(this.collectionMovies, 'update', that.render);
 
-                var waitForRender = _.after(2, function () {
+                var waitForRender = _.after(3, function () {
                     that.render();
                 });
 
@@ -53,6 +55,24 @@ define([
                 tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
 
 
+                var that = this;
+                Imdb.actors.findActors({ query: searchRequest }, function (data) {
+                    var parsedData = JSON.parse(data);
+                    var actorDatas = parsedData['name_popular']
+                        || parsedData['name_exact']
+                        || parsedData['name_approx']
+                        || parsedData['name_substring'];
+
+                    if (actorDatas) {
+                        var actorID = actorDatas[0];
+                        that.imdbModel = new ImdbActorModel(actorID);
+                        that.imdbModel.fetch({
+                            success: function (data) {
+                                console.log(data);
+                            },
+                        });
+                    }
+                });
 
 
                /* var myQuery = {

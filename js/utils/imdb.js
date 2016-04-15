@@ -98,7 +98,10 @@ define(function () {
         findMedias: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -106,8 +109,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/search/medias',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -129,16 +132,18 @@ define(function () {
         getMediaById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
-                    method: 'POST',
-                    query: options.query,
-                    url: imdb.common.base_url + '/medias',
+                    method: 'GET',
+                    url: imdb.common.base_url + '/medias/' + options.query,
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -160,7 +165,10 @@ define(function () {
         getMediaImages: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -168,8 +176,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/medias/images',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -191,7 +199,10 @@ define(function () {
         getMediaCredits: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -199,8 +210,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/medias/credits',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -222,7 +233,10 @@ define(function () {
         getUsersComments: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -230,8 +244,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/medias/usercomments',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -253,7 +267,10 @@ define(function () {
         getMediaPlot: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function () {};
+            var errorCB = error || function (data) { console.log(data) };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -261,8 +278,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/medias/plot',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -280,15 +297,18 @@ define(function () {
          * });
          */
         getTopRatedTVShows: function (success, error) {
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
                     method: 'GET',
                     url: imdb.common.base_url + '/medias/top/tvshows',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -306,15 +326,18 @@ define(function () {
          * });
          */
         getTopRatedMovies: function (success, error) {
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function (data) { console.log(data); };
+            var errorCB = error || function (data) { console.log(data); };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
                     method: 'GET',
                     url: imdb.common.base_url + '/medias/top/movies',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
     };
@@ -338,7 +361,10 @@ define(function () {
         findActors: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function () {};
+            var errorCB = error || function (data) { console.log(data) };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -346,8 +372,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/search/actors',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -369,16 +395,18 @@ define(function () {
         getActorById: function (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function () {};
+            var errorCB = error || function (data) { console.log(data) };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
-                    method: 'POST',
-                    query: options.query,
-                    url: imdb.common.base_url + '/actors',
+                    method: 'GET',
+                    url: imdb.common.base_url + '/actors/' + options.query,
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
 
@@ -400,7 +428,10 @@ define(function () {
         getActorImages: function  (options, success, error) {
             imdb.common.validateRequired(options, ['query']);
 
-            imdb.common.validateCallbacks([success, error]);
+            var successCB = success || function () {};
+            var errorCB = error || function (data) { console.log(data) };
+
+            imdb.common.validateCallbacks([successCB, errorCB]);
 
             imdb.common.client(
                 {
@@ -408,8 +439,8 @@ define(function () {
                     query: options.query,
                     url: imdb.common.base_url + '/actors/images',
                 },
-                success,
-                error
+                successCB,
+                errorCB
             );
         },
     };
