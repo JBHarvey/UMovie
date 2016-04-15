@@ -71,9 +71,9 @@ define([
 
         launchSearch: function (inputText) {
             var that = this;
-
+            var query = encodeURI(inputText);
             var scopeText = that.formatScopeForRedirection();
-            const url = `/UMovie/#search?scope=${scopeText}&query=${inputText}`;
+            const url = `/UMovie/#search?scope=${scopeText}&query=${query}`;
             window.history.pushState('', '', url);
             document.location.reload(true);
         },

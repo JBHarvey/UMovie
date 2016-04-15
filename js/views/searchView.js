@@ -26,18 +26,18 @@ define([
 
         selectSearchScope: function () {
             var that = this;
-            console.log("Deuxieme : " + that.scope);
             that.searchToShow = {group: []};
-            if (that.scope.movie) {
+            var scope = that.scope;
+            if (scope.match('movie')) {
                 that.searchToShow.group.push({name: 'Movie'});
             }
-            if (that.scope.season) {
+            if (scope.match('season')) {
                 that.searchToShow.group.push({name: 'Season'});
             }
-            if (that.scope.actor) {
+            if (scope.match('actor')) {
                 that.searchToShow.group.push({name: 'Actor'});
             }
-            if (that.scope.member) {
+            if (scope.match('member')) {
                 that.searchToShow.group.push({name: 'Member'});
             }
         },
@@ -47,9 +47,8 @@ define([
             var that = this;
 
             that.searchManager = new SearchModel();
-            that.searchWord = that.model.searchWord;
+            that.searchWord = decodeURI(that.model.searchWord);
             that.scope = that.model.scope;
-            console.log(that.model);
             that.model = undefined;
             this.searches = {};
 
@@ -65,14 +64,6 @@ define([
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
 
-
-            /*
-             this.searches.forEach(function (search) {
-             console.log(that.textToSearch);
-             console.log(viewToShow);
-             search.render();
-             });
-             */
             this.activateSearches();
 
         },
@@ -83,12 +74,13 @@ define([
                 el: idName,
             });
 
-        }, activateSearches: function () {
+        },
+        activateSearches: function () {
             var that = this;
             var idName = '';
             var newCollection = undefined;
-            var tmdbData = new TmdbData();
-            if (this.scope.movie) {
+            var scope = that.scope;
+            if (scope.match('movie')) {
                 idName = '#Movie-search-result';
                 newCollection = new Movies();
                 newCollection.url = function () {
@@ -97,7 +89,7 @@ define([
 
                 this.searchCollection(newCollection, idName);
             }
-            if (this.scope.season) {
+            if (scope.match('season')) {
                 idName = '#Season-search-result';
                 newCollection = new Seasons();
                 newCollection.url = function () {
@@ -106,7 +98,7 @@ define([
 
                 this.searchCollection(newCollection, idName);
             }
-            if (this.scope.actor) {
+            if (scope.match('actor')) {
                 idName = '#Actor-search-result';
                 newCollection = new Actors();
                 newCollection.url = function () {
@@ -114,7 +106,7 @@ define([
                 };
                 this.searchCollection(newCollection, idName);
             }
-            if (this.scope.member) {
+            if (scope.match('member')) {
                 idName = '#Member-search-result';
                 newCollection = new Members();
                 newCollection.url = function () {

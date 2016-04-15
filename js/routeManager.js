@@ -47,7 +47,7 @@ define([
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
                 user: 'showUser',
-                'search?scope=:scope&query:query': 'search',
+                'search?scope=:scope&query=:query': 'search',
                 otherUsers: 'browseUsers',
                 settings: 'settings',
                 login: 'login',

@@ -20,8 +20,9 @@ define([
 
         render: function () {
             var that = this;
+            this.removeNoResultFoundsMessage();
             this.collection.each(function (model) {
-                var thumbnail = new ThumbnailView({ model: model });
+                var thumbnail = new ThumbnailView({model: model});
                 that.$el.append(thumbnail.render());
                 if (model.attributes.tmdbRequest) {
                     var tmdb = new Tmdb();
@@ -31,7 +32,13 @@ define([
             });
         },
 
+        removeNoResultFoundsMessage: function () {
+            var that = this;
+            if (that.collection.length != 0){
+                that.$el.html('');
+            }
 
+        },
 
 
     });
