@@ -48,6 +48,9 @@ define([
                 watchlists: 'displayWatchlists',
                 user: 'showUser',
                 'search?scope=:scope&query=:query': 'search',
+                'search?scope=&query=:query': 'searchNoScope',
+                'search?scope=:scope&query=': 'searchNoQuery',
+                'search?scope=&query=': 'searchNoNothing',
                 otherUsers: 'browseUsers',
                 settings: 'settings',
                 login: 'login',
@@ -188,7 +191,21 @@ define([
 
             uMovieRouter.on('route:search', function (scope, query) {
                 var searchInfo = {'scope': scope, 'searchWord':query};
-                console.log(searchInfo);
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoQuery', function (scope) {
+                var searchInfo = {'scope': scope, 'searchWord':'NO-DATA'};
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoScope', function (query) {
+                var searchInfo = {'scope': 'movie-season', 'searchWord':query};
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoNothing', function () {
+                var searchInfo = {'scope': 'movie-season', 'searchWord':'NO-DATA'};
                 updateMainView(SearchView, searchInfo);
             });
 

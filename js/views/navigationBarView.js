@@ -66,6 +66,7 @@ define([
 
         launchSearchFromButton: function () {
             var text = $('.search-input').val();
+
             this.launchSearch(text);
         },
 
