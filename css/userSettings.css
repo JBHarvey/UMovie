@@ -15,7 +15,7 @@ content{
     margin-top : 10%;
 }
 
-.follow-unfollow-member {
+.toggle-following {
     background-color: green;
 
     text-align: center;
@@ -24,6 +24,6 @@ content{
     border-radius: 4px;
 }
 
-.follow-unfollow-member:hover {
+.toggle-following:hover {
     cursor: pointer;
 }

@@ -49,8 +49,15 @@ define([
             var source = this.model.attributes;
             this.$el.html(template(source));
 
-            var gravatarIcon = new GravatarIcon(Cookie.get('email'));
-            gravatarIcon.getGravatarURL(`#gravatar-photo-${this.model.id}`);
+            this.setGravatarIcon();
+        },
+
+        setGravatarIcon: function () {
+            var gravatarImages = document.getElementsByClassName('gravatar-photo');
+            Array.prototype.forEach.call(gravatarImages, function (imageElement) {
+                var gravatarIcon = new GravatarIcon(imageElement.dataset.email);
+                imageElement.src = gravatarIcon.getGravatarURL();
+            });
         },
 
         isActiveUserFollowing: function () {
@@ -61,13 +68,12 @@ define([
         },
 
         events: {
-            'click .follow-unfollow-member': 'followUnfollowMember',
+            'click .follow-unfollow-member': 'toggleFollowing',
         },
 
-        followUnfollowMember: function (event) {
+        toggleFollowing: function (event) {
             var currentButton = event.currentTarget;
 
-            var that = this;
             if (currentButton.innerHTML.replace(/\s/g, '') === 'Follow') {
                 this.activeUser.save(this.model.attributes, {
                     success: function () {
