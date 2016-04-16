@@ -32,7 +32,7 @@ define([
                 var thumbnail = new MemberThumbnailView({ model: member });
                 that.$el.append(thumbnail.render());
                 var gravatarIcon = new GravatarIcon(member.attributes.email);
-                gravatarIcon.getGravatarURL(`#gravatar-photo-${member.attributes.gravatarIdName}`);
+                gravatarIcon.setGravatarURL(`#gravatar-photo-${member.attributes.gravatarIdName}`);
             });
         },
 

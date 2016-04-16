@@ -17,8 +17,12 @@ define([
             this.email = encodedEmail;
         },
 
-        getGravatarURL: function (className) {
+        setGravatarURL: function (className) {
             $(className).attr('src', `https://www.gravatar.com/avatar/${this.email}.jpg`);
+        },
+
+        getGravatarURL: function () {
+            return `https://www.gravatar.com/avatar/${this.email}.jpg`;
         },
     });
 });
