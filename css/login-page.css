@@ -11,7 +11,7 @@
     width: 10em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -15.6em;
+    margin-top: -15em;
 }
 
 .inputFields {
@@ -84,7 +84,7 @@
 
 .login-titles {
     font-size: 1.1em;
-    margin-top: 4em;
+    margin-top: 6em;
     text-align: center;
 }
 
@@ -213,7 +213,7 @@
     }
 }
 
-@media screen and (min-width: 361px) and (max-width: 640px){
+@media screen and (min-width: 362px) and (max-width: 640px){
     .authentication{
         margin-top: -26em;
     }
@@ -223,7 +223,7 @@
         width: 22em;
         margin-left: auto;
         margin-right: auto;
-        margin-top: .6em;
+        margin-top: 0.6em;
     }
 }
 
