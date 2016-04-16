@@ -157,20 +157,38 @@ define([
         },
 
         events: {
-          'click .component-genre': 'toggleThumbnailGenre'
+            'click .component-genre': 'toggleThumbnailGenre'
         },
 
-        toggleThumbnailGenre: function(event) {
+        selectedGenres: {
+            movies: {},
+            tvshows: {},
+        },
+
+        toggleThumbnailGenre: function (event) {
+            var that = this;
             var genreClass = event.target.attributes.getNamedItem('class').nodeValue;
             var genre = event.target.attributes.getNamedItem('genre-name').nodeValue;
             var mediaType = event.target.attributes.getNamedItem('type-name').nodeValue;
+
             if (genreClass.match(/ filter-selected/g)) {
                 event.target.attributes.getNamedItem('class').nodeValue = genreClass.replace(/ filter-selected/g, '');
+                that.selectedGenres[mediaType][genre] = false;
             } else {
                 event.target.attributes.getNamedItem('class').nodeValue = `${genreClass} filter-selected`;
+                that.selectedGenres[mediaType][genre] = true;
             }
 
-        }
+            that.applyGenreFilters(mediaType);
+        },
+
+        applyGenreFilters(mediaType){
+            var that = this;
+            var activeFilters = Object.keys(that.selectedGenres[mediaType]);
+
+            console.log(activeFilters);
+
+        },
 
     });
     return SearchView;

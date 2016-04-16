@@ -19,7 +19,6 @@ define([
             that.type = that.model;
             that.model = undefined;
             that.collection = new Genres();
-            console.log(that.collection);
 
             that.collection.url = function () {
                 return "https://umovie.herokuapp.com/genres/" + that.type;
@@ -32,7 +31,6 @@ define([
 
             var that = this;
 
-            console.log(that.collection);
             that.$el.html('');
 
             that.collection.each(function (genre) {
