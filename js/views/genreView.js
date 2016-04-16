@@ -14,12 +14,15 @@ define([
     var GenreView = Backbone.View.extend({
 
         initialize: function () {
+            this.genreType = this.tagName;
+            this.tagName = undefined;
         },
 
         render: function () {
+            var that = this;
             var template = Handlebars.compile(genreTemplate);
-            var source = this.model.attributes;
-
+            var source = that.model.attributes;
+            source.typeName = that.genreType;
             return template(source);
 
         },

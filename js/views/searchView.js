@@ -156,43 +156,22 @@ define([
 
         },
 
+        events: {
+          'click .component-genre': 'toggleThumbnailGenre'
+        },
 
-        /******************  REFACTOR MAJEUR ***************/
+        toggleThumbnailGenre: function(event) {
+            var genreClass = event.target.attributes.getNamedItem('class').nodeValue;
+            var genre = event.target.attributes.getNamedItem('genre-name').nodeValue;
+            var mediaType = event.target.attributes.getNamedItem('type-name').nodeValue;
+            if (genreClass.match(/ filter-selected/g)) {
+                event.target.attributes.getNamedItem('class').nodeValue = genreClass.replace(/ filter-selected/g, '');
+            } else {
+                event.target.attributes.getNamedItem('class').nodeValue = `${genreClass} filter-selected`;
+            }
 
-        /*
-         initialize: function (collection) {
-         var that = this;
-         that.name = '';
-         that.searchManager = new SearchModel();
-         that.collection = new collection(); //correct??
-         that.collection.url = that.generateSearchQuery(that.name);
-         that.listenTo(that.collection, 'sync', that.render);
-         that.collection.fetch();
+        }
 
-         },
-
-
-         render: function () { // Season
-         var that = this;
-         this.$el.html('');
-         this.collection.each(function (model) {
-         var thumbnail = new ThumbnailView({model: model});
-         that.$el.append(thumbnail.render());
-         if (model.tmdbRequest != undefined) {
-         var tmdbData = new TmdbData();
-         tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
-         }
-         });
-         },
-
-
-         */
-        /******************  REFACTOR MAJEUR ******************/
-
-        /* searchUser: function() {
-         this.searchToShow.group.concat({name:'User', view: this.userCollectionView});
-         this.searchToShow.group.append({name: 'User'});
-         },*/
     });
     return SearchView;
 
