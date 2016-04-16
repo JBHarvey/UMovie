@@ -39,7 +39,7 @@ define([
             var template = Handlebars.compile(UserTemplate);
 
             this.model.set('isNotCurrentUser', this.model.get('email') !== Cookie.get('email'));
-            this.model.set('isFollowing', this.isActiveUserFollowing());
+            this.model.set('isFollowing', this.isFollowingActiveUser());
 
             var source = this.model.attributes;
             this.$el.html(template(source));
@@ -61,7 +61,7 @@ define([
             });
         },
 
-        isActiveUserFollowing: function () {
+        isFollowingActiveUser: function () {
             var that = this;
             return this.activeUser
                 .get('following')
