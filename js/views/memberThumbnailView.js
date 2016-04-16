@@ -6,24 +6,20 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/thumbnail.html',
+    'text!templates/memberThumbnail.html',
     'handlebars',
-], function ($, _, Backbone, ThumbnailTemplate,
-              Handlebars) {
+], function ($, _, Backbone, MemberThumbnailTemplate, Handlebars) {
 
     var ThumbnailView = Backbone.View.extend({
-
-        comparator: 'trackName',
 
         initialize: function () {
         },
 
         render: function () {
-            var template = Handlebars.compile(ThumbnailTemplate);
+            var template = Handlebars.compile(MemberThumbnailTemplate);
             var source = this.model.attributes;
             return template(source);
         },
-
     });
     return ThumbnailView;
 

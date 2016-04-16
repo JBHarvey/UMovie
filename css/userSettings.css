@@ -14,3 +14,16 @@
 content{
     margin-top : 10%;
 }
+
+.follow-unfollow-member {
+    background-color: green;
+
+    text-align: center;
+    width: 120px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.follow-unfollow-member:hover {
+    cursor: pointer;
+}

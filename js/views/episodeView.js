@@ -50,8 +50,7 @@ define([
 
         closeEpisodeWindow: function (event) {
             $('.Episode-modal').hide();
-        }
-
+        },
 
     });
     return EpisodeView;
