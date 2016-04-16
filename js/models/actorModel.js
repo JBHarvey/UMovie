@@ -22,15 +22,16 @@ define([
 
         processData(data) {
             var that = this;
-            var nameEncode = that.removeSpace(data.artistName);
+            var nameEncode = that.formatForHtmlId(data.artistName);
             data.imageId = `${nameEncode}Img`;
             data.bioId = `${nameEncode}Bio`;
             data.tmdbRequest = encodeURI(data.artistName);
             return data;
         },
 
-        removeSpace: function (stringToChange) {
-            return stringToChange.replace(/ /i, '_');
+        formatForHtmlId: function (stringToChange) {
+            var formatedText = stringToChange.replace(/\./gi, '');
+            return formatedText.replace(/ /gi, '_');
         },
 
 

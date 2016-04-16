@@ -169,7 +169,7 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(SearchView, {scope: 'actor', searchWord: 'Monica'});
+                updateMainView(SearchView, {scope: 'actor', searchWord: 'Tom'});
 
             });
 

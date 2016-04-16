@@ -8,11 +8,10 @@ define([
     'backbone',
     'text!templates/actor.html',
     '../collections/movieCollection',
-    'views/tmdbData',
     'handlebars',
     'models/imdbActorModel',
     'utils/imdb',
-    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars, ImdbActorModel, Imdb) {
+    ], function ($, _, Backbone, actorTemplate, MovieCollection, Handlebars, ImdbActorModel, Imdb) {
         'use strict';
 
         var ActorView = Backbone.View.extend({
@@ -40,22 +39,22 @@ define([
                 });
             },
 
-            generateSearchName: function () {
-                return encodeURI(this.model.get('artistName'));
+            generateSearchName: function (name) {
+                return encodeURI(name);
             },
 
             render: function () {
-                var searchRequest = this.generateSearchName();
+                var that = this;
 
-                var source = this.model.attributes;
+                var source = that.model.attributes;
                 var template = Handlebars.compile(actorTemplate);
 
-                this.$el.html(template(source));
-                var tmdbData = new TmdbData();
-                tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
+                that.$el.html(template(source));
 
 
-                var that = this;
+                var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
+                var searchRequest = this.generateSearchName(search);
+
                 Imdb.actors.findActors({ query: searchRequest }, function (data) {
                     var parsedData = JSON.parse(data);
                     var actorDatas = parsedData['name_popular']
@@ -64,29 +63,31 @@ define([
                         || parsedData['name_substring'];
 
                     if (actorDatas) {
-                        var actorID = actorDatas[0];
+
+                        var actorID = undefined;
+                        actorDatas.forEach(function(actor){
+
+                            if(actor.name.localeCompare(that.model.attributes.artistName) == 0 && actorID == undefined){
+
+                                actorID = actor;
+                            }
+                        });
                         that.imdbModel = new ImdbActorModel(actorID);
                         that.imdbModel.fetch({
                             success: function (data) {
-                                console.log(data);
+
+                                var biography = data.attributes.bio;
+                                var picture = data.attributes.image.url;
+                                Imdb.actors.modifySingleActorBio(biography, 'description');
+                                Imdb.actors.modifySingleActorImage(picture, 'imgActor')
+
                             },
                         });
                     }
                 });
 
-
-               /* var myQuery = {
-                    query: 'Xavier',
-                };
-                Imdb.actors.findActors(myQuery, function(successData) {
-                    var parsedData = JSON.parse(successData);
-                    console.log(parsedData);
-                }, function(error){
-                });*/
-
-
-
             },
+
 
         });
         return ActorView;

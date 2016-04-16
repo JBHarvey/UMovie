@@ -9,11 +9,10 @@ define([
     'text!templates/home.html',
     'models/homeModel',
     'handlebars',
-    'views/tmdbData',
     'models/searchModel',
     '../collections/movieCollection',
     'views/thumbnailView',
-], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, TmdbData, SearchModel, Movies, ThumbnailView) {
+], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, SearchModel, Movies, ThumbnailView) {
 
     var HomeView = Backbone.View.extend({
 

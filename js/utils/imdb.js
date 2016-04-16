@@ -4,7 +4,9 @@
  * It was largely inspired by the TheMovieDB javascript file.
  */
 
-define(function () {
+define(['jquery',
+
+],function ($) {
     'use strict';
 
     var imdb = {};
@@ -442,6 +444,37 @@ define(function () {
                 successCB,
                 errorCB
             );
+        },
+
+        modifySingleActorBio: function (biography, bioIdName) {
+
+            if (biography) {
+                const actorBioId = bioIdName;
+                $(`#${actorBioId}`).each(function () {
+                    if (actorBioId !== 'description') {
+                        $(this).text(imdb.actors.shortenText(biography));
+                    } else {
+                        $(this).text(biography);
+                    }
+                });
+            }
+
+            return this;
+        },
+
+        modifySingleActorImage: function (image, imageId) {
+
+            if (image) {
+                $(`#${imageId}`).attr('src', image);
+
+            }
+
+            return this;
+        },
+        shortenText: function (textToShortent, length) {
+            var newLength = length || 300;
+            return `${textToShortent.slice(0, newLength)} ... `;
+
         },
     };
 

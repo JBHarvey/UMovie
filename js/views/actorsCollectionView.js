@@ -9,9 +9,10 @@ define([
     '../collections/actorCollection',
     'views/thumbnailView',
     'handlebars',
-    'views/tmdbData',
     'models/searchModel',
-], function ($, _, Backbone, Actors, ThumbnailView, Handlebars, TmdbData, SearchModel) {
+    'models/imdbActorModel',
+    'utils/imdb'
+], function ($, _, Backbone, Actors, ThumbnailView, Handlebars, SearchModel,ImdbActorModel, Imdb) {
     'use strict';
 
     var ActorsCollectionView = Backbone.View.extend({
@@ -36,25 +37,50 @@ define([
             that.$el.html('');
             that.collection.each(function (actor) {
                 var thumbnail = new ThumbnailView({ model: actor });
+                var searchRequest = this.generateSearchName(actor);
 
                 that.$el.append(thumbnail.render());
 
-                var tmdbData = new TmdbData();
-                tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
+                Imdb.actors.findActors({ query: searchRequest }, function (data) {
+                    var parsedData = JSON.parse(data);
+                    var actorDatas = parsedData['name_popular']
+                        || parsedData['name_exact']
+                        || parsedData['name_approx']
+                        || parsedData['name_substring'];
+
+                    if (actorDatas) {
+
+                        var actorID = undefined;
+                        actorDatas.forEach(function(actor){
+                            console.log(actor.name);
+                            console.log(model.attributes.artistName);
+                            if(actor.name == model.attributes.artistName && actorID == undefined){
+
+                                actorID = actor;
+                            }
+                        });
+                       // var actorID = actorDatas[0];
+                        that.imdbModel = new ImdbActorModel(actorID);
+                        that.imdbModel.fetch({
+                            success: function (data) {
+                                var biography = data.attributes.bio;
+                                var picture = data.attributes.image.url;
+                                console.log(data);
+                                Imdb.actors.modifySingleActorBio(biography, actor.bioId);
+                                Imdb.actors.modifySingleActorImage(picture, actor.imageId)
+                            },
+                        });
+                    }
+                });
             });
         },
 
-        /*generateDefaultQuery: function () {
-            var that = this;
-            return that.searchManager
-                .setSearchType('actors')
-                .setSearchName('brad')
-                .setSearchLimit(40)
-                .url();
-        },*/
+        generateSearchName: function (actor) {
+            return encodeURI(this.model.get(actor.artistName));
+        },
+
 
         generateSearchQuery(actorName) {
-            var that = this;
             var name = "";
             if (actorName) {
                 name = actorName;
