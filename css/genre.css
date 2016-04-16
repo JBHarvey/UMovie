@@ -1,0 +1,26 @@
+.search-genre {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.component-genre {
+    flex-basis: 10em;
+    margin: 0.2em 0;
+}
+
+.filter-selected {
+    color: white;
+    text-shadow: -5px -5px 5px #0085E1,
+    -5px 0 5px #0085E1,
+    -5px 5px 5px #0085E1,
+    0 -5px 5px #0085E1,
+    0 0 5px #0085E1,
+    0 5px 5px #0085E1,
+    5px -5px 5px #0085E1,
+    5px 0 5px #0085E1,
+    5px 5px 5px #0085E1;
+}
