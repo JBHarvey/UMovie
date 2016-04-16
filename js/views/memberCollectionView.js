@@ -8,7 +8,7 @@ define([
     'models/searchModel',
     '../utils/gravatarIcon',
 ], function ($, _, Backbone, MemberCollection, MemberThumbnailView, Handlebars, SearchModel, GravatarIcon) {
-    "use strict";
+    'use strict';
 
     var MemberCollectionView = Backbone.View.extend({
 
@@ -23,7 +23,7 @@ define([
             this.collection.fetch({
                 success: function ()  {
                     that.render();
-                }
+                },
             });
         },
 
