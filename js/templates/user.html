@@ -1,25 +1,38 @@
 <div class="user">
     <div class="personnalInfo">
-        <img id="gravatar-photo-{{id}}" src=""></img>
+        <div class="user-thumbnail">
+            <img class="gravatar-photo" data-id="{{id}}" src=""/>
+        </div>
 
-        <div class="follow-unfollow-member">
+        <div class="individual-user-box">
             {{#if isNotCurrentUser}}
-                {{#if isFollowing}}
-                    Unfollow
-                {{else}}
-                    Follow
-                {{/if }}
+                <button class="follow-unfollow-member">
+                    {{#if isFollowing}}
+                        Unfollow
+                    {{else}}
+                        Follow
+                    {{/if }}
+                </button>
             {{/if }}
+            <div class="user-info">
+                <p class="user-name">{{name}}</p>
+                <p class="user-email">{{email}}</p>
+            </div>
         </div>
-
-        <div>
-             <span class="userInfo"> {{name}}</span>
-        </div>
-        <div>
-            <label>Email:  </label> <span class="userInfo"> {{email}}</span>
-        </div>
-
     </div>
-    <div id="follower-list"></div>
 
+    <div id="followed-list">
+        <h1>Following</h1>
+        <div class="individual-user-box">
+            {{#each following as |followed|}}
+                <div class="user-thumbnail">
+                    <img class="gravatar-photo" data-id="{{followed.email}}" src=""/>
+                </div>
+                <div class="user-info">
+                    <p class="user-name">{{followed.name}}</p>
+                    <p class="user-email">{{followed.email}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
 </div>
