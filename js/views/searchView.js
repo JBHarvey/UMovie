@@ -179,18 +179,103 @@ define([
                 that.selectedGenres[mediaType][genre] = true;
             }
 
-            that.applyGenreFilters(mediaType);
+            var activeFilters = that.selectActiveFilters(mediaType);
+            that.applyGenreFilters(activeFilters, mediaType);
         },
 
-        applyGenreFilters(mediaType){
+        selectActiveFilters(mediaType){
             var that = this;
-            var activeFilters = Object.keys(that.selectedGenres[mediaType]);
-
-            console.log(activeFilters);
-
+            var filters = that.selectedGenres[mediaType];
+            var filterKeys = Object.keys(filters);
+            return filterKeys.filter(function (element) {
+                if (filters[element] == true) {
+                    return element;
+                }
+            });
         },
+
+        applyGenreFilters: function (activeFilters, mediaType) {
+            var targetedResults = document.getElementById(`${mediaType}-search-result`);
+            var movieBoxes = targetedResults.getElementsByClassName('movies-box');
+
+
+            for (var box in movieBoxes) {
+
+
+                if (movieBoxes.hasOwnProperty(box)) {
+                    var currentBox = movieBoxes[box];
+
+                    var currentThumbnail = currentBox.getElementsByClassName('thumbnail');
+
+                    var elementGenre = currentThumbnail[0].attributes.getNamedItem('media-primary-genre').nodeValue;
+
+                    if (activeFilters.length != 0) {
+                        if (activeFilters.includes(elementGenre)) {
+                            console.log(movieBoxes[box]);
+                            movieBoxes[box].style.display = "inline-flex";
+                        }
+                        else {
+                            movieBoxes[box].style.display = "none";
+                        }
+                    } else {
+                        movieBoxes[box].style.display = "inline-flex";
+                    }
+
+                }
+            }
+            /*
+             for (var box in movieBoxes) {
+
+             var currentBox = movieBoxes[box];
+
+             if(typeof currentBox == typeof movieBoxes) {
+
+             var currentThumbnail = currentBox.getElementsByClassName('thumbnail');
+             console.log(currentBox);
+             console.log(currentThumbnail);
+
+             if (typeof currentThumbnail == typeof movieBoxes) { // This here ensures the current thumbnail is an object
+             var elementGenre = currentThumbnail.attributes.getNamedItem('media-primary-genre').nodeValue;
+
+             if (activeFilters.includes(elementGenre)) {
+             console.log(movieBoxes[box]);
+             }
+             }
+             }
+             }
+             */
+
+        }
 
     });
     return SearchView;
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
