@@ -40,7 +40,7 @@ define([
                 id: '53ec12122121afe77d8c37b8',
                 name: 'Walter White',
                 email: 'walter.white@mail.com',
-            }, ],
+            },],
         },
     });
 

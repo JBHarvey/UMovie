@@ -72,10 +72,11 @@ define([
                         var watchlistView = new WatchlistView(watchlist);
                         $watchlistsBox.append(watchlistView.render());
                     });
+
                     $('.remove-watchlist-movie').remove();
                     $('.delete-watchlist-checkbox').remove();
                     $('.watchlist-edit-button').remove();
-                }
+                },
             });
 
             return this;
