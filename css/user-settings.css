@@ -1,18 +1,13 @@
 .user {
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    border-style: solid;
-    border: white;
-
-}
-
-.user-info {
+    display: flex;
+    flex-direction: column;
 }
 
 .personnal-info {
     display: flex;
     flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .user-name {
@@ -21,6 +16,18 @@
 
 .user-email {
     margin: 0;
+}
+
+#followed-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#followed-list h1 {
+    text-align: center;
 }
 
 .user-box {
@@ -33,6 +40,7 @@
 }
 
 .user-info {
+    color: white;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -43,13 +51,30 @@ content {
 
 .toggle-following {
     background-color: green;
+    color: white;
+    transition: opacity ease-in-out .25s;
 
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+
+    font-size: 0.8em;
     text-align: center;
-    width: 120px;
+    height: 40px;
+    width: 130px;
     border: 1px solid white;
     border-radius: 4px;
 }
 
 .toggle-following:hover {
     cursor: pointer;
+    opacity: 0.7;
+}
+
+#user-watchlists {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-watchlists h1 {
+    text-align: center;
 }
