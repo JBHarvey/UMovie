@@ -52,7 +52,6 @@ define([
 
         setFollowedUsers: function () {
             var $followedUsersBox = $('#followed-list');
-            $followedUsersBox.html('');
             this.model.get('following').forEach(function (followed) {
                 var memberThumbnailView = new MemberThumbnailView({ model: new MemberModel(followed) });
                 $followedUsersBox.append(memberThumbnailView.render());
