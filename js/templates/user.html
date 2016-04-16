@@ -1,7 +1,7 @@
 <div class="user">
     <div class="personnalInfo">
         <div class="user-thumbnail">
-            <img class="gravatar-photo" data-id="{{id}}" src=""/>
+            <img class="gravatar-photo" data-email="{{email}}" src=""/>
         </div>
 
         <div class="individual-user-box">
@@ -26,7 +26,7 @@
         <div class="individual-user-box">
             {{#each following as |followed|}}
                 <div class="user-thumbnail">
-                    <img class="gravatar-photo" data-id="{{followed.email}}" src=""/>
+                    <img class="gravatar-photo" data-email="{{followed.email}}" src=""/>
                 </div>
                 <div class="user-info">
                     <p class="user-name">{{followed.name}}</p>
