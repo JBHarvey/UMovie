@@ -19,22 +19,11 @@
 
     <div class="search-bar">
 
-        <div class="search-container" id="member-menu-closed">
-            <div class="input-bar">
 
-                <input placeholder="Search..." class="search-input">
-                <div id="initialise-search">
-                <span class="go-research">
-                    <div id="search-icon" href="#search" style="background-image: url(img/searchIcons/food.svg);"></div>
-                </span>
-                </div>
-                <button class="member-hamburger">
-                    <div class="username toggle-member-menu">{{user}}</div>
-                    <img class="user-icon toggle-member-menu"/>
-                </button>
-            </div>
-            <div class="research-options collapsed">advanced research</div>
-        </div>
+        <button class="member-hamburger">
+            <div class="username toggle-member-menu">{{user}}</div>
+            <img class="user-icon toggle-member-menu"/>
+        </button>
 
         <div class="member-menu">
             {{#if connected}}
@@ -46,6 +35,18 @@
             <li><a href="#{{references}}" class="{{position}}">{{name}}</a></li>
             {{/each}}
             {{/if}}
+        </div>
+        <div class="search-container" id="member-menu-closed">
+            <div class="input-bar">
+
+                <input placeholder="Search..." class="search-input">
+                <div id="initialise-search">
+                <span class="go-research">
+                    <div id="search-icon" href="#search" style="background-image: url(img/searchIcons/food.svg);"></div>
+                </span>
+                </div>
+            </div>
+            <div class="research-options collapsed">advanced research</div>
         </div>
 
     </div>

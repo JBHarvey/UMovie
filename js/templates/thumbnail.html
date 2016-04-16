@@ -13,7 +13,7 @@
 {{else}}
 <a class="{{cssClassType}}-box"
    {{#unless isEpisodeType}} href={{routingRef}} {{else}} id="idThumbnail" {{/unless}}>
-    <div class="thumbnail">
+    <div class="thumbnail" media-primary-genre="{{primaryGenreName}}">
         <div class="{{cssClassType}}-initial-image">
             <img class="{{cssClassType}}-thumbnail" src="{{artworkUrl100}}"/>
         </div>
