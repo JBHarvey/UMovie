@@ -10,7 +10,7 @@ define([
     'text!../templates/genre.html',
     'handlebars',
     'views/genreView',
-], function ($, _, Backbone, Genres, GenreTemplates, Handlebars,  GenreView) {
+], function ($, _, Backbone, Genres, GenreTemplates, Handlebars, GenreView) {
 
     var GenreCollectionView = Backbone.View.extend({
 
@@ -18,26 +18,29 @@ define([
             var that = this;
             that.type = that.model;
             that.model = undefined;
-
             that.collection = new Genres();
+            console.log(that.collection);
+
             that.collection.url = function () {
                 return "https://umovie.herokuapp.com/genres/" + that.type;
             };
+            that.listenTo(that.collection, 'sync', that.render);
             that.collection.fetch();
         },
 
         render: function () {
 
             var that = this;
-            var result = '<div class="genre-browser">';
+
+            console.log(that.collection);
+            that.$el.html('');
 
             that.collection.each(function (genre) {
                 var genres = new GenreView({model: genre});
-                result = `${result}${genres.render()}`;
+                that.$el.append(genres.render());
             });
-            result = `${result}</div>`;
-            console.log(result);
-            return result;
+
+
         },
 
 

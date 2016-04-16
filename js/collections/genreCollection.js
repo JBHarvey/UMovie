@@ -13,8 +13,9 @@ define([
     var Genres = Backbone.Collection.extend({
         model : GenreModel,
 
+
         parse: function (response) {
-            return response.results;
+            return response;
         },
     });
     return Genres;

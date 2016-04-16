@@ -15,10 +15,9 @@ define([
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
-    'views/genreCollectionView',
 ], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors,
              SearchCollectionView, searchGroupTemplate, Handlebars,
-             TmdbData, SearchModel, GenreCollectionView) {
+             TmdbData, SearchModel) {
 
     var SearchView = Backbone.View.extend({
 
@@ -35,16 +34,16 @@ define([
             };
             var scope = that.scope;
             if (scope.match('movie')) {
-                that.searchToShow.group.push({name: 'Movie'});
+                that.searchToShow.group.push({title: 'Movie', name: 'movies'});
             }
             if (scope.match('season')) {
-                that.searchToShow.group.push({name: 'Season'});
+                that.searchToShow.group.push({title: 'Season', name: 'tvshows'});
             }
             if (scope.match('actor')) {
-                that.searchToShow.group.push({name: 'Actor'});
+                that.searchToShow.group.push({title: 'Actor', name: 'actors'});
             }
             if (scope.match('member')) {
-                that.searchToShow.group.push({name: 'Member'});
+                that.searchToShow.group.push({title: 'Member', name: 'members'});
             }
         },
 
@@ -89,26 +88,25 @@ define([
             var genres = undefined;
             var scope = that.scope;
             if (scope.match('movie')) {
-                idName = '#Movie-search-result';
+                idName = '#movies-search-result';
                 newCollection = new Movies();
                 newCollection.url = function () {
                     return that.searchMovie();
                 };
-
-                genres = new GenreCollectionView({model: 'movies'});
+                genres = 'movies';
                 that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('season')) {
-                idName = '#Season-search-result';
+                idName = '#tvshows-search-result';
                 newCollection = new Seasons();
                 newCollection.url = function () {
                     return that.searchSeason();
                 };
-                genres = new GenreCollectionView({model: "tvshows"});
+                genres = 'tvshows';
                 that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('actor')) {
-                idName = '#Actor-search-result';
+                idName = '#actors-search-result';
                 newCollection = new Actors();
                 newCollection.url = function () {
                     return that.searchActor();
@@ -116,7 +114,7 @@ define([
                 that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('member')) {
-                idName = '#Member-search-result';
+                idName = '#members-search-result';
                 newCollection = new Members();
                 newCollection.url = function () {
                     return that.searchMember();

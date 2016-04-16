@@ -1,0 +1,11 @@
+.search-genre {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    justify-content: space-around;
+    margin-bottom: 1em;
+}
+
+.component-genre {
+    flex-basis: 10em;
+}
