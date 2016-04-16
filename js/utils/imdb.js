@@ -12,7 +12,7 @@ define(['jquery',
     var imdb = {};
 
     imdb.common = {
-        base_url: 'http://localhost:5000',
+        base_url: 'https://imdb-api-request.herokuapp.com',
 
         // At the moment, the HTTPS of heroku is not working with the application HTTP
         //base_url: 'https://www.imdb-api-request.herokuapp.com',
