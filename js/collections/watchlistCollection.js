@@ -15,7 +15,7 @@ define([
         url: 'https://umovie.herokuapp.com/watchlists',
         initialize: function (userEmail) {
             'use strict';
-            if (_.isObject(userEmail)) {
+            if (typeof userEmail === 'string' || userEmail instanceof String) {
                 this.email = userEmail;
             } else {
                 this.email = Cookie.get('email');
