@@ -19,7 +19,7 @@ define([
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.follow, 'change', this.render);
 
-            this.activeUser = new MemberModel({ id: Cookie.get('id')});
+            this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
             var that = this;
             var syncRendering = _.after(2, function () {
@@ -84,7 +84,7 @@ define([
             } else {
                 this.model.destroy({
                     success: function () {
-                         currentButton.innerHTML = 'Follow';
+                        currentButton.innerHTML = 'Follow';
                     },
                 });
             }
