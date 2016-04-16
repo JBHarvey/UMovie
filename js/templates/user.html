@@ -23,16 +23,5 @@
 
     <div id="followed-list">
         <h1>Following</h1>
-        <div class="individual-user-box">
-            {{#each following as |followed|}}
-                <div class="user-thumbnail">
-                    <img class="gravatar-photo" data-email="{{followed.email}}" src=""/>
-                </div>
-                <div class="user-info">
-                    <p class="user-name">{{followed.name}}</p>
-                    <p class="user-email">{{followed.email}}</p>
-                </div>
-            {{/each}}
-        </div>
     </div>
 </div>
