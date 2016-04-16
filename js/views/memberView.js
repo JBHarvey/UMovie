@@ -44,6 +44,12 @@ define([
             var source = this.model.attributes;
             this.$el.html(template(source));
 
+            var $followedUsersBox = $('#followed-list');
+            this.model.get('following').forEach(function (followed) {
+                var memberThumbnailView = new MemberThumbnailView({ model: new MemberModel(followed) });
+                $followedUsersBox.append(memberThumbnailView.render());
+            });
+
             this.setGravatarIcon();
         },
 
