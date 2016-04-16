@@ -15,7 +15,10 @@ define([
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
-], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors, SearchCollectionView, searchGroupTemplate, Handlebars, TmdbData, SearchModel) {
+    'views/genreCollectionView',
+], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors,
+             SearchCollectionView, searchGroupTemplate, Handlebars,
+             TmdbData, SearchModel, GenresCollection) {
 
     var SearchView = Backbone.View.extend({
 
@@ -49,11 +52,11 @@ define([
 
             var that = this;
 
+            that.movieGenre = new GenresCollection();
             that.searchManager = new SearchModel();
             that.searchWord = decodeURI(that.model.searchWord);
             that.scope = that.model.scope;
             that.model = undefined;
-            this.searches = {};
 
             this.selectSearchScope();
             this.render();
@@ -64,6 +67,9 @@ define([
             var that = this;
             this.$el.html('');
             var template = Handlebars.compile(searchGroupTemplate);
+
+
+
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
 
@@ -71,10 +77,11 @@ define([
 
         },
 
-        searchCollection: function (newCollection, idName) {
+        searchCollection: function (newCollection, idName, genres) {
             var searchCollection = new SearchCollectionView({
                 collection: newCollection,
                 el: idName,
+                genreCollectionView: genres
             });
 
         },
@@ -82,6 +89,7 @@ define([
             var that = this;
             var idName = '';
             var newCollection = undefined;
+            var genres = undefined;
             var scope = that.scope;
             if (scope.match('movie')) {
                 idName = '#Movie-search-result';
@@ -89,8 +97,7 @@ define([
                 newCollection.url = function () {
                     return that.searchMovie();
                 };
-
-                this.searchCollection(newCollection, idName);
+                genres = new GenreCollectionView({newUrl:"movies"});
             }
             if (scope.match('season')) {
                 idName = '#Season-search-result';
@@ -98,8 +105,7 @@ define([
                 newCollection.url = function () {
                     return that.searchSeason();
                 };
-
-                this.searchCollection(newCollection, idName);
+                genres = new GenreCollectionView({newUrl:"tvshows"});
             }
             if (scope.match('actor')) {
                 idName = '#Actor-search-result';
@@ -107,7 +113,6 @@ define([
                 newCollection.url = function () {
                     return that.searchActor();
                 };
-                this.searchCollection(newCollection, idName);
             }
             if (scope.match('member')) {
                 idName = '#Member-search-result';
@@ -116,8 +121,8 @@ define([
                     return that.searchMember();
                 };
 
-                this.searchCollection(newCollection, idName);
             }
+                this.searchCollection(newCollection, idName, genres);
         },
 
         searchMovie: function () {

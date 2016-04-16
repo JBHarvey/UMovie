@@ -3,7 +3,7 @@
  */
 define([
     'backbone',
-    'models/movieGenreModel',
+    '../models/genreModel',
 ], function (Backbone, MovieGenreModel) {
 
     var MovieGenres = Backbone.Model.Collection({

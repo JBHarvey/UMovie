@@ -20,7 +20,12 @@ define([
 
         render: function () {
             var that = this;
+
             this.removeNoResultFoundsMessage();
+            if (_.isObject(that.genreCollectionView)) {
+                //ICI**********
+                document.getElementById('#').html(that.genreCollectionView.render());
+            }
             this.collection.each(function (model) {
                 var thumbnail = new ThumbnailView({model: model});
                 that.$el.append(thumbnail.render());
