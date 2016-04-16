@@ -8,10 +8,36 @@
 }
 
 .user-info {
-
 }
 
-content{
+.personnal-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    margin: 0;
+}
+
+.user-email {
+    margin: 0;
+}
+
+.user-box {
+    text-decoration: none;
+    display: flex;
+}
+
+.user-thumbnail {
+    margin-right: 0.5em;
+}
+
+.user-info {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+content {
     margin-top : 10%;
 }
 
