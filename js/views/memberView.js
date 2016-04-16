@@ -68,7 +68,7 @@ define([
         },
 
         events: {
-            'click .follow-unfollow-member': 'toggleFollowing',
+            'click .toggle-following': 'toggleFollowing',
         },
 
         toggleFollowing: function (event) {
