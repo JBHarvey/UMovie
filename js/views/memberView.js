@@ -23,7 +23,7 @@ define([
             this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
             var that = this;
-            var syncRendering = _.after(3, function () {
+            var syncRendering = _.after(2, function () {
                 that.render();
             });
 
