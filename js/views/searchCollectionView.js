@@ -23,8 +23,7 @@ define([
 
             this.removeNoResultFoundsMessage();
             if (_.isObject(that.genreCollectionView)) {
-                //ICI**********
-                document.getElementById('#').html(that.genreCollectionView.render());
+                that.$el.getElementById('#genre-browser').html(that.genreCollectionView.render());
             }
             this.collection.each(function (model) {
                 var thumbnail = new ThumbnailView({model: model});

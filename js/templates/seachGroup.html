@@ -1,10 +1,11 @@
-
 <div class="search-results-display">
 
     <div class="text-researched">Showing Results For : {{searchWord}}</div>
-{{#each group}}
+    {{#each group}}
     <h1>{{name}}</h1>
-    <div id="{{name}}-genre"></div>
-    <div id="{{name}}-search-result">Sorry, no results were found for this request... Please try again!</div>
-{{/each}}
+    <div id="{{name}}-search-result">
+        <div id="genre-browser"></div>
+        Sorry, no results were found for this request... Please try again!
+    </div>
+    {{/each}}
 </div>

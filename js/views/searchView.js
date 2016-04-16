@@ -18,7 +18,7 @@ define([
     'views/genreCollectionView',
 ], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors,
              SearchCollectionView, searchGroupTemplate, Handlebars,
-             TmdbData, SearchModel, GenresCollection) {
+             TmdbData, SearchModel, GenreCollectionView) {
 
     var SearchView = Backbone.View.extend({
 
@@ -52,7 +52,6 @@ define([
 
             var that = this;
 
-            that.movieGenre = new GenresCollection();
             that.searchManager = new SearchModel();
             that.searchWord = decodeURI(that.model.searchWord);
             that.scope = that.model.scope;
@@ -97,7 +96,10 @@ define([
                 newCollection.url = function () {
                     return that.searchMovie();
                 };
-                genres = new GenreCollectionView({newUrl:"movies"});
+
+                console.log("before");
+                genres = new GenreCollectionView({newUrl:'movies'});
+                console.log("after")
             }
             if (scope.match('season')) {
                 idName = '#Season-search-result';
@@ -122,7 +124,8 @@ define([
                 };
 
             }
-                this.searchCollection(newCollection, idName, genres);
+
+            that.searchCollection(newCollection, idName, genres);
         },
 
         searchMovie: function () {

@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     '../collections/genreCollection',
-    'text!../tempplates/genre.html',
+    'text!../templates/genre.html',
     'views/genreView',
 ], function ($, _, Backbone, Genres, GenreTemplates, GenreView) {
 
@@ -15,14 +15,16 @@ define([
 
         initialize: function () {
             var that = this;
-            that.type = that.model.type;
+            that.type = that.newUrl;
+            console.log("Entre");
+            console.log(that.type);
+            console.log(that.newUrl);
+            that.collection = new Genres();
             that.collection.url = function () {
                 return "https://umovie.herokuapp.com/genres/" + that.newUrl;
             };
 
-            that.collection = new Genres(type);
 
-            //that.listenTo(this.collection, 'sync', that.render);
             that.collection.fetch();
         },
 
