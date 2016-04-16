@@ -9,10 +9,18 @@ define([
         urlRoot: 'https://umovie.herokuapp.com/genres',
 
 
-        defaults: {
-            id: 404,
-            name: 'Genre not found',
+        parse(data) {
+            if (_.isObject(data.results)) {
+                return this.processData(data.results[0]);
+            } else {
+                return this.processData(data);
+            }
         },
+
+        processData(data) {
+            return data;
+        },
+
 
     });
 

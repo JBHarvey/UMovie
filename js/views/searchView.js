@@ -68,7 +68,6 @@ define([
             var template = Handlebars.compile(searchGroupTemplate);
 
 
-
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
 
@@ -77,12 +76,11 @@ define([
         },
 
         searchCollection: function (newCollection, idName, genres) {
-            var searchCollection = new SearchCollectionView({
+            var searchCollectionView = new SearchCollectionView({
                 collection: newCollection,
                 el: idName,
-                genreCollectionView: genres
+                model: genres
             });
-
         },
         activateSearches: function () {
             var that = this;
@@ -97,9 +95,8 @@ define([
                     return that.searchMovie();
                 };
 
-                console.log("before");
-                genres = new GenreCollectionView({newUrl:'movies'});
-                console.log("after")
+                genres = new GenreCollectionView({model: 'movies'});
+                that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('season')) {
                 idName = '#Season-search-result';
@@ -107,7 +104,8 @@ define([
                 newCollection.url = function () {
                     return that.searchSeason();
                 };
-                genres = new GenreCollectionView({newUrl:"tvshows"});
+                genres = new GenreCollectionView({model: "tvshows"});
+                that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('actor')) {
                 idName = '#Actor-search-result';
@@ -115,6 +113,7 @@ define([
                 newCollection.url = function () {
                     return that.searchActor();
                 };
+                that.searchCollection(newCollection, idName, genres);
             }
             if (scope.match('member')) {
                 idName = '#Member-search-result';
@@ -123,9 +122,9 @@ define([
                     return that.searchMember();
                 };
 
+                that.searchCollection(newCollection, idName, genres);
             }
 
-            that.searchCollection(newCollection, idName, genres);
         },
 
         searchMovie: function () {

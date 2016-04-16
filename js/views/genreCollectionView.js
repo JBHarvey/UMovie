@@ -16,26 +16,27 @@ define([
 
         initialize: function () {
             var that = this;
-            that.type = that.newUrl;
-            console.log("Entre");
-            console.log(that.type);
-            console.log(that.newUrl);
+            that.type = that.model;
+            that.model = undefined;
+
             that.collection = new Genres();
             that.collection.url = function () {
-                return "https://umovie.herokuapp.com/genres/" + that.newUrl;
+                return "https://umovie.herokuapp.com/genres/" + that.type;
             };
-
-
             that.collection.fetch();
         },
 
         render: function () {
+
             var that = this;
-            var result = '';
+            var result = '<div class="genre-browser">';
+
             that.collection.each(function (genre) {
                 var genres = new GenreView({model: genre});
-                result.append(genres.render());
+                result = `${result}${genres.render()}`;
             });
+            result = `${result}</div>`;
+            console.log(result);
             return result;
         },
 

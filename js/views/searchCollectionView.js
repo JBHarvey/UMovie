@@ -14,6 +14,8 @@ define([
 
         initialize: function () {
             var that = this;
+            that.genreCollectionView = that.model;
+            that.model = undefined;
             that.listenTo(this.collection, 'sync', that.render);
             that.collection.fetch();
         },
@@ -23,8 +25,9 @@ define([
 
             this.removeNoResultFoundsMessage();
             if (_.isObject(that.genreCollectionView)) {
-                that.$el.getElementById('#genre-browser').html(that.genreCollectionView.render());
+                that.$el.append(that.genreCollectionView.render());
             }
+
             this.collection.each(function (model) {
                 var thumbnail = new ThumbnailView({model: model});
                 that.$el.append(thumbnail.render());
@@ -38,8 +41,8 @@ define([
 
         removeNoResultFoundsMessage: function () {
             var that = this;
-            if (that.collection.length != 0){
-                that.$el.html('');
+            if (that.collection.length == 0) {
+                that.$el.append('Sorry, no results were found for this request... Please try again!');
             }
 
         },

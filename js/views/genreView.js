@@ -7,14 +7,11 @@ define([
     'underscore',
     'backbone',
     'text!templates/genre.html',
-
     'handlebars',
-], function ($, _, Backbone, genreTemplate, MovieCollection, TmdbData, Handlebars) {
+], function ($, _, Backbone, genreTemplate, Handlebars) {
 
 
     var GenreView = Backbone.View.extend({
-
-        el: '.conponent-genre',
 
         initialize: function () {
 
@@ -32,3 +29,4 @@ define([
     });
     return GenreView;
 });
+
