@@ -27,6 +27,8 @@ define([
             this.template = Handlebars.compile(authenticationTemplate);
             var source = new AuthenticationModel();
 
+            var resultAuthentication;
+
             //If the user is not signing up, he is login in
             if (this.signup) {
                 resultAuthentication = this.template(source.signup);

@@ -13,7 +13,7 @@ define([
 
     var Actors = Backbone.Collection.extend({
             model: ActorModel,
-            url: '/actors',
+            url: 'https://umovie.herokuapp.com/actors',
 
             parse: function (response) {
                 if (response.results) {

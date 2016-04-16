@@ -11,7 +11,7 @@ define([
 
     var Movies = Backbone.Collection.extend({
         model: MovieModel,
-        url: '/movies',
+        url: 'https://umovie.herokuapp.com/movies',
 
         parse: function (response) {
             return response.results;
