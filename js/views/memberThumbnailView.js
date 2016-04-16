@@ -10,17 +10,13 @@ define([
     'handlebars',
 ], function ($, _, Backbone, MemberThumbnailTemplate, Handlebars) {
 
-    var ThumbnailView = Backbone.View.extend({
-
-        initialize: function () {
-        },
-
+    var MemberThumbnailView = Backbone.View.extend({
         render: function () {
             var template = Handlebars.compile(MemberThumbnailTemplate);
             var source = this.model.attributes;
             return template(source);
         },
     });
-    return ThumbnailView;
+    return MemberThumbnailView;
 
 });
