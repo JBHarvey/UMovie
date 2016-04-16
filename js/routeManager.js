@@ -29,10 +29,11 @@ define([
         'views/watchlistCollectionView',
         'views/userSettingsView',
         'views/userView',
+        'views/searchView',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
                  UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
                  SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, UserSettingsView, UserView) {
+                 WatchlistCollectionView, UserSettingsView, UserView, SearchView) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -46,11 +47,16 @@ define([
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
                 user: 'showUser',
+                'search?scope=:scope&query=:query': 'search',
+                'search?scope=&query=:query': 'searchNoScope',
+                'search?scope=:scope&query=': 'searchNoQuery',
+                'search?scope=&query=': 'searchNoNothing',
                 otherUsers: 'browseUsers',
                 settings: 'settings',
                 login: 'login',
                 signup: 'signup',
                 disconnect: 'disconnect',
+
 
                 //Default
                 '*actions': 'defaultAction',
@@ -58,7 +64,7 @@ define([
 
             go: function (route) {
                 console.log(route);
-                this.navigate(route, { trigger: yes });
+                this.navigate(route, {trigger: yes});
             },
         });
 
@@ -73,9 +79,14 @@ define([
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
 
+
             var lastAuthState = 'disconnected';
 
             var noAuthPage = function (signUp) {
+                if (!_.isObject(authenticationView)) {
+                    authenticationView = new AuthenticationView(session, false);
+                }
+
                 session.disconnect();
                 navigationBarView.render();
                 authenticationView.render(signUp);
@@ -89,6 +100,7 @@ define([
 
                 navigationBarView.closeMenusIfNeeded();
             };
+
 
             var checkCredentials = function () {
                 if (Cookie.get('token') === undefined) {
@@ -114,7 +126,7 @@ define([
                 }
 
                 if (checkCredentials()) {
-                    currentView = newModel ? new ViewClass({ model:newModel }) : new ViewClass();
+                    currentView = newModel ? new ViewClass({model: newModel}) : new ViewClass();
                 } else {
                     noAuthPage(false);
                 }
@@ -122,9 +134,10 @@ define([
                 updateNavigationBar();
             };
 
+
             //Shows the login at start up. If the user has already logged in, the home page will be shown.
-            authenticationView = new AuthenticationView(session, false);
-            updateMainView(HomeView, undefined);
+
+            //updateMainView(HomeView, undefined);
 
             uMovieRouter.on('route:goHome', function () {
                 updateMainView(HomeView, undefined);
@@ -132,44 +145,68 @@ define([
 
             // Movies
             uMovieRouter.on('route:displayMovies', function () {
-                updateMainView(MovieCollectionView, undefined);
+                updateMainView(SearchView, {scope: 'movie', searchWord: 'dead'});
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
                 var id = parseInt(movieId);
-                var newMovie = new MovieModel({ trackId: id });
+                var newMovie = new MovieModel({trackId: id});
                 updateMainView(MovieView, newMovie);
             });
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(SeasonsCollectionView, undefined);
+                updateMainView(SearchView, {scope: 'season', searchWord: 'dead'});
+
+
             });
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newSeason = new SeasonModel({ id: newId });
+                var newSeason = new SeasonModel({id: newId});
                 updateMainView(SeasonView, newSeason);
             });
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(ActorCollectionView, undefined);
+                updateMainView(SearchView, {scope: 'actor', searchWord: 'Monica'});
+
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                var newActor = new ActorModel({ id: actorId });
+                var newActor = new ActorModel({id: actorId});
                 updateMainView(ActorView, newActor);
             });
+
 
             uMovieRouter.on('route:displayWatchlists', function () {
                 updateMainView(WatchlistCollectionView, undefined);
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new UserModel({ id:Cookie.get('id') });
+                session = new UserModel({id: Cookie.get('id')});
                 updateMainView(UserSettingsView, session);
 
+            });
+
+            uMovieRouter.on('route:search', function (scope, query) {
+                var searchInfo = {'scope': scope, 'searchWord':query};
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoQuery', function (scope) {
+                var searchInfo = {'scope': scope, 'searchWord':'NO-DATA'};
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoScope', function (query) {
+                var searchInfo = {'scope': 'movie-season', 'searchWord':query};
+                updateMainView(SearchView, searchInfo);
+            });
+
+            uMovieRouter.on('route:searchNoNothing', function () {
+                var searchInfo = {'scope': 'movie-season', 'searchWord':'NO-DATA'};
+                updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:settings', function () {
@@ -202,7 +239,7 @@ define([
 
             setHeaderAuthorization();
 
-            Backbone.history.start({ root: '/UMovie' });
+            Backbone.history.start({root: '/UMovie'});
 
         };
 

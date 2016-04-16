@@ -6,11 +6,14 @@ define([
     'backbone',
 ], function (_, Backbone) {
 
+    //Fonction qui permet de parser les collections de films et de les afficher.
     var HomeModel = Backbone.Model.extend({
-        defaults: {
-            title: 'Movie browser!',
-            movie: 'Fight Club',
-            url: 'http://www.forgetthebox.net/wp-content/uploads/2013/05/Iron-Man-3-2013-Movie-Title-Banner.jpg',
+        parse: function (response) {
+            if (_.isObject(response.results)) {
+                return response.results[0];
+            } else {
+                return response;
+            }
         },
     });
 

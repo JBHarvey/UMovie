@@ -17,11 +17,14 @@ define([
         el: '#content',
 
         initialize: function () {
-            this.searchManager = new SearchModel();
-            this.collection = new Movies();
-            this.collection.url = this.generateDefaultQuery();
-            this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
+            var that = this;
+            that.movieName = '';
+            that.searchManager = new SearchModel();
+            that.collection = new Movies();
+            that.collection.url = that.generateSearchQuery(that.movieName);
+            that.listenTo(this.collection, 'sync', that.render);
+            that.collection.fetch();
+
         },
 
         render: function () {
@@ -33,11 +36,20 @@ define([
             });
         },
 
-        generateDefaultQuery: function () {
-            return this.searchManager
+        generateSearchQuery: function (movieName) {
+            var that = this;
+            var name = "";
+
+            if(movieName){
+                name = movieName;
+            }
+            else {
+                name = "dead";
+            }
+            return that.searchManager
                 .setSearchType('movies')
-                .setSearchName('night')
-                .setSearchLimit(100)
+                .setSearchName(name)
+                .setSearchLimit(10)
                 .setSearchGenre('')
                 .url();
         },

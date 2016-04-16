@@ -11,13 +11,28 @@ define([
     var ActorModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/actors',
 
+
         parse(data) {
-            if (data.results) {
-                return data.results[0];
+            if (_.isObject(data.results)) {
+                return this.processData(data.results[0]);
             } else {
-                return data;
+                return this.processData(data);
             }
         },
+
+        processData(data) {
+            var that = this;
+            var nameEncode = that.removeSpace(data.artistName);
+            data.imageId = `${nameEncode}Img`;
+            data.bioId = `${nameEncode}Bio`;
+            data.tmdbRequest = encodeURI(data.artistName);
+            return data;
+        },
+
+        removeSpace: function (stringToChange) {
+            return stringToChange.replace(/ /i, '_');
+        },
+
 
         defaults: {
             urlRoot: 'https://umovie.herokuapp.com/actors/253584821',
