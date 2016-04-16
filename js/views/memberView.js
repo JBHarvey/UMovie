@@ -8,13 +8,12 @@ define([
     'backbone',
     'text!templates/user.html',
     'models/memberModel',
-    'models/followModel',
     'models/userModel',
     'handlebars',
     'utils/gravatarIcon',
     'jscookie',
     'views/memberThumbnailView',
-], function ($, _, Backbone, UserTemplate, MemberModel, Follow, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView) {
+], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView) {
     'use strict';
 
     var MemberView = Backbone.View.extend({
