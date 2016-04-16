@@ -77,6 +77,7 @@ iframe {
 
 .detailed-info-subject{
     display: flex;
+    align-items: center;
 }
 
 .detailed-info-subject span:nth-child(2) {
@@ -286,7 +287,7 @@ iframe {
     }
 
     .element-name {
-        margin-top: -.5em;
+        margin-top: 0em;
     }
 
     iframe {
@@ -315,7 +316,7 @@ iframe {
         width: 12em;
     }
     .detailed-info {
-        padding-top: 1.5%;
+        padding-top: 0;
     }
 
     .mobile .itunes-logo {
