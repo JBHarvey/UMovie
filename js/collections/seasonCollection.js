@@ -6,12 +6,12 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    '../models/seasonModel',
+    'models/seasonModel',
 ], function ($, _, Backbone, Cookie, SeasonModel) {
 
     var Seasons = Backbone.Collection.extend({
         model: SeasonModel,
-        url: '/tvShows',
+        url: 'https://umovie.herokuapp.com/tvShows',
 
         parse: function (response) {
             return response.results;

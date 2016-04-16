@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/actor.html',
-    '../collections/movieCollection',
+    'collections/movieCollection',
     'handlebars',
     'models/imdbActorModel',
     'utils/imdb',
@@ -49,8 +49,8 @@ define([
                 var source = that.model.attributes;
                 var template = Handlebars.compile(actorTemplate);
 
-                that.$el.html(template(source));
 
+                that.$el.html(template(source));
 
                 var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
                 var searchRequest = this.generateSearchName(search);

@@ -8,11 +8,12 @@ define([
     'backbone',
     'text!templates/movie-season.html',
     'models/movieModel',
-    '../collections/watchlistCollection',
+    'collections/watchlistCollection',
     'models/watchlistModel',
     'views/youtubeVideos',
+    'jscookie',
     'handlebars',
-], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Handlebars) {
+], function ($, _, Backbone, movieTemplate, MovieModel, Watchlists, Watchlist, YoutubeVideo, Cookie, Handlebars) {
 
     var MovieView = Backbone.View.extend({
 
@@ -35,6 +36,11 @@ define([
             this.watchlists.fetch({
                 success: syncRendering,
             });
+
+        },
+
+        isFollowing: function (currentUser) {
+
         },
 
         generateSearchRequest: function () {

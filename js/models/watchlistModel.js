@@ -10,6 +10,7 @@ define([
 ], function (_, Backbone) {
     var WatchlistModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/watchlists',
+
         parse: function (response) {
             if (_.isObject(response.results)) {
                 return response.results[0];
@@ -24,6 +25,7 @@ define([
                 return movie.trackId === movieModel.get('trackId');
             }));
         },
+
         convertDuration(duration) {
             return `${Math.ceil(duration / 60000)} minutes`;
         },

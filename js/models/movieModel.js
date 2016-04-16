@@ -16,8 +16,7 @@ define([
             // To add to watchlist, you will have to pass watchlist ID in the options
             if ('update' === method || 'create' === method) {
                 method = 'create';
-                options.url = 'https://umovie.herokuapp.com/watchlists/' +
-                        options.watchlistID + '/movies';
+                options.url = `https://umovie.herokuapp.com/watchlists/${options.watchlistID}/movies`;
             }
 
             return Backbone.sync(method, model, options);

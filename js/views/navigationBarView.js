@@ -6,11 +6,11 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'text!../templates/navigationBar.html',
+    'text!templates/navigationBar.html',
     'models/navigationBarModel',
     'handlebars',
-    'views/gravatarIcon',
-    'views/searchView'
+    'utils/gravatarIcon',
+    'views/searchView',
 ], function ($, _, Backbone, Cookie, navigationBarTemplate, NavigationBarModel, Handlebars, GravatarIcon, SearchView) {
 
     return Backbone.View.extend({
@@ -18,10 +18,10 @@ define([
         el: '#menu-content',
 
         searchPrefilter: {
-            'movie': true,
-            'season': true,
-            'actor': false,
-            'member': false,
+            movie: true,
+            season: true,
+            actor: false,
+            member: false,
         },
 
         searchTextToUse: '',
@@ -44,7 +44,8 @@ define([
 
             this.$el.html(resultNavigationBar);
 
-            var gravatarIcons = new GravatarIcon('.user-icon', Cookie.get('email'));
+            var gravatarIcon = new GravatarIcon(Cookie.get('email'));
+            gravatarIcon.getGravatarURL('.user-icon');
         },
 
         events: {
@@ -79,23 +80,25 @@ define([
             document.location.reload(true);
         },
 
-        formatScopeForRedirection: function() {
+        formatScopeForRedirection: function () {
             var that = this;
             var formatedScope = '';
 
-            if(that.searchPrefilter.movie){
+            if (that.searchPrefilter.movie) {
                 formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}movie`;
             }
-            if(that.searchPrefilter.season){
+
+            if (that.searchPrefilter.season) {
                 formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}season`;
             }
-            if(that.searchPrefilter.actor){
+
+            if (that.searchPrefilter.actor) {
                 formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}actor`;
             }
-            if(that.searchPrefilter.member){
+
+            if (that.searchPrefilter.member) {
                 formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}member`;
             }
-
 
             console.log(formatedScope);
             return formatedScope;
@@ -104,18 +107,21 @@ define([
         toggleMovieSearch: function () {
             this.searchPrefilter.movie = !this.searchPrefilter.movie;
         },
+
         toggleSeasonSearch: function () {
             this.searchPrefilter.season = !this.searchPrefilter.season;
         },
+
         toggleActorSearch: function () {
             this.searchPrefilter.actor = !this.searchPrefilter.actor;
         },
+
         toggleMemberSearch: function () {
             this.searchPrefilter.member = !this.searchPrefilter.member;
         },
 
         querySeparator: function (scope) {
-            return scope != '' ? '-' : '';
+            return scope !== '' ? '-' : '';
         },
 
         /*   Menus animations   */

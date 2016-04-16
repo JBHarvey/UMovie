@@ -7,7 +7,7 @@ define([
 ], function (Backbone, MovieGenreModel) {
 
     var MovieGenres = Backbone.Model.Collection({
-        url: '/genres/movies',
+        url: 'https://umovie.herokuapp.com/genres/movies',
         model: MovieGenreModel,
     });
 

@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../collections/actorCollection',
+    'collections/actorCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel',
@@ -18,8 +18,6 @@ define([
     var ActorsCollectionView = Backbone.View.extend({
 
         el: '#content',
-
-
 
         initialize: function () {
             var that = this;
@@ -75,19 +73,19 @@ define([
             });
         },
 
+
         generateSearchName: function (actor) {
             return encodeURI(this.model.get(actor.artistName));
         },
 
-
         generateSearchQuery(actorName) {
-            var name = "";
+            var name = '';
             if (actorName) {
                 name = actorName;
-              }
-            else {
-               name = "Xavier";
+            } else {
+                name = 'Xavier';
             }
+
             return this.searchManager
                 .setSearchName(name)
                 .setSearchType('actors')

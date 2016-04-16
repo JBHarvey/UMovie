@@ -11,7 +11,6 @@ define([
     var ActorModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/actors',
 
-
         parse(data) {
             if (_.isObject(data.results)) {
                 return this.processData(data.results[0]);
@@ -34,9 +33,8 @@ define([
             return formatedText.replace(/ /gi, '_');
         },
 
-
         defaults: {
-            urlRoot: 'https://umovie.herokuapp.com/actors/253584821',
+            urlRoot:  `/actors/253584821`,
             wrapperTyper: 'artist',
             artistType: 'Artist',
             artistName: 'John Sawyer',

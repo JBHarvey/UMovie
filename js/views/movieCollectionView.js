@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../collections/movieCollection',
+    'collections/movieCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel',
@@ -38,14 +38,14 @@ define([
 
         generateSearchQuery: function (movieName) {
             var that = this;
-            var name = "";
+            var name = '';
 
-            if(movieName){
+            if (movieName) {
                 name = movieName;
+            } else {
+                name = 'dead';
             }
-            else {
-                name = "dead";
-            }
+
             return that.searchManager
                 .setSearchType('movies')
                 .setSearchName(name)

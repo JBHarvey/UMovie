@@ -21,7 +21,7 @@ define([
         },
 
         processData(data) {
-            if ( data.trackPrice === -1 ) {
+            if (data.trackPrice === -1) {
                 data.trackPrice = 'N/A';
             }
 

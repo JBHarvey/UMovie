@@ -10,14 +10,14 @@ define([
     'models/homeModel',
     'handlebars',
     'models/searchModel',
-    '../collections/movieCollection',
+    'collections/movieCollection',
     'views/thumbnailView',
 ], function ($, _, Backbone, homeTemplate, HomeModel, Handlebars, SearchModel, Movies, ThumbnailView) {
 
     var HomeView = Backbone.View.extend({
 
         el: '#content',
-        content : {category : [],},
+        content: { category: [], },
 
         initialize: function () {
             this.searchManager = new SearchModel();
@@ -38,13 +38,10 @@ define([
             });
 
             that.$el.append('<div>Other users are also watching : </div><br/>');
-            that.collection.each(function(movie){
-                var otherWatchersThumbnails = new ThumbnailView({model : movie});
+            that.collection.each(function (movie) {
+                var otherWatchersThumbnails = new ThumbnailView({ model: movie });
                 that.$el.append(otherWatchersThumbnails.render());
             });
-
-
-            console.log("render.");
 
         },
 
@@ -57,14 +54,14 @@ define([
                 .url();
         },
 
-        generateWatchingQuery: function (){
+        generateWatchingQuery: function () {
             return this.searchManager
             .setSearchType('movies')
             .setSearchName('rings')
             .setSearchLimit(6)
             .setSearchGenre('')
             .url();
-        }
+        },
 
     });
     return HomeView;

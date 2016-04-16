@@ -23,7 +23,7 @@ define([
             var that = this;
             this.removeNoResultFoundsMessage();
             this.collection.each(function (model) {
-                var thumbnail = new ThumbnailView({model: model});
+                var thumbnail = new ThumbnailView({ model: model });
                 that.$el.append(thumbnail.render());
 
                 if (model.attributes.tmdbRequest) {
@@ -82,14 +82,15 @@ define([
 
         removeNoResultFoundsMessage: function () {
             var that = this;
-            if (that.collection.length != 0){
+            if (that.collection.length !== 0) {
                 that.$el.html('');
             }
 
         },
 
-
     });
     return SearchCollectionView;
 
+
 });
+
