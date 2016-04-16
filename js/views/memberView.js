@@ -9,7 +9,9 @@ define([
     'utils/gravatarIcon',
     'jscookie',
     'views/memberThumbnailView',
-], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView) {
+    'collections/watchlistCollection',
+    'views/watchlistView',
+], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView, WatchlistCollection, WatchlistView) {
     'use strict';
 
     var MemberView = Backbone.View.extend({
@@ -21,7 +23,7 @@ define([
             this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
             var that = this;
-            var syncRendering = _.after(2, function () {
+            var syncRendering = _.after(3, function () {
                 that.render();
             });
 
@@ -43,13 +45,40 @@ define([
             var source = this.model.attributes;
             this.$el.html(template(source));
 
+            this.setFollowedUsers()
+                .setWatchlists()
+                .setGravatarIcon();
+        },
+
+        setFollowedUsers: function () {
             var $followedUsersBox = $('#followed-list');
+            $followedUsersBox.html('');
             this.model.get('following').forEach(function (followed) {
                 var memberThumbnailView = new MemberThumbnailView({ model: new MemberModel(followed) });
                 $followedUsersBox.append(memberThumbnailView.render());
             });
 
-            this.setGravatarIcon();
+            return this;
+        },
+
+        setWatchlists: function () {
+            var watchlists = new WatchlistCollection(this.model.get('email'));
+
+            var $watchlistsBox = $('#user-watchlists');
+
+            watchlists.fetch({
+                success: function (data) {
+                    data.each(function (watchlist) {
+                        var watchlistView = new WatchlistView(watchlist);
+                        $watchlistsBox.append(watchlistView.render());
+                    });
+                    $('.remove-watchlist-movie').remove();
+                    $('.delete-watchlist-checkbox').remove();
+                    $('.watchlist-edit-button').remove();
+                }
+            });
+
+            return this;
         },
 
         setGravatarIcon: function () {
@@ -58,6 +87,8 @@ define([
                 var gravatarIcon = new GravatarIcon(imageElement.dataset.email);
                 imageElement.src = gravatarIcon.getGravatarURL();
             });
+
+            return this;
         },
 
         isFollowingActiveUser: function () {
