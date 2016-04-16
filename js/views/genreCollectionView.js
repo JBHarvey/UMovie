@@ -8,8 +8,9 @@ define([
     'backbone',
     '../collections/genreCollection',
     'text!../templates/genre.html',
+    'handlebars',
     'views/genreView',
-], function ($, _, Backbone, Genres, GenreTemplates, GenreView) {
+], function ($, _, Backbone, Genres, GenreTemplates, Handlebars,  GenreView) {
 
     var GenreCollectionView = Backbone.View.extend({
 
