@@ -17,7 +17,6 @@ define([
         el: '#content',
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
-            this.listenTo(this.follow, 'change', this.render);
 
             this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
