@@ -5,7 +5,7 @@ define([
     'use strict';
 
     return Backbone.Model.extend({
-        urlRoot: 'http://localhost:5000/actors',
+        urlRoot: 'http://imdb-api-request.herokuapp.com/actors',
 
         parse: function (results) {
             if (_.isObject(results.data)) {
