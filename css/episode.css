@@ -70,9 +70,9 @@ html{
     margin-top: 1em;
 }
 
-@media screen and (min-width: 540px) and (max-width: 768px) {
+@media screen and (min-width: 540px) and (max-width: 767px) {
     .Episode-modal {
-        margin: 14% 3.7% 5% 3.7%;
+        margin: 15% 3.7% 5% 3.7%;
         height: 70%
     }
 
@@ -86,7 +86,8 @@ html{
     }
 
     .episode-modal-preview iframe {
-        height: 90%;
+        height: 17em;
+        width: 22em;
     }
 
 }

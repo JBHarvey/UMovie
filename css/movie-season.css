@@ -40,7 +40,7 @@
 .cover-thumbnail img {
     margin-top: -15%;
     padding: 1em 1em 0.6em 1.2em;
-    width: 10.3em;
+    width: 8.3em;
 }
 
 .main-info div {
@@ -270,7 +270,7 @@ iframe {
     }
 
     .cover-thumbnail img {
-        width: 28em;
+        width: 25em;
     }
 
     .cover-thumbnail span:first-child {
