@@ -25,6 +25,8 @@ define([
                 options.contentType = 'application/json';
                 options.url = 'https://umovie.herokuapp.com/follow';
                 options.data = JSON.stringify(model.attributes);
+            } else if (method === 'delete') {
+                options.url = `https://umovie.herokuapp.com/follow/${this.id}`;
             }
 
             return Backbone.sync(method, model, options);
