@@ -48,10 +48,14 @@
     width: 7em;
     margin: 0em 0em 0em -3em;
     padding-top: 0em;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 .umovie-logo-disconnect {
-    margin: 0;
+    /* margin: 0; */
+    display: flex;
+    /* flex-wrap: wrap; */
 }
 
 .header {
@@ -217,6 +221,8 @@
 }
 
 .member-menu li {
+    /* z-index: 1111111; */
+    /* width: 112em; */
     display: block;
     list-style: none;
     padding: 1em;
@@ -522,10 +528,13 @@
     transition: background .55s ease;
 }
 
+.umovie-logo-disconnect #site-logo {
+    margin: 0 4em 0 4em;
+}
 
 /* -------  Pour tablettes et +  -------- */
 
-@media (min-width: 640px) {
+@media (min-width: 641px) {
 
     /* ------ NAV-BAR  ----- */
     .navigation-bar{
@@ -543,23 +552,12 @@
     }
 
     .navigation-bar-disconnect {
-        height: 3em;
-        box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 1);
-        box-sizing: border-box;
-        padding: 0 3%;
-        width: 100%;
-        background-color: black;
-        opacity: 0.88;
-        display: inline-flex;
-        position: fixed;
-        top: 0;
-        margin: 0;
-        z-index: 1;
+        background-color: transparent;
     }
 
     .umovie-logo-disconnect #site-logo {
         width: 16em;
-        margin: 8em 0em 0em 3em;
+        margin: 8em 4em 4em 23em;
         /* padding: 0em 0em 0em 0em; */
     }
 
@@ -673,7 +671,7 @@
     .umovie-logo-disconnect #site-logo {
         width: 6.5em;
         margin: 4em 0em 0em 1em;
-        padding-top: 0em;
+        padding-top: 1em;
     }
 
     .search-bar {
@@ -694,3 +692,10 @@
     }
 
 }
+
+@media screen and (min-width: 1025px){
+    .umovie-logo-disconnect #site-logo {
+        padding-top: 0em;
+    }
+}
+
