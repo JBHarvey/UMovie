@@ -45,8 +45,13 @@
 }
 
 .umovie-logo-disconnect #site-logo {
-    width: 5em;
+    width: 7em;
+    margin: 0em 0em 0em -3em;
     padding-top: 0em;
+}
+
+.umovie-logo-disconnect {
+    margin: 0;
 }
 
 .header {
@@ -552,6 +557,12 @@
         z-index: 1;
     }
 
+    .umovie-logo-disconnect #site-logo {
+        width: 16em;
+        margin: 8em 0em 0em 3em;
+        /* padding: 0em 0em 0em 0em; */
+    }
+
     /* ------ Left side nav-bar ------ */
     .umovie-logo {
         background: none;
@@ -658,6 +669,12 @@
 /* ------  Pour desktop exclusivement ------  */
 
 @media (min-width: 960px) {
+
+    .umovie-logo-disconnect #site-logo {
+        width: 6.5em;
+        margin: 4em 0em 0em 1em;
+        padding-top: 0em;
+    }
 
     .search-bar {
         padding: 1em 1em 0.5em;
