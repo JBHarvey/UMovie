@@ -31,7 +31,7 @@ button {
 }
 
 .text h1, h2 {
-    color: #FFCC00;
+    color: #0085FF;
 }
 
 #container {
@@ -39,7 +39,7 @@ button {
     flex-direction: column;
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 640px) {
     html {
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
@@ -66,22 +66,9 @@ button {
         margin-top: -70px;
     }
 
-    .text h1, h2 {
-        color: #FFCC00;
-    }
-
-    .text h1 {
-        font-size: 4.1em;
-        text-align: center;
-    }
-
-    .text h2 {
-        text-align: center;
-        font-size: 1.6em;
-    }
 }
 
-@media (min-width: 960px) {
+@media screen and (min-width: 960px) {
     html {
         font-size: 1.6vw;
         -moz-osx-font-smoothing: grayscale;
@@ -90,17 +77,6 @@ button {
     div #content {
         max-width: 100%;
         margin-top: 10%;
-    }
-
-    .text h1 {
-        font-size: 4.1em;
-        text-align: center;
-        margin-top: -4.7em;
-    }
-
-    .text h2 {
-        text-align: center;
-        font-size: 1.6em;
     }
 
 }
