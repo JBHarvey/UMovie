@@ -18,9 +18,8 @@ define([
             ],
             menuOptionConnected: [
                 {name: 'Watchlists', references: 'watchlists', position: 'menuStandard'},
-                {name: 'Community', references: 'members', position: 'menuStandard'},
+                {name: 'Community', references: 'search?scope=member&query=', position: 'menuStandard'},
                 {name: 'My Account', references: 'user', position: 'userOption'},
-                {name: 'Settings', references: 'settings', position: 'userOption'},
                 {name: 'Disconnect', references: 'disconnect', position: 'userOption'},
             ],
             menuOptionDisconnected: [
