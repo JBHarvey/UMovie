@@ -1,9 +1,9 @@
-<div class="actorThumbnail">
-    <img id="gravatar-photo-{{gravatarIdName}}" class="thumbnailImg" src=""/>
-    <div class="descriptionThumbnail">
-        <a class="actor-box" href="#member/{{id}}">
-            <h2 class="thumbnailNomArtist">{{name}}</h2>
-        </a>
-        <div>Email : {{email}}</div>
+<a class="user-box" href="#member/{{id}}">
+    <div class="user-thumbnail">
+        <img class="gravatar-photo" data-email="{{email}}" src=""/>
     </div>
-</div>
+    <div class="user-info">
+        <p class="user-name">{{name}}</p>
+        <p class="user-email">{{email}}</p>
+    </div>
+</a>

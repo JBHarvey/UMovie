@@ -12,6 +12,10 @@
     margin: 0.2em 0;
 }
 
+.component-genre:hover {
+    cursor: pointer;
+}
+
 .filter-selected {
     color: white;
     text-shadow: -5px -5px 5px #0085E1,
