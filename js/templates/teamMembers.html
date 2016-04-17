@@ -1,6 +1,7 @@
 <div class="developers-page">
     <div class="developers-title">Meet the team</div>
     <div class="developers-box">
+        {{#each item}}
         <div class="developer-box">
             <img src={{photoLink}}>
             <span>{{name}}</span>
@@ -19,5 +20,6 @@
                 </span>
             </div>
         </div>
+        {{/each}}
     </div>
 </div>
