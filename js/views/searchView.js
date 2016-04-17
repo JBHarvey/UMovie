@@ -36,7 +36,6 @@ define([
             var scope = that.scope;
             if (scope.match('movie')) {
                 that.searchToShow.group.push({title: 'Movie', name: 'movies'});
-
             }
 
             if (scope.match('season')) {
@@ -44,9 +43,7 @@ define([
             }
 
             if (scope.match('actor')) {
-
                 that.searchToShow.group.push({title: 'Actor', name: 'actors'});
-
             }
 
             if (scope.match('member')) {
@@ -77,14 +74,6 @@ define([
 
             this.activateSearches();
 
-        },
-
-        searchCollection: function (newCollection, idName, genres) {
-            var searchCollectionView = new SearchCollectionView({
-                collection: newCollection,
-                el: idName,
-                model: genres,
-            });
         },
 
         activateSearches: function () {
@@ -139,6 +128,15 @@ define([
 
         },
 
+
+        searchCollection: function (newCollection, idName, genres) {
+            var searchCollectionView = new SearchCollectionView({
+                collection: newCollection,
+                el: idName,
+                model: genres,
+            });
+        },
+
         searchMovie: function () {
             return this.generateSearchQuery('movies');
 
@@ -163,7 +161,7 @@ define([
             var that = this;
             var query = that.searchWord ? that.searchWord : '';
             query = searchType == 'users' ? '' : query;
-            var limit = searchType == 'users' ? 0 : 36;
+            var limit = searchType == 'users' ? 0 : 100000;
 
             return that.searchManager
                 .setSearchType(searchType)

@@ -10,7 +10,7 @@ define([
     'views/tmdbData',
     'views/genreCollectionView',
     '../utils/gravatarIcon',
-], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView,GravatarIcon) {
+], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView, GravatarIcon) {
 
     var SearchCollectionView = Backbone.View.extend({
 
@@ -26,12 +26,15 @@ define([
         render: function () {
             var that = this;
 
-            this.showMessageIfNoResults();
+            that.showMessageIfNoResults();
+            that.findQueryWord();
 
             this.collection.each(function (model) {
-                var thumbnail = new ThumbnailView({model: model});
-                that.$el.append(thumbnail.render());
-                that.addImageToActors(model);
+                if (that.modelCanBeRendered(model)) {
+                    var thumbnail = new ThumbnailView({model: model});
+                    that.$el.append(thumbnail.render());
+                    that.addImageToActors(model);
+                }
             });
 
             that.addCategoriesToHtml();
@@ -69,6 +72,33 @@ define([
             var that = this;
             if (that.collection.length === 0) {
                 that.$el.append('Sorry, no results were found for this request... Please try again!');
+            }
+        },
+
+        modelCanBeRendered: function (model) {
+            var that = this;
+            var query = that.queryWord;
+            if (model.attributes.isUserType && query != '') {
+                var name = model.attributes['name'];
+                var email = model.attributes['email'];
+                return !!(name.includes(query) || email.includes(query));
+            }
+            return true;
+
+        },
+
+        effectiveFilter: function (data) {
+            'use strict';
+            return _.filter(data, function (model) {
+            });
+        },
+
+        findQueryWord: function () {
+            if (this.collection.isUserCollection) {
+                var currentAddress = document.URL;
+                var regexp = /&query=(.*)/g;
+                var urlParsed = regexp.exec(currentAddress);
+                this.queryWord = decodeURI(urlParsed[1]);
             }
         },
 

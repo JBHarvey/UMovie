@@ -12,6 +12,7 @@ define([
     var Members = Backbone.Collection.extend({
         model: UserModel,
         url: 'https://umovie.herokuapp.com/users',
+        isUserCollection: true,
 
         parse: function (response) {
             return response;
