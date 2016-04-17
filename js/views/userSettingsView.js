@@ -7,7 +7,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'models/userModel',
+    '../models/sessionModel',
     'handlebars',
     'text!templates/user.html',
 ], function ($, _, Backbone, UserModel, Handlebars, UserTemplate) {

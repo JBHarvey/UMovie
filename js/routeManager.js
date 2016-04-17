@@ -16,7 +16,7 @@ define([
         'views/navigationBarView',
         'views/homeView',
         'views/authenticationView',
-        'models/userModel',
+        'models/sessionModel',
         'views/movieView',
         'models/movieModel',
         'views/seasonView',
@@ -27,12 +27,12 @@ define([
         'views/userSettingsView',
         'views/searchView',
         'views/memberView',
-        'models/memberModel',
+        'models/userModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, SeasonView,
+                 SessionModel, MovieView, MovieModel, SeasonView,
                  SeasonModel, ActorView, ActorModel,
                  WatchlistCollectionView, UserSettingsView,
-                 SearchView, MemberView, MemberModel) {
+                 SearchView, UserView, UserModel) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -45,15 +45,15 @@ define([
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
-                user: 'showUser',
 
+                user: 'showUser',
                 members: 'browseMembers',
+
                 'member/:memberId': 'browseSpecificMember',
                 'search?scope=:scope&query=:query': 'search',
                 'search?scope=&query=:query': 'searchNoScope',
                 'search?scope=:scope&query=': 'searchNoQuery',
                 'search?scope=&query=': 'searchNoNothing',
-                otherUsers: 'browseUsers',
 
                 settings: 'settings',
                 login: 'login',
@@ -75,7 +75,7 @@ define([
             var currentView;
             var uMovieRouter = new UMovieRouter();
 
-            var session = new UserModel();
+            var session = new SessionModel();
             var navigationBarView = new NavigationBarView();
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
@@ -179,8 +179,8 @@ define([
             });
 
             uMovieRouter.on('route:browseSpecificMember', function (memberId) {
-                var newMember = new MemberModel({id: memberId});
-                updateMainView(MemberView, newMember);
+                var newMember = new UserModel({id: memberId});
+                updateMainView(UserView, newMember);
             });
 
             uMovieRouter.on('route:browseMembers', function () {
@@ -189,9 +189,8 @@ define([
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new MemberModel({id: Cookie.get('id')});
-                updateMainView(MemberView, session);
-
+                session = new UserModel({id: Cookie.get('id')});
+                updateMainView(UserView, session);
             });
 
             uMovieRouter.on('route:search', function (scope, query) {
