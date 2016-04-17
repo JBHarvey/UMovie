@@ -94,3 +94,15 @@ content {
 #user-watchlists h1 {
     text-align: center;
 }
+
+@media screen and (min-width: 640px) {
+    .user-box {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .user-box {
+        max-width: 960px;
+    }
+}
