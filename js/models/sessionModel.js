@@ -83,6 +83,7 @@ define([
             };
             that.changeUrlDestination(that.loginURL);
             that.success = function (data) {
+                $("#error-message").text("");
                 that.name = data.name;
                 that.id = data.id;
                 that.connected = true;
@@ -97,6 +98,7 @@ define([
             };
 
             that.error = function (jqXHR, textStatus) {
+                $("#error-message").text("Invalid username / password. Please try again.");
                 console.log('Error on login: ', jqXHR);
                 console.log('Content type : ', jqXHR.contentType);
             };
