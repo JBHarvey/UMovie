@@ -46,12 +46,12 @@ define([
             that.addGravatarIcons();
         },
 
-          addImageToActors: function (model) {
-         if (model.attributes.tmdbRequest) {
-         var tmdb = new Tmdb();
-         tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
-         }
-         },
+        addImageToActors: function (model) {
+            if (model.attributes.tmdbRequest) {
+                var tmdb = new Tmdb();
+                tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
+            }
+        },
 
         addGravatarIcons: function () {
             var gravatarImages = document.getElementsByClassName('gravatar-photo');
@@ -93,15 +93,14 @@ define([
 
                             var biography = data.attributes.bio;
                             const bioId = model.attributes.bioId;
-
-
-                            var picture = data.attributes.image.url;
-                            const imageID = model.attributes.imageId;
-                            console.log(picture);
-                            console.log(imageID);
-
                             Imdb.actors.modifySingleActorBio(biography, bioId);
-                            Imdb.actors.modifySingleActorImage(picture, imageID);
+
+
+                            if (data.attributes.image) {
+                                var picture = data.attributes.image.url;
+                                const imageID = model.attributes.imageId;
+                                Imdb.actors.modifySingleActorImage(picture, imageID);
+                            }
                         },
                     });
                 }

@@ -11,7 +11,8 @@ define([
     'handlebars',
     'models/imdbActorModel',
     'utils/imdb',
-], function ($, _, Backbone, actorTemplate, MovieCollection, Handlebars, ImdbActorModel, Imdb) {
+    'views/tmdbData',
+], function ($, _, Backbone, actorTemplate, MovieCollection, Handlebars, ImdbActorModel, Imdb, Tmdb) {
 
     'use strict';
 
@@ -50,11 +51,12 @@ define([
             var source = that.model.attributes;
             var template = Handlebars.compile(actorTemplate);
 
-
             that.$el.html(template(source));
+            that.addImageToActors(that.model);
 
             var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = this.generateSearchName(search);
+
 
             Imdb.actors.findActors({query: searchRequest}, function (data) {
                 var parsedData = JSON.parse(data);
@@ -80,7 +82,9 @@ define([
                             var biography = data.attributes.bio;
                             var picture = data.attributes.image.url;
                             Imdb.actors.modifySingleActorBio(biography, 'description');
-                            Imdb.actors.modifySingleActorImage(picture, 'imgActor')
+                            if (data.attributes.image) {
+                                Imdb.actors.modifySingleActorImage(picture, 'imgActor')
+                            }
 
                         },
                     });
@@ -89,6 +93,12 @@ define([
 
         },
 
+        addImageToActors: function (model) {
+            if (model.attributes.tmdbRequest) {
+                var tmdb = new Tmdb();
+                tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
+            }
+        },
 
     });
     return ActorView;
