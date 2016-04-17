@@ -251,7 +251,6 @@ define([
             };
 
             setHeaderAuthorization();
-
             Backbone.history.start({root: '/UMovie'});
 
         };

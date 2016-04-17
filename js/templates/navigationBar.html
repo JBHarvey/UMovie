@@ -37,7 +37,12 @@
             {{/each}}
             {{/if}}
         </div>
-        <div class="search-container" id="member-menu-closed">
+        <div class="search-container">
+            <div class="search-scope-icons">
+                {{#each scopeIcon}}
+                <div class="scope-icon {{preselect}}" scopes="{{name}}" id="scope-{{name}}-icon" style="background-image: url({{url}});"></div>
+                {{/each}}
+            </div>
             <div class="input-bar">
 
                 <input placeholder="Search..." class="search-input">
