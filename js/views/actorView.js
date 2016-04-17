@@ -10,49 +10,49 @@ define([
     'collections/movieCollection',
     'views/tmdbData',
     'handlebars',
-    ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
-        'use strict';
+], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
+    'use strict';
 
-        var ActorView = Backbone.View.extend({
+    var ActorView = Backbone.View.extend({
 
-            el: '#content',
+        el: '#content',
 
-            initialize: function () {
+        initialize: function () {
 
-                var that = this;
-                this.collectionMovies = new MovieCollection();
+            var that = this;
+            this.collectionMovies = new MovieCollection();
 
-                this.listenTo(this.model, 'change', that.render);
-                this.listenTo(this.collectionMovies, 'update', that.render);
+            this.listenTo(this.model, 'change', that.render);
+            this.listenTo(this.collectionMovies, 'update', that.render);
 
-                var waitForRender = _.after(2, function () {
-                    that.render();
-                });
+            var waitForRender = _.after(2, function () {
+                that.render();
+            });
 
-                this.model.fetch({
-                    success: waitForRender,
-                });
+            this.model.fetch({
+                success: waitForRender,
+            });
 
-                this.collectionMovies.fetch({
-                    success: waitForRender,
-                });
-            },
+            this.collectionMovies.fetch({
+                success: waitForRender,
+            });
+        },
 
-            generateSearchName: function () {
-                return encodeURI(this.model.get('artistName'));
-            },
+        generateSearchName: function () {
+            return encodeURI(this.model.get('artistName'));
+        },
 
-            render: function () {
-                var searchRequest = this.generateSearchName();
+        render: function () {
+            var searchRequest = this.generateSearchName();
 
-                var source = this.model.attributes;
-                var template = Handlebars.compile(actorTemplate);
+            var source = this.model.attributes;
+            var template = Handlebars.compile(actorTemplate);
 
-                this.$el.html(template(source));
-                var tmdbData = new TmdbData();
-                tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
-            },
+            this.$el.html(template(source));
+            var tmdbData = new TmdbData();
+            tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
+        },
 
-        });
-        return ActorView;
     });
+    return ActorView;
+});

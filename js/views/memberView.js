@@ -1,120 +1,120 @@
-/**
- * Created by seydou on 16-03-29.
- */
-
 define([
     'jquery',
     'underscore',
     'backbone',
     'text!templates/user.html',
     'models/memberModel',
-    'models/followModel',
     'models/userModel',
     'handlebars',
     'utils/gravatarIcon',
     'jscookie',
     'views/memberThumbnailView',
-], function ($, _, Backbone, userTemplate, MemberModel, Follow, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView) {
+    'collections/watchlistCollection',
+    'views/watchlistView',
+], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView, WatchlistCollection, WatchlistView) {
     'use strict';
 
     var MemberView = Backbone.View.extend({
 
         el: '#content',
         initialize: function () {
-            this.follow = new Follow();
-            this.currentUser = new MemberModel({ id: Cookie.get('id') });
+            this.listenTo(this.model, 'change', this.render);
+
+            this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
             var that = this;
-            this.listenTo(that.currentUser, 'change', that.render);
-            this.listenTo(that.model, 'change', that.render);
-            this.listenTo(that.follow, 'change', that.render);
-            this.currentUser.fetch();
+            var syncRendering = _.after(2, function () {
+                that.render();
+            });
+
+            this.activeUser.fetch({
+                success: syncRendering,
+            });
+
             this.model.fetch({
-                success: that.render(that.model),
+                success: syncRendering,
             });
         },
 
         render: function () {
-            this.model.attributes.isFollowing = this.isFollowing();
-            this.model.attributes.isNotCurrentUser = this.isNotCurrentUser();
-            var source = this.model.attributes;
-            var template = Handlebars.compile(userTemplate);
+            var template = Handlebars.compile(UserTemplate);
 
+            this.model.set('isNotCurrentUser', this.model.get('email') !== Cookie.get('email'));
+            this.model.set('isFollowing', this.isFollowingActiveUser());
+
+            var source = this.model.attributes;
             this.$el.html(template(source));
 
-            var gravatarIcon = new GravatarIcon(Cookie.get('email'));
-            gravatarIcon.getGravatarURL(`#gravatar-photo-${this.model.id}`);
-
-            this.appendFollowersToHtml();
+            this.setFollowedUsers()
+                .setWatchlists()
+                .setGravatarIcon();
         },
 
-        appendFollowersToHtml: function () {
-            var followers = this.assembleFollowers();
-            this.$el.append(followers);
-            this.addGravatarIconsToFollowers();
-        },
-
-        assembleFollowers: function () {
-            var followers = '';
-            this.model.attributes.following.forEach(function (member) {
-                member.attributes = member;
-                if (typeof member.gravatarIdName == 'undefined') {
-                    member.gravatarIdName = member.id;
-                }
-
-                var thumbnail = new MemberThumbnailView({ model: member });
-                followers = `${followers}${thumbnail.render()}`;
+        setFollowedUsers: function () {
+            var $followedUsersBox = $('#followed-list');
+            this.model.get('following').forEach(function (followed) {
+                var memberThumbnailView = new MemberThumbnailView({ model: new MemberModel(followed) });
+                $followedUsersBox.append(memberThumbnailView.render());
             });
 
-            return followers;
+            return this;
         },
 
-        addGravatarIconsToFollowers: function () {
-            this.model.attributes.following.forEach(function (member) {
-                member.attributes = member;
-                var gravatarIcon = new GravatarIcon(member.email);
-                gravatarIcon.getGravatarURL(`#gravatar-photo-${member.id}`);
+        setWatchlists: function () {
+            var watchlists = new WatchlistCollection(this.model.get('email'));
+
+            var $watchlistsBox = $('#user-watchlists');
+
+            watchlists.fetch({
+                success: function (data) {
+                    data.each(function (watchlist) {
+                        var watchlistView = new WatchlistView(watchlist);
+                        $watchlistsBox.append(watchlistView.render());
+                    });
+
+                    $('.remove-watchlist-movie').remove();
+                    $('.delete-watchlist-checkbox').remove();
+                    $('.watchlist-edit-button').remove();
+                },
             });
+
+            return this;
+        },
+
+        setGravatarIcon: function () {
+            var gravatarImages = document.getElementsByClassName('gravatar-photo');
+            Array.prototype.forEach.call(gravatarImages, function (imageElement) {
+                var gravatarIcon = new GravatarIcon(imageElement.dataset.email);
+                imageElement.src = gravatarIcon.getGravatarURL();
+            });
+
+            return this;
+        },
+
+        isFollowingActiveUser: function () {
+            var that = this;
+            return this.activeUser
+                .get('following')
+                .filter(function (follower) { return follower.id === that.model.id; }).length > 0;
         },
 
         events: {
-            'click .follow-unfollow-member': 'followUnfollowMember',
+            'click .toggle-following': 'toggleFollowing',
         },
 
-        isFollowing: function () {
-            if (this.currentUser.attributes.following.length > 0) {
-                var currentMemberId = this.model.attributes.id;
-                for (var i = 0; i < this.currentUser.attributes.following.length; i++) {
-                    var userMember = this.currentUser.attributes.following[i];
-                    if (userMember.id === currentMemberId) {
-                        return true;
-                    }
-                }
-            }
+        toggleFollowing: function (event) {
+            var currentButton = event.currentTarget;
 
-            return false;
-        },
-
-        isNotCurrentUser: function () {
-            return this.model.attributes.id !== this.currentUser.attributes.id;
-        },
-
-        followUnfollowMember: function (event) {
-            this.$followButton = $('.follow-unfollow-member');
-
-            var follower = new Follow({ id: this.model.attributes.id });
-
-            var that = this;
-            if (this.$followButton.text().indexOf('Follow') > -1) {
-                follower.save(null, {
+            if (currentButton.innerHTML.replace(/\s/g, '') === 'Follow') {
+                this.activeUser.save(this.model.attributes, {
                     success: function () {
-                        that.$followButton.text('Unfollow');
+                        currentButton.innerHTML = 'Unfollow';
                     },
                 });
             } else {
-                follower.destroy({
+                this.model.destroy({
                     success: function () {
-                        that.$followButton.text('Follow');
+                        currentButton.innerHTML = 'Follow';
                     },
                 });
             }

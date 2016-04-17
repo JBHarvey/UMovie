@@ -45,7 +45,7 @@ define([
             this.$el.html(resultNavigationBar);
 
             var gravatarIcon = new GravatarIcon(Cookie.get('email'));
-            gravatarIcon.getGravatarURL('.user-icon');
+            gravatarIcon.setGravatarURL('.user-icon');
         },
 
         events: {
