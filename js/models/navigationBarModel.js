@@ -27,6 +27,12 @@ define([
                 { name: 'Login', references: 'login', position: 'authenticationMenuOption' },
                 { name: 'Sign Up', references: 'signup', position: 'authenticationMenuOption' },
             ],
+            scopeIcon: [
+                {name: 'movie', url: 'img/searchIcons/cinema.svg'},
+                {name: 'season', url: 'img/searchIcons/monitor.svg'},
+                {name: 'actor', url: 'img/searchIcons/art.svg'},
+                {name: 'member', url: 'img/searchIcons/people.svg'},
+            ],
             connected: false,
         },
 

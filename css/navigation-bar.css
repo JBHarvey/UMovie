@@ -19,6 +19,28 @@
     }
 }
 
+
+.search-container {
+    align-self: flex-start;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-scope-icons{
+    display: flex;
+}
+
+.scope-icon{
+    width: 1.25em;
+    height: 1.25em;
+    align-self: center;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+
 .member-hamburger {
     display: block;
     border: none;
@@ -48,14 +70,10 @@
     width: 7em;
     margin: 0em 0em 0em -3em;
     padding-top: 0em;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
 }
 
 .umovie-logo-disconnect {
-    /* margin: 0; */
     display: flex;
-    /* flex-wrap: wrap; */
 }
 
 .header {
@@ -96,6 +114,7 @@
     font-family: "Helvetica Neue";
     cursor: pointer;
     font-size: 1.4em;
+    align-self: center;
 }
 
 .member-hamburger img {
@@ -221,8 +240,6 @@
 }
 
 .member-menu li {
-    /* z-index: 1111111; */
-    /* width: 112em; */
     display: block;
     list-style: none;
     padding: 1em;
@@ -255,8 +272,7 @@
 .navigation-options {
     display: flex;
     flex-direction: column;
-    flex-basis: auto;
-    flex-grow: 1;
+    flex: 1 1 auto;
     flex-wrap: wrap;
     justify-content: space-around;
     border-bottom: solid #454545 1px;
@@ -399,16 +415,11 @@
     padding-top: 6em;
     padding-bottom: 1em;
     position: relative;
+    white-space: nowrap;
 }
 
 .input-bar {
     outline: none;
-    width: 100%;
-    max-width: 13em;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 5%;
-    display: inline;
 }
 
 .search-input {
@@ -538,7 +549,7 @@
 @media (min-width: 641px) {
 
     /* ------ NAV-BAR  ----- */
-    .navigation-bar{
+    .navigation-bar {
         box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 1);
         box-sizing: border-box;
         padding: 0 3%;
@@ -566,6 +577,7 @@
     .member-hamburger {
 
         display: flex;
+        align-self: flex-end;
         position: initial;
         flex-wrap: nowrap;
         z-index: auto;
@@ -577,14 +589,13 @@
         width: 2.5vw;
         height: 2.5vw;
         float: none;
-        margin-right: 2em;
+        margin-right: 0;
         cursor: pointer;
     }
 
-    .username{
+    .username {
         font-size: 1.6vw;
     }
-
 
     /* ------ Left side nav-bar ------ */
     .umovie-logo {
@@ -673,7 +684,7 @@
         align-items: center;
         padding: 0 0 0 0;
         float: none;
-        width: 26em;
+        width: 35em;
     }
 
     .search-bar li a:hover {
@@ -695,7 +706,6 @@
 
 @media (min-width: 960px) {
 
-
     .umovie-logo-disconnect #site-logo {
         width: 6.5em;
         margin: 4em 0em 0em 1em;
@@ -703,17 +713,12 @@
     }
 
     .search-bar {
-        padding: 1em 1em 0.5em;
+
     }
 
     .member-menu {
         z-index: 1000;
         height: 900px;
-    }
-
-    .search-container {
-        width: 100%;
-        display: inline;
     }
 
     .navigation-bar {
@@ -722,7 +727,7 @@
 
 }
 
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 1025px) {
     .umovie-logo-disconnect #site-logo {
         padding-top: 0em;
     }
