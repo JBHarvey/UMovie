@@ -27,7 +27,7 @@ define([
             this.listenTo(this.model, 'change', that.render);
             this.listenTo(this.collectionMovies, 'update', that.render);
 
-            var waitForRender = _.after(3, function () {
+            var waitForRender = _.after(2, function () {
                 that.render();
             });
 
