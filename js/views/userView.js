@@ -1,17 +1,22 @@
+/**
+ * Created by seydou on 2016-03-27.
+ */
+
+
 define([
     'jquery',
     'underscore',
     'backbone',
     'text!templates/user.html',
-    'models/memberModel',
-    'models/userModel',
+    '../models/userModel',
+    '../models/sessionModel',
     'handlebars',
     'utils/gravatarIcon',
     'jscookie',
-    'views/memberThumbnailView',
+    'views/ThumbnailView',
     'collections/watchlistCollection',
     'views/watchlistView',
-], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, MemberThumbnailView, WatchlistCollection, WatchlistView) {
+], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, ThumbnailView, WatchlistCollection, WatchlistView) {
     'use strict';
 
     var MemberView = Backbone.View.extend({
@@ -20,7 +25,7 @@ define([
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
 
-            this.activeUser = new MemberModel({ id: Cookie.get('id') });
+            this.activeUser = new MemberModel({id: Cookie.get('id')});
 
             var that = this;
             var syncRendering = _.after(2, function () {
@@ -53,7 +58,7 @@ define([
         setFollowedUsers: function () {
             var $followedUsersBox = $('#followed-list');
             this.model.get('following').forEach(function (followed) {
-                var memberThumbnailView = new MemberThumbnailView({ model: new MemberModel(followed) });
+                var memberThumbnailView = new ThumbnailView({model: new MemberModel(followed)});
                 $followedUsersBox.append(memberThumbnailView.render());
             });
 
@@ -71,7 +76,6 @@ define([
                         var watchlistView = new WatchlistView(watchlist);
                         $watchlistsBox.append(watchlistView.render());
                     });
-
                     $('.remove-watchlist-movie').remove();
                     $('.delete-watchlist-checkbox').remove();
                     $('.watchlist-edit-button').remove();
@@ -94,8 +98,10 @@ define([
         isFollowingActiveUser: function () {
             var that = this;
             return this.activeUser
-                .get('following')
-                .filter(function (follower) { return follower.id === that.model.id; }).length > 0;
+                    .get('following')
+                    .filter(function (follower) {
+                        return follower.id === that.model.id;
+                    }).length > 0;
         },
 
         events: {

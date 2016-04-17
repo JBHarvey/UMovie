@@ -10,12 +10,13 @@ define([
     'collections/movieCollection',
     'collections/seasonCollection',
     'collections/actorCollection',
+    'collections/userCollection',
     'views/searchCollectionView',
     'text!templates/searchGroup.html',
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
-], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors,
+], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors, Users,
              SearchCollectionView, searchGroupTemplate, Handlebars,
              TmdbData, SearchModel) {
 
@@ -35,7 +36,6 @@ define([
             var scope = that.scope;
             if (scope.match('movie')) {
                 that.searchToShow.group.push({title: 'Movie', name: 'movies'});
-
             }
 
             if (scope.match('season')) {
@@ -43,9 +43,7 @@ define([
             }
 
             if (scope.match('actor')) {
-
                 that.searchToShow.group.push({title: 'Actor', name: 'actors'});
-
             }
 
             if (scope.match('member')) {
@@ -76,14 +74,6 @@ define([
 
             this.activateSearches();
 
-        },
-
-        searchCollection: function (newCollection, idName, genres) {
-            var searchCollectionView = new SearchCollectionView({
-                collection: newCollection,
-                el: idName,
-                model: genres,
-            });
         },
 
         activateSearches: function () {
@@ -128,7 +118,7 @@ define([
 
             if (scope.match('member')) {
                 idName = '#members-search-result';
-                newCollection = new Members();
+                newCollection = new Users();
                 newCollection.url = function () {
                     return that.searchMember();
                 };
@@ -136,6 +126,15 @@ define([
                 that.searchCollection(newCollection, idName, genres);
             }
 
+        },
+
+
+        searchCollection: function (newCollection, idName, genres) {
+            var searchCollectionView = new SearchCollectionView({
+                collection: newCollection,
+                el: idName,
+                model: genres,
+            });
         },
 
         searchMovie: function () {
@@ -154,19 +153,20 @@ define([
         },
 
         searchMember: function () {
-            return this.generateSearchQuery('member');
+            return this.generateSearchQuery('users');
 
         },
 
         generateSearchQuery: function (searchType) {
             var that = this;
-            var name = this.searchWord ? this.searchWord : '';
+            var query = that.searchWord ? that.searchWord : '';
+            query = searchType == 'users' ? '' : query;
+            var limit = searchType == 'users' ? 0 : 100000;
 
             return that.searchManager
                 .setSearchType(searchType)
-                .setSearchName(name)
-                .setSearchLimit(36)
-                .setSearchGenre('')
+                .setSearchName(query)
+                .setSearchLimit(limit)
                 .url();
 
         },

@@ -18,8 +18,8 @@ define([
         el: '#menu-content',
 
         searchPrefilter: {
-            movie: true,
-            season: true,
+            movie: false,
+            season: false,
             actor: false,
             member: false,
         },

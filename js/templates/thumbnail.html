@@ -5,32 +5,45 @@
         <h2 class="thumbnailNomArtist">
             <a class="actor-box" href="#actor/{{artistId}}">{{artistName}}</a>
         </h2>
-        <div class="genreActorThumbnail"> <span class="genre-display">Genre :<span> {{primaryGenreName}}</div>
+        <div class="genreActorThumbnail"><span class="genre-display">Genre :<span> {{primaryGenreName}}</div>
         <div id="{{bioId}}" class="shortBio">{{shortenBio}}</div>
     </div>
 </div>
 
+{{else if isUserType}}
+
+<a class="user-box" href="#member/{{id}}">
+    <div class="user-thumbnail">
+        <img class="gravatar-photo" data-email="{{email}}" src=""/>
+    </div>
+    <div class="user-info">
+        <p class="user-name">{{name}}</p>
+        <p class="user-email">{{email}}</p>
+    </div>
+</a>
+
 {{else}}
+
 <a class="{{cssClassType}}-box"
    {{#unless isEpisodeType}} href={{routingRef}} {{else}} id="idThumbnail" {{/unless}}>
-    <div class="thumbnail" media-primary-genre="{{primaryGenreName}}">
-        <div class="{{cssClassType}}-initial-image">
-            <img class="{{cssClassType}}-thumbnail" src="{{artworkUrl100}}"/>
+<div class="thumbnail" media-primary-genre="{{primaryGenreName}}">
+    <div class="{{cssClassType}}-initial-image">
+        <img class="{{cssClassType}}-thumbnail" src="{{artworkUrl100}}"/>
+    </div>
+    <div class="{{cssClassType}}-top-box" style="background-image: url({{artworkUrl100}});">
+        <div class="{{cssClassType}}-header">
+            <h3 class="{{cssClassType}}-title"> {{entertainementName}}</h3>
+            <div class="{{cssClassType}}-initial-release-date">{{releaseYear}}</div>
         </div>
-        <div class="{{cssClassType}}-top-box" style="background-image: url({{artworkUrl100}});">
-            <div class="{{cssClassType}}-header">
-                <h3 class="{{cssClassType}}-title"> {{entertainementName}}</h3>
-                <div class="{{cssClassType}}-initial-release-date">{{releaseYear}}</div>
-            </div>
-            <div class="{{cssClassType}}-description">
-                <p class="{{cssClassType}}-description-text">{{longDescription}}</p>
-                <span class="ellipsis">...</span>
-            </div>
-            <div class="{{cssClassType}}-footer">
-                <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
-                <div class="duration">{{convertDuration}}</div>
-            </div>
+        <div class="{{cssClassType}}-description">
+            <p class="{{cssClassType}}-description-text">{{longDescription}}</p>
+            <span class="ellipsis">...</span>
+        </div>
+        <div class="{{cssClassType}}-footer">
+            <div class="content-advisory-rating">{{contentAdvisoryRating}}</div>
+            <div class="duration">{{convertDuration}}</div>
         </div>
     </div>
+</div>
 </a>
 {{/if}}
