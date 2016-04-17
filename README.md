@@ -42,13 +42,6 @@ Here is a list of the different members of the team.
 - Seydou Konaté;
 - Alexandre Rivest.
 
-## Not implemented
-
-- Linking the project to a database;
-- Taking all the calls from the API;
-- Getting data from iTunes;
-- Creating the collections for the movies, actors and TV shows pages.
-
 ## Git Usage
 
 You can find the way we use Git in the [wiki](https://github.com/GLO3102/team01/wiki) section.
