@@ -48,6 +48,7 @@ define([
 
         addImageToActors: function (model) {
             if (model.attributes.tmdbRequest) {
+
                 var tmdb = new Tmdb();
                 tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
             }
@@ -68,7 +69,6 @@ define([
             var search = model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = encodeURI(search);
 
-            console.log(searchRequest);
 
             Imdb.actors.findActors({query: searchRequest}, function (data) {
                 var parsedData = JSON.parse(data);

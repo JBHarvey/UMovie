@@ -52,7 +52,8 @@ define([
             var template = Handlebars.compile(actorTemplate);
 
             that.$el.html(template(source));
-            that.addImageToActors(that.model);
+            var tmdbData = new Tmdb();
+            tmdbData.getTmdbActorData(that.model.attributes.tmdbRequest, 'imgActor', 'description');
 
             var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = this.generateSearchName(search);
