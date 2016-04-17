@@ -8,6 +8,11 @@
     border-bottom-color: darkgrey;
 
 }
+
+.genre-display {
+    color:white;
+}
+
 .actor-box {
     text-decoration:  none;
     color: inherit;
@@ -33,6 +38,7 @@
     min-height: 10%;
     max-height: 10%;
     font-size: 100%;
+    color:white;
 }
 
 .genreActorThumbnail {
