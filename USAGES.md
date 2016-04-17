@@ -1,6 +1,7 @@
 # Using the program
 
 There are two ways to launch the project:
+
 1. To launch the program, go to `UMovie/index.html` under WebStorm. *Make sure that the project is named UMovie in WebStorm. If the project is not named UMovie, it is possible that the front end will not work correctly.*
 2. You can also run the following command in your terminal if you have *NodeJS* installed:
 
