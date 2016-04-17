@@ -98,7 +98,7 @@ define([
             };
 
             that.error = function (jqXHR, textStatus) {
-                $("#error-message").text("Invalid username / password. Please try again.");
+                $("#error-message").text("Invalid username / password.");
                 console.log('Error on login: ', jqXHR);
                 console.log('Content type : ', jqXHR.contentType);
             };
