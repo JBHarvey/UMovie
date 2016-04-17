@@ -53,10 +53,10 @@ define([
             'click .toggle-member-menu': 'toggleMember',
             'click #initialise-search': 'launchSearchFromButton',
             'keyup .search-input': 'launchEnterSearchFromInput',
-            'click #movie-search-toggle': 'toggleMovieSearch',
-            'click #season-search-toggle': 'toggleSeasonSearch',
-            'click #actor-search-toggle': 'toggleActorSearch',
-            'click #member-search-toggle': 'toggleMemberSearch',
+            'click #scope-movie-icon': 'toggleMovieSearch',
+            'click #scope-season-icon': 'toggleSeasonSearch',
+            'click #scope-actor-icon': 'toggleActorSearch',
+            'click #scope-member-icon': 'toggleMemberSearch',
         },
 
         launchEnterSearchFromInput: function (inputText) {
@@ -89,35 +89,48 @@ define([
             }
 
             if (that.searchPrefilter.season) {
-                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}season`;
+                formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}season`;
             }
 
             if (that.searchPrefilter.actor) {
-                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}actor`;
+                formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}actor`;
             }
 
             if (that.searchPrefilter.member) {
-                formatedScope =  `${formatedScope}${that.querySeparator(formatedScope)}member`;
+                formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}member`;
             }
 
             console.log(formatedScope);
             return formatedScope;
         },
 
-        toggleMovieSearch: function () {
+        toggleMovieSearch: function (event) {
             this.searchPrefilter.movie = !this.searchPrefilter.movie;
+            this.toggleScopeClass(event);
         },
 
-        toggleSeasonSearch: function () {
+        toggleSeasonSearch: function (event) {
             this.searchPrefilter.season = !this.searchPrefilter.season;
+            this.toggleScopeClass(event);
         },
 
-        toggleActorSearch: function () {
+        toggleActorSearch: function (event) {
             this.searchPrefilter.actor = !this.searchPrefilter.actor;
+            this.toggleScopeClass(event);
         },
 
-        toggleMemberSearch: function () {
+        toggleMemberSearch: function (event) {
             this.searchPrefilter.member = !this.searchPrefilter.member;
+            this.toggleScopeClass(event);
+        },
+
+        toggleScopeClass: function(event) {
+            var typeClass = event.target.attributes.getNamedItem('class').nodeValue;
+            if (typeClass.match(/ scope-selected/g)) {
+                event.target.attributes.getNamedItem('class').nodeValue = typeClass.replace(/ scope-selected/g, '');
+            } else {
+                event.target.attributes.getNamedItem('class').nodeValue = `${typeClass} scope-selected`;
+            }
         },
 
         querySeparator: function (scope) {
