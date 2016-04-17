@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/actor.html',
-    '../collections/movieCollection',
+    'collections/movieCollection',
     'views/tmdbData',
     'handlebars',
     ], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
@@ -51,21 +51,6 @@ define([
                 this.$el.html(template(source));
                 var tmdbData = new TmdbData();
                 tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
-
-
-
-
-               /* var myQuery = {
-                    query: 'Xavier',
-                };
-                Imdb.actors.findActors(myQuery, function(successData) {
-                    var parsedData = JSON.parse(successData);
-                    console.log(parsedData);
-                }, function(error){
-                });*/
-
-
-
             },
 
         });

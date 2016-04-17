@@ -27,7 +27,7 @@ define([
             this.showMessageIfNoResults();
 
             this.collection.each(function (model) {
-                var thumbnail = new ThumbnailView({model: model});
+                var thumbnail = new ThumbnailView({ model: model });
                 that.$el.append(thumbnail.render());
                 if (model.attributes.tmdbRequest) {
                     var tmdb = new Tmdb();
@@ -53,17 +53,9 @@ define([
             if (that.collection.length == 0) {
                 that.$el.append('Sorry, no results were found for this request... Please try again!');
             }
-
         },
-
 
     });
     return SearchCollectionView;
 
 });
-
-/*
- newCollection.afterRenderCallback = function () {
- tmdbData.getTmdbActorData(actor.tmdbRequest, actor.imageId, actor.bioId);
- };
- */

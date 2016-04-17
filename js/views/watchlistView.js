@@ -12,7 +12,7 @@ define([
     'backbone',
     'handlebars',
     'text!templates/watchlist.html',
-    '../collections/movieCollection',
+    'collections/movieCollection',
     'views/thumbnailView',
 ], function ($, _, Backbone, Handlebars, WatchlistTemplate, Movies, ThumbnailView) {
 
@@ -21,7 +21,7 @@ define([
         initialize: function (watchlist) {
             this.model = watchlist;
             this.collection = new Movies();
-            this.collection.set(this.model.attributes.movies)
+            this.collection.set(this.model.attributes.movies);
         },
 
         render: function () {
@@ -43,9 +43,8 @@ define([
                 movie.attributes.routingRef = `#movie/${attr.trackId}`;
                 movie.attributes.entertainementName = attr.trackName;
                 movie.attributes.cssClassType = 'special-movie movies';
-                console.log(movie);
 
-                var thumbnail = new ThumbnailView({model: movie});
+                var thumbnail = new ThumbnailView({ model: movie });
                 renderedHtml = `${renderedHtml} ${thumbnail.render()}`;
             });
 

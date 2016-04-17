@@ -7,11 +7,11 @@ define([
     'underscore',
     'backbone',
     'views/thumbnailView',
-    '../collections/movieCollection',
-    '../collections/seasonCollection',
-    '../collections/actorCollection',
+    'collections/movieCollection',
+    'collections/seasonCollection',
+    'collections/actorCollection',
     'views/searchCollectionView',
-    'text!../templates/seachGroup.html',
+    'text!templates/searchGroup.html',
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
@@ -23,11 +23,11 @@ define([
 
         el: '#content',
 
-        searchToShow: {group: [],},
-
+        searchToShow: { group: [], },
 
         selectSearchScope: function () {
             var that = this;
+
             that.searchToShow = {
                 searchWord: that.searchWord,
                 group: []
@@ -35,15 +35,22 @@ define([
             var scope = that.scope;
             if (scope.match('movie')) {
                 that.searchToShow.group.push({title: 'Movie', name: 'movies'});
+
             }
+
             if (scope.match('season')) {
                 that.searchToShow.group.push({title: 'Season', name: 'tvshows'});
             }
+
             if (scope.match('actor')) {
+
                 that.searchToShow.group.push({title: 'Actor', name: 'actors'});
+
             }
+
             if (scope.match('member')) {
                 that.searchToShow.group.push({title: 'Member', name: 'members'});
+
             }
         },
 
@@ -59,7 +66,6 @@ define([
             this.selectSearchScope();
             this.render();
         },
-
 
         render: function () {
             var that = this;
@@ -81,12 +87,15 @@ define([
                 model: genres
             });
         },
+
         activateSearches: function () {
             var that = this;
             var idName = '';
             var newCollection = undefined;
             var genres = undefined;
             var scope = that.scope;
+
+
             if (scope.match('movie')) {
                 idName = '#movies-search-result';
                 newCollection = new Movies();
@@ -96,6 +105,7 @@ define([
                 genres = 'movies';
                 that.searchCollection(newCollection, idName, genres);
             }
+
             if (scope.match('season')) {
                 idName = '#tvshows-search-result';
                 newCollection = new Seasons();
@@ -105,6 +115,7 @@ define([
                 genres = 'tvshows';
                 that.searchCollection(newCollection, idName, genres);
             }
+
             if (scope.match('actor')) {
                 idName = '#actors-search-result';
                 newCollection = new Actors();
@@ -112,7 +123,9 @@ define([
                     return that.searchActor();
                 };
                 that.searchCollection(newCollection, idName, genres);
+
             }
+
             if (scope.match('member')) {
                 idName = '#members-search-result';
                 newCollection = new Members();
@@ -129,23 +142,25 @@ define([
             return this.generateSearchQuery('movies');
 
         },
+
         searchActor: function () {
             return this.generateSearchQuery('actors');
 
         },
+
         searchSeason: function () {
             return this.generateSearchQuery('tvshows/seasons');
 
         },
+
         searchMember: function () {
             return this.generateSearchQuery('member');
 
         },
 
-
         generateSearchQuery: function (searchType) {
             var that = this;
-            var name = this.searchWord ? this.searchWord : "";
+            var name = this.searchWord ? this.searchWord : '';
 
             return that.searchManager
                 .setSearchType(searchType)

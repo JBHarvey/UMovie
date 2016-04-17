@@ -6,7 +6,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../collections/seasonCollection',
+    'collections/seasonCollection',
     'views/thumbnailView',
     'handlebars',
     'models/searchModel',
@@ -16,10 +16,9 @@ define([
 
         el: '#content',
 
-
         initialize: function () {
-            var that = this
-            that.seasonName = "";
+            var that = this;
+            that.seasonName = '';
             that.searchManager = new SearchModel();
             that.collection = new Seasons();
             that.collection.url = this.generateSearchQuery(that.seasonName);
@@ -37,14 +36,13 @@ define([
         },
 
         generateSearchQuery: function (seasonName) {
-            var that = this;
-            var name ='';
-            if(seasonName){
+            var name = '';
+            if (seasonName) {
                 name = seasonName;
+            } else {
+                name = 'dead';
             }
-            else{
-                name = "dead";
-            }
+
             return this.searchManager
                 .setSearchType('tvshows/seasons')
                 .setSearchName(name)

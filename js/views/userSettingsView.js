@@ -22,7 +22,6 @@ define([
         this.model.url = that.model.changeUrlForUserInfo();
         that.listenTo(this.model, 'change', that.render);
         that.model.fetch();
-
     },
 
         events:{

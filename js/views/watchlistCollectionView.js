@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by Vincent on 16-01-27.
  *
  * Object creation of a watchlist.
@@ -8,13 +8,13 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    '../collections/watchlistCollection',
+    'collections/watchlistCollection',
     'text!templates/watchlist.html',
     'text!templates/pageHeader.html',
     'views/watchlistView',
     'models/watchlistModel',
     'models/movieModel',
-    '../collections/movieCollection',
+    'collections/movieCollection',
 ], function ($, _, Backbone, Handlebars, WatchLists, WatchlistTemplate, PageHeaderTemplate, WatchListView, WatchListModel, MovieModel, MovieCollection) {
     'use strict';
 
@@ -132,8 +132,7 @@ define([
 
                 // Strangely, we have to set the URL or it doesn't work...
                 // Although it works with the save method...
-                movie.url = 'https://umovie.herokuapp.com/watchlists/' +
-                        idObject.watchlistID + '/movies/' + idObject.movieID;
+                movie.url = `https://umovie.herokuapp.com/watchlists/${idObject.watchlistID}'/movies/'${idObject.movieID}`;
                 movie.destroy();
             });
         },

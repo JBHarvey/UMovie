@@ -13,7 +13,8 @@ define([
         signupURL: 'https://umovie.herokuapp.com/signup',
 
         changeUrlForUserInfo: function () {
-            return 'https://umovie.herokuapp.com/users/' + this.id;
+            return `https://umovie.herokuapp.com/users/${this.id}`;
+
         },
 
         validateEmail: function (emailToCheck) {
