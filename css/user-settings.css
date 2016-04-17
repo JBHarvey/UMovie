@@ -12,10 +12,22 @@
 
 .user-name {
     margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
 }
 
 .user-email {
     margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
 }
 
 #followed-list {
@@ -31,6 +43,8 @@
 }
 
 .user-box {
+    min-width: 0;
+    max-width: 360px;
     text-decoration: none;
     display: flex;
 }
@@ -40,6 +54,8 @@
 }
 
 .user-info {
+    min-width: 0;
+
     color: white;
     margin-top: auto;
     margin-bottom: auto;
