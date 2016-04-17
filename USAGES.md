@@ -5,13 +5,16 @@ To launch the program, go to `UMovie/index.html` under WebStorm.
 *Make sure that the downloaded file contains the folder UMovie as the root as the projet.
 If UMovie is not the root written exactly in this way, it is possible that the front end will not work correctly.*
 
+It is also possible to use the hosted version of the website, available at a Heroku domain.
+[Here](https://umovie-team01-h2016.herokuapp.com/UMovie/) is the link to access this hosted version. All the features implemented are also working in the pushed version on Heroku.
+
 ## Buttons
 
 To access the different pages of the site, please refer to the navigation bar on the top of the page. The movies, actors, watchlist and TV series pages are only available while in connected mode.
 
 ## User
 
-It is possible to create an account using a valid email address with a new password and your name. It is also possible to find and follow different users to access their actual watch lists.
+It is possible to create an account using a valid email address with a new password and your name. It is also possible to find and follow different users to access their actual watchlists. On the user page, it is also possible to see, modify, create and delete their own watchlists.
 
 ## Helpful links
 
@@ -24,11 +27,11 @@ Here are the different links that you can reach within our website:
 - `UMovie/index.html#user`: While in connected mode, links to the user account page.
 - `UMovie/index.html#settings`: While in connected mode, links to the user preferences.
 
-You must be logged in to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html), which is also the home page of the application.
+Authentication is essential in order to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html).
 
 ## Search bar
 
-The search bar allows a search in the page where the user is. For instance, it is possible to make a search for different actors while the user is in the actor page. 
+The included search bar allows a connected user to search throughout the content of the whole application, for instance the different movies, tv shows and actors. The different genres can be changed in the menu of each searchable item of the website. When a category is chosen, a research will be done for all the items in this genre available.
 
 ##Searching for actor
 

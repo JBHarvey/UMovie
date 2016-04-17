@@ -21,8 +21,9 @@ define([
             that.collection = new Genres();
 
             that.collection.url = function () {
-                return "https://umovie.herokuapp.com/genres/" + that.type;
+                return 'https://umovie.herokuapp.com/genres/' + that.type;
             };
+
             that.listenTo(that.collection, 'sync', that.render);
             that.collection.fetch();
         },
@@ -38,12 +39,9 @@ define([
                 that.$el.append(genres.render());
             });
 
-
         },
-
 
     });
     return GenreCollectionView;
-
 
 });

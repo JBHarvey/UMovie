@@ -45,7 +45,7 @@ define([
             'keyup .authentication-input': 'launchFromEnter',
         },
 
-        launchFromEnter: function(inputText) {
+        launchFromEnter: function (inputText) {
             var that = this;
             if (inputText.keyCode == 13)
                 that.sendAuthentication();

@@ -8,11 +8,10 @@ define([
     'backbone',
     'jscookie',
     '../models/genreModel',
-], function($, _, Backbone, Cookie, GenreModel) {
+], function ($, _, Backbone, Cookie, GenreModel) {
 
     var Genres = Backbone.Collection.extend({
-        model : GenreModel,
-
+        model: GenreModel,
 
         parse: function (response) {
             return response;
