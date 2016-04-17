@@ -19,7 +19,6 @@
     }
 }
 
-
 .search-container {
     align-self: flex-start;
     display:flex;
@@ -30,6 +29,9 @@
 
 .search-scope-icons{
     display: flex;
+    flex-direction: row;
+    min-width: 7em;
+    justify-content: space-between;
 }
 
 .scope-icon{
@@ -38,6 +40,17 @@
     align-self: center;
     filter: invert(100%);
     -webkit-filter: invert(100%);
+    border: 0.2em solid;
+    border-radius: 0.2em;
+    cursor: pointer;
+    -webkit-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+}
+
+.scope-selected {
+    border: 0.2em solid rgba(255,122,0, 1);
+    border-radius: 0.2em;
+    background: #ff7a00;
 }
 
 
@@ -561,6 +574,10 @@
         top: 0;
         margin: 0;
         z-index: 1;
+    }
+
+    .input-bar{
+        margin-left: 1em;
     }
 
 
