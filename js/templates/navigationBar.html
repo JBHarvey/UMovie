@@ -1,3 +1,4 @@
+{{#if connected}}
 <div class="navigation-bar">
     <div class="umovie-logo">
         <span id="expend-menu-icon">
@@ -51,3 +52,10 @@
 
     </div>
 </div>
+{{else}}
+<div class="navigation-bar-disconnect">
+    <div class="umovie-logo-disconnect">
+        <a href="#{{references}}"><img id="site-logo" src="url({{siteImageUrl}}"></a>
+    </div>
+</div>
+{{/if}}

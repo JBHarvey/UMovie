@@ -1,25 +1,32 @@
-.movie-banner {
+.background {
     width: 100%;
     height: auto;
 }
 
-.inputFields {
-    margin-right: auto;
+.authentication {
+    min-height: 8em;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 10em;
     margin-left: auto;
+    margin-right: auto;
+    margin-top: -15em;
+}
+
+.inputFields {
+    min-height: 4em;
     width: 100%;
-    max-width: 10.3em;
-    padding-bottom: 0.5em;
+    padding-bottom: 0em;
 }
 
 .-box {
-    width: 160px;
+    width: 100%;
 }
 
 .newEntry {
     width: 100%;
-    max-width: 19em;
-    margin-right: auto;
-    margin-left: auto;
+    text-align: center;
 }
 
 .switch-authentication {
@@ -29,64 +36,127 @@
     margin-left: auto;
 }
 
-.authentification img {
+.authentication img {
+    width: 100%;
+}
+
+.authentication input {
     width: 100%;
 }
 
 .submitAuthentication {
-    padding: 1.2% 7%;
-    border: 1px solid #000000;
-    background: -webkit-gradient(linear, left top, left bottom, from(#E8A023), to(#FFBB00));
-    background: -webkit-linear-gradient(top, #E8A023, #FFBB00);
-    background: -moz-linear-gradient(top, #E8A023, #FFBB00);
-    background: -ms-linear-gradient(top, #E8A023, #FFBB00);
-    background: -o-linear-gradient(top, #E8A023, #FFBB00);
-    background-color: #FFBB00;
-    box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -webkit-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -moz-box-shadow: 0px 7px 2px -5px #1A1A1A, inset 0px 0px 3px #99CC00;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    text-shadow: #FFFF77 1px 1px 0px;
-    color: #000000;
-    font-family: Helvetica;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    cursor: pointer;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+    background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+    background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+    background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+    background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+    background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+    background-color:#2dabf9;
+    -moz-border-radius:26px;
+    -webkit-border-radius:26px;
+    border-radius:26px;
+    border: 1px solid #0b0e07;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size: 1em;
+    padding: 0.2em 1.7em;
+    text-decoration:none;
+    text-shadow:0px 0px 0px #263666;
 }
-
 .submitAuthentication:hover {
-    background: none;
-    background-color: #FFBB00;
-    box-shadow: 0px 0px 5px 0px #AAAAAA;
-    -webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
-    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
-    border: 1px solid #ffffff;
-    color: #770400;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+    background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+    background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+    background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+    background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+    background-color:#0688fa;
 }
-
 .submitAuthentication:active {
-    top: 1px;
-    position: relative;
+    position:relative;
+    top:1px;
 }
 
-@media (min-width: 960px) {
-    .authentification {
+
+.login-titles {
+    font-size: 1.1em;
+    margin-top: 6em;
+    text-align: center;
+}
+
+.login-titles h1{
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.login-desktop {
+    display: none;
+}
+
+@media screen and (min-width: 640px) {
+    .authentication {
+        width: 27em;
+        margin-top: -43em;
+    }
+
+    .inputFields input{
+        font-size: 1.6em;
+        min-height: 1.5em;
+        padding-bottom: 1em;
+    }
+
+
+    .inputFields{
+        min-height: 14em;
+    }
+
+    .submitAuthentication {
+        font-size: 2.5em;
+        padding: 0.2em 2em;
+    }
+
+    .switch-authentication {
+        font-size: 2.2em;
+        margin-bottom: 3.7em;
+    }
+
+    .login-titles {
+        font-size: 1.4em;
+    }
+
+    .text h1, h2 {
+        color: #0085FF;
+    }
+
+    .text h1 {
+        font-size: 4.1em;
+        text-align: center;
+    }
+
+    .text h2 {
+        text-align: center;
+        font-size: 1.6em;
+    }
+
+    .background {
+        margin-top: 4em;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .authentication {
         background-color: black;
         opacity: 0.6;
         color: white;
-        text-align: center;
-        width: 20em;
+        width: 12em;
+        margin-top: -21.9em;
+        margin-left: auto;
+        margin-right: auto;
         height: 12em;
-        position: absolute;
-
-        top: 35%;
-        left: 63%;
-
         border-top-left-radius: 1.2em;
         border-bottom-left-radius: 1.2em;
         border-top-right-radius: 1.2em;
@@ -94,20 +164,78 @@
         border: solid 1px black;
     }
 
-    .connect p {
-        position: absolute;
-        margin-top: -50px;
-        margin-left: -10px;
-        top: 35%;
-        left: 25%;
+    .text h1 {
+        font-size: 3.1em;
+        text-align: center;
     }
 
-    .authentification input {
-        background-color: white;
-        margin: 0.7em;
+    .login-content {
+        margin-top: 0em;
+    }
+
+    .login-titles {
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        margin-top: 4em;
+        height: 0em;
+    }
+
+    .inputFields{
+        width: 10em;
+        margin-top: 1em;
         margin-left: auto;
         margin-right: auto;
-        width: 100%;
-        height: 3em;
+        min-height: 6em;
+    }
+
+    .authentication input {
+        font-size: .6em;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        height: 0;
+    }
+
+    .switch-authentication {
+        font-size: 0.8em;
+    }
+
+    .submitAuthentication {
+        font-size: 1em;
+        padding: 0.2em 1.5em;
+    }
+
+    .login-mobile {
+        display: none;
+    }
+
+    .login-desktop {
+        margin-top: -6.3em;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 362px) and (max-width: 640px){
+    .authentication{
+        margin-top: -26em;
+    }
+
+    .login-titles {
+        font-size: 0.85em;
+        width: 22em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.6em;
+    }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1024px){
+    .authentication{
+        margin-top: -20em;
+    }
+
+    .login-titles {
+        margin-top: 9em;
     }
 }
