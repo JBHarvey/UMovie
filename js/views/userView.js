@@ -13,7 +13,7 @@ define([
     'handlebars',
     'utils/gravatarIcon',
     'jscookie',
-    'views/ThumbnailView',
+    'views/thumbnailView',
     'collections/watchlistCollection',
     'views/watchlistView',
 ], function ($, _, Backbone, UserTemplate, MemberModel, User, Handlebars, GravatarIcon, Cookie, ThumbnailView, WatchlistCollection, WatchlistView) {
