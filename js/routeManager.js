@@ -163,7 +163,8 @@ define([
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(SearchView, { scope: 'actor', searchWord: 'Monica' });
+
+                updateMainView(SearchView, {scope: 'actor', searchWord: 'Tom'});
 
             });
 
@@ -197,7 +198,7 @@ define([
             });
 
             uMovieRouter.on('route:searchNoQuery', function (scope) {
-                var searchInfo = { scope: scope, searchWord: 'NO-DATA' };
+                var searchInfo = { scope: scope, searchWord: '...' };
                 updateMainView(SearchView, searchInfo);
             });
 
@@ -207,7 +208,7 @@ define([
             });
 
             uMovieRouter.on('route:searchNoNothing', function () {
-                var searchInfo = { scope: 'movie-season', searchWord: 'NO-DATA' };
+                var searchInfo = { scope: 'movie-season', searchWord: '...' };
                 updateMainView(SearchView, searchInfo);
             });
 

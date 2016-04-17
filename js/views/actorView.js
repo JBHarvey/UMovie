@@ -8,9 +8,12 @@ define([
     'backbone',
     'text!templates/actor.html',
     'collections/movieCollection',
-    'views/tmdbData',
     'handlebars',
-], function ($, _, Backbone, actorTemplate, MovieCollection, TmdbData, Handlebars) {
+    'models/imdbActorModel',
+    'utils/imdb',
+    'views/tmdbData',
+], function ($, _, Backbone, actorTemplate, MovieCollection, Handlebars, ImdbActorModel, Imdb, Tmdb) {
+
     'use strict';
 
     var ActorView = Backbone.View.extend({
@@ -38,19 +41,64 @@ define([
             });
         },
 
-        generateSearchName: function () {
-            return encodeURI(this.model.get('artistName'));
+        generateSearchName: function (name) {
+            return encodeURI(name);
         },
 
         render: function () {
-            var searchRequest = this.generateSearchName();
+            var that = this;
 
-            var source = this.model.attributes;
+            var source = that.model.attributes;
             var template = Handlebars.compile(actorTemplate);
 
-            this.$el.html(template(source));
-            var tmdbData = new TmdbData();
-            tmdbData.getTmdbActorData(searchRequest, 'imgActor', 'description');
+            that.$el.html(template(source));
+            var tmdbData = new Tmdb();
+            tmdbData.getTmdbActorData(that.model.attributes.tmdbRequest, 'imgActor', 'description');
+
+            var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
+            var searchRequest = this.generateSearchName(search);
+
+
+            Imdb.actors.findActors({query: searchRequest}, function (data) {
+                var parsedData = JSON.parse(data);
+                var actorDatas = parsedData['name_popular']
+                    || parsedData['name_exact']
+                    || parsedData['name_approx']
+                    || parsedData['name_substring'];
+
+                if (actorDatas) {
+
+                    var actorID = undefined;
+                    actorDatas.forEach(function (actor) {
+
+                        if (actor.name.localeCompare(that.model.attributes.artistName) == 0 && actorID == undefined) {
+
+                            actorID = actor;
+                        }
+                    });
+                    that.imdbModel = new ImdbActorModel(actorID);
+                    that.imdbModel.fetch({
+                        success: function (data) {
+
+                            var biography = data.attributes.bio;
+                            var picture = data.attributes.image.url;
+                            Imdb.actors.modifySingleActorBio(biography, 'description');
+                            if (data.attributes.image) {
+                                Imdb.actors.modifySingleActorImage(picture, 'imgActor')
+                            }
+
+                        },
+                    });
+                }
+            });
+
+        },
+
+        addImageToActors: function (model) {
+            if (model.attributes.tmdbRequest) {
+                var tmdb = new Tmdb();
+                tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
+            }
         },
 
     });

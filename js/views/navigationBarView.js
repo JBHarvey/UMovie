@@ -100,7 +100,6 @@ define([
                 formatedScope = `${formatedScope}${that.querySeparator(formatedScope)}member`;
             }
 
-            console.log(formatedScope);
             return formatedScope;
         },
 

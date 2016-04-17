@@ -208,6 +208,7 @@
     }
 
     #imgActor {
+        width: 50%;
         max-width: 50%;
         margin: 10% 25%;
     }

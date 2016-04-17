@@ -7,10 +7,12 @@ define([
     'underscore',
     'backbone',
     'views/thumbnailView',
-    'views/tmdbData',
+    'models/imdbActorModel',
+    'utils/imdb',
     'views/genreCollectionView',
     '../utils/gravatarIcon',
-], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView, GravatarIcon) {
+    'views/tmdbData'
+], function ($, _, Backbone, ThumbnailView, ImdbActorModel, Imdb, GenreCollectionView, GravatarIcon, Tmdb) {
     'use strict';
 
     var SearchCollectionView = Backbone.View.extend({
@@ -29,11 +31,14 @@ define([
             that.showMessageIfNoResults();
             that.findQueryWord();
 
-            this.collection.each(function (model) {
+            that.collection.each(function (model) {
                 if (that.modelCanBeRendered(model)) {
-                    var thumbnail = new ThumbnailView({ model: model });
+                    var thumbnail = new ThumbnailView({model: model});
                     that.$el.append(thumbnail.render());
                     that.addImageToActors(model);
+                    if (model.attributes.tmdbRequest) {
+                        that.callImdb(model);
+                    }
                 }
             });
 
@@ -43,6 +48,7 @@ define([
 
         addImageToActors: function (model) {
             if (model.attributes.tmdbRequest) {
+
                 var tmdb = new Tmdb();
                 tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
             }
@@ -55,6 +61,52 @@ define([
                 imageElement.src = gravatarIcon.getGravatarURL();
             });
         },
+
+        callImdb: function (model) {
+            var that = this;
+
+
+            var search = model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
+            var searchRequest = encodeURI(search);
+
+
+            Imdb.actors.findActors({query: searchRequest}, function (data) {
+                var parsedData = JSON.parse(data);
+                var actorDatas = parsedData['name_popular']
+                    || parsedData['name_exact']
+                    || parsedData['name_approx']
+                    || parsedData['name_substring'];
+
+                if (actorDatas) {
+
+                    var actorID = undefined;
+                    actorDatas.forEach(function (actor) {
+
+                        if (actorID == undefined && actor.name.localeCompare(model.attributes.artistName) == 0) {
+                            actorID = actor;
+                        }
+                    });
+
+                    that.imdbModel = new ImdbActorModel(actorID);
+                    that.imdbModel.fetch({
+                        success: function (data) {
+
+                            var biography = data.attributes.bio;
+                            const bioId = model.attributes.bioId;
+                            Imdb.actors.modifySingleActorBio(biography, bioId);
+
+
+                            if (data.attributes.image) {
+                                var picture = data.attributes.image.url;
+                                const imageID = model.attributes.imageId;
+                                Imdb.actors.modifySingleActorImage(picture, imageID);
+                            }
+                        },
+                    });
+                }
+            });
+        },
+
 
         addCategoriesToHtml: function () {
 
@@ -104,4 +156,6 @@ define([
     });
     return SearchCollectionView;
 
+
 });
+
