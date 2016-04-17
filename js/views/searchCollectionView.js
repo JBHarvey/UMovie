@@ -11,6 +11,7 @@ define([
     'views/genreCollectionView',
     '../utils/gravatarIcon',
 ], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView, GravatarIcon) {
+    'use strict';
 
     var SearchCollectionView = Backbone.View.extend({
 
@@ -22,7 +23,6 @@ define([
             that.collection.fetch();
         },
 
-
         render: function () {
             var that = this;
 
@@ -31,7 +31,7 @@ define([
 
             this.collection.each(function (model) {
                 if (that.modelCanBeRendered(model)) {
-                    var thumbnail = new ThumbnailView({model: model});
+                    var thumbnail = new ThumbnailView({ model: model });
                     that.$el.append(thumbnail.render());
                     that.addImageToActors(model);
                 }
@@ -47,7 +47,6 @@ define([
                 tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
             }
         },
-
 
         addGravatarIcons: function () {
             var gravatarImages = document.getElementsByClassName('gravatar-photo');
@@ -78,17 +77,17 @@ define([
         modelCanBeRendered: function (model) {
             var that = this;
             var query = that.queryWord;
-            if (model.attributes.isUserType && query != '') {
-                var name = model.attributes['name'];
-                var email = model.attributes['email'];
+            if (model.attributes.isUserType && query !== '') {
+                var name = model.attributes.name;
+                var email = model.attributes.email;
                 return !!(name.includes(query) || email.includes(query));
             }
+
             return true;
 
         },
 
         effectiveFilter: function (data) {
-            'use strict';
             return _.filter(data, function (model) {
             });
         },

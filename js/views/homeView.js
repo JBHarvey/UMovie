@@ -18,7 +18,7 @@ define([
     var HomeView = Backbone.View.extend({
 
         el: '#content',
-        content: {category: [],},
+        content: { category: [], },
 
         initialize: function () {
             this.searchManager = new SearchModel();
@@ -34,13 +34,13 @@ define([
             var that = this;
             this.$el.html('Trending now : <br/>');
             this.collection.each(function (movie) {
-                var trendingThumbnails = new ThumbnailView({model: movie});
+                var trendingThumbnails = new ThumbnailView({ model: movie });
                 that.$el.append(trendingThumbnails.render());
             });
 
             that.$el.append('<div>Other users are also watching : </div><br/>');
             that.collection.each(function (movie) {
-                var otherWatchersThumbnails = new ThumbnailView({model: movie});
+                var otherWatchersThumbnails = new ThumbnailView({ model: movie });
                 that.$el.append(otherWatchersThumbnails.render());
             });
 

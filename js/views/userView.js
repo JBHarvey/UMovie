@@ -2,7 +2,6 @@
  * Created by seydou on 2016-03-27.
  */
 
-
 define([
     'jquery',
     'underscore',
@@ -25,7 +24,7 @@ define([
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
 
-            this.activeUser = new MemberModel({id: Cookie.get('id')});
+            this.activeUser = new MemberModel({ id: Cookie.get('id') });
 
             var that = this;
             var syncRendering = _.after(2, function () {
@@ -58,7 +57,7 @@ define([
         setFollowedUsers: function () {
             var $followedUsersBox = $('#followed-list');
             this.model.get('following').forEach(function (followed) {
-                var memberThumbnailView = new ThumbnailView({model: new MemberModel(followed)});
+                var memberThumbnailView = new ThumbnailView({ model: new MemberModel(followed) });
                 $followedUsersBox.append(memberThumbnailView.render());
             });
 
@@ -76,6 +75,7 @@ define([
                         var watchlistView = new WatchlistView(watchlist);
                         $watchlistsBox.append(watchlistView.render());
                     });
+
                     $('.remove-watchlist-movie').remove();
                     $('.delete-watchlist-checkbox').remove();
                     $('.watchlist-edit-button').remove();

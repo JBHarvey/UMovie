@@ -9,7 +9,7 @@ define([
 
     var MemberModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/users',
-        defaults:{isUserType: true,},
+        defaults:{ isUserType: true, },
 
         parse(data) {
             if (_.isObject(data.results)) {
@@ -29,6 +29,7 @@ define([
             } else if (method === 'delete') {
                 options.url = `https://umovie.herokuapp.com/follow/${this.id}`;
             }
+
             return Backbone.sync(method, model, options);
         },
     });

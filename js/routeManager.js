@@ -63,7 +63,7 @@ define([
             },
 
             go: function (route) {
-                this.navigate(route, {trigger: yes});
+                this.navigate(route, { trigger: yes });
             },
         });
 
@@ -123,7 +123,7 @@ define([
                 }
 
                 if (checkCredentials()) {
-                    currentView = newModel ? new ViewClass({model: newModel}) : new ViewClass();
+                    currentView = newModel ? new ViewClass({ model: newModel }) : new ViewClass();
                 } else {
                     noAuthPage(false);
                 }
@@ -141,34 +141,34 @@ define([
 
             // Movies
             uMovieRouter.on('route:displayMovies', function () {
-                updateMainView(SearchView, {scope: 'movie', searchWord: 'dead'});
+                updateMainView(SearchView, { scope: 'movie', searchWord: 'dead' });
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
                 var id = parseInt(movieId);
-                var newMovie = new MovieModel({trackId: id});
+                var newMovie = new MovieModel({ trackId: id });
                 updateMainView(MovieView, newMovie);
             });
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(SearchView, {scope: 'season', searchWord: 'dead'});
+                updateMainView(SearchView, { scope: 'season', searchWord: 'dead' });
             });
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newSeason = new SeasonModel({id: newId});
+                var newSeason = new SeasonModel({ id: newId });
                 updateMainView(SeasonView, newSeason);
             });
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(SearchView, {scope: 'actor', searchWord: 'Monica'});
+                updateMainView(SearchView, { scope: 'actor', searchWord: 'Monica' });
 
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                var newActor = new ActorModel({id: actorId});
+                var newActor = new ActorModel({ id: actorId });
                 updateMainView(ActorView, newActor);
             });
 
@@ -177,37 +177,37 @@ define([
             });
 
             uMovieRouter.on('route:browseSpecificMember', function (memberId) {
-                var newMember = new UserModel({id: memberId});
+                var newMember = new UserModel({ id: memberId });
                 updateMainView(UserView, newMember);
             });
 
             uMovieRouter.on('route:browseMembers', function () {
-                updateMainView(SearchView, {scope: 'member', searchWord: ''});
+                updateMainView(SearchView, { scope: 'member', searchWord: '' });
 
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new UserModel({id: Cookie.get('id')});
+                session = new UserModel({ id: Cookie.get('id') });
                 updateMainView(UserView, session);
             });
 
             uMovieRouter.on('route:search', function (scope, query) {
-                var searchInfo = {scope: scope, searchWord: query};
+                var searchInfo = { scope: scope, searchWord: query };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoQuery', function (scope) {
-                var searchInfo = {scope: scope, searchWord: 'NO-DATA'};
+                var searchInfo = { scope: scope, searchWord: 'NO-DATA' };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoScope', function (query) {
-                var searchInfo = {scope: 'movie-season', searchWord: query};
+                var searchInfo = { scope: 'movie-season', searchWord: query };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoNothing', function () {
-                var searchInfo = {scope: 'movie-season', searchWord: 'NO-DATA'};
+                var searchInfo = { scope: 'movie-season', searchWord: 'NO-DATA' };
                 updateMainView(SearchView, searchInfo);
             });
 
@@ -244,7 +244,7 @@ define([
             };
 
             setHeaderAuthorization();
-            Backbone.history.start({root: '/UMovie'});
+            Backbone.history.start({ root: '/UMovie' });
 
         };
 

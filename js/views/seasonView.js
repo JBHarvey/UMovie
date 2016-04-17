@@ -55,11 +55,11 @@ define([
             var youtubeVideo = new YoutubeVideo(searchRequest, '.preview-element-video');
 
             that.collection.each(function (episode) {
-                var thumbnail = new ThumbnailView({model: episode});
+                var thumbnail = new ThumbnailView({ model: episode });
                 $('.episodes-box').append(thumbnail.render());
 
                 var episodeId = episode.get('trackId');
-                episode.set({id: parseInt(episodeId)});
+                episode.set({ id: parseInt(episodeId) });
                 $('#idThumbnail').attr('id', episodeId);
             });
         },
@@ -72,7 +72,7 @@ define([
             var id = event.currentTarget.id;
             var selectedEpisodeId = parseInt(id);
             var model = this.collection.get(selectedEpisodeId);
-            var episode = new EpisodeView({model: model});
+            var episode = new EpisodeView({ model: model });
             episode.render();
         },
 

@@ -124,7 +124,7 @@ define([
             this.toggleScopeClass(event);
         },
 
-        toggleScopeClass: function(event) {
+        toggleScopeClass: function (event) {
             var typeClass = event.target.attributes.getNamedItem('class').nodeValue;
             if (typeClass.match(/ scope-selected/g)) {
                 event.target.attributes.getNamedItem('class').nodeValue = typeClass.replace(/ scope-selected/g, '');
