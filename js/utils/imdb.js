@@ -392,7 +392,6 @@ define(function () {
          * @example
          * imdb.actors.getActorImages({query: 'nm1870434'}, function (successData) {
          *    var parsedData = JSON.parse(successData);
-         *    // Do something with the data
          * }, function (error) {
          *    // Handles the error
          * });
