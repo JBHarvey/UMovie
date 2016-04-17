@@ -9,6 +9,7 @@ define([
 
     var MemberModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/users',
+        defaults:{isUserType: true,},
 
         parse(data) {
             if (_.isObject(data.results)) {
@@ -28,19 +29,7 @@ define([
             } else if (method === 'delete') {
                 options.url = `https://umovie.herokuapp.com/follow/${this.id}`;
             }
-
             return Backbone.sync(method, model, options);
-        },
-
-        defaults:{
-            email: 'john.smith@mail.com',
-            name: 'John Smith',
-            id: '53ec122d27aafe77d8c37b8',
-            following: [{
-                id: '53ec12122121afe77d8c37b8',
-                name: 'Walter White',
-                email: 'walter.white@mail.com',
-            },],
         },
     });
 

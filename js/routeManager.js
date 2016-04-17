@@ -19,24 +19,20 @@ define([
         'models/userModel',
         'views/movieView',
         'models/movieModel',
-        'views/movieCollectionView',
         'views/seasonView',
         'models/seasonModel',
-        'views/seasonCollectionView',
         'views/actorView',
         'models/actorModel',
-        'views/actorsCollectionView',
         'views/watchlistCollectionView',
         'views/userSettingsView',
         'views/searchView',
         'views/memberView',
         'models/memberModel',
-        'views/memberCollectionView',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
-                 SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
+                 UserModel, MovieView, MovieModel, SeasonView,
+                 SeasonModel, ActorView, ActorModel,
                  WatchlistCollectionView, UserSettingsView,
-                 SearchView, MemberView, MemberModel, MemberCollectionView) {
+                 SearchView, MemberView, MemberModel) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -188,7 +184,7 @@ define([
             });
 
             uMovieRouter.on('route:browseMembers', function () {
-                updateMainView(MemberCollectionView, undefined);
+                updateMainView(SearchView, {scope: 'member', searchWord: ''});
 
             });
 

@@ -9,7 +9,8 @@ define([
     'views/thumbnailView',
     'views/tmdbData',
     'views/genreCollectionView',
-], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView) {
+    '../utils/gravatarIcon',
+], function ($, _, Backbone, ThumbnailView, Tmdb, GenreCollectionView,GravatarIcon) {
 
     var SearchCollectionView = Backbone.View.extend({
 
@@ -21,21 +22,36 @@ define([
             that.collection.fetch();
         },
 
+
         render: function () {
             var that = this;
 
             this.showMessageIfNoResults();
 
             this.collection.each(function (model) {
-                var thumbnail = new ThumbnailView({ model: model });
+                var thumbnail = new ThumbnailView({model: model});
                 that.$el.append(thumbnail.render());
-                if (model.attributes.tmdbRequest) {
-                    var tmdb = new Tmdb();
-                    tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
-                }
+                that.addImageToActors(model);
             });
 
-            this.addCategoriesToHtml();
+            that.addCategoriesToHtml();
+            that.addGravatarIcons();
+        },
+
+        addImageToActors: function (model) {
+            if (model.attributes.tmdbRequest) {
+                var tmdb = new Tmdb();
+                tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
+            }
+        },
+
+
+        addGravatarIcons: function () {
+            var gravatarImages = document.getElementsByClassName('gravatar-photo');
+            Array.prototype.forEach.call(gravatarImages, function (imageElement) {
+                var gravatarIcon = new GravatarIcon(imageElement.dataset.email);
+                imageElement.src = gravatarIcon.getGravatarURL();
+            });
         },
 
         addCategoriesToHtml: function () {
