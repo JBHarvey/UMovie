@@ -6,20 +6,26 @@ define([
     'underscore',
     'backbone',
     'text!templates/teamMembers.html',
+    '../models/teamMembersModel',
     'handlebars',
-], function ($, _, Backbone, teamMemberTemplate, Handlebars) {
+], function ($, _, Backbone, TeamMembersTemplate, TeamMembersModel, Handlebars) {
 
     var teamMemberView = Backbone.View.extend({
 
+        el: '#content',
+
         initialize: function () {
+            this.model = TeamMembersModel();
+            this.render()
         },
 
         render: function () {
-            var template = Handlebars.compile(teamMemberTemplate);
+            var template = Handlebars.compile(TeamMembersTemplate);
             var source = this.model.attributes;
-            return template(source);
+            var teamPage = template(source);
+            this.$el.html(teamPage);
         },
-
     });
+
     return teamMemberView;
 });

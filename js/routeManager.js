@@ -15,6 +15,7 @@ define([
         'jscookie',
         'views/navigationBarView',
         'views/homeView',
+        'views/teamMembersView',
         'views/authenticationView',
         'models/sessionModel',
         'views/movieView',
@@ -27,8 +28,8 @@ define([
         'views/searchView',
         'views/userView',
         'models/userModel',
-    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 SessionModel, MovieView, MovieModel, SeasonView, SeasonModel,
+    ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, TeamMembersView,
+                 AuthenticationView, SessionModel, MovieView, MovieModel, SeasonView, SeasonModel,
                  ActorView, ActorModel, WatchlistCollectionView, SearchView,
                  UserView, UserModel) {
 
@@ -136,7 +137,8 @@ define([
             //updateMainView(HomeView, undefined);
 
             uMovieRouter.on('route:goHome', function () {
-                updateMainView(HomeView, undefined);
+                updateMainView(TeamMembersView, undefined);
+                //updateMainView(HomeView, undefined);
             });
 
             // Movies
