@@ -41,7 +41,6 @@ define([
             var template = Handlebars.compile(EpisodeTemplate);
             var resultEpisode = template(source);
             this.$el.html(resultEpisode);
-            console.log(this.$el);
         },
 
         events: {
