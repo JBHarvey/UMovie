@@ -18,14 +18,19 @@ define([
             ],
             menuOptionConnected: [
                 { name: 'Watchlists', references: 'watchlists', position: 'menuStandard' },
-                { name: 'Community', references: 'members', position: 'menuStandard' },
+                { name: 'Community', references: 'search?scope=member&query=', position: 'menuStandard' },
                 { name: 'My Account', references: 'user', position: 'userOption' },
-                { name: 'Settings', references: 'settings', position: 'userOption' },
                 { name: 'Disconnect', references: 'disconnect', position: 'userOption' },
             ],
             menuOptionDisconnected: [
                 { name: 'Login', references: 'login', position: 'authenticationMenuOption' },
                 { name: 'Sign Up', references: 'signup', position: 'authenticationMenuOption' },
+            ],
+            scopeIcon: [
+                { name: 'movie', url: 'img/searchIcons/cinema.svg' },
+                { name: 'season', url: 'img/searchIcons/monitor.svg' },
+                { name: 'actor', url: 'img/searchIcons/art.svg' },
+                { name: 'member', url: 'img/searchIcons/people.svg' },
             ],
             connected: false,
         },

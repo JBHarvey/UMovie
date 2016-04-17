@@ -1,0 +1,108 @@
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.personnal-info {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.user-name {
+    margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+.user-email {
+    margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+#followed-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#followed-list h1 {
+    text-align: center;
+}
+
+.user-box {
+    min-width: 0;
+    max-width: 360px;
+    text-decoration: none;
+    display: flex;
+}
+
+.user-thumbnail {
+    margin-right: 0.5em;
+}
+
+.user-info {
+    min-width: 0;
+
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+content {
+    margin-top : 10%;
+}
+
+.toggle-following {
+    background-color: green;
+    color: white;
+    transition: opacity ease-in-out .25s;
+
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+
+    font-size: 0.8em;
+    text-align: center;
+    height: 40px;
+    width: 130px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.toggle-following:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#user-watchlists {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-watchlists h1 {
+    text-align: center;
+}
+
+@media screen and (min-width: 640px) {
+    .user-box {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .user-box {
+        max-width: 960px;
+    }
+}

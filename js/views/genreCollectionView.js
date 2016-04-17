@@ -35,7 +35,7 @@ define([
             that.$el.html('');
 
             that.collection.each(function (genre) {
-                var genres = new GenreView({model: genre, tagName: that.type});
+                var genres = new GenreView({ model: genre, tagName: that.type });
                 that.$el.append(genres.render());
             });
 

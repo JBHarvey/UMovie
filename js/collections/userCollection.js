@@ -6,12 +6,13 @@ define([
     'underscore',
     'backbone',
     'jscookie',
-    'models/memberModel',
-], function ($, _, Backbone, Cookie, MemberModel) {
+    '../models/userModel',
+], function ($, _, Backbone, Cookie, UserModel) {
 
     var Members = Backbone.Collection.extend({
-        model: MemberModel,
+        model: UserModel,
         url: 'https://umovie.herokuapp.com/users',
+        isUserCollection: true,
 
         parse: function (response) {
             return response;

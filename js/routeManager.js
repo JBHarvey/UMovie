@@ -16,27 +16,21 @@ define([
         'views/navigationBarView',
         'views/homeView',
         'views/authenticationView',
-        'models/userModel',
+        'models/sessionModel',
         'views/movieView',
         'models/movieModel',
-        'views/movieCollectionView',
         'views/seasonView',
         'models/seasonModel',
-        'views/seasonCollectionView',
         'views/actorView',
         'models/actorModel',
-        'views/actorsCollectionView',
         'views/watchlistCollectionView',
-        'views/userSettingsView',
         'views/searchView',
-        'views/memberView',
-        'models/memberModel',
-        'views/memberCollectionView',
+        'views/userView',
+        'models/userModel',
     ], function ($, _, Backbone, Cookie, NavigationBarView, HomeView, AuthenticationView,
-                 UserModel, MovieView, MovieModel, MovieCollectionView, SeasonView,
-                 SeasonModel, SeasonsCollectionView, ActorView, ActorModel, ActorCollectionView,
-                 WatchlistCollectionView, UserSettingsView,
-                 SearchView, MemberView, MemberModel, MemberCollectionView) {
+                 SessionModel, MovieView, MovieModel, SeasonView, SeasonModel,
+                 ActorView, ActorModel, WatchlistCollectionView, SearchView,
+                 UserView, UserModel) {
 
         var UMovieRouter = Backbone.Router.extend({
 
@@ -49,15 +43,15 @@ define([
                 actors: 'displayActors',
                 'actor/:actorId': 'displaySpecificActor',
                 watchlists: 'displayWatchlists',
-                user: 'showUser',
 
+                user: 'showUser',
                 members: 'browseMembers',
+
                 'member/:memberId': 'browseSpecificMember',
                 'search?scope=:scope&query=:query': 'search',
                 'search?scope=&query=:query': 'searchNoScope',
                 'search?scope=:scope&query=': 'searchNoQuery',
                 'search?scope=&query=': 'searchNoNothing',
-                otherUsers: 'browseUsers',
 
                 settings: 'settings',
                 login: 'login',
@@ -69,7 +63,7 @@ define([
             },
 
             go: function (route) {
-                this.navigate(route, {trigger: yes});
+                this.navigate(route, { trigger: yes });
             },
         });
 
@@ -79,7 +73,7 @@ define([
             var currentView;
             var uMovieRouter = new UMovieRouter();
 
-            var session = new UserModel();
+            var session = new SessionModel();
             var navigationBarView = new NavigationBarView();
 
             uMovieRouter.listenTo(Backbone, 'router:go', uMovieRouter.go);
@@ -129,7 +123,7 @@ define([
                 }
 
                 if (checkCredentials()) {
-                    currentView = newModel ? new ViewClass({model: newModel}) : new ViewClass();
+                    currentView = newModel ? new ViewClass({ model: newModel }) : new ViewClass();
                 } else {
                     noAuthPage(false);
                 }
@@ -147,33 +141,35 @@ define([
 
             // Movies
             uMovieRouter.on('route:displayMovies', function () {
-                updateMainView(SearchView, {scope: 'movie', searchWord: 'dead'});
+                updateMainView(SearchView, { scope: 'movie', searchWord: 'dead' });
             });
 
             uMovieRouter.on('route:displaySpecificMovie', function (movieId) {
                 var id = parseInt(movieId);
-                var newMovie = new MovieModel({trackId: id});
+                var newMovie = new MovieModel({ trackId: id });
                 updateMainView(MovieView, newMovie);
             });
 
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
-                updateMainView(SearchView, {scope: 'season', searchWord: 'dead'});
+                updateMainView(SearchView, { scope: 'season', searchWord: 'dead' });
             });
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {
                 var newId = parseInt(tvShowId);
-                var newSeason = new SeasonModel({id: newId});
+                var newSeason = new SeasonModel({ id: newId });
                 updateMainView(SeasonView, newSeason);
             });
 
             //Actors
             uMovieRouter.on('route:displayActors', function () {
-                updateMainView(SearchView, {scope: 'actor', searchWord: 'Monica'});
+
+                updateMainView(SearchView, {scope: 'actor', searchWord: 'Tom'});
+
             });
 
             uMovieRouter.on('route:displaySpecificActor', function (actorId) {
-                var newActor = new ActorModel({id: actorId});
+                var newActor = new ActorModel({ id: actorId });
                 updateMainView(ActorView, newActor);
             });
 
@@ -182,38 +178,37 @@ define([
             });
 
             uMovieRouter.on('route:browseSpecificMember', function (memberId) {
-                var newMember = new MemberModel({id: memberId});
-                updateMainView(MemberView, newMember);
+                var newMember = new UserModel({ id: memberId });
+                updateMainView(UserView, newMember);
             });
 
             uMovieRouter.on('route:browseMembers', function () {
-                updateMainView(MemberCollectionView, undefined);
+                updateMainView(SearchView, { scope: 'member', searchWord: '' });
 
             });
 
             uMovieRouter.on('route:showUser', function () {
-                session = new MemberModel({id: Cookie.get('id')});
-                updateMainView(MemberView, session);
-
+                session = new UserModel({ id: Cookie.get('id') });
+                updateMainView(UserView, session);
             });
 
             uMovieRouter.on('route:search', function (scope, query) {
-                var searchInfo = {scope: scope, searchWord: query};
+                var searchInfo = { scope: scope, searchWord: query };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoQuery', function (scope) {
-                var searchInfo = {scope: scope, searchWord: 'NO-DATA'};
+                var searchInfo = { scope: scope, searchWord: '...' };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoScope', function (query) {
-                var searchInfo = {scope: 'movie-season', searchWord: query};
+                var searchInfo = { scope: 'movie-season', searchWord: query };
                 updateMainView(SearchView, searchInfo);
             });
 
             uMovieRouter.on('route:searchNoNothing', function () {
-                var searchInfo = {scope: 'movie-season', searchWord: 'NO-DATA'};
+                var searchInfo = { scope: 'movie-season', searchWord: '...' };
                 updateMainView(SearchView, searchInfo);
             });
 
@@ -250,8 +245,7 @@ define([
             };
 
             setHeaderAuthorization();
-
-            Backbone.history.start({root: '/UMovie'});
+            Backbone.history.start({ root: '/UMovie' });
 
         };
 
