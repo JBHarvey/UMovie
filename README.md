@@ -13,7 +13,8 @@ Our website is hosted at this [page](http://umovie-team01-h2016.herokuapp.com/UM
 ## Custom IMDB API
 
 We made a custom IMDB API to get the informations. The API source code is located at the following [address](https://github.com/AntoineGagne/imdb-api-request).
-It is also hosted on Heroku at the following [address](http://imdb-api-request.herokuapp.com).
+It is also hosted on Heroku at the following [address](http://imdb-api-request.herokuapp.com). Unfortunately, IMDB blocks the utilisation of their images on site
+that are not hosted on their domain to limit the traffic of their website. However, locally, the images are not blocked.
 
 ## Technologies
 
