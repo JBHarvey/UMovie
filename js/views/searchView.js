@@ -30,26 +30,26 @@ define([
 
             that.searchToShow = {
                 searchWord: that.searchWord,
-                group: []
+                group: [],
             };
             var scope = that.scope;
             if (scope.match('movie')) {
-                that.searchToShow.group.push({title: 'Movie', name: 'movies'});
+                that.searchToShow.group.push({ title: 'Movie', name: 'movies' });
 
             }
 
             if (scope.match('season')) {
-                that.searchToShow.group.push({title: 'Season', name: 'tvshows'});
+                that.searchToShow.group.push({ title: 'Season', name: 'tvshows' });
             }
 
             if (scope.match('actor')) {
 
-                that.searchToShow.group.push({title: 'Actor', name: 'actors'});
+                that.searchToShow.group.push({ title: 'Actor', name: 'actors' });
 
             }
 
             if (scope.match('member')) {
-                that.searchToShow.group.push({title: 'Member', name: 'members'});
+                that.searchToShow.group.push({ title: 'Member', name: 'members' });
 
             }
         },
@@ -72,7 +72,6 @@ define([
             this.$el.html('');
             var template = Handlebars.compile(searchGroupTemplate);
 
-
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
 
@@ -84,17 +83,16 @@ define([
             var searchCollectionView = new SearchCollectionView({
                 collection: newCollection,
                 el: idName,
-                model: genres
+                model: genres,
             });
         },
 
         activateSearches: function () {
             var that = this;
             var idName = '';
-            var newCollection = undefined;
-            var genres = undefined;
+            var newCollection;
+            var genres;
             var scope = that.scope;
-
 
             if (scope.match('movie')) {
                 idName = '#movies-search-result';
@@ -102,6 +100,7 @@ define([
                 newCollection.url = function () {
                     return that.searchMovie();
                 };
+
                 genres = 'movies';
                 that.searchCollection(newCollection, idName, genres);
             }
@@ -112,6 +111,7 @@ define([
                 newCollection.url = function () {
                     return that.searchSeason();
                 };
+
                 genres = 'tvshows';
                 that.searchCollection(newCollection, idName, genres);
             }
@@ -122,6 +122,7 @@ define([
                 newCollection.url = function () {
                     return that.searchActor();
                 };
+
                 that.searchCollection(newCollection, idName, genres);
 
             }
@@ -172,7 +173,7 @@ define([
         },
 
         events: {
-            'click .component-genre': 'toggleThumbnailGenre'
+            'click .component-genre': 'toggleThumbnailGenre',
         },
 
         selectedGenres: {
@@ -198,17 +199,16 @@ define([
             that.applyGenreFilters(activeFilters, mediaType);
         },
 
-        selectActiveFilters(mediaType){
+        selectActiveFilters(mediaType) {
             var that = this;
             var filters = that.selectedGenres[mediaType];
             var filterKeys = Object.keys(filters);
             return filterKeys.filter(function (element) {
-                if (filters[element] == true) {
+                if (filters[element] === true) {
                     return element;
                 }
             });
         },
-
 
         applyGenreFilters: function (activeFilters, mediaType) {
             var that = this;
@@ -222,8 +222,7 @@ define([
                         var elementGenre = that.fetchMediaGenre(mediaBoxes[box]);
                         if (activeFilters.includes(elementGenre)) {
                             that.showMedia(mediaBoxes[box]);
-                        }
-                        else {
+                        } else {
                             that.hideMedia(mediaBoxes[box]);
                         }
                     } else {
@@ -245,46 +244,19 @@ define([
         },
 
         showMedia: function (mediaBox) {
-            mediaBox.style.display = "inline-flex";
+            mediaBox.style.display = 'inline-flex';
         },
 
         hideMedia: function (mediaBox) {
-            mediaBox.style.display = "none";
+            mediaBox.style.display = 'none';
         },
 
         filtersNotEmpty: function (activeFilters) {
-            return activeFilters.length != 0;
-        }
+            return activeFilters.length !== 0;
+        },
 
     });
     return SearchView;
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

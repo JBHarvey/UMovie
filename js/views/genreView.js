@@ -10,7 +10,6 @@ define([
     'handlebars',
 ], function ($, _, Backbone, genreTemplate, Handlebars) {
 
-
     var GenreView = Backbone.View.extend({
 
         initialize: function () {

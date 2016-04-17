@@ -8,7 +8,6 @@ define([
     var genreModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/genres',
 
-
         parse(data) {
             if (_.isObject(data.results)) {
                 return this.processData(data.results[0]);
@@ -20,7 +19,6 @@ define([
         processData(data) {
             return data;
         },
-
 
     });
 

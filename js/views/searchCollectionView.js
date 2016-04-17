@@ -21,7 +21,7 @@ define([
             that.collection.fetch();
         },
 
-         render: function () {
+        render: function () {
             var that = this;
 
             this.showMessageIfNoResults();
@@ -34,6 +34,7 @@ define([
                     tmdb.getTmdbActorData(model.attributes.tmdbRequest, model.attributes.imageId, model.attributes.bioId);
                 }
             });
+
             this.addCategoriesToHtml();
         },
 
@@ -50,7 +51,7 @@ define([
 
         showMessageIfNoResults: function () {
             var that = this;
-            if (that.collection.length == 0) {
+            if (that.collection.length === 0) {
                 that.$el.append('Sorry, no results were found for this request... Please try again!');
             }
         },
