@@ -159,7 +159,6 @@ define([
             //TV Shows
             uMovieRouter.on('route:displayTvShows', function () {
                 updateMainView(SearchView, { scope: 'season', searchWord: 'dead' });
-
             });
 
             uMovieRouter.on('route:displaySpecificTvShowSeason', function (tvShowId) {

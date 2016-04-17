@@ -42,6 +42,13 @@ define([
 
         events: {
             'click .submitAuthentication': 'sendAuthentication',
+            'keyup .authentication-input': 'launchFromEnter',
+        },
+
+        launchFromEnter: function (inputText) {
+            var that = this;
+            if (inputText.keyCode == 13)
+                that.sendAuthentication();
         },
 
         sendAuthentication: function () {

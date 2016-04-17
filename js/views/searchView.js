@@ -15,7 +15,9 @@ define([
     'handlebars',
     'views/tmdbData',
     'models/searchModel',
-], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors, SearchCollectionView, searchGroupTemplate, Handlebars, TmdbData, SearchModel) {
+], function ($, _, Backbone, ThumbnailView, Movies, Seasons, Actors,
+             SearchCollectionView, searchGroupTemplate, Handlebars,
+             TmdbData, SearchModel) {
 
     var SearchView = Backbone.View.extend({
 
@@ -25,22 +27,30 @@ define([
 
         selectSearchScope: function () {
             var that = this;
-            that.searchToShow = { group: [] };
+
+            that.searchToShow = {
+                searchWord: that.searchWord,
+                group: [],
+            };
             var scope = that.scope;
             if (scope.match('movie')) {
-                that.searchToShow.group.push({ name: 'Movie' });
+                that.searchToShow.group.push({ title: 'Movie', name: 'movies' });
+
             }
 
             if (scope.match('season')) {
-                that.searchToShow.group.push({ name: 'Season' });
+                that.searchToShow.group.push({ title: 'Season', name: 'tvshows' });
             }
 
             if (scope.match('actor')) {
-                that.searchToShow.group.push({ name: 'Actor' });
+
+                that.searchToShow.group.push({ title: 'Actor', name: 'actors' });
+
             }
 
             if (scope.match('member')) {
-                that.searchToShow.group.push({ name: 'Member' });
+                that.searchToShow.group.push({ title: 'Member', name: 'members' });
+
             }
         },
 
@@ -52,7 +62,6 @@ define([
             that.searchWord = decodeURI(that.model.searchWord);
             that.scope = that.model.scope;
             that.model = undefined;
-            this.searches = {};
 
             this.selectSearchScope();
             this.render();
@@ -62,6 +71,7 @@ define([
             var that = this;
             this.$el.html('');
             var template = Handlebars.compile(searchGroupTemplate);
+
             var resultSearchView = template(that.searchToShow);
             this.$el.html(resultSearchView);
 
@@ -69,58 +79,64 @@ define([
 
         },
 
-        searchCollection: function (newCollection, idName) {
-            var searchCollection = new SearchCollectionView({
+        searchCollection: function (newCollection, idName, genres) {
+            var searchCollectionView = new SearchCollectionView({
                 collection: newCollection,
                 el: idName,
+                model: genres,
             });
-
         },
 
         activateSearches: function () {
             var that = this;
             var idName = '';
             var newCollection;
+            var genres;
             var scope = that.scope;
+
             if (scope.match('movie')) {
-                idName = '#Movie-search-result';
+                idName = '#movies-search-result';
                 newCollection = new Movies();
                 newCollection.url = function () {
                     return that.searchMovie();
                 };
 
-                this.searchCollection(newCollection, idName);
+                genres = 'movies';
+                that.searchCollection(newCollection, idName, genres);
             }
 
             if (scope.match('season')) {
-                idName = '#Season-search-result';
+                idName = '#tvshows-search-result';
                 newCollection = new Seasons();
                 newCollection.url = function () {
                     return that.searchSeason();
                 };
 
-                this.searchCollection(newCollection, idName);
+                genres = 'tvshows';
+                that.searchCollection(newCollection, idName, genres);
             }
 
             if (scope.match('actor')) {
-                idName = '#Actor-search-result';
+                idName = '#actors-search-result';
                 newCollection = new Actors();
                 newCollection.url = function () {
                     return that.searchActor();
                 };
 
-                this.searchCollection(newCollection, idName);
+                that.searchCollection(newCollection, idName, genres);
+
             }
 
             if (scope.match('member')) {
-                idName = '#Member-search-result';
+                idName = '#members-search-result';
                 newCollection = new Members();
                 newCollection.url = function () {
                     return that.searchMember();
                 };
 
-                this.searchCollection(newCollection, idName);
+                that.searchCollection(newCollection, idName, genres);
             }
+
         },
 
         searchMovie: function () {
@@ -155,7 +171,92 @@ define([
                 .url();
 
         },
+
+        events: {
+            'click .component-genre': 'toggleThumbnailGenre',
+        },
+
+        selectedGenres: {
+            movies: {},
+            tvshows: {},
+        },
+
+        toggleThumbnailGenre: function (event) {
+            var that = this;
+            var genreClass = event.target.attributes.getNamedItem('class').nodeValue;
+            var genre = event.target.attributes.getNamedItem('genre-name').nodeValue;
+            var mediaType = event.target.attributes.getNamedItem('type-name').nodeValue;
+
+            if (genreClass.match(/ filter-selected/g)) {
+                event.target.attributes.getNamedItem('class').nodeValue = genreClass.replace(/ filter-selected/g, '');
+                that.selectedGenres[mediaType][genre] = false;
+            } else {
+                event.target.attributes.getNamedItem('class').nodeValue = `${genreClass} filter-selected`;
+                that.selectedGenres[mediaType][genre] = true;
+            }
+
+            var activeFilters = that.selectActiveFilters(mediaType);
+            that.applyGenreFilters(activeFilters, mediaType);
+        },
+
+        selectActiveFilters(mediaType) {
+            var that = this;
+            var filters = that.selectedGenres[mediaType];
+            var filterKeys = Object.keys(filters);
+            return filterKeys.filter(function (element) {
+                if (filters[element] === true) {
+                    return element;
+                }
+            });
+        },
+
+        applyGenreFilters: function (activeFilters, mediaType) {
+            var that = this;
+            var mediaBoxes = this.fetchMediaBoxes(mediaType);
+
+            for (var box in mediaBoxes) {
+                if (mediaBoxes.hasOwnProperty(box)) {
+
+                    if (that.filtersNotEmpty(activeFilters)) {
+
+                        var elementGenre = that.fetchMediaGenre(mediaBoxes[box]);
+                        if (activeFilters.includes(elementGenre)) {
+                            that.showMedia(mediaBoxes[box]);
+                        } else {
+                            that.hideMedia(mediaBoxes[box]);
+                        }
+                    } else {
+                        that.showMedia(mediaBoxes[box]);
+                    }
+                }
+            }
+        },
+
+        fetchMediaBoxes: function (mediaType) {
+            var targetedResults = document.getElementById(`${mediaType}-search-result`);
+            return targetedResults.getElementsByClassName('movies-box');
+
+        },
+
+        fetchMediaGenre: function (mediaBox) {
+            var currentThumbnail = mediaBox.getElementsByClassName('thumbnail');
+            return currentThumbnail[0].attributes.getNamedItem('media-primary-genre').nodeValue;
+        },
+
+        showMedia: function (mediaBox) {
+            mediaBox.style.display = 'inline-flex';
+        },
+
+        hideMedia: function (mediaBox) {
+            mediaBox.style.display = 'none';
+        },
+
+        filtersNotEmpty: function (activeFilters) {
+            return activeFilters.length !== 0;
+        },
+
     });
     return SearchView;
 
 });
+

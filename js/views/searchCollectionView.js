@@ -15,13 +15,17 @@ define([
 
         initialize: function () {
             var that = this;
+            that.genreCollectionView = that.model;
+            that.model = undefined;
             that.listenTo(this.collection, 'sync', that.render);
             that.collection.fetch();
         },
 
          render: function () {
             var that = this;
-            this.removeNoResultFoundsMessage();
+
+            this.showMessageIfNoResults();
+
             this.collection.each(function (model) {
                 var thumbnail = new ThumbnailView({ model: model });
                 that.$el.append(thumbnail.render());
@@ -29,8 +33,9 @@ define([
                 if (model.attributes.tmdbRequest) {
                     that.callImdb( model);
                 }
-
             });
+
+            this.addCategoriesToHtml();
         },
 
         callImdb: function (model) {
@@ -80,12 +85,23 @@ define([
             });
         },
 
-        removeNoResultFoundsMessage: function () {
-            var that = this;
-            if (that.collection.length !== 0) {
-                that.$el.html('');
-            }
 
+        addCategoriesToHtml: function () {
+
+            var that = this;
+            if (that.genreCollectionView) {
+                new GenreCollectionView({
+                    model: that.genreCollectionView,
+                    el: `#${that.genreCollectionView}-search-genre`,
+                });
+            }
+        },
+
+        showMessageIfNoResults: function () {
+            var that = this;
+            if (that.collection.length === 0) {
+                that.$el.append('Sorry, no results were found for this request... Please try again!');
+            }
         },
 
     });
