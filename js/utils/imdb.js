@@ -6,7 +6,7 @@
 
 define(['jquery',
 
-],function ($) {
+], function ($) {
     'use strict';
 
     var imdb = {};
@@ -101,6 +101,7 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -135,6 +136,7 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -168,6 +170,7 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -202,6 +205,7 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -236,6 +240,7 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -270,7 +275,8 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function () {};
-            var errorCB = error || function (data) { console.log(data) };
+
+            var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
 
@@ -300,6 +306,7 @@ define(['jquery',
          */
         getTopRatedTVShows: function (success, error) {
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -329,6 +336,7 @@ define(['jquery',
          */
         getTopRatedMovies: function (success, error) {
             var successCB = success || function (data) { console.log(data); };
+
             var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
@@ -364,7 +372,8 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function () {};
-            var errorCB = error || function (data) { console.log(data) };
+
+            var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
 
@@ -398,7 +407,8 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function () {};
-            var errorCB = error || function (data) { console.log(data) };
+
+            var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
 
@@ -430,7 +440,8 @@ define(['jquery',
             imdb.common.validateRequired(options, ['query']);
 
             var successCB = success || function () {};
-            var errorCB = error || function (data) { console.log(data) };
+
+            var errorCB = error || function (data) { console.log(data); };
 
             imdb.common.validateCallbacks([successCB, errorCB]);
 
@@ -470,6 +481,7 @@ define(['jquery',
 
             return this;
         },
+
         shortenText: function (textToShortent, length) {
             var newLength = length || 300;
             return `${textToShortent.slice(0, newLength)} ... `;

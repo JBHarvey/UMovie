@@ -10,24 +10,43 @@
     margin-left: auto;
 }
 
+.user-box {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+}
+
 .user-name {
+    max-width: 10em;
     margin: 0;
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
-
     text-overflow: ellipsis;
+}
 
+.user-details {
+    display: flex;
+    max-width: 13em;
+    margin-right: 4em;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    min-width: 9em;
+    max-width: 9em;
 }
 
 .user-email {
-    margin: 0;
-    white-space: nowrap;
-    width: 100%;
+    max-width: 7em;
     overflow: hidden;
-
     text-overflow: ellipsis;
+}
 
+.user-email {
+    max-width: 10em;
 }
 
 #followed-list {
@@ -42,41 +61,25 @@
     text-align: center;
 }
 
-.user-box {
-    min-width: 0;
-    max-width: 360px;
-    text-decoration: none;
-    display: flex;
-}
-
-.user-thumbnail {
-    margin-right: 0.5em;
-}
-
-.user-info {
-    min-width: 0;
-
-    color: white;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 content {
     margin-top : 10%;
 }
 
+.thumbnail-follower {
+    display: flex;
+    align-items: center;
+}
+
 .toggle-following {
-    background-color: green;
+    background-color: #0085FF;
     color: white;
     transition: opacity ease-in-out .25s;
-
     margin-top: 0.5em;
     margin-bottom: 1em;
-
     font-size: 0.8em;
     text-align: center;
     height: 40px;
-    width: 130px;
+    width: 6em;
     border: 1px solid white;
     border-radius: 4px;
 }
@@ -95,9 +98,65 @@ content {
     text-align: center;
 }
 
-@media screen and (min-width: 640px) {
+
+@media screen and (min-width: 361px) and (max-width: 640px){
+    .user-details {
+        min-width: 25em;
+    }
+}
+
+@media screen and (min-width: 641px) {
     .user-box {
+        display: flex;
+        flex-direction: row;
         max-width: 768px;
+    }
+
+    .user-box {
+        justify-content: space-between;
+    }
+
+    .toggle-following {
+        width: 130px;
+    }
+
+    .user-thumbnail {
+        margin-right: 0.5em;
+    }
+
+    .user-info {
+        max-width: 40em;
+        min-width: 0;
+        justify-content: space-around;
+        color: white;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+    }
+
+    .user-info p{
+        min-width: 18em;
+    }
+
+    #members-search-result {
+        width: 43em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .user-details {
+        min-width: 18em;
+        max-width: 0;
+    }
+
+    .user-email {
+        max-width: 14em;
+        margin: 0;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 11em;
     }
 }
 

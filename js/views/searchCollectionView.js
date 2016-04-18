@@ -11,8 +11,10 @@ define([
     'utils/imdb',
     'views/genreCollectionView',
     '../utils/gravatarIcon',
-    'views/tmdbData'
-], function ($, _, Backbone, ThumbnailView, ImdbActorModel, Imdb, GenreCollectionView, GravatarIcon, Tmdb) {
+    'views/tmdbData',
+    '../models/userModel',
+    'jscookie',
+], function ($, _, Backbone, ThumbnailView, ImdbActorModel, Imdb, GenreCollectionView, GravatarIcon, Tmdb, UserModel, Cookie) {
     'use strict';
 
     var SearchCollectionView = Backbone.View.extend({
@@ -21,8 +23,22 @@ define([
             var that = this;
             that.genreCollectionView = that.model;
             that.model = undefined;
+
             that.listenTo(this.collection, 'sync', that.render);
-            that.collection.fetch();
+
+            that.activeUser = new UserModel({ id: Cookie.get('id') });
+
+            var syncRendering = _.after(2, function () {
+                that.render();
+            });
+
+            that.activeUser.fetch({
+                success: syncRendering,
+            });
+
+            that.collection.fetch({
+                success: syncRendering,
+            });
         },
 
         render: function () {
@@ -33,7 +49,8 @@ define([
 
             that.collection.each(function (model) {
                 if (that.modelCanBeRendered(model)) {
-                    var thumbnail = new ThumbnailView({model: model});
+                    that.prepareToFollow(model);
+                    var thumbnail = new ThumbnailView({ model: model });
                     that.$el.append(thumbnail.render());
                     that.addImageToActors(model);
                     if (model.attributes.tmdbRequest) {
@@ -44,6 +61,15 @@ define([
 
             that.addCategoriesToHtml();
             that.addGravatarIcons();
+        },
+
+        prepareToFollow: function (model) {
+            var that = this;
+            if (model.attributes.isUserType) {
+                model.attributes.isFollowing = that.isFollowingActiveUser(model);
+                model.attributes.userId = model.attributes.id;
+                model.attributes.isNotCurrentUser = (Cookie.get('email') !== model.attributes.email);
+            }
         },
 
         addImageToActors: function (model) {
@@ -65,24 +91,29 @@ define([
         callImdb: function (model) {
             var that = this;
 
-
             var search = model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = encodeURI(search);
 
-
-            Imdb.actors.findActors({query: searchRequest}, function (data) {
+            Imdb.actors.findActors({ query: searchRequest }, function (data) {
                 var parsedData = JSON.parse(data);
+
+                /* jshint ignore:start */
+
+                // jscs:disable
                 var actorDatas = parsedData['name_popular']
                     || parsedData['name_exact']
                     || parsedData['name_approx']
                     || parsedData['name_substring'];
 
+                // jscs:enable
+                /* jshint ignore:end */
+
                 if (actorDatas) {
 
-                    var actorID = undefined;
+                    var actorID;
                     actorDatas.forEach(function (actor) {
 
-                        if (actorID == undefined && actor.name.localeCompare(model.attributes.artistName) == 0) {
+                        if (actorID === undefined && actor.name.localeCompare(model.attributes.artistName) === 0) {
                             actorID = actor;
                         }
                     });
@@ -95,7 +126,6 @@ define([
                             const bioId = model.attributes.bioId;
                             Imdb.actors.modifySingleActorBio(biography, bioId);
 
-
                             if (data.attributes.image) {
                                 var picture = data.attributes.image.url;
                                 const imageID = model.attributes.imageId;
@@ -106,7 +136,6 @@ define([
                 }
             });
         },
-
 
         addCategoriesToHtml: function () {
 
@@ -128,6 +157,7 @@ define([
 
         modelCanBeRendered: function (model) {
             var that = this;
+
             var query = that.queryWord;
             if (model.attributes.isUserType && query !== '') {
                 var name = model.attributes.name;
@@ -153,9 +183,45 @@ define([
             }
         },
 
+        isFollowingActiveUser: function (user) {
+            var that = this;
+
+            return this.activeUser
+                    .get('following')
+                    .filter(function (follower) {
+
+                        return follower.id === user.attributes.id;
+                    }).length > 0;
+        },
+
+        events: {
+            'click .toggle-following': 'toggleFollowing',
+        },
+
+        toggleFollowing: function (event) {
+            var that = this;
+            var currentButton = event.currentTarget;
+            var userId = event.target.attributes.getNamedItem('ref-id').nodeValue;
+
+            if (currentButton.innerHTML.replace(/\s/g, '') === 'Follow') {
+                //
+                that.activeUser.save({ id: userId }, {
+                    success: function () {
+                        currentButton.innerHTML = 'Unfollow';
+                    },
+                });
+            } else {
+                var userToUnfollow = new UserModel({ id:userId });
+
+                userToUnfollow.destroy({
+                    success: function () {
+                        currentButton.innerHTML = 'Follow';
+                    },
+                });
+            }
+        },
     });
     return SearchCollectionView;
-
 
 });
 

@@ -13,10 +13,14 @@ define([
 
         parse(data) {
             if (_.isObject(data.results)) {
-                return data.results[0];
+                return this.processData(data.results[0]);
             } else {
-                return data;
+                return this.processData(data);
             }
+        },
+
+        processData(data) {
+            return data;
         },
 
         sync: function (method, model, options) {
@@ -32,6 +36,7 @@ define([
 
             return Backbone.sync(method, model, options);
         },
+
     });
 
     return MemberModel;

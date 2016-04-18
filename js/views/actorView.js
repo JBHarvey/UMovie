@@ -68,24 +68,31 @@ define([
             var search = that.model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = this.generateSearchName(search);
 
-
-            Imdb.actors.findActors({query: searchRequest}, function (data) {
+            Imdb.actors.findActors({ query: searchRequest }, function (data) {
                 var parsedData = JSON.parse(data);
+
+                /* jshint ignore:start */
+
+                // jscs:disable
                 var actorDatas = parsedData['name_popular']
                     || parsedData['name_exact']
                     || parsedData['name_approx']
                     || parsedData['name_substring'];
 
+                // jscs:enable
+                /* jshint ignore:end */
+
                 if (actorDatas) {
 
-                    var actorID = undefined;
+                    var actorID;
                     actorDatas.forEach(function (actor) {
 
-                        if (actor.name.localeCompare(that.model.attributes.artistName) == 0 && actorID == undefined) {
+                        if (actor.name.localeCompare(that.model.attributes.artistName) === 0 && actorID === undefined) {
 
                             actorID = actor;
                         }
                     });
+
                     that.imdbModel = new ImdbActorModel(actorID);
                     that.imdbModel.fetch({
                         success: function (data) {
@@ -94,7 +101,7 @@ define([
                             var picture = data.attributes.image.url;
                             Imdb.actors.modifySingleActorBio(biography, 'description');
                             if (data.attributes.image) {
-                                Imdb.actors.modifySingleActorImage(picture, 'imgActor')
+                                Imdb.actors.modifySingleActorImage(picture, 'imgActor');
                             }
 
                         },

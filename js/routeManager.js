@@ -138,6 +138,7 @@ define([
 
             uMovieRouter.on('route:goHome', function () {
                 updateMainView(TeamMembersView, undefined);
+
                 //updateMainView(HomeView, undefined);
             });
 
@@ -166,7 +167,7 @@ define([
             //Actors
             uMovieRouter.on('route:displayActors', function () {
 
-                updateMainView(SearchView, {scope: 'actor', searchWord: 'Tom'});
+                updateMainView(SearchView, { scope: 'actor', searchWord: 'Tom' });
 
             });
 
