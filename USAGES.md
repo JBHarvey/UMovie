@@ -22,7 +22,7 @@ It is also possible to use the hosted version of the website, available at a Her
 
 ## Buttons
 
-To access the different pages of the site, please refer to the navigation bar on the top of the page. The movies, actors, watchlist and TV series pages are only available while in connected mode.
+To access the different pages of the site, please refer to the navigation bar on the top of the page. The movies, actors, watchlists and TV series pages are only available while in connected mode.
 
 ## User
 
@@ -38,14 +38,14 @@ Here are the different links that you can reach within our website:
 - `UMovie/index.html#watchlists`: While in connected mode, links to the user watchlist page.
 - `UMovie/index.html#user`: While in connected mode, links to the user account page.
 
-Authentication is essential in order to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html).
+Authentication is essential in order to access any content of the application. Otherwise, the only page you can see is the login page (index.html).
 
 ## Search bar
 
 The included search bar allows a connected user to search throughout the content of the whole application, for instance the different movies, tv shows, actors and users. The different genres can be changed in the menu of the movies result and the tvshows results. When a category is chosen, a research will be done for all the items in this genre available.
-If none of the 4 options is selected, it will searc for movies and tvshows by default.
+If none of the 4 options is selected, it will search for movies and tvshows by default.
 
 ##Searching for actor
 
-If you make a research to find an Actor, there will be actor without picture and/or description. The reason to that is that we are getting those informations from TheMovieDataBase and Imdb and it doesn't contain every actors from the uMovie API.
+If you make a research to find an Actor, there might be actors without picture and/or description. The reason to that is that we are getting some information from TheMovieDataBase and Imdb and it doesn't contain every actor from the UMovie database.
 ''Bonjour, veuillez l'expliquer dans votre document de remise,  mais pour moi c'est acceptable. '' -Vincent Séguin
