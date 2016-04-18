@@ -15,8 +15,9 @@ define([
         el: '#content',
 
         initialize: function () {
-            this.model = TeamMembersModel();
-            this.render()
+            this.model = new TeamMembersModel();
+            console.log(this.model);
+            this.render();
         },
 
         render: function () {
