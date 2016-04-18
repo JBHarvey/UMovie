@@ -33,10 +33,18 @@ define([
 
             this.activeUser.fetch({
                 success: syncRendering,
+                error : function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR);
+                $("#error-message-user").text("Erreur : " + parsedResponse);
+            },
             });
 
             this.model.fetch({
                 success: syncRendering,
+                error : function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR);
+                $("#error-message-user").text("Erreur : " + parsedResponse);
+            },
             });
         },
 

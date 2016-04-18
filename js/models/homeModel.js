@@ -9,6 +9,7 @@ define([
     //Fonction qui permet de parser les collections de films et de les afficher.
     var HomeModel = Backbone.Model.extend({
         parse: function (response) {
+
             if (_.isObject(response.results)) {
                 return response.results[0];
             } else {

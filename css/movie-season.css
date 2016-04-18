@@ -6,7 +6,7 @@
 
 /* Title and background image */
 .element-background-image img {
-    width:100%;
+    width: 100%;
 }
 
 .element-title {
@@ -49,7 +49,7 @@
     margin: 0 2em;
 }
 
-.main-info{
+.main-info {
     padding: 0.6em 0;
     background-color: #05052B;
 }
@@ -65,7 +65,7 @@ iframe {
 }
 
 /* Summary and detailed information */
-.summary{
+.summary {
     display: block;
     padding: 0.6em 1em;
     line-height: 1.7em;
@@ -75,7 +75,7 @@ iframe {
     background-color: #05052B;
 }
 
-.detailed-info-subject{
+.detailed-info-subject {
     display: flex;
     align-items: center;
 }
@@ -104,7 +104,7 @@ iframe {
     background-image: url('../img/movie-tvShow-content/svg/writers-icon.svg');
 }
 
-.element-language{
+.element-language {
     background-image: url('../img/movie-tvShow-content/svg/language-icon.svg');
 }
 
@@ -140,14 +140,14 @@ iframe {
 }
 
 .watchlist-button-desktop {
-    background-image: -webkit-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
-    background-image:    -moz-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
-    background-image:     -ms-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
-    background-image:      -o-linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
-    background-image:         linear-gradient(top, rgba(153,234,247,1) 12%,rgba(26,109,177,1) 47%);
-    -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
-    box-shadow: 0px 0px 1px 1px rgba(0,0,0,1);
+    background-image: -webkit-linear-gradient(top, rgba(153, 234, 247, 1) 12%, rgba(26, 109, 177, 1) 47%);
+    background-image: -moz-linear-gradient(top, rgba(153, 234, 247, 1) 12%, rgba(26, 109, 177, 1) 47%);
+    background-image: -ms-linear-gradient(top, rgba(153, 234, 247, 1) 12%, rgba(26, 109, 177, 1) 47%);
+    background-image: -o-linear-gradient(top, rgba(153, 234, 247, 1) 12%, rgba(26, 109, 177, 1) 47%);
+    background-image: linear-gradient(top, rgba(153, 234, 247, 1) 12%, rgba(26, 109, 177, 1) 47%);
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1);
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
@@ -159,23 +159,24 @@ iframe {
     font-size: 0.9em;
     font-family: Arial;
     width: 60%;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
 }
+
 .watchlist-button-desktop:hover {
-    background-image: -webkit-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
-    background-image:    -moz-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
-    background-image:     -ms-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
-    background-image:      -o-linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
-    background-image:         linear-gradient(top, rgba(26,109,177,1) 76%,rgba(153,234,247,1) 86%);
-    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
-    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
-    box-shadow: 0px 0px 1px 0px rgba(0,0,0,1)inset;
-    color: rgba(230,230,230,1);
+    background-image: -webkit-linear-gradient(top, rgba(26, 109, 177, 1) 76%, rgba(153, 234, 247, 1) 86%);
+    background-image: -moz-linear-gradient(top, rgba(26, 109, 177, 1) 76%, rgba(153, 234, 247, 1) 86%);
+    background-image: -ms-linear-gradient(top, rgba(26, 109, 177, 1) 76%, rgba(153, 234, 247, 1) 86%);
+    background-image: -o-linear-gradient(top, rgba(26, 109, 177, 1) 76%, rgba(153, 234, 247, 1) 86%);
+    background-image: linear-gradient(top, rgba(26, 109, 177, 1) 76%, rgba(153, 234, 247, 1) 86%);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 1) inset;
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 1) inset;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 1) inset;
+    color: rgba(230, 230, 230, 1);
 }
 
 .watchlist-button-desktop:active {
-    position:relative;
-    top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .watchlist-menu {
@@ -228,13 +229,13 @@ iframe {
     border-radius: 4px;
     margin-bottom: 0.5em;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    transition: border-color ease-in-out .15s,box-shadow cubic-bezier(1,0,0,1) .15s;
+    transition: border-color ease-in-out .15s, box-shadow cubic-bezier(1, 0, 0, 1) .15s;
 }
 
 .new-watchlist-input:focus {
     outline: 0;
     border: 1px solid darkgray;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 }
 
 .mobile-watchlist {
@@ -315,6 +316,7 @@ iframe {
     .mobile .itunes-logo {
         width: 12em;
     }
+
     .detailed-info {
         padding-top: 0;
     }
@@ -335,8 +337,11 @@ iframe {
         margin-top: 5%;
         font-size: 2em;
     }
-}
 
+    #error-message-movie {
+        color: red;
+    }
+}
 
 @media screen and (min-width: 540px) and (max-width: 768px) {
     #site-logo {
@@ -371,7 +376,7 @@ iframe {
         margin: 0 0 0 0;
         justify-content: flex-start;
         background-color: black;
-        padding-right:0;
+        padding-right: 0;
     }
 
     .cover-thumbnail {
@@ -421,13 +426,13 @@ iframe {
         font-size: 0.75em;
     }
 
-    .summary{
+    .summary {
         padding: 0 4em 0 1em;
         font-size: .35em;
         line-height: 1.7em;
     }
 
-    .summary span{
+    .summary span {
         display: block;
         color: #0085FF;
     }
@@ -461,15 +466,15 @@ iframe {
     }
 
     .detailed-info-subject {
-        display:flex;
+        display: flex;
     }
 
     .watchlist-menu-group {
         font-size: 1.3em;
-        width : 25%;
+        width: 25%;
     }
 
-    .detailed-info-subject span:nth-child(2){
+    .detailed-info-subject span:nth-child(2) {
         display: block;
         padding: 0 .5em;
         color: #0085FF;
@@ -537,9 +542,9 @@ iframe {
     }
 
     /* Episodes box */
-    .episodes-box{
+    .episodes-box {
         font-size: 0.7em;
-        margin : 3% 8% 0 40%;
+        margin: 3% 8% 0 40%;
     }
 
     .episodes-box span {
@@ -547,7 +552,7 @@ iframe {
     }
 }
 
-@media screen and (min-width: 1034px){
+@media screen and (min-width: 1034px) {
     .preview-box {
         margin-left: 8%;
     }
