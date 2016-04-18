@@ -9,7 +9,7 @@ define([
 
     var MemberModel = Backbone.Model.extend({
         urlRoot: 'https://umovie.herokuapp.com/users',
-        defaults: {isUserType: true,},
+        defaults: { isUserType: true, },
 
         parse(data) {
             if (_.isObject(data.results)) {

@@ -35,8 +35,8 @@ define([
             this.model.fetch({
                 success: waitForRender,
                 error: function (model, jqXHR) {
-                    var parsedResponse = JSON.parse(jqXHR);
-                    $("#error-message-actor").text("Erreur : " + parsedResponse);
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                 },
             })
             ;
@@ -44,11 +44,11 @@ define([
             this.collectionMovies.fetch({
                 success: waitForRender,
                 error: function (model, jqXHR) {
-                    var parsedResponse = JSON.parse(jqXHR);
-                    $("#error-message-actor").text("Erreur : " + parsedResponse);
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                 },
-        })
-            ;
+            })
+                ;
         },
 
         generateSearchName: function (name) {
@@ -104,6 +104,11 @@ define([
                                 Imdb.actors.modifySingleActorImage(picture, 'imgActor');
                             }
 
+                        },
+
+                        error: function (model, jqXHR) {
+                            var parsedResponse = JSON.parse(jqXHR.responseText);
+                            $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                         },
                     });
                 }

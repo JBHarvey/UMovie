@@ -69,7 +69,7 @@ define([
             };
 
             error = function (jqXHR, textStatus) {
-                $("#error-message").text("Erreur : " + jqXHR.error);
+                $('#error-message').text('Erreur : ' + jqXHR.error);
 
             };
 
@@ -83,7 +83,7 @@ define([
             };
             that.changeUrlDestination(that.loginURL);
             that.success = function (data) {
-                $("#error-message").text("");
+                $('#error-message').text('');
                 that.name = data.name;
                 that.id = data.id;
                 that.connected = true;
@@ -98,7 +98,7 @@ define([
             };
 
             that.error = function (jqXHR, textStatus) {
-                $("#error-message").text("Invalid username / password.");
+                $('#error-message').text('Invalid username / password.');
             };
 
         },

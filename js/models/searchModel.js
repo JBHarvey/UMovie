@@ -25,7 +25,7 @@ define([
             let limit = this.formatParameter(this.parameters.limit);
             let genre = this.formatParameter(this.parameters.genre);
 
-            return `${this.baseURL}${type}${name}${limit}${genre}`
+            return `${this.baseURL}${type}${name}${limit}${genre}`;
 
         },
 
