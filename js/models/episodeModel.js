@@ -29,6 +29,7 @@ define([
             data.releaseYear = this.releaseYear(data.releaseDate);
             data.entertainementName = data.trackName;
             data.cssClassType = 'episode';
+
             return data;
         },
 

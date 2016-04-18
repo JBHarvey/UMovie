@@ -32,9 +32,16 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
+                error : function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR);
+                $("#error-message-movie").text('Erreur : ' + parsedResponse);
+            }
             });
             this.watchlists.fetch({
                 success: syncRendering,
+                error : function (model, jqXHR) {
+                    $("#error-message-movie").text('Erreur : ' + jqXHR.error);
+                }
             });
 
         },
@@ -64,6 +71,7 @@ define([
                     }));
                 });
             }
+
 
             var resultMovie = template(source);
             this.$el.html(resultMovie);

@@ -25,6 +25,7 @@ define([
             data.imageId = `${nameEncode}Img`;
             data.bioId = `${nameEncode}Bio`;
             data.tmdbRequest = encodeURI(data.artistName);
+
             return data;
         },
 
@@ -34,7 +35,7 @@ define([
         },
 
         defaults: {
-            urlRoot:  `/actors/253584821`,
+            urlRoot: `/actors/253584821`,
             wrapperTyper: 'artist',
             artistType: 'Artist',
             artistName: 'John Sawyer',
