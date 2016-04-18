@@ -50,7 +50,7 @@ define([
             that.collection.each(function (model) {
                 if (that.modelCanBeRendered(model)) {
                     that.prepareToFollow(model);
-                    var thumbnail = new ThumbnailView({model: model});
+                    var thumbnail = new ThumbnailView({ model: model });
                     that.$el.append(thumbnail.render());
                     that.addImageToActors(model);
                     if (model.attributes.tmdbRequest) {
@@ -63,8 +63,7 @@ define([
             that.addGravatarIcons();
         },
 
-
-        prepareToFollow: function(model) {
+        prepareToFollow: function (model) {
             var that = this;
             if (model.attributes.isUserType) {
                 model.attributes.isFollowing = that.isFollowingActiveUser(model);
@@ -92,24 +91,29 @@ define([
         callImdb: function (model) {
             var that = this;
 
-
             var search = model.attributes.artistName.replace(/ ([A-Z]\w?\.)/g, '');
             var searchRequest = encodeURI(search);
 
-
-            Imdb.actors.findActors({query: searchRequest}, function (data) {
+            Imdb.actors.findActors({ query: searchRequest }, function (data) {
                 var parsedData = JSON.parse(data);
+
+                /* jshint ignore:start */
+
+                // jscs:disable
                 var actorDatas = parsedData['name_popular']
                     || parsedData['name_exact']
                     || parsedData['name_approx']
                     || parsedData['name_substring'];
 
+                // jscs:enable
+                /* jshint ignore:end */
+
                 if (actorDatas) {
 
-                    var actorID = undefined;
+                    var actorID;
                     actorDatas.forEach(function (actor) {
 
-                        if (actorID == undefined && actor.name.localeCompare(model.attributes.artistName) == 0) {
+                        if (actorID === undefined && actor.name.localeCompare(model.attributes.artistName) === 0) {
                             actorID = actor;
                         }
                     });
@@ -122,7 +126,6 @@ define([
                             const bioId = model.attributes.bioId;
                             Imdb.actors.modifySingleActorBio(biography, bioId);
 
-
                             if (data.attributes.image) {
                                 var picture = data.attributes.image.url;
                                 const imageID = model.attributes.imageId;
@@ -133,7 +136,6 @@ define([
                 }
             });
         },
-
 
         addCategoriesToHtml: function () {
 
@@ -192,7 +194,7 @@ define([
                     }).length > 0;
         },
 
-        events : {
+        events: {
             'click .toggle-following': 'toggleFollowing',
         },
 
@@ -201,16 +203,15 @@ define([
             var currentButton = event.currentTarget;
             var userId = event.target.attributes.getNamedItem('ref-id').nodeValue;
 
-
             if (currentButton.innerHTML.replace(/\s/g, '') === 'Follow') {
                 //
-                that.activeUser.save({id: userId}, {
+                that.activeUser.save({ id: userId }, {
                     success: function () {
                         currentButton.innerHTML = 'Unfollow';
                     },
                 });
             } else {
-                var userToUnfollow = new UserModel({id:userId});
+                var userToUnfollow = new UserModel({ id:userId });
 
                 userToUnfollow.destroy({
                     success: function () {
@@ -221,7 +222,6 @@ define([
         },
     });
     return SearchCollectionView;
-
 
 });
 

@@ -9,7 +9,7 @@ define([
 
         parse: function (results) {
             if (_.isObject(results.data)) {
-                return results.data
+                return results.data;
             } else {
                 return results;
             }

@@ -180,7 +180,6 @@ define([
             tvshows: {},
         },
 
-
         toggleThumbnailGenre: function (event) {
             var that = this;
             var genreClass = event.target.attributes.getNamedItem('class').nodeValue;
