@@ -99,6 +99,10 @@
     max-width: 50%;
 }
 
+#error-message-actor{
+    color: red;
+}
+
 /*Fin Section movie*/
 
 /*Pour la tablette*/

@@ -335,6 +335,9 @@ iframe {
         margin-top: 5%;
         font-size: 2em;
     }
+    #error-message-movie{
+        color: red;
+    }
 }
 
 

@@ -172,6 +172,10 @@
     border-radius: 4px;
 }
 
+#error-message-watchlist{
+    color: red;
+}
+
 @media (min-width: 960px) {
     .watchlist-section-header {
         margin-top: 4em;
