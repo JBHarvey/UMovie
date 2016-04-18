@@ -16,7 +16,6 @@ define([
 
         initialize: function () {
             this.model = new TeamMembersModel();
-            console.log(this.model);
             this.render();
         },
 
