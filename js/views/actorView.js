@@ -34,11 +34,21 @@ define([
 
             this.model.fetch({
                 success: waitForRender,
-            });
+                error: function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR);
+                    $("#error-message-actor").text("Erreur : " + parsedResponse);
+                },
+            })
+            ;
 
             this.collectionMovies.fetch({
                 success: waitForRender,
-            });
+                error: function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR);
+                    $("#error-message-actor").text("Erreur : " + parsedResponse);
+                },
+        })
+            ;
         },
 
         generateSearchName: function (name) {
