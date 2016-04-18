@@ -1,6 +1,5 @@
 /* POUR LE MOBILE*/
 
-
 .actor {
     max-width: 100%;
     width: 100%;
@@ -20,7 +19,8 @@
     margin: 2.5%;
 
 }
-.itunes{
+
+.itunes {
     max-width: 40%;
     margin: 2.5%;
     position: absolute;
@@ -41,55 +41,62 @@
 .description-header {
     margin: 0 5%;
 }
+
 .movie-list {
     max-width: 100%;
 }
+
 .information {
     overflow: auto;
 }
 
 /*CSS du texte*/
-.genre{
+.genre {
     font-size: 140%;
     font-weight: bold;
     margin-left: 2%;
 }
-#text{
+
+#text {
     font-size: 120%;
 }
-#header{
+
+#header {
     font-size: 200%;
     margin-left: 2%;
 }
+
 /*Fin du texte*/
 
-
 /*Section movie*/
-.movie-image{
+.movie-image {
     width: 90%;
-    height:auto;
-    display:inline-block;
+    height: auto;
+    display: inline-block;
     margin: 5% auto 5% auto;
     max-width: 400px;
 }
-.movie{
+
+.movie {
     height: 100%;
     width: 100%;
 
     background-color: grey;
 }
-.movie-menu{
+
+.movie-menu {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     padding: 0;
     list-style-type: none;
 }
-.movie-menu li{
+
+.movie-menu li {
     flex-basis: 100%;
     width: 100%;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -99,15 +106,14 @@
     max-width: 50%;
 }
 
-#error-message-actor{
+#error-message-actor {
     color: red;
 }
 
 /*Fin Section movie*/
 
 /*Pour la tablette*/
-@media screen and (min-width: 550px){
-
+@media screen and (min-width: 550px) {
 
     #description {
         float: right;
@@ -115,85 +121,99 @@
         margin: 0;
 
     }
+
     .actor-itunes {
         float: left;
         width: 30%;
     }
-    #imgActor{
+
+    #imgActor {
 
         float: none;
         max-width: 80%;
         margin: 10% 10%;
     }
-    .itunes{
+
+    .itunes {
         max-width: 100%;
         position: relative;
     }
-    .ilogo{
+
+    .ilogo {
         margin: 5% 25% 5% 25%;
     }
-    #text{
+
+    #text {
         font-size: 150%;
     }
-    .genre{
+
+    .genre {
         font-size: 100%;
         margin-left: 7%;
         font-weight: bold;
     }
-    #header{
+
+    #header {
         font-size: 150%;
     }
 }
 
-
-@media screen and (min-width: 640px){
-    #header{
+@media screen and (min-width: 640px) {
+    #header {
         font-size: 300%;
     }
+
     .genre {
         font-size: 170%;
     }
 
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 960px) {
 
-    #header{
+    #header {
         font-size: 200%;
         margin-left: 7%;
     }
-    #text{
+
+    #text {
         font-size: 100%;
     }
-    .genre{
+
+    .genre {
         margin-left: 7%;
         font-size: 100%;
         font-weight: bold;
     }
-    .movie-image{
+
+    .movie-image {
         width: 100%;
-        height:auto;
-        display:inline-block;
+        height: auto;
+        display: inline-block;
         margin: 1% 0% 1% 0%;
     }
-    .movie{
+
+    .movie {
         height: 20%;
         width: 95%;
         margin-right: auto;
         margin-left: auto;
         background-color: grey;
     }
-    .movie-menu{
+
+    .movie-menu {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         padding: 0;
         list-style-type: none;
     }
-    .movie-menu li{
+
+    .movie-menu li {
         flex-basis: 25%;
         width: 25%;
     }
+
     .itunes {
         width: 50%;
         margin: 0 25%;
