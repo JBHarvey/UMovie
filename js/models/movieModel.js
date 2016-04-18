@@ -23,7 +23,7 @@ define([
         },
 
         parse(data) {
-            this.error = function (jqXHR, textStatus){
+            this.error = function (jqXHR, textStatus) {
                 $("#error-message-movie").text('Erreur : ' + jqXHR.error);
             }
 

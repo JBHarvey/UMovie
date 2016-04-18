@@ -12,11 +12,18 @@ define([
         urlRoot: 'https://umovie.herokuapp.com/watchlists',
 
         parse: function (response) {
+
+            this.error = function (jqXHR, textStatus) {
+                $("#error-message-watchlist").text("Erreur : " + jqXHR.error);
+            };
+
             if (_.isObject(response.results)) {
                 return response.results[0];
             } else {
                 return response;
             }
+
+
         },
 
         removeMovie: function (movieModel) {

@@ -30,6 +30,10 @@ define([
                 options.url = `https://umovie.herokuapp.com/follow/${this.id}`;
             }
 
+            this.error = function (jqXHR, textStatus) {
+                $("#error-message-user").text("Erreur : " + jqXHR.error);
+            };
+
             return Backbone.sync(method, model, options);
         },
     });

@@ -25,6 +25,11 @@ define([
             data.imageId = `${nameEncode}Img`;
             data.bioId = `${nameEncode}Bio`;
             data.tmdbRequest = encodeURI(data.artistName);
+
+            that.error = function (jqXHR, textStatus) {
+                $("#error-message-actor").text("Erreur : " + jqXHR.error);
+            };
+
             return data;
         },
 
