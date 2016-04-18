@@ -25,21 +25,11 @@ define([
             let limit = this.formatParameter(this.parameters.limit);
             let genre = this.formatParameter(this.parameters.genre);
 
-            this.error = function (jqXHR, textStatus){
-                $("#error-message-search").text('Erreur : ' + jqXHR.error);
-            }
-
             return `${this.baseURL}${type}${name}${limit}${genre}`
 
         },
 
         parse: function (response) {
-
-            this.error = function (jqXHR, textStatus){
-                $("#error-message-search").text('Erreur : ' + jqXHR.error);
-            }
-
-
             return response.results;
 
         },
