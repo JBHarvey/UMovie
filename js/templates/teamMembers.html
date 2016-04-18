@@ -1,0 +1,25 @@
+<div class="developers-page">
+    <div class="developers-title">Meet the team</div>
+    <div class="developers-box">
+        {{#each teamDevelopers}}
+        <div class="developer-box">
+            <img src={{photoLink}}>
+            <span>{{name}}</span>
+            <span>{{nickname}}</span>
+            <span>"{{quote}}"</span>
+            <div class="developer-links">
+                <span>
+                    <a target="_blank" href={{facebookLink}}>
+                        <img src="url(../../img/Team/facebook-link.jpg">
+                    </a>
+                </span>
+                <span>
+                    <a target="_blank" href={{githubLink}}>
+                        <img src="url(../../img/Team/github-link.jpg">
+                    </a>
+                </span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
