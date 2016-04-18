@@ -19,7 +19,6 @@ define([
                 return response;
             }
 
-
         },
 
         removeMovie: function (movieModel) {
