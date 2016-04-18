@@ -1,10 +1,13 @@
 .user {
     display: flex;
+    /* width: 1em; */
+    /* margin: 0 1em; */
     flex-direction: column;
 }
 
 .personnal-info {
     display: flex;
+    width: 14em;
     flex-direction: column;
     margin-right: auto;
     margin-left: auto;
@@ -35,6 +38,7 @@
     display: flex;
     align-items: center;
     margin-left: 0.5em;
+    flex-direction: column;
     min-width: 9em;
     max-width: 9em;
 }
@@ -90,12 +94,27 @@ content {
 }
 
 #user-watchlists {
+    width: 22em;
     margin-left: auto;
     margin-right: auto;
 }
 
 #user-watchlists h1 {
     text-align: center;
+}
+
+.individual-user-box {
+    max-width: 20em;
+}
+
+.individual-user-box .user-email {
+    width: 25em;
+    /* min-width: 12em; */
+}
+
+.individual-user-box {
+    display: flex;
+    flex-direction: column;
 }
 
 
