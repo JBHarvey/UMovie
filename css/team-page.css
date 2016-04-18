@@ -1,0 +1,114 @@
+.developers-page a {
+    text-decoration: none;
+    color: white;
+}
+
+.developers-page {
+    color: white;
+}
+
+.developers-box {
+    align-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.developers-box img {
+    width: 240px;
+    height: 260px;
+}
+
+.developers-title {
+    color: #0085FF;
+    text-align: center;
+    font-size: 3.5em;
+    border-bottom: solid white;
+    margin-bottom: 0.4em;
+}
+
+.developer-box {
+    margin: 1em 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.developer-box span {
+    align-items: center;
+    font-size: 1em;
+}
+
+.developer-box span:nth-child(2) {
+    font-size: 1.6em;
+    color: #0085FF;
+}
+
+.developer-box span:nth-child(3) {
+    font-size: 1em;
+    margin-bottom:0.2em;
+}
+
+.developer-box span:nth-child(4) {
+    font-size: 1em;
+    font-style: oblique;
+}
+
+.developer-box .title-border {
+    font-size: 1em;
+    border: 1px solid;
+}
+
+.developer-links {
+    display: flex;
+    flex-direction: row;
+    margin: .5em;
+}
+
+.developer-links img {
+    width: 35px;
+    height: 35px;
+    margin: 0 0.3em;
+}
+
+@media screen and (min-width: 768px) {
+    .developers-title {
+        width: 9em;
+        margin: 0 auto 1em auto;
+    }
+
+    .developer-box {
+        margin: 1em 3em;
+    }
+}
+
+@media screen and (min-width: 980px) {
+
+    .developers-title {
+        width: 11em;
+    }
+
+    .developers-box {
+        padding-left: 2em;
+    }
+
+    .developer-box {
+        margin: 1em 3em;
+    }
+
+    .developers-box img {
+        width: 180px;
+        height: 190px;
+        margin-bottom: 1em;
+    }
+
+    .developer-links img {
+        width: 35px;
+        height: 35px;
+        margin: 0 0.3em;
+    }
+    .developer-box:nth-child(4) {
+        margin-left: -2em;
+    }
+
+}
