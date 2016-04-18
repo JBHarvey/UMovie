@@ -35,19 +35,19 @@ define([
             };
             var scope = that.scope;
             if (scope.match('movie')) {
-                that.searchToShow.group.push({ title: 'Movie', name: 'movies' });
+                that.searchToShow.group.push({ title: 'Movies', name: 'movies' });
             }
 
             if (scope.match('season')) {
-                that.searchToShow.group.push({ title: 'Season', name: 'tvshows' });
+                that.searchToShow.group.push({ title: 'Seasons', name: 'tvshows' });
             }
 
             if (scope.match('actor')) {
-                that.searchToShow.group.push({ title: 'Actor', name: 'actors' });
+                that.searchToShow.group.push({ title: 'Actors', name: 'actors' });
             }
 
             if (scope.match('member')) {
-                that.searchToShow.group.push({ title: 'Member', name: 'members' });
+                that.searchToShow.group.push({ title: 'Members', name: 'members' });
 
             }
         },
