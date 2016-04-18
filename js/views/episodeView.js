@@ -26,7 +26,7 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
-                error : function (jqXHR, textStatus) {
+                error : function (model, jqXHR) {
                 $("#error-message-episode").text("Erreur : " + jqXHR.error);
             },
             });

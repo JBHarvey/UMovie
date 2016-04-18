@@ -34,7 +34,7 @@ define([
 
             this.model.fetch({
                 success: waitForRender,
-                error: function (jqXHR, textStatus) {
+                error: function (model, jqXHR) {
                     $("#error-message-actor").text("Erreur : " + jqXHR.error);
                 },
             })
@@ -42,7 +42,7 @@ define([
 
             this.collectionMovies.fetch({
                 success: waitForRender,
-                error: function (jqXHR, textStatus) {
+                error: function (model, jqXHR) {
                     $("#error-message-actor").text("Erreur : " + jqXHR.error);
                 },
         })

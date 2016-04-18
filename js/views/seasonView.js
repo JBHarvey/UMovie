@@ -33,14 +33,14 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
-                error : function (jqXHR, textStatus) {
+                error : function (model, jqXHR) {
                     $("#error-message-movie").text('Erreur : ' + jqXHR.error);
                 }
             });
 
             this.collection.fetch({
                 success: syncRendering,
-                error : function (jqXHR, textStatus) {
+                error : function (model, jqXHR) {
                     $("#error-message-movie").text('Erreur : ' + jqXHR.error);
                 }
             });
