@@ -28,7 +28,7 @@
 }
 
 .developer-box {
-    margin: 1em 5em;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,6 +71,12 @@
     margin: 0 0.3em;
 }
 
+@media screen and (min-width: 240px) and (max-width: 640px) {
+    .developer-box {
+        margin: 1em 1em;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .developers-title {
         width: 9em;
@@ -78,8 +84,9 @@
     }
 
     .developer-box {
-        margin: 1em 3em;
+        margin: 1em 2em;
     }
+
 }
 
 @media screen and (min-width: 980px) {
@@ -89,6 +96,7 @@
     }
 
     .developers-box {
+        margin: 1em 5em;
         padding-left: 2em;
     }
 
@@ -107,6 +115,7 @@
         height: 35px;
         margin: 0 0.3em;
     }
+
     .developer-box:nth-child(4) {
         margin-left: -2em;
     }
