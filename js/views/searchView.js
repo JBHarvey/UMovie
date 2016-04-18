@@ -172,12 +172,14 @@ define([
 
         events: {
             'click .component-genre': 'toggleThumbnailGenre',
+
         },
 
         selectedGenres: {
             movies: {},
             tvshows: {},
         },
+
 
         toggleThumbnailGenre: function (event) {
             var that = this;
