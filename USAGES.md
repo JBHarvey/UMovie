@@ -1,12 +1,24 @@
 # Using the program
 
-To launch the program, go to `UMovie/index.html` under WebStorm.
+There are two ways to launch the project:
 
-*Make sure that the downloaded file contains the folder UMovie as the root as the projet.
-If UMovie is not the root written exactly in this way, it is possible that the front end will not work correctly.*
+1. To launch the program, go to `UMovie/index.html` under WebStorm. *Make sure that the project is named UMovie in WebStorm. If the project is not named UMovie, it is possible that the front end will not work correctly.*
+2. You can also run the following command in your terminal if you have *NodeJS* installed:
+
+```shell
+node index.js
+```
+
+and then you can open *Chrome* and type the following address: 
+
+```shell
+http://localhost:${PORT}/UMovie/`
+```
+
+where `${PORT}` is the port specified by the environment variable `PORT` defined in your system. If this variable is not defined, the program will default to port 3000.
 
 It is also possible to use the hosted version of the website, available at a Heroku domain.
-[Here](https://umovie-team01-h2016.herokuapp.com/UMovie/) is the link to access this hosted version. All the features implemented are also working in the pushed version on Heroku.
+[Here](http://umovie-team01-h2016.herokuapp.com/UMovie/) is the link to access this hosted version. All the features implemented are also working in the pushed version on Heroku.
 
 ## Buttons
 
