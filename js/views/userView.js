@@ -33,10 +33,16 @@ define([
 
             this.activeUser.fetch({
                 success: syncRendering,
+                error : function (jqXHR, textStatus) {
+                $("#error-message-user").text("Erreur : " + jqXHR.error);
+            },
             });
 
             this.model.fetch({
                 success: syncRendering,
+                error : function (jqXHR, textStatus) {
+                $("#error-message-user").text("Erreur : " + jqXHR.error);
+            },
             });
         },
 

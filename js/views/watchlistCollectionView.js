@@ -34,6 +34,9 @@ define([
 
             this.collection.fetch({
                 success: sync,
+                error : function (jqXHR, textStatus) {
+                $("#error-message-watchlist").text("Erreur : " + jqXHR.error);
+            },
             });
 
         },

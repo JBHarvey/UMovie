@@ -26,6 +26,9 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
+                error : function (jqXHR, textStatus) {
+                $("#error-message-episode").text("Erreur : " + jqXHR.error);
+            },
             });
         },
 

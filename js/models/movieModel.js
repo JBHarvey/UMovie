@@ -23,10 +23,6 @@ define([
         },
 
         parse(data) {
-            this.error = function (jqXHR, textStatus) {
-                $("#error-message-movie").text('Erreur : ' + jqXHR.error);
-            }
-
             if (_.isObject(data.results)) {
                 return this.processData(data.results[0]);
             } else {

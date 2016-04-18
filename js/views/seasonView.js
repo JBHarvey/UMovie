@@ -33,10 +33,16 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
+                error : function (jqXHR, textStatus) {
+                    $("#error-message-movie").text('Erreur : ' + jqXHR.error);
+                }
             });
 
             this.collection.fetch({
                 success: syncRendering,
+                error : function (jqXHR, textStatus) {
+                    $("#error-message-movie").text('Erreur : ' + jqXHR.error);
+                }
             });
         },
 

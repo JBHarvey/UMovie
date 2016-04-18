@@ -13,10 +13,6 @@ define([
 
         parse: function (response) {
 
-            this.error = function (jqXHR, textStatus) {
-                $("#error-message-watchlist").text("Erreur : " + jqXHR.error);
-            };
-
             if (_.isObject(response.results)) {
                 return response.results[0];
             } else {

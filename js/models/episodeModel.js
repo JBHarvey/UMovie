@@ -30,10 +30,6 @@ define([
             data.entertainementName = data.trackName;
             data.cssClassType = 'episode';
 
-            this.error = function (jqXHR, textStatus) {
-                $("#error-message-episode").text("Erreur : " + jqXHR.error);
-            };
-
             return data;
         },
 
