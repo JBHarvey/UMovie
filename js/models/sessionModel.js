@@ -69,8 +69,6 @@ define([
             };
 
             error = function (jqXHR, textStatus) {
-                console.log('Error on signup: ', jqXHR);
-                console.log('Content type : ', jqXHR.contentType);
                 $("#error-message").text("Erreur : " + jqXHR.error);
 
             };
