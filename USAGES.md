@@ -49,3 +49,6 @@ If none of the 4 options is selected, it will search for movies and tvshows by d
 
 If you make a research to find an Actor, there might be actors without picture and/or description. The reason to that is that we are getting some information from TheMovieDataBase and Imdb and it doesn't contain every actor from the UMovie database.
 ''Bonjour, veuillez l'expliquer dans votre document de remise,  mais pour moi c'est acceptable. '' -Vincent Séguin
+
+##Changing the title of a watchlist
+If a connected user would like to change the name of a watchlist, it is possible to do so by clicking the "Edit" button on the mobile and tablet versions of the application. For the desktop version, the user has to double click on the name of a watchlist. The edit option will then appear.
