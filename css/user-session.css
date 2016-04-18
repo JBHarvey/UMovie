@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     margin-left: 0.5em;
+    flex-direction: column;
     min-width: 9em;
     max-width: 9em;
 }
@@ -103,7 +104,7 @@ content {
 }
 
 .individual-user-box {
-    20em;
+    max-width: 20em;
 }
 
 .individual-user-box .user-email {
