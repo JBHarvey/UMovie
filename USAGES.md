@@ -37,15 +37,15 @@ Here are the different links that you can reach within our website:
 - `UMovie/index.html#actors`: Links to the page of the actors collection.
 - `UMovie/index.html#watchlists`: While in connected mode, links to the user watchlist page.
 - `UMovie/index.html#user`: While in connected mode, links to the user account page.
-- `UMovie/index.html#settings`: While in connected mode, links to the user preferences.
 
 Authentication is essential in order to access any content of the collections or the private user settings. Otherwise, the only page you can see is the login page (index.html).
 
 ## Search bar
 
-The included search bar allows a connected user to search throughout the content of the whole application, for instance the different movies, tv shows and actors. The different genres can be changed in the menu of each searchable item of the website. When a category is chosen, a research will be done for all the items in this genre available.
+The included search bar allows a connected user to search throughout the content of the whole application, for instance the different movies, tv shows, actors and users. The different genres can be changed in the menu of the movies result and the tvshows results. When a category is chosen, a research will be done for all the items in this genre available.
+If none of the 4 options is selected, it will searc for movies and tvshows by default.
 
 ##Searching for actor
 
-If you make a research to find an Actor, there will be actor without picture and/or description. The reason to that is that we are getting those informations from TheMovieDataBase and it doesn't contain every actors from the uMovie API.
+If you make a research to find an Actor, there will be actor without picture and/or description. The reason to that is that we are getting those informations from TheMovieDataBase and Imdb and it doesn't contain every actors from the uMovie API.
 ''Bonjour, veuillez l'expliquer dans votre document de remise,  mais pour moi c'est acceptable. '' -Vincent Séguin
