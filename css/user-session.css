@@ -10,24 +10,39 @@
     margin-left: auto;
 }
 
+.user-box {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+}
+
 .user-name {
+    max-width: 11em;
     margin: 0;
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
-
     text-overflow: ellipsis;
+}
 
+.user-details {
+    display: flex;
+    max-width: 13em;
+    /* margin-left: 1em; */
+    margin-right: 4em;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    min-width: 12em;
+    max-width: 13em;
 }
 
 .user-email {
-    margin: 0;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
+    min-width: 5em;
 }
 
 #followed-list {
@@ -42,44 +57,26 @@
     text-align: center;
 }
 
-.user-box {
-    min-width: 0;
-    max-width: 360px;
-    text-decoration: none;
-    display: flex;
-}
-
-.user-thumbnail {
-    margin-right: 0.5em;
-}
-
-.user-info {
-    min-width: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    color: white;
-    margin-top: auto;
-    margin-bottom: auto;
-    align-items: center;
-}
-
 content {
     margin-top : 10%;
 }
 
+.thumbnail-follower {
+    display: flex;
+    align-items: center;
+}
 .toggle-following {
     background-color: #0085FF;
     color: white;
     transition: opacity ease-in-out .25s;
-
     margin-top: 0.5em;
     margin-bottom: 1em;
-
     font-size: 0.8em;
     text-align: center;
+    /* display: flex; */
+    /* align-items: center; */
     height: 40px;
-    width: 130px;
+    width: 6em;
     border: 1px solid white;
     border-radius: 4px;
 }
@@ -105,8 +102,57 @@ content {
 
 @media screen and (min-width: 640px) {
     .user-box {
+        display: flex;
+        flex-direction: row;
         max-width: 768px;
     }
+
+    .user-box {
+        display: flex;
+        flex-direction: row;
+        /* min-width: 0; */
+        /* max-width: 360px; */
+        text-decoration: none;
+    /* display: flex; */
+
+    .toggle-following {
+        width: 130px;
+    }
+
+}
+
+.user-thumbnail {
+    margin-right: 0.5em;
+}
+
+.user-info {
+    max-width: 40em;
+    min-width: 0;
+    /* display: flex; */
+    /* flex-direction: row; */
+    justify-content: space-around;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+}
+
+.user-details {
+    /* display: flex; */
+    /* max-width: 1em; */
+    /* margin-right: 4em; */
+}
+
+
+.user-email {
+    max-width: 14em;
+    margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 11em;
 }
 
 @media screen and (min-width: 960px) {
