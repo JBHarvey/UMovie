@@ -34,15 +34,15 @@ define([
                 success: syncRendering,
                 error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-            }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
             this.watchlists.fetch({
                 success: syncRendering,
-                error : function (model, jqXHR) {
+                error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-                }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
 
         },
@@ -67,7 +67,6 @@ define([
                     }));
                 });
             }
-
 
             var resultMovie = template(source);
             this.$el.html(resultMovie);
@@ -142,10 +141,11 @@ define([
                         watchlistID: watchlist.attributes.id,
                     });
                 },
-                error : function (model, jqXHR) {
+
+                error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-                }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
         },
 

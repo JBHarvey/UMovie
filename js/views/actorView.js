@@ -36,7 +36,7 @@ define([
                 success: waitForRender,
                 error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-actor").text("Erreur : " + parsedResponse.message);
+                    $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                 },
             })
             ;
@@ -45,10 +45,10 @@ define([
                 success: waitForRender,
                 error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-actor").text("Erreur : " + parsedResponse.message);
+                    $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                 },
-        })
-            ;
+            })
+                ;
         },
 
         generateSearchName: function (name) {
@@ -105,9 +105,10 @@ define([
                             }
 
                         },
+
                         error: function (model, jqXHR) {
                             var parsedResponse = JSON.parse(jqXHR.responseText);
-                            $("#error-message-actor").text("Erreur : " + parsedResponse.message);
+                            $('#error-message-actor').text('Erreur : ' + parsedResponse.message);
                         },
                     });
                 }

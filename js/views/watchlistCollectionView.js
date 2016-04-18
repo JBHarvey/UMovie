@@ -34,10 +34,10 @@ define([
 
             this.collection.fetch({
                 success: sync,
-                error : function (model, jqXHR) {
+                error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-                }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
 
         },

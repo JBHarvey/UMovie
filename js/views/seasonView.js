@@ -33,18 +33,18 @@ define([
 
             this.model.fetch({
                 success: syncRendering,
-                error : function (model, jqXHR) {
+                error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-                }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
 
             this.collection.fetch({
                 success: syncRendering,
-                error : function (model, jqXHR) {
+                error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
-                }
+                    $('#error-message-movie').text('Erreur : ' + parsedResponse.message);
+                },
             });
         },
 

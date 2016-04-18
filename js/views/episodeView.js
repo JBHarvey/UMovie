@@ -29,7 +29,7 @@ define([
                 success: syncRendering,
                 error: function (model, jqXHR) {
                     var parsedResponse = JSON.parse(jqXHR.responseText);
-                    $("#error-message-episode").text("Erreur : " + parsedResponse.message);
+                    $('#error-message-episode').text('Erreur : ' + parsedResponse.message);
                 },
             });
         },
