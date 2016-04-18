@@ -34,17 +34,17 @@ define([
             this.activeUser.fetch({
                 success: syncRendering,
                 error : function (model, jqXHR) {
-                    var parsedResponse = JSON.parse(jqXHR);
-                $("#error-message-user").text("Erreur : " + parsedResponse);
-            },
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
+                }
             });
 
             this.model.fetch({
                 success: syncRendering,
                 error : function (model, jqXHR) {
-                    var parsedResponse = JSON.parse(jqXHR);
-                $("#error-message-user").text("Erreur : " + parsedResponse);
-            },
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
+                }
             });
         },
 
@@ -88,6 +88,10 @@ define([
                     $('.delete-watchlist-checkbox').remove();
                     $('.watchlist-edit-button').remove();
                 },
+                error : function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
+                }
             });
 
             return this;
@@ -124,12 +128,20 @@ define([
                     success: function () {
                         currentButton.innerHTML = 'Unfollow';
                     },
+                    error : function (model, jqXHR) {
+                        var parsedResponse = JSON.parse(jqXHR.responseText);
+                        $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
+                    }
                 });
             } else {
                 this.model.destroy({
                     success: function () {
                         currentButton.innerHTML = 'Follow';
                     },
+                    error : function (model, jqXHR) {
+                        var parsedResponse = JSON.parse(jqXHR.responseText);
+                        $("#error-message-movie").text('Erreur : ' + parsedResponse.message);
+                    }
                 });
             }
         },

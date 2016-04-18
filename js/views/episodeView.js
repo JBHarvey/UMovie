@@ -20,16 +20,17 @@ define([
         initialize: function () {
 
             this.listenTo(this.model, 'update', this.render);
+            var that = this;
             var syncRendering = _.after(2, function () {
                 that.render();
             });
 
             this.model.fetch({
                 success: syncRendering,
-                error : function (model, jqXHR) {
-                    var parsedResponse = JSON.parse(jqXHR);
-                $("#error-message-episode").text("Erreur : " + parsedResponse);
-            },
+                error: function (model, jqXHR) {
+                    var parsedResponse = JSON.parse(jqXHR.responseText);
+                    $("#error-message-episode").text("Erreur : " + parsedResponse.message);
+                },
             });
         },
 
