@@ -33,7 +33,7 @@ define([
                 },
 
                 {
-                    name: 'Antoine Rivest', nickname: 'The *MDB Master',
+                    name: 'Alexandre Rivest', nickname: 'The *MDB Master',
                     photoLink: 'url(../../img/Team/alexandre.jpg',
                     quote: 'Checker ça les boys : <random link>!',
                     facebookLink: 'https://www.facebook.com/alexandre.rivest.58?fref=ts',
