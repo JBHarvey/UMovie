@@ -35,7 +35,8 @@ define([
             this.model.fetch({
                 success: waitForRender,
                 error: function (model, jqXHR) {
-                    $("#error-message-actor").text("Erreur : " + jqXHR.error);
+                    var parsedResponse = JSON.parse(jqXHR);
+                    $("#error-message-actor").text("Erreur : " + parsedResponse);
                 },
             })
             ;
@@ -43,7 +44,8 @@ define([
             this.collectionMovies.fetch({
                 success: waitForRender,
                 error: function (model, jqXHR) {
-                    $("#error-message-actor").text("Erreur : " + jqXHR.error);
+                    var parsedResponse = JSON.parse(jqXHR);
+                    $("#error-message-actor").text("Erreur : " + parsedResponse);
                 },
         })
             ;

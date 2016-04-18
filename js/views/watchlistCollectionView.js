@@ -35,7 +35,8 @@ define([
             this.collection.fetch({
                 success: sync,
                 error : function (model, jqXHR) {
-                $("#error-message-watchlist").text("Erreur : " + jqXHR.error);
+                    var parsedResponse = JSON.parse(jqXHR);
+                $("#error-message-watchlist").text("Erreur : " + parsedResponse);
             },
             });
 

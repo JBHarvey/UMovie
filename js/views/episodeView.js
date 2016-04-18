@@ -27,7 +27,8 @@ define([
             this.model.fetch({
                 success: syncRendering,
                 error : function (model, jqXHR) {
-                $("#error-message-episode").text("Erreur : " + jqXHR.error);
+                    var parsedResponse = JSON.parse(jqXHR);
+                $("#error-message-episode").text("Erreur : " + parsedResponse);
             },
             });
         },
