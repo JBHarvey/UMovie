@@ -65,6 +65,7 @@ define([
                 });
             }
 
+
             var resultMovie = template(source);
             this.$el.html(resultMovie);
 

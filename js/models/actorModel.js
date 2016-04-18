@@ -34,7 +34,7 @@ define([
         },
 
         defaults: {
-            urlRoot:  `/actors/253584821`,
+            urlRoot: `/actors/253584821`,
             wrapperTyper: 'artist',
             artistType: 'Artist',
             artistName: 'John Sawyer',

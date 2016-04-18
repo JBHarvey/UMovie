@@ -24,11 +24,24 @@ define([
             let name = this.formatParameter(this.parameters.name);
             let limit = this.formatParameter(this.parameters.limit);
             let genre = this.formatParameter(this.parameters.genre);
-            return `${this.baseURL}${type}${name}${limit}${genre}`;
+
+            this.error = function (jqXHR, textStatus){
+                $("#error-message-search").text('Erreur : ' + jqXHR.error);
+            }
+
+            return `${this.baseURL}${type}${name}${limit}${genre}`
+
         },
 
         parse: function (response) {
+
+            this.error = function (jqXHR, textStatus){
+                $("#error-message-search").text('Erreur : ' + jqXHR.error);
+            }
+
+
             return response.results;
+
         },
 
         setSearchType: function (type) {
