@@ -66,7 +66,7 @@ content {
 }
 
 .toggle-following {
-    background-color: green;
+    background-color: #0085FF;
     color: white;
     transition: opacity ease-in-out .25s;
 
