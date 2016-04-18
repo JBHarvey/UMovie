@@ -13,21 +13,18 @@
 {{else if isUserType}}
 
 <div class="user-box">
-    <div class="user-details">
+    <a class="user-details" href="#member/{{id}}">
         <div class="user-thumbnail">
             <img class="gravatar-photo" data-email="{{email}}" src=""/>
         </div>
-        <div class="user-info">
 
+        <div class="user-info">
             <div>
-                <a href="#member/{{id}}">
-                    <p class="user-name">{{name}}</p>
-                </a>
+                <p class="user-name">{{name}}</p>
                 <p class="user-email">{{email}}</p>
             </div>
-
         </div>
-    </div>
+    </a>
     {{#if isNotCurrentUser}}
     <div class="thumbnail-follower">
         <button class="toggle-following btn" ref-id="{{userId}}">
