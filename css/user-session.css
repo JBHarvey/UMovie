@@ -17,7 +17,7 @@
 }
 
 .user-name {
-    max-width: 11em;
+    max-width: 10em;
     margin: 0;
     white-space: nowrap;
     width: 100%;
@@ -35,12 +35,18 @@
     display: flex;
     align-items: center;
     margin-left: 0.5em;
-    min-width: 12em;
-    max-width: 13em;
+    min-width: 9em;
+    max-width: 9em;
 }
 
 .user-email {
-    min-width: 5em;
+    max-width: 7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-email {
+    max-width: 10em;
 }
 
 #followed-list {
@@ -92,9 +98,6 @@ content {
     text-align: center;
 }
 
-.thumbnail-follower {
-
-}
 
 @media screen and (min-width: 361px) and (max-width: 640px){
     .user-details {
